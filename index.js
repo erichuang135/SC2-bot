@@ -536,7 +536,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** 2 Templar, High or Dark")
         .addField("Resources", "**Minerals** - 100, 175, 250, **Vespene** - 300, 275, 250, **Supply** - 4, **Build Time** - 9")
         .addField("Defense", "**HP+Shields** - 10+350, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 25(+3 per upgrade), vs light 35(+4 per upgrade) **Hitspeed** - 1.25, **Range** - 3, **DPS** - 20(+2.4 per upgrade), vs biological 28(+3.2 per upgrade) **Targets** - Air and Ground")
+        .addField("Offense","**Damage** - 25(+3 per upgrade), vs bio 35(+4 per upgrade) **Hitspeed** - 1.25, **Range** - 3, **DPS** - 20(+2.4 per upgrade), vs bio 28(+3.2 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Massive, Psionic, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
         .addField("More Info", "https://liquipedia.net/starcraft2/Archon_(Legacy_of_the_Void)");
@@ -687,15 +687,30 @@ bot.on("message", async message =>{
         let carrierembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Carrier**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
         .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
         .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 86")
         .addField("Defense", "**HP+Shields** - 250+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","See sc2-interceptor")
+        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 10")
         .addField("Upgrades and Abilities","-")
         .addField("Graviton Catapult","**Researched from:** Fleet Beacon, **Minerals** - 150, **Vespene** - 150, **Time** - 80, **Effect** - The launch speed of the Interceptors is now increased. The first four interceptors are launched at a cooldown of .125, the last four at .25. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
+    return message.channel.send(carrierembed);
+    }
+    //begin Intercetpor
+    if (cmd ===`${prefix}interceptor`){
+        let carrierembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Interceptor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/Interceptor_SC2_Rend1.JPEG/revision/latest?cb=20110223005457")
+        .addField("Construction", "**Built from:** Carrier")
+        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 6")
+        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 10.5")
+        .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), **Hitspeed** - 2.14, **Range** - 8+2, **DPS** -  4.7(+0.93 per upgrade) **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Light, Air**")
+        .addField("Misc.", "**Sight Range** - 7")
         .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
     return message.channel.send(carrierembed);
     }
