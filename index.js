@@ -682,4 +682,4 @@ bot.on("message", async message =>{
     return message.channel.send(voidembed);
     }
 }),
-bot.login(botconfig.token);
+bot.login(process.env.token);
