@@ -673,13 +673,31 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
         .addField("Construction", "**Built from:** Stargate")
         .addField("Resources", "**Minerals** - 250, **Vespene** - 100, **Supply** - 4, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5 (-1.4")
+        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5 (-1.4)")
         .addField("Offense","**Damage** - 6(+1 per upgrade), vs armored 4+6(+1 per upgrade) **Hitspeed** - 0.36, **Range** - 4+2, **DPS** - 16.8(+2.8 per upgrade), vs armored 28+28(+2.8 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Armored, Air**")
         .addField("Misc.", "**Sight Range** - 10")
         .addField("Upgrades and Abilities","-")
         .addField("Prismatic Alignment","**Cooldown** - 43, **Duration** - 14.3, **Effect** - Realigns the Void Ray's Prismatic Beam to gain +6 damage vs. armored units for 14.3 seconds. This does not scale with upgrades.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Void_Ray_(Legacy_of_the_Void)");
     return message.channel.send(voidembed);
+    }
+    //begin Carrier
+    if (cmd ===`${prefix}carrier`){
+        let carrierembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Carrier**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
+        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
+        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 86")
+        .addField("Defense", "**HP+Shields** - 250+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","See sc2-interceptor")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
+        .addField("Misc.", "**Sight Range** - 10")
+        .addField("Upgrades and Abilities","-")
+        .addField("Graviton Catapult","**Researched from:** Fleet Beacon, **Minerals** - 150, **Vespene** - 150, **Time** - 80, **Effect** - The launch speed of the Interceptors is now increased. The first four interceptors are launched at a cooldown of .125, the last four at .25. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
+    return message.channel.send(carrierembed);
     }
 }),
 bot.login(process.env.token);
