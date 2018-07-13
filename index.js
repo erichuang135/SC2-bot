@@ -727,7 +727,6 @@ bot.on("message", async message =>{
         .addField("Offense 2","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
-        .addField("Upgrades and Abilities","-")
         .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)");
     return message.channel.send(nixembed);
     }
