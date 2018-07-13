@@ -716,7 +716,7 @@ bot.on("message", async message =>{
     }
     //begin Tempest
     if (cmd ===`${prefix}tempest`){
-        let nixembed = new Discord.RichEmbed()
+        let tempestembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Tempest**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Protoss_Tempest.jpg/revision/latest?cb=20160106231047")
@@ -728,7 +728,26 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
         .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)");
-    return message.channel.send(nixembed);
+    return message.channel.send(tempestembed);
+    }
+    //begin Mothership
+    if (cmd ===`${prefix}mothership`||cmd ===`${prefix}mamaship`){
+        let mamaembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Mothership**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e1/Icon_Protoss_Mothership.jpg/revision/latest?cb=20160106180429")
+        .addField("Construction", "**Built from:** Nexus, **Requires:** Fleet Beacon")
+        .addField("Resources", "**Minerals** - 400, **Vespene** - 400, **Supply** - 8, **Build Time** - 114")
+        .addField("Defense", "**HP+Shields** - 350+350, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","**Damage** - 6x6(+1x6 per upgrade), **Hitspeed** - 1.58, **Range** - 7, **DPS** -  22.8(+3.78 per upgrade) **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Psionic, Air**")
+        .addField("Misc.", "**Sight Range** - 14")
+        .addField("Upgrades and Abilities","-")
+        .addField("Cloaking Field","**Radius** - 5, **Effect** - The Mothership cloaks all nearby units and buildings.")
+        .addField("Strategic Recall","**Energy** - 100, **Range** - Infinite, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all player units in the target area to the Mothership.")
+        .addField("Time Warp","**Energy** - 100, **Radius** - 3.5, **Range** - 9, **Duration** - 11, **Effect** - After a 4-second delay, warps spacetime within the target area for 7 seconds. Enemy ground units within the field are slowed by 50%.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
+    return message.channel.send(mamaembed);
     }
 }),
 bot.login(process.env.token);
