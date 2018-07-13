@@ -714,5 +714,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
     return message.channel.send(carrierembed);
     }
+    //begin Tempest
+    if (cmd ===`${prefix}tempest`){
+        let nixembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Tempest**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Protoss_Tempest.jpg/revision/latest?cb=20160106231047")
+        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
+        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense 1","**Damage** - 30(+3 per upgrade), vs massive 52(+5 per upgrade) **Hitspeed** - 2.36, **Range** - 15, **DPS** - 12.73(+1.273 per upgrade), vs massive 22.05(+2.12 per upgrade) **Targets** - Air")
+        .addField("Offense 2","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
+        .addField("Misc.", "**Sight Range** - 12")
+        .addField("Upgrades and Abilities","-")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)");
+    return message.channel.send(nixembed);
+    }
 }),
 bot.login(process.env.token);
