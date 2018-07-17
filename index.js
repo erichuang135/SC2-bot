@@ -894,5 +894,24 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
     return message.channel.send(ravagerembed);
     }
+    //begin Hydralisk
+    if (cmd ===`${prefix}hydralisk`||cmd ===`${prefix}hydra`){
+        let hydraembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Hydralisk**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/42/Icon_Zerg_Hydralisk.jpg/revision/latest?cb=20160106233216")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
+        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
+        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.54, **Range** - 5(+1), **DPS** - 22.4(+1.87 per upgrade), **Targets** - Air and Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Muscular Augments", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Hydralisks move 25% faster speed both on and off of Creep. ")
+        .addField("Grooved Spines", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Increases the attack range of Hydralisks by +1.")
+        .addField("Morph to Lurker","**Requires:** Lurker Den, **Minerals** - 50, **Vespene** - 100, **Supply** - 1, **Time** - 15, **Effect** - Morphs a Hydralisk into a Lurker. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_(Legacy_of_the_Void)");
+    return message.channel.send(hydraembed);
+    }
 }),
 bot.login(process.env.token);
