@@ -799,6 +799,26 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Overlord_(Legacy_of_the_Void)");
     return message.channel.send(overlordembed);
     }
+    //begin Queen
+    if (cmd ===`${prefix}queen`){
+        let queenembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Queen**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Icon_Zerg_Queen.jpg/revision/latest?cb=20160106233007")
+        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
+        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.31, on creep 3.5")
+        .addField("Offense 1","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **DPS** - 11.2(+2.8 per upgrade), **Targets** - Ground")
+        .addField("Offense 2","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **DPS** - 12.6(+1.4 per upgrade), **Targets** - Air")
+        .addField("Attributes", "**Biological, Psionic, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Spawn Larva", "**Energy** - 25, **Range** - Melee, **Cooldown** - 1.8, **Duration** - 29, **Effect** - The Queen injects 3 Larva eggs into a Hatchery which after 29 seconds, hatch and 3 Larvae are ready to be used at the targeted Hatchery. If a Hatchery has more than 19 Larva, additional Larva will not be created. This will stack and queue if the target is already spawning additional larvae.")
+        .addField("Spawn Creep Tumor", "**Energy** - 25, **Range** - Melee, **Duration** - 11, **Effect** - The Queen moves to and places a Creep Tumor at the targeted location. The tumor has 50 hit points and generates Creep. Each Creep Tumor can spawn one other Creep Tumor within a radius of 10.")
+        .addField("Transfusion","**Energy** - 50, **Range** - 7, **Cooldown** - 1, **Targets** - Biological, **Effect** - The Queen heals a friendly, biological unit or building for 125 health.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Queen_(Legacy_of_the_Void)");
+    return message.channel.send(queenembed);
+    }
     //begin Zergling
     if (cmd ===`${prefix}zergling`||cmd ===`${prefix}ling`){
         let lingembed = new Discord.RichEmbed()
