@@ -765,7 +765,7 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)");
     return message.channel.send(droneembed);
     }
-        //begin Overlord
+    //begin Overlord
     if (cmd ===`${prefix}overlord`||cmd ===`${prefix}ovie`||cmd ===`${prefix}dropperlord`||cmd ===`${prefix}droplord`){
         let overlordembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Overlord**")
@@ -777,7 +777,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 11")
         .addField("Upgrades and Abilities","-")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63 and Overseers to 4.72.")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals** - 25, **Vespene** - 25, **Time** - 12, **Effect** - Enables the Overlord to transport units.")
         .addField("Morph to Overseer","**Requires:** Lair, **Minerals** - 50, **Vespene** - 50, **Time** - 12, **Effect** - Morphs the selected Overlord into an Overseer.")
         .addField("Generate Creep","**Requires:** Lair, **Channeling Time** - 11, **Effect** - When selected, the Overlord will create Zerg creep beneath it, spreading out to a 2x2 area.")
