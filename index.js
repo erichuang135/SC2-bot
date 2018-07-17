@@ -758,12 +758,31 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
         .addField("Construction", "**Built from:** Hatchery")
         .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP+Shields** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Defense", "**HP** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
         .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
         .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)");
     return message.channel.send(droneembed);
+    }
+        //begin Overlord
+    if (cmd ===`${prefix}overlord`||cmd ===`${prefix}ovie`||cmd ===`${prefix}dropperlord`||cmd ===`${prefix}droplord`){
+        let overlordembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Overlord**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=20160106233052")
+        .addField("Construction", "**Built from:** Hatchery")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 0, **Build Time** - 18")
+        .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("Misc.", "**Sight Range** - 11")
+        .addField("Upgrades and Abilities","-")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63 and Overseers to 4.72.")
+        .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals** - 25, **Vespene** - 25, **Time** - 12, **Effect** - Enables the Overlord to transport units.")
+        .addField("Morph to Overseer","**Requires:** Lair, **Minerals** - 50, **Vespene** - 50, **Time** - 12, **Effect** - Morphs the selected Overlord into an Overseer.")
+        .addField("Generate Creep","**Requires:** Lair, **Channeling Time** - 11, **Effect** - When selected, the Overlord will create Zerg creep beneath it, spreading out to a 2x2 area.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Overlord_(Legacy_of_the_Void)");
+    return message.channel.send(overlordembed);
     }
     //begin Zergling
     if (cmd ===`${prefix}zergling`||cmd ===`${prefix}ling`){
