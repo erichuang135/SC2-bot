@@ -750,13 +750,28 @@ bot.on("message", async message =>{
     return message.channel.send(mamaembed);
     }
 //Begin Zerg Units
+    //begin Larva
+    if (cmd ===`${prefix}larva`){
+        let larvaembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Larva**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
+        .addField("Construction", "**Built from:** Hatchery/Lair/Hive")
+        .addField("Resources", "**Minerals** - 0, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
+        .addField("Defense", "**HP** - 25, **Armor** - 10 **Movespeed** - 0.79")
+        .addField("Production","**Can produce:** Drone, Overlord, Zergling x2, Roach, Hydralisk, Infestor, Swarm Host, Mutalisk, Corruptor, Viper, Ultralisk")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 5")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Larva_(Legacy_of_the_Void)");
+    return message.channel.send(larvaembed);
+    }               
     //begin Drone
     if (cmd ===`${prefix}drone`){
         let droneembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Drone**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
-        .addField("Construction", "**Built from:** Hatchery")
+        .addField("Construction", "**Built from:** Larva")
         .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
         .addField("Defense", "**HP** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
         .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
@@ -771,7 +786,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Overlord**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=20160106233052")
-        .addField("Construction", "**Built from:** Hatchery")
+        .addField("Construction", "**Built from:** Larva")
         .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 0, **Build Time** - 18")
         .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
         .addField("Attributes", "**Biological, Armored, Ground**")
@@ -790,7 +805,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Zergling**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
-        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Spawning Pool")
         .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
         .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
         .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with adrenal 14.3(+2.86), **Targets** - Ground")
@@ -828,7 +843,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Roach**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950")
-        .addField("Construction", "**Built from:** Hatchery, **Requires:** Roach Warren")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Roach Warren")
         .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 19")
         .addField("Defense", "**HP** - 145, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.05), on creep 4.09(+1.36), burrowed 2.8(+1.6)")
         .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.43, **Range** - 4, **DPS** - 11.2(+1.4 per upgrade), **Targets** - Ground")
