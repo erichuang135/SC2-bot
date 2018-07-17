@@ -773,16 +773,35 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
         .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
         .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
-        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37 (+3.18)")
+        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
         .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with andrenal 14.3(+2.86), **Targets** - Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
         .addField("Upgrades and Abilities","-")
-        .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58 (+2.45)")
-        .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35 (-0.15)")
+        .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58(+2.45)")
+        .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
         .addField("Morph to Baneling","**Requires:** Baneling Nest, **Minerals** - 25, **Vespene** - 25, **Time** - 14, **Effect** - Morphs a Zergling into a Baneling.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Zergling_(Legacy_of_the_Void)");
     return message.channel.send(lingembed);
+    }
+    //begin Baneling
+    if (cmd ===`${prefix}baneling`||cmd ===`${prefix}bling`||cmd ===`${prefix}bane`){
+        let baneembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Baneling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/81/Icon_Zerg_Baneling.jpg/revision/latest?cb=20160106232838")
+        .addField("Construction", "**Morphed from:** Zergling, **Requires:** Baneling")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 25, **Supply** - 0.5, **Build Time** - 14")
+        .addField("Defense", "**HP** - 30+5, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(+0.63), on creep 4.55(+0.82)")
+        .addField("Cocoon Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade), **Sight Range** - 5")
+        .addField("Offense 1","**Damage** - 20(+2 per upgrade), vs light 35(+4 per upgrade) **Range** - 2.2, **Targets** - Ground")
+        .addField("Offense 2","**Damage** - 80(+5 per upgrade), **Range** - 2.2, **Targets** - Buildings")
+        .addField("Attributes", "**Biological, Ground**")
+        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Centrifugal Hooks", "**Researched from:** Baneling Nest, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_(Legacy_of_the_Void)");
+    return message.channel.send(baneembed);
     }
 }),
 bot.login(process.env.token);
