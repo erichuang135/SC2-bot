@@ -825,7 +825,7 @@ bot.on("message", async message =>{
     }
     //begin Ravager
     if (cmd ===`${prefix}ravager`){
-        let roachembed = new Discord.RichEmbed()
+        let ravagerembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Ravager**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631")
@@ -838,7 +838,7 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Corrosive Bile", "**Cooldown** - 7, **Range** - 9, **Delay** - 2.5**Effect** - Launch a missile at the target location, dealing 60 damage to all units and destroying all Force Fields in the area upon impact.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
-    return message.channel.send(roachembed);
+    return message.channel.send(ravagerembed);
     }
 }),
 bot.login(process.env.token);
