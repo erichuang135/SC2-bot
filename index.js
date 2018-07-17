@@ -774,7 +774,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
         .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
         .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
-        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with andrenal 14.3(+2.86), **Targets** - Ground")
+        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with adrenal 14.3(+2.86), **Targets** - Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
         .addField("Upgrades and Abilities","-")
@@ -802,6 +802,26 @@ bot.on("message", async message =>{
         .addField("Centrifugal Hooks", "**Researched from:** Baneling Nest, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_(Legacy_of_the_Void)");
     return message.channel.send(baneembed);
+    }
+    //begin Roach
+    if (cmd ===`${prefix}roach`){
+        let roachembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Roach**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950")
+        .addField("Construction", "**Built from:** Hatchery, **Requires:** Roach Warren")
+        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 19")
+        .addField("Defense", "**HP** - 145, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.05), on creep 4.09(+1.36), burrowed 2.8(+1.6)")
+        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.43, **Range** - 4, **DPS** - 11.2(+1.4 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Glial Reconstitution", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
+        .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8 and increases the health regeneration rate of Roaches to 14 HP/sec below ground.")
+        .addField("Rapid Regeneration","**Effect** - While burrowed, the Roach regenerates its health at an extremely fast rate of 7 hit points per second.")
+        .addField("Morph to Ravager","**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Time** - 9, **Effect** - Morphs a Roach into a Ravager.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_(Legacy_of_the_Void)");
+    return message.channel.send(roachembed);
     }
 }),
 bot.login(process.env.token);
