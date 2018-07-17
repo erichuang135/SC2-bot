@@ -480,7 +480,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
         .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 27")
         .addField("Defense", "**HP+Shields** - 70+70, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 22(+2 per upgrade) **Hitspeed** - 1.61(-0.5), **Range** - 4, **DPS** - 6.2 (+0.62 per upgrade), vs light 13.65(+1.24 per upgrade), with glaives 9(+0.9 per upgrade), with glaives vs light 19.8(+1.8 per upgrade)  **Targets** - Ground")
+        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 22(+2 per upgrade) **Hitspeed** - 1.61(-0.5), **Range** - 4, **DPS** - 6.2(+0.62 per upgrade), vs light 13.65(+1.24 per upgrade), with glaives 9(+0.9 per upgrade), with glaives vs light 19.8(+1.8 per upgrade)  **Targets** - Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 9 (4 shade), **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
@@ -748,6 +748,41 @@ bot.on("message", async message =>{
         .addField("Time Warp","**Energy** - 100, **Radius** - 3.5, **Range** - 9, **Duration** - 11, **Effect** - After a 4-second delay, warps spacetime within the target area for 7 seconds. Enemy ground units within the field are slowed by 50%.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
     return message.channel.send(mamaembed);
+    }
+//Begin Zerg Units
+    //begin Drone
+    if (cmd ===`${prefix}drone`){
+        let droneembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Drone**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
+        .addField("Construction", "**Built from:** Hatchery")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
+        .addField("Defense", "**HP+Shields** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)");
+    return message.channel.send(droneembed);
+    }
+    //begin Zergling
+    if (cmd ===`${prefix}zergling`||cmd ===`${prefix}ling`){
+        let lingembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Zergling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
+        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
+        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37 (+3.18)")
+        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with andrenal 14.3(+2.86), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
+        .addField("Upgrades and Abilities","-")
+        .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58 (+2.45)")
+        .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35 (-0.15)")
+        .addField("Morph to Baneling","**Requires:** Baneling Nest, **Minerals** - 25, **Vespene** - 25, **Time** - 14, **Effect** - Morphs a Zergling into a Baneling.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Zergling_(Legacy_of_the_Void)");
+    return message.channel.send(lingembed);
     }
 }),
 bot.login(process.env.token);
