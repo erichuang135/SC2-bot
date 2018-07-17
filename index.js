@@ -755,7 +755,7 @@ bot.on("message", async message =>{
         let larvaembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Larva**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/84/Icon_Zerg_Larva.jpg/revision/latest?cb=20160106233133")
         .addField("Construction", "**Built from:** Hatchery/Lair/Hive")
         .addField("Resources", "**Minerals** - 0, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
         .addField("Defense", "**HP** - 25, **Armor** - 10 **Movespeed** - 0.79")
