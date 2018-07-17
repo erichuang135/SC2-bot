@@ -823,5 +823,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Roach_(Legacy_of_the_Void)");
     return message.channel.send(roachembed);
     }
+    //begin Ravager
+    if (cmd ===`${prefix}ravager`){
+        let roachembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Ravager**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631")
+        .addField("Construction", "**Morphed from:** Roach")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 3, **Build Time** - 9")
+        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85, on creep 5.0")
+        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **DPS** - 14.04(+1.75 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
+        .addField("Upgrades and Abilities","-")
+        .addField("Corrosive Bile", "**Cooldown** - 7, **Range** - 9, **Delay** - 2.5**Effect** - Launch a missile at the target location, dealing 60 damage to all units and destroying all Force Fields in the area upon impact.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
+    return message.channel.send(roachembed);
+    }
 }),
 bot.login(process.env.token);
