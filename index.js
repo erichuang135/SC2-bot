@@ -74,7 +74,7 @@ bot.on("message", async message =>{
         else if (joke === 17)
             {return message.channel.send("Why do protoss have no privacy? *Too many Stalkers.*");}
         else if (joke === 18)
-            {return message.channel.send("Two zealots walk into a bar and ask where the bathroom is. The bartender replies, *Sorry, we don't have a bathroom*. The zealots say, *But... WE CANNOT HOLD!*);");} 
+            {return message.channel.send("Two zealots walk into a bar and ask where the bathroom is. The bartender replies, *Sorry, we don't have a bathroom*. The zealots say, *But... WE CANNOT HOLD!*");} 
         else if (joke === 19)
             {return message.channel.send("A Probe hovers into a bar and immediately heads for the restroom. The bartender glances at him. *Whatever*, he says.But after an hour, the Probe still hasn't come out. The puzzled bartender opens the door, and is immediatly vaporized by 23 Photon Cannons.");}
         else if (joke === 20)
