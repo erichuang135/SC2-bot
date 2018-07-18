@@ -965,7 +965,7 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)");
     return message.channel.send(corrembed);
     }
-    //begin Locust
+    //begin Swarm Host
     if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`){
         let lurkerembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Swarm Host**")
@@ -980,6 +980,23 @@ bot.on("message", async message =>{
         .addField("Spawn Locusts", "**Cooldown** - 43, **Duration** - 18, **Effect** - Spawns 2 Locusts with an 18-second timed life.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)");
     return message.channel.send(lurkerembed);
+    }
+    //begin Locust
+    if (cmd ===`${prefix}locust`){
+        let locustembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Locust**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/07/Locust_SC2-HotS_Rend1.jpg/revision/latest?cb=20140629130806")
+        .addField("Construction", "**Spawned From from:** Swarm Host")
+        .addField("Resources", "**Build Time** - 5, **Lifespan** - 18")
+        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62, on creep 3.66")
+        .addField("Offense","**Damage** - 10(+1 per upgrade), **Hitspeed** - 0.43, **Range** - 6, **DPS** - 23.25(+2.33 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 6")
+        .addField("Upgrades and Abilities","-")
+        .addField("Swoop", "**Effect** - Orders the Locust to land at the targetted location, allowing it to attack.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Locust_(Legacy_of_the_Void)");
+    return message.channel.send(locustembed);
     }
 }),
 bot.login(process.env.token);
