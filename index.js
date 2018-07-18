@@ -913,6 +913,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Overseer_(Legacy_of_the_Void)");
     return message.channel.send(seerembed);
     }
+    //begin Changeling
+    if (cmd ===`${prefix}changeling`){
+        let changeembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Changeling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Zerg_Changeling.jpg/revision/latest?cb=20160106232716")
+        .addField("Construction", "**Spawned from:** Overseer")
+        .addField("Resources", "**Energy** - 50")
+        .addField("Defense", "**HP** - 5, **Armor** - 0 **Movespeed** - 3.15, (4.13 as Zergling)")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, (8 as zergling)")
+        .addField("Upgrades and Abilities","-")
+        .addField("Disguise", "**Range** - 12, **Effect** - The Changeling will transform into a basic unit of the enemy that is near (Marine, Zergling, Zealot). The Changeling will also copy the upgraded models of those units (Combat Shield, Metabolic Boost).")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Changeling_(Legacy_of_the_Void)");
+    return message.channel.send(changeembed);
+    }
     //begin Hydralisk
     if (cmd ===`${prefix}hydralisk`||cmd ===`${prefix}hydra`){
         let hydraembed = new Discord.RichEmbed()
