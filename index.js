@@ -932,7 +932,7 @@ bot.on("message", async message =>{
     }
     //begin Mutalisk
     if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`){
-        let lurkerembed = new Discord.RichEmbed()
+        let mutaembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Mutalisk**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/fd/Icon_Zerg_Mutalisk.jpg/revision/latest?cb=20160106233117")
@@ -945,11 +945,11 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Tissue Regeneration", "**Effect** - Mutalisk health regeneration rate is accelerated to 1.4 HP/second")
         .addField("More Info", "https://liquipedia.net/starcraft2/Mutalisk_(Legacy_of_the_Void)");
-    return message.channel.send(lurkerembed);
+    return message.channel.send(mutaembed);
     }
     //begin Corruptor
     if (cmd ===`${prefix}corruptor`){
-        let lurkerembed = new Discord.RichEmbed()
+        let corrembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Corruptor**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
@@ -963,6 +963,22 @@ bot.on("message", async message =>{
         .addField("Caustic Spray", "**Cooldown** - 32, **Duration** - Channeled, **Effect** - The Corruptor emits a stream of acid that deals 7 damage per second for 4.3 seconds, then increases to 35 damage per second.")
         .addField("Morph to Brood Lord","**Requires:** Greater Spire, **Minerals** - 150, **Vespene** - 150, **Supply** - 2, **Time** - 24, **Effect** - Morphs a Corruptor into a Brood Lord. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)");
+    return message.channel.send(corrembed);
+    }
+    //begin Swarm Host
+    if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`){
+        let lurkerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Swarm Host**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 75, **Supply** - 3, **Build Time** - 29")
+        .addField("Defense", "**HP** - 160, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15, on creep 5.37")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("Misc.", "**Sight Range** - 10, **Cargo Space** - 4")
+        .addField("Upgrades and Abilities","-")
+        .addField("Spawn Locusts", "**Cooldown** - 43, **Duration** - 18, **Effect** - Spawns 2 Locusts with an 18-second timed life.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)");
     return message.channel.send(lurkerembed);
     }
 }),
