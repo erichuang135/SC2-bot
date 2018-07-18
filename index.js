@@ -1053,5 +1053,26 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Locust_(Legacy_of_the_Void)");
     return message.channel.send(locustembed);
     }
+    //begin Infestor
+    if (cmd ===`${prefix}infestor`||cmd ===`${prefix}derpfestor`){
+        let infestorembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Infestor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Zerg_Infestor.jpg/revision/latest?cb=20160106233153")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 150, **Supply** - 2, **Build Time** - 36")
+        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15, on creep 4.01")
+        .addField("Attributes", "**Biological, Armored, Psionic, Ground**")
+        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Pathogen Glands", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
+        .addField("Neural Parasite", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
+        .addField("Fungal Growth", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
+        .addField("Contaminate", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units.") 
+        .addField("Infested Terran", "**Energy** - 25, **Range** - 7, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
+        .addField("Burrow Move","**Effect** - Can move while burrowed")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)");
+    return message.channel.send(infestorembed);
+    }
 }),
 bot.login(process.env.token);
