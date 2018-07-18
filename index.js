@@ -913,5 +913,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_(Legacy_of_the_Void)");
     return message.channel.send(hydraembed);
     }
+    //begin Lurker
+    if (cmd ===`${prefix}lurker`){
+        let lurkerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Lurker**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656")
+        .addField("Construction", "**Morphed from:** Hydralisk, **Requires:** Lurker Den")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 3, **Build Time** - 18")
+        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13(+0.413), on creep 5.37(+0.537)")
+        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 30(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **DPS** - 14.0(+1 per upgrade), vs armored 21(+1.7 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
+        .addField("Upgrades and Abilities","-")
+        .addField("Adaptive Talons", "**Researched from:** Lurker Den, **Requires:** Hive, **Minerals** - 150, **Vespene** - 150, **Time** - 54, **Effect** - Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker");
+    return message.channel.send(lurkerembed);
+    }
 }),
 bot.login(process.env.token);
