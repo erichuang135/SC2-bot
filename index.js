@@ -68,7 +68,27 @@ bot.on("message", async message =>{
         else if (joke === 14)
             {return message.channel.send("Why don't protoss put hot sauce on their food? *They don't have mouths*");}
         else if (joke === 15)
-            {return message.channel.send("Why would silver players be bad firemen? *They can't climb the ladder*");}            
+            {return message.channel.send("Why would silver players be bad firemen? *They can't climb the ladder*");}
+        else if (joke === 16)
+            {return message.channel.send("So a hydralisk walks into a bar and kills everyone there because it's a hydralisk.");}
+        else if (joke === 17)
+            {return message.channel.send("Why do protoss have no privacy? *Too many Stalkers.*");}
+        else if (joke === 18)
+            {return message.channel.send("Two zealots walk into a bar and ask where the bathroom is. The bartender replies, *Sorry, we don't have a bathroom*. The zealots say, *But... WE CANNOT HOLD!*);");} 
+        else if (joke === 19)
+            {return message.channel.send("A Probe hovers into a bar and immediately heads for the restroom. The bartender glances at him. *Whatever*, he says.But after an hour, the Probe still hasn't come out. The puzzled bartender opens the door, and is immediatly vaporized by 23 Photon Cannons.");}
+        else if (joke === 20)
+            {return message.channel.send("Why did the void ray fall over? Because it was overpowered.");} 
+        else if (joke === 21)
+            {return message.channel.send("My wife's real life macro is perfect... she spends all our money as soon as we get it.");}
+        else if (joke === 22)
+            {return message.channel.send("A marine walks into a bar... he asks the bartender where the counter is. *Outside in the storm*");}
+        else if (joke === 23)
+            {return message.channel.send("Adept anti-armor damage");}
+        else if (joke === 24)
+            {return message.channel.send("A hydralisk tries to walks into a bar, but realizes he has no legs.");}
+        else if (joke === 25)
+            {return message.channel.send("A dragoon was walking in a field. He suddenly stopped. The Executor asked why he stopped. He said, *The air is blocking my pathing systems.*");}                                        
         }
 //begin Terran Units
     //begin SCV
