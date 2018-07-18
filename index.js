@@ -947,5 +947,23 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Mutalisk_(Legacy_of_the_Void)");
     return message.channel.send(lurkerembed);
     }
+    //begin Corruptor
+    if (cmd ===`${prefix}corruptor`){
+        let lurkerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Corruptor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 29")
+        .addField("Defense", "**HP** - 120, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.725")
+        .addField("Offense","**Damage** - 14(+1 per upgrade), vs massive 20(+2 per upgrade) **Hitspeed** - 1.36, **Range** - 6, **DPS** - 10.29(+0.74 per upgrade), vs massive 14.69(+1.48 per upgrade), **Targets** - Air")
+        .addField("Attributes", "**Biological, Armored, Air**")
+        .addField("Misc.", "**Sight Range** - 10")
+        .addField("Upgrades and Abilities","-")
+        .addField("Caustic Spray", "**Cooldown** - 32, **Duration** - Channeled, **Effect** - The Corruptor emits a stream of acid that deals 7 damage per second for 4.3 seconds, then increases to 35 damage per second.")
+        .addField("Morph to Brood Lord","**Requires:** Greater Spire, **Minerals** - 150, **Vespene** - 150, **Supply** - 2, **Time** - 24, **Effect** - Morphs a Corruptor into a Brood Lord. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)");
+    return message.channel.send(lurkerembed);
+    }
 }),
 bot.login(process.env.token);
