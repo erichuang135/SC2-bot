@@ -894,6 +894,25 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
     return message.channel.send(ravagerembed);
     }
+    //begin Overseer
+    if (cmd ===`${prefix}overseer`){
+        let seerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Overseer**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e4/Icon_Zerg_Overseer.jpg/revision/latest?cb=20160106233030")
+        .addField("Construction", "**Morphed from:** Overlord, **Requires:** Lair")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Supply** - 0, **Build Time** - 12")
+        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62(+2.1)")
+        .addField("Attributes", "**Biological, Armored, Detector, Air**")
+        .addField("Misc.", "**Sight Range** - 11(+2.75), **Cargo Size** - 2")
+        .addField("Upgrades and Abilities","-")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overseers to 3.375")
+        .addField("Spawn Changeling", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
+        .addField("Contaminate", "**Energy** - 125, **Range** - 3, **Duration** - 30, **Effect** - The Overseer covers an enemy structure in slime. The structure will be unable to train units or research upgrades for 30 seconds.") 
+        .addField("Oversight", "**Effect** - Grants the Overseer 25% wider vision, but removes its ability to move. This ability can be canceled after activation.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Overseer_(Legacy_of_the_Void)");
+    return message.channel.send(seerembed);
+    }
     //begin Hydralisk
     if (cmd ===`${prefix}hydralisk`||cmd ===`${prefix}hydra`){
         let hydraembed = new Discord.RichEmbed()
