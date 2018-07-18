@@ -965,7 +965,7 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)");
     return message.channel.send(corrembed);
     }
-    //begin Swarm Host
+    //begin Locust
     if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`){
         let lurkerembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Swarm Host**")
