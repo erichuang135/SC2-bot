@@ -1093,5 +1093,20 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Infested_Terran_(Legacy_of_the_Void)");
     return message.channel.send(infestedembed);
     }
+    //begin Broodling
+    if (cmd ===`${prefix}broodling`){
+        let broodlingembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Broodling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/46/Icon_Zerg_Broodling.jpg/revision/latest?cb=20160106232656")
+        .addField("Construction", "**Spawned from:** Brood Lord, any structure except Spine and Spore Crawler")
+        .addField("Resources", "**Lifespan** - 8")
+        .addField("Defense", "**HP** - 30, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.37")
+        .addField("Offense","**Damage** - 4(+1 per upgrade), **Hitspeed** - 0.46, **Range** - Melee, **DPS** - 8.7(+2.17 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 7")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Broodling_(Legacy_of_the_Void)");
+    return message.channel.send(broodlingembed);
+    }
 }),
 bot.login(process.env.token);
