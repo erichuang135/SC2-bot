@@ -1108,5 +1108,23 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Broodling_(Legacy_of_the_Void)");
     return message.channel.send(broodlingembed);
     }
+    //begin Ultralisk
+    if (cmd ===`${prefix}ultralisk`||cmd ===`${prefix}ultra`){
+        let ultraembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Ultralisk**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Ultralisk Cavern")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 39")
+        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13, on creep 5.37")
+        .addField("Offense","**Damage** - 35(+3 per upgrade), splash 12(+1 per upgrade), **Hitspeed** - 0.61, **Range** - Melee, **DPS** - 57.38(+4.9 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Massive, Ground**")
+        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 8")
+        .addField("Upgrades and Abilities","-")
+        .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
+        .addField("Frenzied", "**Effect** - Zerg unit is immune to snare, stun, mind control, and movement altering effects.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)");
+    return message.channel.send(ultraembed);
+    }
 }),
 bot.login(process.env.token);
