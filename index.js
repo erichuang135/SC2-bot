@@ -1128,7 +1128,7 @@ bot.on("message", async message =>{
     }
     //begin Brood Lord
     if (cmd ===`${prefix}broodlord`||cmd ===`${prefix}brood`||cmd ===`${prefix}blord`||cmd ===`${prefix}bl`){
-        let ultraembed = new Discord.RichEmbed()
+        let broodembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Brood Lord**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254")
@@ -1141,7 +1141,25 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Swarm Seeds", "**Effect** - Spawns Broodlings upon each of the Brood Lord's attacks.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Brood_Lord_(Legacy_of_the_Void)");
-    return message.channel.send(ultraembed);
+    return message.channel.send(broodembed);
+    }
+    //begin Viper
+    if (cmd ===`${prefix}viper`){
+        let viperembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Viper**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Zerg_Viper.jpg/revision/latest?cb=20160106234746")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Hive")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 3, **Build Time** - 29")
+        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
+        .addField("Attributes", "**Biological, Armored, Air**")
+        .addField("Misc.", "**Sight Range** - 11")
+        .addField("Upgrades and Abilities","-")
+        .addField("Blinding Cloud", "**Energy** - 100, **Range** - 11, **Radius** - 2, **Duration** - 5.71, **Effect** - Creates a cloud for 5.71 seconds that reduces attack range of ground units and structures underneath to melee range.")
+        .addField("Abduct", "**Energy** - 75, **Range** - 9, **Duration** - 10, **Effect** - Pulls a target unit to the location of the Viper.")
+        .addField("Parasitic Bomb", "**Energy** - 125, **Range** - 8, **Radius** - 3, **Duration** - 7, **Effect** - Creates a parasitic cloud that deals 120 damage over 7 seconds to the target and enemy air units nearby. If the target dies, the cloud remains in the air where the enemy died until it expires.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
+    return message.channel.send(viperembed);
     }
 }),
 bot.login(process.env.token);
