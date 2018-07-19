@@ -1126,5 +1126,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)");
     return message.channel.send(ultraembed);
     }
+    //begin Brood Lord
+    if (cmd ===`${prefix}broodlord`||cmd ===`${prefix}brood`||cmd ===`${prefix}blord`||cmd ===`${prefix}bl`){
+        let ultraembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Brood Lord**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254")
+        .addField("Construction", "**Morphed from:** Corruptor, **Requires:** Greater Spire")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 4, **Build Time** - 23")
+        .addField("Defense", "**HP** - 225, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.97")
+        .addField("Offense","**Damage** - 20(+2 per upgrade), **Hitspeed** - 1.79, **Range** - 10, **DPS** - 11.2(+1.1 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Massive, Air**")
+        .addField("Misc.", "**Sight Range** - 12")
+        .addField("Upgrades and Abilities","-")
+        .addField("Swarm Seeds", "**Effect** - Spawns Broodlings upon each of the Brood Lord's attacks.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Brood_Lord_(Legacy_of_the_Void)");
+    return message.channel.send(ultraembed);
+    }
 }),
 bot.login(process.env.token);
