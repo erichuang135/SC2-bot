@@ -31,7 +31,7 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit. For example, sc2-marine will give you that statistics for the marine. Use only lowercase letters, no spaces.")
+        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit. For example, sc2-marine will give you that statistics for the marine. Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
         .addField("Support", "Visit https://discord.gg/xRhxfAN for questions, comments, and suggestions.")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia");
     return message.channel.send(botembed);
