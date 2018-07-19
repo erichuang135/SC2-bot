@@ -916,7 +916,7 @@ bot.on("message", async message =>{
     return message.channel.send(ravagerembed);
     }
     //begin Overseer
-    if (cmd ===`${prefix}overseer`){
+    if (cmd ===`${prefix}overseer`||cmd ===`${prefix}flappynajib`){
         let seerembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Overseer**")
         .setColor("#7FC5EB")
@@ -988,7 +988,7 @@ bot.on("message", async message =>{
     return message.channel.send(lurkerembed);
     }
     //begin Mutalisk
-    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`){
+    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`||cmd ===`${prefix}flappybird`){
         let mutaembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Mutalisk**")
         .setColor("#7FC5EB")
