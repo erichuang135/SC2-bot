@@ -1074,5 +1074,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)");
     return message.channel.send(infestorembed);
     }
+    //begin Infested Terran
+    if (cmd ===`${prefix}infestedterran`||cmd ===`${prefix}infested`){
+        let infestedembed = new Discord.RichEmbed()
+        .setDescription ("**Infested Terran**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7a/Icon_Zerg_Infested_Terran.jpg/revision/latest?cb=20160106232746")
+        .addField("Construction", "**Spawned From from:** Infested")
+        .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
+        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
+        .addField("Egg Defense","**HP** - 70, **Armor** - 2(+1 per upgrade)")
+        .addField("Offense 1","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **DPS** - 10(+1.6 per upgrade), **Targets** - Ground")
+        .addField("Offense 2","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("Misc.", "**Sight Range** - 9")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Infested_Terran_(Legacy_of_the_Void)");
+    return message.channel.send(infestedembed);
+    }
 }),
 bot.login(process.env.token);
