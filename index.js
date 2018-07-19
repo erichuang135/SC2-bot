@@ -1080,7 +1080,7 @@ bot.on("message", async message =>{
         .setDescription ("**Infested Terran**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7a/Icon_Zerg_Infested_Terran.jpg/revision/latest?cb=20160106232746")
-        .addField("Construction", "**Spawned From from:** Infested")
+        .addField("Construction", "**Spawned from:** Infestor")
         .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
         .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
         .addField("Egg Defense","**HP** - 70, **Armor** - 2(+1 per upgrade)")
