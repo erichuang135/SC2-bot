@@ -1158,6 +1158,7 @@ bot.on("message", async message =>{
         .addField("Blinding Cloud", "**Energy** - 100, **Range** - 11, **Radius** - 2, **Duration** - 5.71, **Effect** - Creates a cloud for 5.71 seconds that reduces attack range of ground units and structures underneath to melee range.")
         .addField("Abduct", "**Energy** - 75, **Range** - 9, **Duration** - 10, **Effect** - Pulls a target unit to the location of the Viper.")
         .addField("Parasitic Bomb", "**Energy** - 125, **Range** - 8, **Radius** - 3, **Duration** - 7, **Effect** - Creates a parasitic cloud that deals 120 damage over 7 seconds to the target and enemy air units nearby. If the target dies, the cloud remains in the air where the enemy died until it expires.")
+        .addField("Consume", "**Cooldown** - 1, **Range** - 7, **Duration** - 14, **Effect** - Targets friendly structure (except Creep Tumor) and consumes 200 life over 14 seconds converting the damage dealt into 50 energy.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
     return message.channel.send(viperembed);
     }
