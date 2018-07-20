@@ -797,6 +797,8 @@ bot.on("message", async message =>{
         .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
+        .addField("Upgrades and Abilities","-")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)");
     return message.channel.send(droneembed);
     }
@@ -836,6 +838,7 @@ bot.on("message", async message =>{
         .addField("Spawn Larva", "**Energy** - 25, **Range** - Melee, **Cooldown** - 1.8, **Duration** - 29, **Effect** - The Queen injects 3 Larva eggs into a Hatchery which after 29 seconds, hatch and 3 Larvae are ready to be used at the targeted Hatchery. If a Hatchery has more than 19 Larva, additional Larva will not be created. This will stack and queue if the target is already spawning additional larvae.")
         .addField("Spawn Creep Tumor", "**Energy** - 25, **Range** - Melee, **Duration** - 11, **Effect** - The Queen moves to and places a Creep Tumor at the targeted location. The tumor has 50 hit points and generates Creep. Each Creep Tumor can spawn one other Creep Tumor within a radius of 10.")
         .addField("Transfusion","**Energy** - 50, **Range** - 7, **Cooldown** - 1, **Targets** - Biological, **Effect** - The Queen heals a friendly, biological unit or building for 125 health.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Queen_(Legacy_of_the_Void)");
     return message.channel.send(queenembed);
     }
@@ -855,6 +858,7 @@ bot.on("message", async message =>{
         .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58(+2.45)")
         .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
         .addField("Morph to Baneling","**Requires:** Baneling Nest, **Minerals** - 25, **Vespene** - 25, **Time** - 14, **Effect** - Morphs a Zergling into a Baneling.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Zergling_(Legacy_of_the_Void)");
     return message.channel.send(lingembed);
     }
@@ -874,6 +878,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
         .addField("Centrifugal Hooks", "**Researched from:** Baneling Nest, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_(Legacy_of_the_Void)");
     return message.channel.send(baneembed);
     }
@@ -894,6 +899,7 @@ bot.on("message", async message =>{
         .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8 and increases the health regeneration rate of Roaches to 14 HP/sec below ground.")
         .addField("Rapid Regeneration","**Effect** - While burrowed, the Roach regenerates its health at an extremely fast rate of 7 hit points per second.")
         .addField("Morph to Ravager","**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Time** - 9, **Effect** - Morphs a Roach into a Ravager.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Roach_(Legacy_of_the_Void)");
     return message.channel.send(roachembed);
     }
@@ -912,6 +918,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
         .addField("Upgrades and Abilities","-")
         .addField("Corrosive Bile", "**Cooldown** - 7, **Range** - 9, **Delay** - 2.5**Effect** - Launch a missile at the target location, dealing 60 damage to all units and destroying all Force Fields in the area upon impact.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
     return message.channel.send(ravagerembed);
     }
@@ -966,6 +973,7 @@ bot.on("message", async message =>{
         .addField("Muscular Augments", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Hydralisks move 25% faster speed both on and off of Creep. ")
         .addField("Grooved Spines", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Increases the attack range of Hydralisks by +1.")
         .addField("Morph to Lurker","**Requires:** Lurker Den, **Minerals** - 50, **Vespene** - 100, **Supply** - 1, **Time** - 15, **Effect** - Morphs a Hydralisk into a Lurker. ")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_(Legacy_of_the_Void)");
     return message.channel.send(hydraembed);
     }
@@ -984,6 +992,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
         .addField("Upgrades and Abilities","-")
         .addField("Adaptive Talons", "**Researched from:** Lurker Den, **Requires:** Hive, **Minerals** - 150, **Vespene** - 150, **Time** - 54, **Effect** - Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
+        .addField("Burrow","**Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Lurker");
     return message.channel.send(lurkerembed);
     }
@@ -1035,6 +1044,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 10, **Cargo Space** - 4")
         .addField("Upgrades and Abilities","-")
         .addField("Spawn Locusts", "**Cooldown** - 43, **Duration** - 18, **Effect** - Spawns 2 Locusts with an 18-second timed life.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)");
     return message.channel.send(lurkerembed);
     }
@@ -1072,6 +1082,7 @@ bot.on("message", async message =>{
         .addField("Fungal Growth", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
         .addField("Contaminate", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units.") 
         .addField("Infested Terran", "**Energy** - 25, **Range** - 7, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("Burrow Move","**Effect** - Can move while burrowed")
         .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)");
     return message.channel.send(infestorembed);
@@ -1090,6 +1101,8 @@ bot.on("message", async message =>{
         .addField("Offense 2","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 9")
+        .addField("Upgrades and Abilities","-")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Infested_Terran_(Legacy_of_the_Void)");
     return message.channel.send(infestedembed);
     }
@@ -1123,6 +1136,7 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
         .addField("Frenzied", "**Effect** - Zerg unit is immune to snare, stun, mind control, and movement altering effects.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)");
     return message.channel.send(ultraembed);
     }
