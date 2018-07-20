@@ -686,7 +686,7 @@ bot.on("message", async message =>{
     return message.channel.send(oracleembed);
     }
     //begin Void Ray
-    if (cmd ===`${prefix}voidray`||cmd ===`${prefix}chadray`){
+    if (cmd ===`${prefix}voidray`||cmd ===`${prefix}chadray`||cmd ===`${prefix}void`){
         let voidembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Void Ray**")
         .setColor("#7FC5EB")
