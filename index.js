@@ -38,7 +38,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 25) + 1);
+        var joke = Math.floor((Math.random() * 32) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -72,13 +72,13 @@ bot.on("message", async message =>{
         else if (joke === 16)
             {return message.channel.send("So a hydralisk walks into a bar and kills everyone there because it's a hydralisk.");}
         else if (joke === 17)
-            {return message.channel.send("Why do protoss have no privacy? *Too many Stalkers.*");}
+            {return message.channel.send("Why do protoss have no privacy? *Too many stalkers.*");}
         else if (joke === 18)
             {return message.channel.send("Two zealots walk into a bar and ask where the bathroom is. The bartender replies, *Sorry, we don't have a bathroom*. The zealots say, *But... WE CANNOT HOLD!*");} 
         else if (joke === 19)
             {return message.channel.send("A Probe hovers into a bar and immediately heads for the restroom. The bartender glances at him. *Whatever*, he says.But after an hour, the Probe still hasn't come out. The puzzled bartender opens the door, and is immediatly vaporized by 23 Photon Cannons.");}
         else if (joke === 20)
-            {return message.channel.send("Why did the void ray fall over? Because it was overpowered.");} 
+            {return message.channel.send("Why did the void ray shut down? *Because it was overpowered.*");} 
         else if (joke === 21)
             {return message.channel.send("My wife's real life macro is perfect... she spends all our money as soon as we get it.");}
         else if (joke === 22)
@@ -86,9 +86,23 @@ bot.on("message", async message =>{
         else if (joke === 23)
             {return message.channel.send("Adept anti-armor damage");}
         else if (joke === 24)
-            {return message.channel.send("A hydralisk tries to walks into a bar, but realizes he has no legs.");}
+            {return message.channel.send("A hydralisk tries to walks into a bar, but realizes it has no legs.");}
         else if (joke === 25)
-            {return message.channel.send("A dragoon was walking in a field. He suddenly stopped. The Executor asked why he stopped. He said, *The air is blocking my pathing systems.*");}                                        
+            {return message.channel.send("A dragoon was walking in a field. He suddenly stopped. The Executor asked why he stopped. He said, *The air is blocking my pathing systems.*");}
+        else if (joke === 26)
+            {return message.channel.send("Stalkers are so fast, you blink and they're gone.");}
+        else if (joke === 27)
+            {return message.channel.send("A templar comes back to base with a terrified look on his face. The zealot asks *What happened? You look like you've seen a ghost.*");}  
+        else if (joke === 28)
+            {return message.channel.send("What do call a Zealot smoking weed? *A high templar.*");}
+        else if (joke === 29)
+            {return message.channel.send("Why was the High Templar made manager of his company? *He always gave good feedback.*");}   
+        else if (joke === 30)
+            {return message.channel.send("What did the SCV shout to scare his buddy? *SUPPLIES!!*");}
+        else if (joke === 31)
+            {return message.channel.send("So I met Avilo one day and was like *Yo, Avilo what's up?* He replied, *Terran Mech*");}
+        else if (joke === 32)
+            {return message.channel.send("Adept anti-armor damage");}                                                                                                                                                                                                         
         }
 //begin Terran Units
     //begin SCV
