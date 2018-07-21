@@ -1270,5 +1270,20 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Refinery_(Legacy_of_the_Void)");
     return message.channel.send(refineryembed);
     }
+    //Begin Barracks
+    if (cmd ===`${prefix}barracks`||cmd ===`${prefix}rax`){
+        let commandembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Barracks**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Barracks_SC2_Icon1.jpg/revision/latest?cb=20160107024033")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
+        .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
+        .addField("Produces", "**By default** - Marine, Reaper, **with Tech Lab** - Marauder, **with Tech Lab and Ghost Academy** - Ghost")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)");
+    return message.channel.send(commandembed);
+    }
 }),
 bot.login(process.env.token);
