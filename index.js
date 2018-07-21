@@ -94,7 +94,7 @@ bot.on("message", async message =>{
         else if (joke === 27)
             {return message.channel.send("A templar comes back to base with a terrified look on his face. The zealot asks *What happened? You look like you've seen a ghost.*");}  
         else if (joke === 28)
-            {return message.channel.send("What do call a Zealot smoking weed? *A high templar.*");}
+            {return message.channel.send("What do call a protoss who trips acid? *Zeratul*");}
         else if (joke === 29)
             {return message.channel.send("Why was the High Templar made manager of his company? *He always gave good feedback.*");}   
         else if (joke === 30)
