@@ -1276,7 +1276,7 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Barracks**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Barracks_SC2_Icon1.jpg/revision/latest?cb=20160107024033")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
+        .addField("Resources", "**Requires:** Supply Depot, **Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
         .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
         .addField("Produces", "**By default** - Marine, Reaper, **with Tech Lab** - Marauder, **with Tech Lab and Ghost Academy** - Ghost")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
@@ -1291,7 +1291,7 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Engineering Bay**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7e/EngineeringBay_SC2_Icon1.jpg/revision/latest?cb=20160107024456")
-        .addField("Resources", "**Minerals** - 125, **Vespene** - 0, **Build Time** - 25")
+        .addField("Resources", "**Requires:** Command Center, **Minerals** - 125, **Vespene** - 0, **Build Time** - 25")
         .addField("Defense", "**HP** - 850, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
@@ -1305,7 +1305,7 @@ bot.on("message", async message =>{
         .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
         .addField("Structure Armor", "**Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2. ")
         .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
     return message.channel.send(engieembed);
     }
 }),
