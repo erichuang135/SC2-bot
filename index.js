@@ -1214,7 +1214,7 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Orbital Command**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/ca/OrbitalCommand_SC2_Icon1.jpg/revision/latest?cb=20160107024229")
-        .addField("Resources", "**Upgraded from:** Command Center, **Minerals** - 150, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 25")
+        .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Barracks, **Minerals** - 150, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 25")
         .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
         .addField("Produces", "SCV")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
@@ -1232,7 +1232,7 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Planetary Fortress**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/PlanetaryFortress_SC2_Icon1.jpg/revision/latest?cb=20160107024345")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Provides Supply** - 15, **Build Time** - 26")
+        .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Engineering Bay, **Minerals** - 150, **Vespene** - 150, **Provides Supply** - 15, **Build Time** - 26")
         .addField("Defense", "**HP** - 1500, **Armor** - 3(+2)")
         .addField("Offense", "**Damage** - 40, **Hitspeed** - 1.43, **Range** - 6+1, **DPS** - 28, **Targets** - Ground")
         .addField("Produces", "SCV")
@@ -1243,6 +1243,20 @@ bot.on("message", async message =>{
         .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Planetary_Fortress_(Legacy_of_the_Void)");
     return message.channel.send(pfembed);
+    }
+    //Begin Supply Depot
+    if (cmd ===`${prefix}supplydepot`||cmd ===`${prefix}depot`||cmd ===`${prefix}supply`){
+        let depotembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Supply Depot**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/09/SupplyDepot_SC2_Icon1.jpg/revision/latest?cb=20160107024834")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 71")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lower/Raise", "**Effect** - Lowers/Raises the Supply Depot, allowing/preventing ground units to move accross it. If multiple Supply Depots with different states are selected, the first selected determines whether all would lower or raise.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)");
+    return message.channel.send(depotembed);
     }
 }),
 bot.login(process.env.token);
