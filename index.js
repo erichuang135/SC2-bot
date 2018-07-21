@@ -1190,11 +1190,13 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
     return message.channel.send(viperembed);
     }
+//Begin Terran Buildings
+    //Begin Command Center
     if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
         let commandembed = new Discord.RichEmbed()
         .setDescription ("**Terran Command Center**")
         .setColor("#7FC5EB")
-        .setThumbnail("hhttps://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
         .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
         .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
         .addField("Produces", "SCV")
@@ -1223,6 +1225,24 @@ bot.on("message", async message =>{
         .addField("Scanner Sweep","**Energy** - 50, **Radius** - 13, **Duration** - 9, **Effect** - The Orbital Command scans a target location on the map revealing cloaked, burrowed or hallucinated units temporarily.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Orbital_Command_(Legacy_of_the_Void)");
     return message.channel.send(orbitalembed);
+    }
+    //Begin Planetary Fortress
+    if (cmd ===`${prefix}planetaryfortress`||cmd ===`${prefix}planetary`||cmd ===`${prefix}pf`){
+        let pfembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Planetary Fortress**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/PlanetaryFortress_SC2_Icon1.jpg/revision/latest?cb=20160107024345")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Provides Supply** - 15, **Build Time** - 26")
+        .addField("Defense", "**HP** - 1500, **Armor** - 3(+2)")
+        .addField("Offense", "**Damage** - 40, **Hitspeed** - 1.43, **Range** - 6+1, **DPS** - 28, **Targets** - Ground")
+        .addField("Produces", "SCV")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
+        .addField("Upgrades and Abilities","-")
+        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
+        .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Planetary_Fortress_(Legacy_of_the_Void)");
+    return message.channel.send(pfembed);
     }
 }),
 bot.login(process.env.token);
