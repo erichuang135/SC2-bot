@@ -1193,7 +1193,7 @@ bot.on("message", async message =>{
 //Begin Terran Buildings
     //Begin Command Center
     if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
-        let ccembed = new Discord.RichEmbed()
+        let commandembed = new Discord.RichEmbed()
         .setDescription ("**Terran Command Center**")
         .setColor("#7FC5EB")
         .setThumbnail("hhttps://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
@@ -1206,7 +1206,7 @@ bot.on("message", async message =>{
         .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
         .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)");
-    return message.channel.send(ccembed);
+    return message.channel.send(commandembed);
     }
     //Begin Orbital Command
     if (cmd ===`${prefix}orbitalcommand`||cmd ===`${prefix}orbital`){
