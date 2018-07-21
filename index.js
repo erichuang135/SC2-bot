@@ -1308,5 +1308,21 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
     return message.channel.send(engieembed);
     }
+    //Begin Bunker
+    if (cmd ===`${prefix}bunker`){
+        let commandembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Bunker**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c5/Bunker_SC2_Icon1.jpg/revision/latest?cb=20160107024055")
+        .addField("Resources", "**Requires:** Barracks, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Misc.", "**Cargo Capacity** - 4(+2), only infantry")
+        .addField("Upgrades and Abilities","-")
+        .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
+        .addField("Salvage", "**Duration** - 4, **Effect** - Destroys the building and returns 75% of its cost. Cannot be cancelled once activated.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Bunker_(Legacy_of_the_Void)");
+    return message.channel.send(commandembed);
+    }
 }),
 bot.login(process.env.token);
