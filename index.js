@@ -1250,13 +1250,25 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Supply Depot**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/09/SupplyDepot_SC2_Icon1.jpg/revision/latest?cb=20160107024834")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 71")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 21")
         .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Lower/Raise", "**Effect** - Lowers/Raises the Supply Depot, allowing/preventing ground units to move accross it. If multiple Supply Depots with different states are selected, the first selected determines whether all would lower or raise.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Supply_Depot_(Legacy_of_the_Void)");
     return message.channel.send(depotembed);
+    }
+    //Begin Refinery
+    if (cmd ===`${prefix}refinery`){
+        let refineryembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Refinery**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/9e/Refinery_SC2_Icon1.jpg/revision/latest?cb=20160107024701")
+        .addField("Resources", "**Minerals** - 75, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
+        .addField("Defense", "**HP** - 500, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Refinery_(Legacy_of_the_Void)");
+    return message.channel.send(refineryembed);
     }
 }),
 bot.login(process.env.token);
