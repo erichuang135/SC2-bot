@@ -1324,5 +1324,20 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Bunker_(Legacy_of_the_Void)");
     return message.channel.send(commandembed);
     }
+    //Begin Missile Turret
+    if (cmd ===`${prefix}missileturret`||cmd ===`${prefix}turret`){
+        let turretembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Missile Turret**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/5f/MissileTurret_SC2_Icon1.jpg/revision/latest?cb=20160107024639")
+        .addField("Resources", "**Requires:** Engineering Bay, **Minerals** - 100, **Vespene** - 0, **Build Time** - 18")
+        .addField("Defense", "**HP** - 250, **Armor** - 0(+2)")
+        .addField("Offense", "**Damage** - 12x2, **Hitspeed** - 0.61, **Range** - 7+1, **DPS** - 39.3, **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Missile_Turret_(Legacy_of_the_Void)");
+    return message.channel.send(turretembed);
+    }
 }),
 bot.login(process.env.token);
