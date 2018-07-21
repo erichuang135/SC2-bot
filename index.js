@@ -1255,7 +1255,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Lower/Raise", "**Effect** - Lowers/Raises the Supply Depot, allowing/preventing ground units to move accross it. If multiple Supply Depots with different states are selected, the first selected determines whether all would lower or raise.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Supply_Depot_(Legacy_of_the_Void)");
     return message.channel.send(depotembed);
     }
 }),
