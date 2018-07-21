@@ -1190,8 +1190,6 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
     return message.channel.send(viperembed);
     }
-//Begin Terran Buildings
-    //Begin Command Center
     if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
         let commandembed = new Discord.RichEmbed()
         .setDescription ("**Terran Command Center**")
