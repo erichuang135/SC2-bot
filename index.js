@@ -102,7 +102,7 @@ bot.on("message", async message =>{
         else if (joke === 31)
             {return message.channel.send("So I met Avilo one day and was like *Yo, Avilo what's up?* He replied, *Terran Mech*");}
         else if (joke === 32)
-            {return message.channel.send("Adept anti-armor damage");}                                                                                                                                                                                                         
+            {return message.channel.send("Hellion anti-armor damage");}                                                                                                                                                                                                         
         }
 //begin Terran Units
     //begin SCV
