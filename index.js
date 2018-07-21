@@ -337,7 +337,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 30")
         .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5(+2.44)")
         .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 11")
+        .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8")
         .addField("Abilites and Upgrades", "_")
         .addField("High Capacity Fuel Tanks", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the Medivac's fuel reserves, allowing Ignite Afterburners to last 50% longer. Average speed is increased from 4.232 to 4.455.")
         .addField("Heal", "**Energy** - 1 per 4 HP, **Range** - 4, **HPS** - 12.6, **Targets** - Biological**")
@@ -604,7 +604,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
         .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
         .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
+        .addField("Misc.", "**Sight Range** - 10, **Cargo Capacity** - 8")
         .addField("Upgrades and Abilities","-")
         .addField("Gravitic Drive", "**Researched from:** Robotics Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed and acceleration of the Warp Prism.")
         .addField("Phasing/Transport Mode", "**Effect** - In Phasing Mode, the Warp Prism generates a power radius similar to that of a Pylon. The Warp Prism cannot move in this mode. The Warp Prism returns to being a mobile transport in Transport Mode.")
@@ -826,7 +826,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
         .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
         .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 11")
+        .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8 (with Ventral Sacs)")
         .addField("Upgrades and Abilities","-")
         .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals** - 25, **Vespene** - 25, **Time** - 12, **Effect** - Enables the Overlord to transport units.")
@@ -1189,6 +1189,42 @@ bot.on("message", async message =>{
         .addField("Consume", "**Cooldown** - 1, **Range** - 7, **Duration** - 14, **Effect** - Targets friendly structure (except Creep Tumor) and consumes 200 life over 14 seconds converting the damage dealt into 50 energy.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
     return message.channel.send(viperembed);
+    }
+//Begin Terran Buildings
+    //Begin Command Center
+    if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
+        let ccembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Command Center**")
+        .setColor("#7FC5EB")
+        .setThumbnail("hhttps://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
+        .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
+        .addField("Produces", "SCV")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
+        .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)");
+    return message.channel.send(ccembed);
+    }
+    //Begin Orbital Command
+    if (cmd ===`${prefix}orbitalcommand`||cmd ===`${prefix}orbital`){
+        let orbitalembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Orbital Command**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/ca/OrbitalCommand_SC2_Icon1.jpg/revision/latest?cb=20160107024229")
+        .addField("Resources", "**Upgraded from:** Command Center, **Minerals** - 150, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 25")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
+        .addField("Produces", "SCV")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
+        .addField("Calldown: MULE", "**Energy** - 50, **Effect** - The Orbital Command calls down a MULE via Drop Pods. Mules can gather minerals at a faster rate than SCVs, and last for 64 seconds. One MULE and one SCV gather from the same mineral patch simultaneously.")
+        .addField("Calldown: Extra Supplies","**Energy** - 50, **Effect** - The Orbital Command calls down additional supplies which permanently increase a Supply Depot's supply limit by 8.")
+        .addField("Scanner Sweep","**Energy** - 50, **Radius** - 13, **Duration** - 9, **Effect** - The Orbital Command scans a target location on the map revealing cloaked, burrowed or hallucinated units temporarily.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Orbital_Command_(Legacy_of_the_Void)");
+    return message.channel.send(orbitalembed);
     }
 }),
 bot.login(process.env.token);
