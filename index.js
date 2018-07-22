@@ -1338,6 +1338,20 @@ bot.on("message", async message =>{
         .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Missile_Turret_(Legacy_of_the_Void)");
     return message.channel.send(turretembed);
+    }    
+    //Begin Sensor Tower
+    if (cmd ===`${prefix}sensortower`||cmd ===`${prefix}sensor`){
+        let sensorembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Sensor Tower**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d2/SensorTower_SC2_Icon1.jpg/revision/latest?cb=20160107024757")
+        .addField("Resources", "**Requires:** Engineering Bay, **Minerals** - 125, **Vespene** - 100, **Build Time** - 18")
+        .addField("Defense", "**HP** - 200, **Armor** - 0(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Radar", "**Range** - 30, **Effect** - Enemies under fog of war within the range of the Sensor Tower are marked with a red symbol displaying an exclamation mark.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Sensor_Tower_(Legacy_of_the_Void)");
+    return message.channel.send(sensorembed);
     }
 }),
 bot.login(process.env.token);
