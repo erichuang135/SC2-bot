@@ -248,7 +248,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 7, **Cargo Size** - 2")
         .addField("Abilites and Upgrades", "_")
-        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast.")
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Widow_Mine_(Legacy_of_the_Void)");
     return message.channel.send(mineembed);
     }
@@ -1352,6 +1352,45 @@ bot.on("message", async message =>{
         .addField("Radar", "**Range** - 30, **Effect** - Enemies under fog of war within the range of the Sensor Tower are marked with a red symbol displaying an exclamation mark.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Sensor_Tower_(Legacy_of_the_Void)");
     return message.channel.send(sensorembed);
+    }
+    //Begin Reactor
+    if (cmd ===`${prefix}reactor`){
+        let reactorembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Reactor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Reactor_SC2_Icon1.jpg/revision/latest?cb=20160107024915")
+        .addField("Resources", "**Requires:** Barracks/Factory/Starport, **Minerals** - 50, **Vespene** - 50, **Build Time** - 36")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Reactor", "**Effect** - Allows Barracks, Factory, and Starport to create 2 units simultaneously. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Reactor_(Legacy_of_the_Void)");
+    return message.channel.send(reactorembed);
+    }
+    //Begin Tech Lab
+    if (cmd ===`${prefix}techlab`||cmd ===`${prefix}lab`){
+        let labembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Tech Lab**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Reactor_SC2_Icon1.jpg/revision/latest?cb=20160107024915")
+        .addField("Resources", "**Requires:** Barracks/Factory/Starport, **Minerals** - 50, **Vespene** - 25, **Build Time** - 18")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Every Marine gains a Combat Shield that gives 10 hitpoints. ")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP for a marine, and 20 HP for a marauder")
+        .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
+        .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellion's bonus against Light units by +5 damage and the Hellbat's bonus against Light units by +12 damage.")
+        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions, Hellbats, Vikings, and Thors to transform quickly between combat modes. ")
+        .addField("Rapid Fire Launchers","**Researched from:** Factory Tech Lab, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Increases the attack speed of the first 12 shots of the Cyclone's Lock On. ")
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast.")
+        .addField("High Capacity Fuel Tanks", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the Medivac's fuel reserves, allowing Ignite Afterburners to last 50% longer. Average speed is increased from 4.232 to 4.455.")
+        .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the Raven's starting energy by 25.")
+        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 200, **Vespene** - 200, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
+        .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("Advanced Ballistics", "**Researched from:** Starport Tech Lab, **Requires:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the range of Liberators in Defender Mode by 4.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Tech_Lab_(Legacy_of_the_Void)");
+    return message.channel.send(labembed);
     }
 }),
 bot.login(process.env.token);
