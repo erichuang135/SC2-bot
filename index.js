@@ -1011,7 +1011,7 @@ bot.on("message", async message =>{
     return message.channel.send(lurkerembed);
     }
     //begin Mutalisk
-    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`||cmd ===`${prefix}flappybird`){
+    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`||cmd ===`${prefix}flappybird`||cmd ===`${prefix}flapflap`){
         let mutaembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Mutalisk**")
         .setColor("#7FC5EB")
