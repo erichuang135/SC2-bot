@@ -1445,5 +1445,20 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Armory_(Legacy_of_the_Void)");
     return message.channel.send(armoryembed);
     }
+    //Begin Starport
+    if (cmd ===`${prefix}starport`||cmd ===`${prefix}port`){
+        let portembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Starport**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/21/Starport_SC2_Icon1.jpg/revision/latest?cb=20160107024816")
+        .addField("Resources", "**Requires:** Factory, **Minerals** - 150, **Vespene** - 100, **Build Time** - 36")
+        .addField("Defense", "**HP** - 1300, **Armor** - 1(+2)")
+        .addField("Produces", "**By default:** Viking, Medivac, Liberator, **with Tech Lab:** Banshee, Raven, **with Tech Lab and Fusion Core** - Battlecruiser")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Starport_(Legacy_of_the_Void)");
+    return message.channel.send(portembed);
+    }
 }),
 bot.login(process.env.token);
