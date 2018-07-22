@@ -1422,5 +1422,28 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_Academy_(Legacy_of_the_Void)");
     return message.channel.send(academyembed);
     }
+    //Begin Armory
+    if (cmd ===`${prefix}armory`||cmd ===`${prefix}armoury`){
+        let armoryembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Armory**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/cb/Armory_SC2_Icon1.jpg/revision/latest?cb=20160107023923")
+        .addField("Resources", "**Requires:** Factory, **Minerals** - 150, **Vespene** - 100, **Build Time** - 46")
+        .addField("Defense", "**HP** - 750, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Note", "Vehicle units include  Hellion, Siege Tank, Cyclone, Hellbat, Thor, and Widow Mine (armor upgrades only). Ship units include  Viking, Liberator, Banshee, Battlecruiser, Medivac, and Raven (armor upgrades only for Medivac and Raven)")
+        .addField("Vehicle Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran vehicle units. ")
+        .addField("Vehicle Weapons Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran vehicle units. ")
+        .addField("Vehicle Weapons Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran vehicle units. ")
+        .addField("Ship Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran airship units. ")
+        .addField("Ship Weapons Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran airship units. ")
+        .addField("Ship Weapons Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran airship units. ")
+        .addField("Vehicle and Ship Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the armor of Terran vehicle and airship units. ")
+        .addField("Vehicle and Ship Armor Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the armor of Terran vehicle and airship units. ")
+        .addField("Vehicle and Ship Armor Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the armor of Terran vehicle and airship units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Armory_(Legacy_of_the_Void)");
+    return message.channel.send(armoryembed);
+    }
 }),
 bot.login(process.env.token);
