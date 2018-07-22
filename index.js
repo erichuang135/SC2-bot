@@ -487,7 +487,7 @@ bot.on("message", async message =>{
     return message.channel.send(stalkerembed);
     }
     //begin Sentry
-    if (cmd ===`${prefix}sentry`){
+    if (cmd ===`${prefix}sentry`||cmd ===`${prefix}ticklemonster`){
         let sentryembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Sentry**")
         .setColor("#7FC5EB")
