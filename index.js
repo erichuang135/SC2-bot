@@ -1199,7 +1199,7 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
         .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
         .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
-        .addField("Produces", "SCV")
+        .addField("Produces", "**By default:** SCV")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
         .addField("Upgrades and Abilities","-")
@@ -1216,7 +1216,7 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/ca/OrbitalCommand_SC2_Icon1.jpg/revision/latest?cb=20160107024229")
         .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Barracks, **Minerals** - 150, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 25")
         .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
-        .addField("Produces", "SCV")
+        .addField("Produces", "**By default:** SCV")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
@@ -1235,7 +1235,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Engineering Bay, **Minerals** - 150, **Vespene** - 150, **Provides Supply** - 15, **Build Time** - 26")
         .addField("Defense", "**HP** - 1500, **Armor** - 3(+2)")
         .addField("Offense", "**Damage** - 40, **Hitspeed** - 1.43, **Range** - 6+1, **DPS** - 28, **Targets** - Ground")
-        .addField("Produces", "SCV")
+        .addField("Produces", "**By default:** SCV")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
         .addField("Upgrades and Abilities","-")
@@ -1278,7 +1278,7 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Barracks_SC2_Icon1.jpg/revision/latest?cb=20160107024033")
         .addField("Resources", "**Requires:** Supply Depot, **Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
         .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
-        .addField("Produces", "**By default** - Marine, Reaper, **with Tech Lab** - Marauder, **with Tech Lab and Ghost Academy** - Ghost")
+        .addField("Produces", "**By default;** Marine, Reaper, **with Tech Lab:** Marauder, **with Tech Lab and Ghost Academy:** Ghost")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
@@ -1372,7 +1372,7 @@ bot.on("message", async message =>{
         let labembed = new Discord.RichEmbed()
         .setDescription ("**Terran Tech Lab**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Reactor_SC2_Icon1.jpg/revision/latest?cb=20160107024915")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/8e/TechLab_SC2_Icon1.jpg/revision/latest?cb=20160107024940")
         .addField("Resources", "**Requires:** Barracks/Factory/Starport, **Minerals** - 50, **Vespene** - 25, **Build Time** - 18")
         .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
@@ -1391,6 +1391,21 @@ bot.on("message", async message =>{
         .addField("Advanced Ballistics", "**Researched from:** Starport Tech Lab, **Requires:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the range of Liberators in Defender Mode by 4.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Tech_Lab_(Legacy_of_the_Void)");
     return message.channel.send(labembed);
+    }
+    //Begin Factory
+    if (cmd ===`${prefix}factory`){
+        let factoryembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Factory**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a8/Factory_SC2_Icon1.jpg/revision/latest?cb=20160107024519")
+        .addField("Resources", "**Requires:** Supply Depot, **Minerals** - 150, **Vespene** - 100, **Build Time** - 43")
+        .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
+        .addField("Produces", "**By default:** Hellion, Widow Mine, Cyclone, **with Tech Lab:** Siege Tank, **with Armory:** Hellbat, **with Tech Lab and Armory** - Thor")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)");
+    return message.channel.send(factoryembed);
     }
 }),
 bot.login(process.env.token);
