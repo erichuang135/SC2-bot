@@ -1398,14 +1398,29 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Factory**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a8/Factory_SC2_Icon1.jpg/revision/latest?cb=20160107024519")
-        .addField("Resources", "**Requires:** Supply Depot, **Minerals** - 150, **Vespene** - 100, **Build Time** - 43")
-        .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
+        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 100, **Build Time** - 43")
+        .addField("Defense", "**HP** - 1250, **Armor** - 1(+2)")
         .addField("Produces", "**By default:** Hellion, Widow Mine, Cyclone, **with Tech Lab:** Siege Tank, **with Armory:** Hellbat, **with Tech Lab and Armory** - Thor")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Factory_(Legacy_of_the_Void)");
     return message.channel.send(factoryembed);
+    }
+    //Begin Ghost Academy
+    if (cmd ===`${prefix}ghostacademy`||cmd ===`${prefix}academy`){
+        let academyembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Ghost Academy**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1c/GhostAcademy_SC2_Icon1.jpg/revision/latest?cb=20160107024614")
+        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 50, **Build Time** - ")
+        .addField("Defense", "**HP** - 1250, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Cloak","**Minerals** - 150, **Vespene** - 150, **Time** - 86, **Energy** - 25(+1.3/s), **Effect** - The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("Arm with Nuke", "**Requires:** Factory, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Builds a Nuke that can be launched by a Ghost. Limited to one Nuke per Ghost Academy. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_Academy_(Legacy_of_the_Void)");
+    return message.channel.send(academyembed);
     }
 }),
 bot.login(process.env.token);
