@@ -1413,7 +1413,7 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Ghost Academy**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1c/GhostAcademy_SC2_Icon1.jpg/revision/latest?cb=20160107024614")
-        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 50, **Build Time** - ")
+        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 50, **Build Time** - 29")
         .addField("Defense", "**HP** - 1250, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
@@ -1459,6 +1459,20 @@ bot.on("message", async message =>{
         .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Starport_(Legacy_of_the_Void)");
     return message.channel.send(portembed);
+    }
+    //Begin Fusion Core
+    if (cmd ===`${prefix}fusioncore`){
+        let fusionembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Fusion Core**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/FusionCore_SC2_Icon1.jpg/revision/latest?cb=20160107024547")
+        .addField("Resources", "**Requires:** Starport, **Minerals** - 150, **Vespene** - 150, **Build Time** - 46")
+        .addField("Defense", "**HP** - 750, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Yamato Cannon", "**Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 300 damage.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Fusion_Core_(Legacy_of_the_Void)");
+    return message.channel.send(fusionembed);
     }
 }),
 bot.login(process.env.token);
