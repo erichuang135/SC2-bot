@@ -1552,7 +1552,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f8/Icon_Protoss_Forge.jpg/revision/latest?cb=20160106231751")
         .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
-        .addField("Defense", "**HP** - 400+400, **Armor** - 1(+2)")
+        .addField("Defense", "**HP** - 400+400, **Armor** - 1(+1 per upgrade)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Ground Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Protoss ground units.")
@@ -1573,8 +1573,8 @@ bot.on("message", async message =>{
         .setDescription ("**Protoss Cybernetics Core**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Protoss_Cybernetics_Core.jpg/revision/latest?cb=20160106231716")
-        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
-        .addField("Defense", "**HP+Shields** - 550+550, **Armor** - 1(+2)")
+        .addField("Resources", "**Requires:** Gateway, **Minerals** - 150, **Vespene** - 0, **Build Time** - 36")
+        .addField("Defense", "**HP+Shields** - 550+550, **Armor** - 1(+1 per upgrade)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Warp Gate", "**Minerals** - 50, **Vespene** - 50, **Time** -  114, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
@@ -1587,5 +1587,18 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Cybernetics_Core_(Legacy_of_the_Void)");
     return message.channel.send(cyberembed);
     }
+    //Begin Photon Cannon
+    if (cmd ===`${prefix}photoncannon`||cmd ===`${prefix}cannon`){
+        let cannonembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Photon Cannon**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a3/Icon_Protoss_Photon_Cannon.jpg/revision/latest?cb=20160106231827")
+        .addField("Resources", "**Requires:** Forge, **Minerals** - 150, **Vespene** - 0, **Build Time** - 29")
+        .addField("Defense", "**HP+Shields** - 150+150, **Armor** - 1(+1 per upgrade)")
+        .addField("Offense", "**Damage** - 20, **Hitspeed** - 0.89, **Range** - 7, **DPS** - 22.4, **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Photon_Cannon_(Legacy_of_the_Void)");
+    return message.channel.send(cannonembed);
+    }    
 }),
 bot.login(process.env.token);
