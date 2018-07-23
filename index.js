@@ -1552,7 +1552,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f8/Icon_Protoss_Forge.jpg/revision/latest?cb=20160106231751")
         .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
-        .addField("Defense", "**HP** - 850, **Armor** - 1(+2)")
+        .addField("Defense", "**HP** - 400+400, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Ground Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Protoss ground units.")
@@ -1566,6 +1566,26 @@ bot.on("message", async message =>{
         .addField("Shields Level 3", "**Requires:** Twilight Council, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the shields of all Protoss units and structures. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Forge_(Legacy_of_the_Void)");
     return message.channel.send(forgeembed);
+    }
+    //Begin Cybernetics Core
+    if (cmd ===`${prefix}cyberneticscore`||cmd ===`${prefix}cybercore`||cmd ===`${prefix}cyber`){
+        let cyberembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Cybernetics Core**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Protoss_Cybernetics_Core.jpg/revision/latest?cb=20160106231716")
+        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
+        .addField("Defense", "**HP+Shields** - 550+550, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Warp Gate", "**Minerals** - 50, **Vespene** - 50, **Time** -  114, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
+        .addField("Air Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Protoss air units.")
+        .addField("Air Weapons Level 2", "**Requires:** Fleet Beacon, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Protoss air units. ")
+        .addField("air Weapons Level 3", "**Requires:** Fleet Beacon, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Protoss air units. ")
+        .addField("Air Armor Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Protoss air units units. ")
+        .addField("Air Armor Level 2", "**Requires:** Fleet Beacon, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Protoss air units. ")
+        .addField("Air Armor Level 3", "**Requires:** Fleet Beacon, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Protoss air units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Cybernetics_Core_(Legacy_of_the_Void)");
+    return message.channel.send(cyberembed);
     }
 }),
 bot.login(process.env.token);
