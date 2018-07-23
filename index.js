@@ -1580,7 +1580,7 @@ bot.on("message", async message =>{
         .addField("Warp Gate", "**Minerals** - 50, **Vespene** - 50, **Time** -  114, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
         .addField("Air Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Protoss air units.")
         .addField("Air Weapons Level 2", "**Requires:** Fleet Beacon, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Protoss air units. ")
-        .addField("air Weapons Level 3", "**Requires:** Fleet Beacon, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Protoss air units. ")
+        .addField("Air Weapons Level 3", "**Requires:** Fleet Beacon, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Protoss air units. ")
         .addField("Air Armor Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Protoss air units units. ")
         .addField("Air Armor Level 2", "**Requires:** Fleet Beacon, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Protoss air units. ")
         .addField("Air Armor Level 3", "**Requires:** Fleet Beacon, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Protoss air units. ")
@@ -1599,6 +1599,20 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
         .addField("More Info", "https://liquipedia.net/starcraft2/Photon_Cannon_(Legacy_of_the_Void)");
     return message.channel.send(cannonembed);
-    }    
+    }
+    //Begin Shield Battery
+    if (cmd ===`${prefix}shieldbattery`||cmd ===`${prefix}battery`){
+        let batteryembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Shield Battery**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/ShieldBattery_SC2-LotV_Rend1.jpg/revision/latest?cb=20151205045214")
+        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
+        .addField("Defense", "**HP+Shields** - 200+200, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Shield Restore", "**Energy** - 1 per 3 shields, **Rate** - 50.4 per sec, **Range** - 6, **Effect** - Restores target unit or structure's shields. Restores 3 shields per 1 energy. Autocasting targets units and defensive structures only.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Shield_Battery");
+    return message.channel.send(batteryembed);
+    }        
 }),
 bot.login(process.env.token);
