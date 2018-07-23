@@ -1613,6 +1613,32 @@ bot.on("message", async message =>{
         .addField("Shield Restore", "**Energy** - 1 per 3 shields, **Rate** - 50.4 per sec, **Range** - 6, **Effect** - Restores target unit or structure's shields. Restores 3 shields per 1 energy. Autocasting targets units and defensive structures only.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Shield_Battery");
     return message.channel.send(batteryembed);
-    }        
+    }
+    //Begin Robotics Facility
+     if (cmd ===`${prefix}roboticsfacility`||cmd ===`${prefix}robotics`||cmd ===`${prefix}robo`){
+        let roboembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Robotics Facility**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/8a/Icon_Protoss_Robotics_Facility.jpg/revision/latest?cb=20160106231854")
+        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 200, **Vespene** - 100, **Build Time** - 46")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default;** Observer, Warp Prism, Immortal, **with Robotics Bay:** Colossus, Disruptor")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Facility_(Legacy_of_the_Void)");
+    return message.channel.send(roboembed);
+    }
+    //Begin Stargate
+     if (cmd ===`${prefix}stargate`||cmd ===`${prefix}starg`||cmd ===`${prefix}sg`){
+        let stargateembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Stargate**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/bb/Icon_Protoss_Stargate.jpg/revision/latest?cb=20160106231924")
+        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 150, **Vespene** - 150, **Build Time** - 43")
+        .addField("Defense", "**HP+Shields** - 600+600, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default;** Phoenix, Oracle, Void Ray, **with Fleet Beacon:** Carrier, Tempest")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Stargate_(Legacy_of_the_Void)");
+    return message.channel.send(stargateembed);
+    }                
 }),
 bot.login(process.env.token);
