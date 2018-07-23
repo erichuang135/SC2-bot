@@ -1297,11 +1297,11 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Note", "Infantry units include Marines, Reapers, Marauders, Ghosts, and SCVs (armor upgrades only)")
         .addField("Infantry Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the armor of Terran infantry units. ")
+        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Terran infantry units. ")
+        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Terran infantry units. ")
+        .addField("Infantry Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Terran infantry units. ")
         .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
         .addField("Structure Armor", "**Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2. ")
         .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
@@ -1545,28 +1545,27 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Warp_Gate_(Legacy_of_the_Void)");
     return message.channel.send(gateembed);
     }
-    //Begin Engineering Bay
-    if (cmd ===`${prefix}aehfioaw3cun`){
-        let engieembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Engineering Bay**")
+    //Begin Forge
+    if (cmd ===`${prefix}forge`){
+        let forgeembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Forge**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7e/EngineeringBay_SC2_Icon1.jpg/revision/latest?cb=20160107024456")
-        .addField("Resources", "**Requires:** Command Center, **Minerals** - 125, **Vespene** - 0, **Build Time** - 25")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f8/Icon_Protoss_Forge.jpg/revision/latest?cb=20160106231751")
+        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
         .addField("Defense", "**HP** - 850, **Armor** - 1(+2)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
-        .addField("Note", "Infantry units include Marines, Reapers, Marauders, Ghosts, and SCVs (armor upgrades only)")
-        .addField("Infantry Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the armor of Terran infantry units. ")
-        .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
-        .addField("Structure Armor", "**Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2. ")
-        .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
-    return message.channel.send(engieembed);
+        .addField("Ground Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Protoss ground units.")
+        .addField("Ground Weapons Level 2", "**Requires:** Twilight Council, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Protoss ground units. ")
+        .addField("Ground Weapons Level 3", "**Requires:** Twilight Council, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Protoss ground units. ")
+        .addField("Ground Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the armor of Protoss ground units units. ")
+        .addField("Ground Armor Level 2", "**Requires:** Twilight Council, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Protoss ground units. ")
+        .addField("Ground Armor Level 3", "**Requires:** Twilight Council, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Protoss ground units. ")
+        .addField("Shields Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the shields of all Protoss units and structures. ")
+        .addField("Shields Level 2", "**Requires:** Twilight Council, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the shields of all Protoss units and structures. ")
+        .addField("Shields Level 3", "**Requires:** Twilight Council, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the shields of all Protoss units and structures. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Forge_(Legacy_of_the_Void)");
+    return message.channel.send(forgeembed);
     }
 }),
 bot.login(process.env.token);
