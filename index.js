@@ -1190,7 +1190,7 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
     return message.channel.send(viperembed);
     }
-//Begin Terran Buildings
+//Begin Terran Structures
     //Begin Command Center
     if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
         let commandembed = new Discord.RichEmbed()
@@ -1473,6 +1473,100 @@ bot.on("message", async message =>{
         .addField("Yamato Cannon", "**Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 300 damage.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Fusion_Core_(Legacy_of_the_Void)");
     return message.channel.send(fusionembed);
+    }
+//Begin Protoss Structures
+    //Begin Nexus
+    if (cmd ===`${prefix}nexus`||cmd ===`${prefix}nexi`||cmd ===`${prefix}nexii`){
+        let nexusembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Nexus**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f9/Icon_Protoss_Nexus.jpg/revision/latest?cb=20160106231816")
+        .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
+        .addField("Defense", "**HP+Shields** - 1000+1000, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default:** Probe, **with Fleet Beacon:** Mothership")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Chrono Boost", "**Energy** - 50, **Duration** - 20, **Effect** - Places target structure in a Chrono Boost, causing it to operate 50% faster for 20 seconds.")
+        .addField("Mass Recall", "**Energy** - 50, **Cooldown** - 130, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nexus_(Legacy_of_the_Void)");
+    return message.channel.send(nexusembed);
+    }
+    //Begin Pylon
+    if (cmd ===`${prefix}pylon`||cmd ===`${prefix}pylo`){
+        let pylonembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Pylon**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c0/Icon_Protoss_Pylon.jpg/revision/latest?cb=20160106231837")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
+        .addField("Defense", "**HP+Shields** - 200+200, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Pylon_(Legacy_of_the_Void)");
+    return message.channel.send(pylonembed);
+    }
+    //Begin Assimilator
+    if (cmd ===`${prefix}assimilator`||cmd ===`${prefix}assim`){
+        let assimembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Assimilator**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/74/Icon_Protoss_Assimilator.jpg/revision/latest?cb=20160106231703")
+        .addField("Resources", "**Minerals** - 75, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
+        .addField("Defense", "**HP+Shields** - 450+450, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Assimilator_(Legacy_of_the_Void)");
+    return message.channel.send(assimembed);
+    }
+    //Begin Gateway
+     if (cmd ===`${prefix}gateway`){
+        let gateembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Gateway**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/23/Icon_Protoss_Gateway.jpg/revision/latest?cb=20160106231803")
+        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default;** Zealot, **with Cybernetics Core:** Stalker, Sentry, Adept, **with Templar Archives:** High Templar, **with Dark Shrine:** Dark Templar")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Transform to Warpgate", "**Minerals** - 50, **Vespene** - 50, **Time** -  114, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Gateway_(Legacy_of_the_Void)");
+    return message.channel.send(gateembed);
+    }
+    //Begin Warp Gate
+     if (cmd ===`${prefix}warpgate`||cmd ===`${prefix}gate`){
+        let gateembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Warp Gate**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Protoss_Warp_Gate.jpg/revision/latest?cb=20160106232001")
+        .addField("Resources", "**Requires:** Gateway, Warp Gate researched at Cybernetics Core, **Build Time** - 7")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default;** Zealot, **with Cybernetics Core:** Stalker, Sentry, Adept, **with Templar Archives:** High Templar, **with Dark Shrine:** Dark Templar")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Transform to Gateway", "**Duration** - 7, **Effect** - The Warpgate transforms back into a Gateway.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Warp_Gate_(Legacy_of_the_Void)");
+    return message.channel.send(gateembed);
+    }
+    //Begin Engineering Bay
+    if (cmd ===`${prefix}aehfioaw3cun`){
+        let engieembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Engineering Bay**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7e/EngineeringBay_SC2_Icon1.jpg/revision/latest?cb=20160107024456")
+        .addField("Resources", "**Requires:** Command Center, **Minerals** - 125, **Vespene** - 0, **Build Time** - 25")
+        .addField("Defense", "**HP** - 850, **Armor** - 1(+2)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Note", "Infantry units include Marines, Reapers, Marauders, Ghosts, and SCVs (armor upgrades only)")
+        .addField("Infantry Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran infantry units. ")
+        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran infantry units. ")
+        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran infantry units. ")
+        .addField("Infantry Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the armor of Terran infantry units. ")
+        .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
+        .addField("Structure Armor", "**Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2. ")
+        .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
+    return message.channel.send(engieembed);
     }
 }),
 bot.login(process.env.token);
