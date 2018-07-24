@@ -104,7 +104,7 @@ bot.on("message", async message =>{
         else if (joke === 32)
             {return message.channel.send("Hellion anti-armor damage");}
         else if (joke === 33)
-            {return message.channel.send("What did the ifested football player say to the others? *For the overtime!* - *by @InfestedTerranDead*");}                                                                                                                                                                                                               
+            {return message.channel.send("What did the infested football player say to the others? *For the overtime!* - by @InfestedTerranDead");}                                                                                                                                                                                                               
         }
 //begin Terran Units
     //begin SCV
