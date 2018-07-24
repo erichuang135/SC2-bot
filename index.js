@@ -1629,6 +1629,22 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Facility_(Legacy_of_the_Void)");
     return message.channel.send(roboembed);
     }
+    //Begin Robotics Bay
+    if (cmd ===`${prefix}roboticsbay`||cmd ===`${prefix}robobay`||cmd ===`${prefix}rbay`){
+        let robobayembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Robotics Bay**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Protoss_Robotics_Bay.jpg/revision/latest?cb=20160106231910")
+        .addField("Resources", "**Requires:** Robotics Facility, **Minerals** - 100, **Vespene** - 200, **Build Time** - 46")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Gravitic Boosters", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed of the Observer. Their speed and acceleration is increased by 50%. ")
+        .addField("Gravitic Drive", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed and acceleration of the Warp Prism.")
+        .addField("Extended Thermal Lance", "**Minerals** - 150, **Vespene** - 150, **Time** - 100, **Effect** - Increases the range of the Colossus weapon by 2. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Bay_(Legacy_of_the_Void)");
+    return message.channel.send(robobayembed);
+    }    
     //Begin Stargate
      if (cmd ===`${prefix}stargate`||cmd ===`${prefix}starg`||cmd ===`${prefix}sg`){
         let stargateembed = new Discord.RichEmbed()
@@ -1641,6 +1657,21 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("More Info", "https://liquipedia.net/starcraft2/Stargate_(Legacy_of_the_Void)");
     return message.channel.send(stargateembed);
+    }
+    //Begin Fleet Beacon
+    if (cmd ===`${prefix}fleetbeacon`||cmd ===`${prefix}beacon`){
+        let beaconembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Fleet Beacon**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3e/Icon_Protoss_Fleet_Beacon.jpg/revision/latest?cb=20160106231740")
+        .addField("Resources", "**Requires:** Stargate, **Minerals** - 300, **Vespene** - 200, **Build Time** - 43")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Anion Pulse-Crystals", "**Minerals** - 150, **Vespene** - 150, **Time** - 64, **Effect** - Increases the range of the Phoenix weapon by 2.")
+        .addField("Graviton Catapult","**Minerals** - 150, **Vespene** - 150, **Time** - 80, **Effect** - The launch speed of the Interceptors is now increased. The first four interceptors are launched at a cooldown of .125, the last four at .25. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Fleet_Beacon_(Legacy_of_the_Void)");
+    return message.channel.send(beaconembed);
     }
     //Begin Twilight Council
     if (cmd ===`${prefix}twilightcouncil`||cmd ===`${prefix}twilight`||cmd ===`${prefix}council`){
@@ -1674,7 +1705,7 @@ bot.on("message", async message =>{
     }    
     //Begin Dark Shrine
     if (cmd ===`${prefix}darkshrine`||cmd ===`${prefix}dankshrine`||cmd ===`${prefix}shrine`){
-        let shrinesembed = new Discord.RichEmbed()
+        let shrineembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Dark Shrine**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a9/Icon_Protoss_Dark_Shrine.jpg/revision/latest?cb=20160106231728")
@@ -1684,7 +1715,7 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 21, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)");
-    return message.channel.send(archivesembed);
+    return message.channel.send(shrineembed);
     }                       
 }),
 bot.login(process.env.token);
