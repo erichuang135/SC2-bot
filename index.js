@@ -38,7 +38,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 32) + 1);
+        var joke = Math.floor((Math.random() * 33) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -102,7 +102,9 @@ bot.on("message", async message =>{
         else if (joke === 31)
             {return message.channel.send("So I met Avilo one day and was like *Yo, Avilo what's up?* He replied, *Terran Mech*");}
         else if (joke === 32)
-            {return message.channel.send("Hellion anti-armor damage");}                                                                                                                                                                                                         
+            {return message.channel.send("Hellion anti-armor damage");}
+        else if (joke === 33)
+            {return message.channel.send("What did the ifested football player say to the others? *For the overtime!* - *by @InfestedTerranDead*");}                                                                                                                                                                                                               
         }
 //begin Terran Units
     //begin SCV
