@@ -1641,6 +1641,50 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("More Info", "https://liquipedia.net/starcraft2/Stargate_(Legacy_of_the_Void)");
     return message.channel.send(stargateembed);
-    }                
+    }
+    //Begin Twilight Council
+    if (cmd ===`${prefix}twilightcouncil`||cmd ===`${prefix}twilight`||cmd ===`${prefix}council`){
+        let twilightembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Twilight Council**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Protoss_Twilight_Council.jpg/revision/latest?cb=20160106231949")
+        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 150, **Vespene** - 100, **Build Time** - 36")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Charge", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 7, **Range** - 4, **Effect** - Temporarily increases the movement speed to 8.47, allowing Zealots to intercept nearby enemies, dealing 8 damage to the charged target.")
+        .addField("Blink", "**Minerals** - 150, **Vespene** - 150, **Time** - 121, **Cooldown** - 7, **Range** - 8, **Effect** - Teleports the Stalker to a nearby target location that is not obscured by Fog of War.")
+        .addField("Resonating Glaives", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the attack speed of the Adept by 45%. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Twilight_Council_(Legacy_of_the_Void)");
+    return message.channel.send(twilightembed);
+    }
+    //Begin Templar Archives
+    if (cmd ===`${prefix}templararchives`||cmd ===`${prefix}archives`){
+        let archivesembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Twilight Council**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1c/Icon_Protoss_Templar_Archives.jpg/revision/latest?cb=20160106231937")
+        .addField("Resources", "**Requires:** Twilight Council, **Minerals** - 150, **Vespene** - 200, **Build Time** - 36")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Psionic Storm","**Minerals** - 200, **Vespene** - 200, **Time** - 79, **Energy** - 75, **Cooldown** - 1.43 **Range** - 9, **Radius** - 1.5, **Duration** - 2.85, **Effect** - Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Templar_Archives_(Legacy_of_the_Void)");
+    return message.channel.send(archivesembed);
+    }    
+    //Begin Dark Shrine
+    if (cmd ===`${prefix}darkshrine`||cmd ===`${prefix}dankshrine`||cmd ===`${prefix}shrine`){
+        let shrinesembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Dark Shrine**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a9/Icon_Protoss_Dark_Shrine.jpg/revision/latest?cb=20160106231728")
+        .addField("Resources", "**Requires:** Twilight Council, **Minerals** - 150, **Vespene** - 150, **Build Time** - 71")
+        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 21, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)");
+    return message.channel.send(archivesembed);
+    }                       
 }),
 bot.login(process.env.token);
