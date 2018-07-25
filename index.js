@@ -32,7 +32,7 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. (ZERG BUILDINGS WIP) Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
+        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. (ZERG BUILDINGS WIP) Use no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, and suggestions.")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
         .addField("Sellout","Please, take some time to upvote this bot over here: https://discordbots.org/bot/464839423003983902, to help this bot gain more visibility. Thanks!")
