@@ -1748,6 +1748,24 @@ bot.on("message", async message =>{
         .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 21, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)");
     return message.channel.send(shrineembed);
-    }                       
+    }           
+//Begin Zerg Structures
+    //Begin Hatchery
+    if (cmd ===`${prefix}hatchery`||cmd ===`${prefix}hatch`){
+        let hatchembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Hatchery**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Zerg_Hatchery.jpg/revision/latest?cb=20160106235939")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 0, **Provides Supply** - 6, **Build Time** - 71")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1(+1 per upgrade)")
+        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
+        .addField("Unlocked Tech", "Drone, Overlord, Spawning Pool, Evolution Chamber")
+        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)"); 
+    return message.channel.send(hatchembed);
+    }               
 }),
 bot.login(process.env.token);
