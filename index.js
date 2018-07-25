@@ -31,7 +31,7 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
+        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. (ZERG BUILDINGS WIP) Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, and suggestions.")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
         .addField("Sellout","Please, take some time to upvote this bot over here: https://discordbots.org/bot/464839423003983902, to help this bot gain more visibility. Thanks!")
@@ -1601,7 +1601,7 @@ bot.on("message", async message =>{
     //Begin Photon Cannon
     if (cmd ===`${prefix}photoncannon`||cmd ===`${prefix}cannon`){
         let cannonembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Photon Cannon**")
+        .setDescription ("**Protoss Photon Cannon**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a3/Icon_Protoss_Photon_Cannon.jpg/revision/latest?cb=20160106231827")
         .addField("Resources", "**Requires:** Forge, **Minerals** - 150, **Vespene** - 0, **Build Time** - 29")
@@ -1614,7 +1614,7 @@ bot.on("message", async message =>{
     //Begin Shield Battery
     if (cmd ===`${prefix}shieldbattery`||cmd ===`${prefix}battery`){
         let batteryembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Shield Battery**")
+        .setDescription ("**Protoss Shield Battery**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/ShieldBattery_SC2-LotV_Rend1.jpg/revision/latest?cb=20151205045214")
         .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
