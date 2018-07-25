@@ -1773,7 +1773,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Spawning Pool**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f7/Icon_Zerg_Spawning_Pool.jpg/revision/latest?cb=20160106235709")
-        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, *Build Time** - 46")
+        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Build Time** - 46")
         .addField("Defense", "**HP** - 1500, **Armor** - 1")
         .addField("Unlocked Tech", "Spine Crawler, Spore Crawler, Roach Warren, Baneling Nest, Lair, Zergling, Queen")
         .addField("Attributes", "**Biological, Armored, Structure**")
