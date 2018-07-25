@@ -805,7 +805,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Hatchery/Lair/Hive")
         .addField("Resources", "**Minerals** - 0, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
         .addField("Defense", "**HP** - 25, **Armor** - 10 **Movespeed** - 0.79")
-        .addField("Production","**Can produce:** Drone, Overlord, Zergling x2, Roach, Hydralisk, Infestor, Swarm Host, Mutalisk, Corruptor, Viper, Ultralisk")
+        .addField("Production","**By default:** Drone, Overlord, **With Spawning Pool:** Zergling x2, **With Roach Warren:** Roach, **With Hydralisk Den:** Hydralisk, **With Infestation Pit:** Infestor, Swarm Host, **With Spire:** Mutalisk, Corruptor, **With Hive:** Viper, **With Ultralisk Cavern:** Ultralisk")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 5")
         .addField("More Info", "https://liquipedia.net/starcraft2/Larva_(Legacy_of_the_Void)");
@@ -1757,15 +1757,31 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Zerg_Hatchery.jpg/revision/latest?cb=20160106235939")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 0, **Provides Supply** - 6, **Build Time** - 71")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1(+1 per upgrade)")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1")
         .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
         .addField("Unlocked Tech", "Drone, Overlord, Spawning Pool, Evolution Chamber")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
+        .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)"); 
     return message.channel.send(hatchembed);
-    }               
+    }
+    //Begin Spawning Pool
+    if (cmd ===`${prefix}spawningpool`||cmd ===`${prefix}pool`){
+        let poolembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Spawning Pool**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f7/Icon_Zerg_Spawning_Pool.jpg/revision/latest?cb=20160106235709")
+        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, *Build Time** - 46")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1")
+        .addField("Unlocked Tech", "Spine Crawler, Spore Crawler, Roach Warren, Baneling Nest, Lair, Zergling, Queen")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Metabolic Boost", "**Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58(+2.45)")
+        .addField("Adrenal Glands", "**Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spawning_Pool_(Legacy_of_the_Void)"); 
+    return message.channel.send(poolembed);
+    }                             
 }),
 bot.login(process.env.token);
