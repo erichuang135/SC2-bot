@@ -31,14 +31,14 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit. For example, sc2-marine will give you that statistics for the marine. Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
+        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. Use only lowercase letters, no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, and suggestions.")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
     return message.channel.send(botembed);
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 33) + 1);
+        var joke = Math.floor((Math.random() * 35) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -104,8 +104,12 @@ bot.on("message", async message =>{
         else if (joke === 32)
             {return message.channel.send("Hellion anti-armor damage");}
         else if (joke === 33)
-            {return message.channel.send("What did the infested football player say to the others? *For the overtime!* - by @InfestedTerranDead");}                                                                                                                                                                                                               
-        }
+            {return message.channel.send("What did the infested football player say to the others? *For the overtime!* - by @InfestedTerranDead");}
+        else if (joke === 34)
+            {return message.channel.send("Protoss is only underpowered when you kill the pylons - by @Rzion");}
+        else if (joke === 35)
+            {return message.channel.send("What do you say to the depressed protoss player at the bar? *Just 4 gate about it.* - by @Rzion");}                                                                                                                                                                                                                     
+        }                                                                                                                                                                                                               
 //begin Terran Units
     //begin SCV
     if (cmd ===`${prefix}scv`){
