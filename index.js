@@ -40,7 +40,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 36) + 1);
+        var joke = Math.floor((Math.random() * 37) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
