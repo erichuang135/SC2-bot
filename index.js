@@ -1767,6 +1767,18 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)"); 
     return message.channel.send(hatchembed);
     }
+    //Begin Extractor
+    if (cmd ===`${prefix}extractor`||cmd ===`${prefix}extract`){
+        let extractembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Extractor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1b/Icon_Zerg_Extractor.jpg/revision/latest?cb=20160106235953")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
+        .addField("Defense", "**HP** - 500, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Extractor_(Legacy_of_the_Void)");
+    return message.channel.send(extractembed);
+    }
     //Begin Spawning Pool
     if (cmd ===`${prefix}spawningpool`||cmd ===`${prefix}pool`){
         let poolembed = new Discord.RichEmbed()
@@ -1782,6 +1794,58 @@ bot.on("message", async message =>{
         .addField("Adrenal Glands", "**Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
         .addField("More Info", "https://liquipedia.net/starcraft2/Spawning_Pool_(Legacy_of_the_Void)"); 
     return message.channel.send(poolembed);
+    }
+    //Begin Evolution Chamber
+    if (cmd ===`${prefix}evolutionchamber`||cmd ===`${prefix}evochamber`||cmd ===`${prefix}chamber`||cmd ===`${prefix}evo`){
+        let evoembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Evolution Chamber**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/43/Icon_Zerg_Evolution_Chamber.jpg/revision/latest?cb=20160107000003")
+        .addField("Resources", "**Requires:** Hatchery, **Minerals** - 75, **Vespene** - 0, **Build Time** - 25")
+        .addField("Defense", "**HP** - 750, **Armor** - 1(+1 per upgrade)")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Melee Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg ground and melee units.")
+        .addField("Melee Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg ground and melee units. ")
+        .addField("Melee Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg ground and melee units. ")
+        .addField("Missile Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg ground and ranged units.")
+        .addField("Missile Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg ground and ranged units. ")
+        .addField("Missile Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg ground and ranged units. ")
+        .addField("Ground Carapace Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the armor of Zerg ground units units. ")
+        .addField("Ground Carapace Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Zerg ground units. ")
+        .addField("Ground Carapace Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Zerg ground units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Evolution_Chamber_(Legacy_of_the_Void)");
+    return message.channel.send(evoembed);
     }                             
+    //Begin Spine Crawler
+    if (cmd ===`${prefix}spinecrawler`||cmd ===`${prefix}spine`){
+        let spineembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Spine Crawler**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Zerg_Spine_Crawler.jpg/revision/latest?cb=20160106235654")
+        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 100, **Vespene** - 0, **Build Time** - 36")
+        .addField("Defense", "**HP** - 300, **Armor** - 2(+1 per upgrade), **Movespeed** - 1, on creep 2.5")
+        .addField("Offense", "**Damage** - 25, vs armored 30, **Hitspeed** - 1.32, **Range** - 7, **DPS** - 18.9, vs armored 21.7, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Uproot/Root", "Uprooting allows the Spine Crawler to burrow in a new location. Rooting allows the Spine Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spine_Crawler_(Legacy_of_the_Void)");
+    return message.channel.send(spineembed);
+    }
+    //Begin Spore Crawler
+    if (cmd ===`${prefix}sporecrawler`||cmd ===`${prefix}spore`){
+        let sporeembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Spore Crawler**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Zerg_Spore_Crawler.jpg/revision/latest?cb=20160106235617")
+        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 75, **Vespene** - 0, **Build Time** - 21")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+1 per upgrade), **Movespeed** - 1, on creep 2.5")
+        .addField("Offense", "**Damage** - 15, vs bio 30, **Hitspeed** - 0.61, **Range** - 7, **DPS** - 24.4, vs bio 48.8, **Targets** - Air")
+        .addField("Attributes", "**Biological, Armored, Detector, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Uproot/Root", "Uprooting allows the Spore Crawler to burrow in a new location. Rooting allows the Spore Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spore_Crawler_(Legacy_of_the_Void)");
+    return message.channel.send(sporeembed);
+    }
 }),
 bot.login(process.env.token);
