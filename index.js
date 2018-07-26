@@ -9,7 +9,7 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.on("ready", async => {
     console.log(`{$bot.user.username} has warped in!`)
     //SC2 bot playing...
-    bot.user.setActivity("try sc2-help");
+    bot.user.setActivity("Starcraft V");
 });
 
 bot.on("message", async message =>{
