@@ -1556,7 +1556,7 @@ bot.on("message", async message =>{
     return message.channel.send(gateembed);
     }
     //Begin Warp Gate
-     if (cmd ===`${prefix}warpgate`||cmd ===`${prefix}gate`){
+     if (cmd ===`${prefix}warpgate`){
         let gateembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Warp Gate**")
         .setColor("#7FC5EB")
@@ -2047,5 +2047,18 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)"); 
     return message.channel.send(ultracavernembed);
     }
+//Begin disambiguations
+    //begin "core"
+    if (cmd === `${prefix}core`){
+        return message.channel.send("Did you mean *sc2-cybercore* or *sc2-fusioncore*?");
+        }
+    //begin "nydus"
+    if (cmd === `${prefix}nydus`){
+        return message.channel.send("Did you mean *sc2-nydusnet* or *sc2-nydusworm*?");
+        }
+    //begin "gate"
+    if (cmd === `${prefix}gate`){
+        return message.channel.send("Did you mean *sc2-gateway*, *sc2-warpgate*, or *sc2-stargate*?");
+        }
 }),
 bot.login(process.env.token);
