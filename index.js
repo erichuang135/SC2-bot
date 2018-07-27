@@ -1785,7 +1785,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Spawning Pool**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f7/Icon_Zerg_Spawning_Pool.jpg/revision/latest?cb=20160106235709")
-        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Build Time** - 46")
+        .addField("Resources", "**Requires:**Hatchery, **Minerals** - 200, **Vespene** - 0, **Build Time** - 46")
         .addField("Defense", "**HP** - 1500, **Armor** - 1")
         .addField("Unlocked Tech", "Spine Crawler, Spore Crawler, Roach Warren, Baneling Nest, Lair, Zergling, Queen")
         .addField("Attributes", "**Biological, Armored, Structure**")
@@ -1846,6 +1846,54 @@ bot.on("message", async message =>{
         .addField("Uproot/Root", "Uprooting allows the Spore Crawler to burrow in a new location. Rooting allows the Spore Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Spore_Crawler_(Legacy_of_the_Void)");
     return message.channel.send(sporeembed);
+    }
+    //Begin Roach Warren
+    if (cmd ===`${prefix}roachwarren`||cmd ===`${prefix}warren`){
+        let warrenembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Roach Warren**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/dc/Icon_Zerg_Roach_Warren.jpg/revision/latest?cb=20160106235726")
+        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 150, **Vespene** - 0, **Build Time** - 39")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Roach, Ravager")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Glial Reconstitution", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
+        .addField("Tunneling Claws", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8 and increases the health regeneration rate of Roaches to 14 HP/sec below ground.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)"); 
+    return message.channel.send(warrenembed);
+    }
+    //Begin Baneling Nest
+    if (cmd ===`${prefix}banelingnest`||cmd ===`${prefix}banenest`){
+        let banenestembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Baneling Nest**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/99/Icon_Zerg_Baneling_Nest.jpg/revision/latest?cb=20160107000025")
+        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 100, **Vespene** - 50, **Build Time** - 43")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Baneling")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Centrifugal Hooks", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)"); 
+    return message.channel.send(banenestembed);
+    }
+    //Begin Lair
+    if (cmd ===`${prefix}lair`){
+        let lairembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Lair**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ad/Icon_Zerg_Lair.jpg/revision/latest?cb=20160106235925")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 0, **Provides Supply** - 6, **Build Time** - 71")
+        .addField("Defense", "**HP** - 1500, **Armor** - 1")
+        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
+        .addField("Unlocked Tech", "Overseer, Hydralisk Den, Nydus Network, Infestation Pit, Spire, Generate Creep, Mutate Ventral Sacs, Melee and Missile Attacks Level 2, Ground Carapace Level 2, Glial Reconstitution, Tunneling Claws, Centrifugal Hooks")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lair_(Legacy_of_the_Void)"); 
+    return message.channel.send(lairembed);
     }
 }),
 bot.login(process.env.token);
