@@ -1092,7 +1092,7 @@ bot.on("message", async message =>{
     return message.channel.send(locustembed);
     }
     //begin Infestor
-    if (cmd ===`${prefix}infestor`||cmd ===`${prefix}derpfestor`){
+    if (cmd ===`${prefix}infestor`||cmd ===`${prefix}derpfestor`||cmd ===`${prefix}infest`){
         let infestorembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Infestor**")
         .setColor("#7FC5EB")
@@ -1105,8 +1105,7 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Pathogen Glands", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
         .addField("Neural Parasite", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
-        .addField("Fungal Growth", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
-        .addField("Contaminate", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units.") 
+        .addField("Fungal Growth", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units.") 
         .addField("Infested Terran", "**Energy** - 25, **Range** - 7, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("Burrow Move","**Effect** - Can move while burrowed")
@@ -1351,6 +1350,7 @@ bot.on("message", async message =>{
         .addField("Defense", "**HP** - 250, **Armor** - 0(+2)")
         .addField("Offense", "**Damage** - 12x2, **Hitspeed** - 0.61, **Range** - 7+1, **DPS** - 39.3, **Targets** - Air")
         .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
+        .addField("Misc.", "**Detection Range** - 11,")
         .addField("Upgrades and Abilities","-")
         .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Missile_Turret_(Legacy_of_the_Void)");
@@ -1624,6 +1624,7 @@ bot.on("message", async message =>{
         .addField("Defense", "**HP+Shields** - 150+150, **Armor** - 1(+1 per upgrade)")
         .addField("Offense", "**Damage** - 20, **Hitspeed** - 0.89, **Range** - 7, **DPS** - 22.4, **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
+        .addField("Misc.", "**Detection Range** - 11,")
         .addField("More Info", "https://liquipedia.net/starcraft2/Photon_Cannon_(Legacy_of_the_Void)");
     return message.channel.send(cannonembed);
     }
@@ -1842,6 +1843,7 @@ bot.on("message", async message =>{
         .addField("Defense", "**HP** - 400, **Armor** - 1, **Movespeed** - 1, on creep 2.5")
         .addField("Offense", "**Damage** - 15, vs bio 30, **Hitspeed** - 0.61, **Range** - 7, **DPS** - 24.4, vs bio 48.8, **Targets** - Air")
         .addField("Attributes", "**Biological, Armored, Detector, Structure**")
+        .addField("Misc.", "**Detection Range** - 11,")
         .addField("Upgrades and Abilities","-")
         .addField("Uproot/Root", "Uprooting allows the Spore Crawler to burrow in a new location. Rooting allows the Spore Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Spore_Crawler_(Legacy_of_the_Void)");
@@ -1894,6 +1896,104 @@ bot.on("message", async message =>{
         .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("More Info", "https://liquipedia.net/starcraft2/Lair_(Legacy_of_the_Void)"); 
     return message.channel.send(lairembed);
+    }
+    //Begin Hydralisk Den
+    if (cmd ===`${prefix}hydraliskden`||cmd ===`${prefix}hydraden`){
+        let hydradenembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Hydralisk Den**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0b/Icon_Zerg_Hydralisk_Den.jpg/revision/latest?cb=20160106235827")
+        .addField("Resources", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Build Time** - 29")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Hydralisk, Lurker Den")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Muscular Augments", "**Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Hydralisks move 25% faster speed both on and off of Creep. ")
+        .addField("Grooved Spines", "**Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Increases the attack range of Hydralisks by +1.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_Den_(Legacy_of_the_Void)"); 
+    return message.channel.send(hydradenembed);
+    }
+    //Begin Lurker Den
+    if (cmd ===`${prefix}lurkerden`){
+        let lurkerdenembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Lurker Den**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/LurkerDen_SC2_Icon1.png/revision/latest?cb=20160411135201")
+        .addField("Resources", "**Requires:** Lair, Hydralisk Den, **Minerals** - 100, **Vespene** - 150, **Build Time** - 86")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Lurker")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Adaptive Talons", "**Requires:** Hive, **Minerals** - 150, **Vespene** - 150, **Time** - 54, **Effect** - Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker_Den_(Legacy_of_the_Void)"); 
+    return message.channel.send(lurkerdenembed);
+    }
+    //Begin Spire
+    if (cmd ===`${prefix}spire`){
+        let spireembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Spire**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Zerg_Spire.jpg/revision/latest?cb=20160106235643")
+        .addField("Resources", "**Requires:** Lair, **Minerals** - 200, **Vespene** - 200, **Build Time** - 71")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Mutalisk, Corruptor")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Flyer Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg air units.")
+        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg air units. ")
+        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg air units. ")
+        .addField("Flyer Carapace Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Zerg air units units. ")
+        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Zerg air units. ")
+        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Zerg air units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spire_(Legacy_of_the_Void)");
+    return message.channel.send(spireembed);
+    }
+    //Begin Infestation Pit
+    if (cmd ===`${prefix}infestationpit`||cmd ===`${prefix}infestpit`){
+        let infestpitembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Infestation Pit**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/20/Icon_Zerg_Infestation_Pit.jpg/revision/latest?cb=20160106235813")
+        .addField("Resources", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Build Time** - 36")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Swarm Host, Infestor, Lair")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Pathogen Glands", "**Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
+        .addField("Neural Parasite", "**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Infestation_Pit_(Legacy_of_the_Void)"); 
+    return message.channel.send(infestpitembed);
+    }
+    //Begin Nydus Network
+    if (cmd ===`${prefix}nydusnetwork`||cmd ===`${prefix}nydusnet`){
+        let nydusnetembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Nydus Network**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/77/Icon_Zerg_Nydus_Network.jpg/revision/latest?cb=20160106235751")
+        .addField("Resources", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 200, **Build Time** - 36")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Production", "**By default:** Nydus Worm")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Misc.", "**Cargo Capacity** - 256 units")
+        .addField("Upgrades and Abilities","-")
+        .addField("Load Network","**Effect** - The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Network_(Legacy_of_the_Void)"); 
+    return message.channel.send(nydusnetembed);
+    }
+    //Begin Nydus Worm
+    if (cmd ===`${prefix}nydusworm`){
+        let nyduswormembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Nydus Worm**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/cd/Icon_Zerg_Nydus_Worm.jpg/revision/latest?cb=20160106235740")
+        .addField("Resources", "**Built from:** Nydus Network, **Minerals** - 100, **Vespene** - 100, **Build Time** - 14")
+        .addField("Defense", "**HP** - 200, **Armor** - 1")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Misc.", "**Cargo Capacity** - 256 units")
+        .addField("Upgrades and Abilities","-")
+        .addField("Load Network","**Effect** - The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Worm_(Legacy_of_the_Void)"); 
+    return message.channel.send(nyduswormembed);
     }
 }),
 bot.login(process.env.token);
