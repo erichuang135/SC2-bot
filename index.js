@@ -1886,8 +1886,8 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Lair**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ad/Icon_Zerg_Lair.jpg/revision/latest?cb=20160106235925")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 0, **Provides Supply** - 6, **Build Time** - 71")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1")
+        .addField("Resources", "**Morphed from:** Hatchery, **Minerals** - 150, **Vespene** - 100, **Provides Supply** - 6, **Build Time** - 57")
+        .addField("Defense", "**HP** - 2000, **Armor** - 1")
         .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
         .addField("Unlocked Tech", "Overseer, Hydralisk Den, Nydus Network, Infestation Pit, Spire, Generate Creep, Mutate Ventral Sacs, Melee and Missile Attacks Level 2, Ground Carapace Level 2, Glial Reconstitution, Tunneling Claws, Centrifugal Hooks")
         .addField("Attributes", "**Biological, Armored, Structure**")
@@ -1994,6 +1994,58 @@ bot.on("message", async message =>{
         .addField("Load Network","**Effect** - The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Worm_(Legacy_of_the_Void)"); 
     return message.channel.send(nyduswormembed);
+    }
+    //Begin Hive
+    if (cmd ===`${prefix}hive`){
+        let hiveembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Hive**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/36/Icon_Zerg_Hive.jpg/revision/latest?cb=20160106235851")
+        .addField("Resources", "**Morphed from:** Lair, **Minerals** - 200, **Vespene** - 150, **Provides Supply** - 6, **Build Time** - 71")
+        .addField("Defense", "**HP** - 2500, **Armor** - 1")
+        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
+        .addField("Unlocked Tech", "Viper, Greater Spire, Ultralisk Cavern, Melee and Missile Attacks Level 3, Ground Carapace Level 3, Flyer Attacks and Carapace Level 3, Adrenal Glands, Adaptive Talons")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hive_(Legacy_of_the_Void)"); 
+    return message.channel.send(hiveembed);
+    }
+    //Begin Greater Spire
+    if (cmd ===`${prefix}greaterspire`||cmd ===`${prefix}greatspire`){
+        let greaterspireembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Greater Spire**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Icon_Zerg_Greater_Spire.jpg/revision/latest?cb=20160106235632")
+        .addField("Resources", "**Morphed from:** Spire, **Requires:** Hive, **Minerals** - 100, **Vespene** - 150, **Build Time** - 71")
+        .addField("Defense", "**HP** - 1000, **Armor** - 1")
+        .addField("Unlocked Tech", "Brood Lord")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Flyer Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg air units.")
+        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg air units. ")
+        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg air units. ")
+        .addField("Flyer Carapace Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Zerg air units units. ")
+        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Zerg air units. ")
+        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Zerg air units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Greater_Spire_(Legacy_of_the_Void)");
+    return message.channel.send(greaterspireembed);
+    }
+    //Begin Ultralisk Cavern
+    if (cmd ===`${prefix}ultraliskcavern`||cmd ===`${prefix}ultracavern`){
+        let ultracavernembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Ultralisk Cavern**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/09/Icon_Zerg_Ultralisk_Cavern.jpg/revision/latest?cb=20160106235305")
+        .addField("Resources", "**Requires:** Hive, **Minerals** - 150, **Vespene** - 200, **Build Time** - 46")
+        .addField("Defense", "**HP** - 850, **Armor** - 1")
+        .addField("Unlocked Tech", "Ultralisk")
+        .addField("Attributes", "**Biological, Armored, Structure**")
+        .addField("Upgrades and Abilities","-")
+        .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)"); 
+    return message.channel.send(ultracavernembed);
     }
 }),
 bot.login(process.env.token);
