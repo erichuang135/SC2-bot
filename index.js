@@ -40,7 +40,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 37) + 1);
+        var joke = Math.floor((Math.random() * 38) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -114,7 +114,9 @@ bot.on("message", async message =>{
         else if (joke === 36)
             {return message.channel.send("How did zealots become leaders after attending a Twilight Council meeting? *They learned how to take Charge* - suggested by @Rzion");} 
         else if (joke === 37)
-            {return message.channel.send("A colossus walks over a bar - suggested by @Rzion");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+            {return message.channel.send("A colossus walks over a bar - suggested by @Rzion");}
+        else if (joke === 38)
+            {return message.channel.send("Why did the stalker miss the medivac? *Because he blinked too late* - suggested by @Starman");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         }                                                                                                                                                                                                               
 //begin Terran Units
     //begin SCV
