@@ -2060,7 +2060,11 @@ bot.on("message", async message =>{
         }
     //begin "gate"
     if (cmd === `${prefix}gate`){
-        return message.channel.send("Did you mean *sc2-gateway*, *sc2-warpgate*, or *sc2-stargate*?");
+        return message.channel.send("Did you mean *sc2-gateway* or *sc2-warpgate*?");
+        }
+    //begin "bay"
+    if (cmd === `${prefix}bay`){
+        return message.channel.send("Did you mean *sc2-ebay* or *sc2-robobay*?");
         }
 }),
 bot.login(process.env.token);
