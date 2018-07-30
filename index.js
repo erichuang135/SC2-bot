@@ -40,7 +40,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${prefix}joke`){
-        var joke = Math.floor((Math.random() * 38) + 1);
+        var joke = Math.floor((Math.random() * 39) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -116,7 +116,9 @@ bot.on("message", async message =>{
         else if (joke === 37)
             {return message.channel.send("A colossus walks over a bar - suggested by @Rzion");}
         else if (joke === 38)
-            {return message.channel.send("Why did the stalker miss the medivac? *Because he blinked too late* - suggested by @Starman");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            {return message.channel.send("Why did the stalker miss the medivac? *Because he blinked too late* - suggested by @Starman");} 
+        else if (joke === 39)
+            {return message.channel.send("Starcraft 2 jokes are the worst. Seriously, you should try to aim a little Aiur - suggested by @Duttles");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         }                                                                                                                                                                                                               
 //begin Terran Units
     //begin SCV
@@ -695,7 +697,7 @@ bot.on("message", async message =>{
     return message.channel.send(nixembed);
     }
     //begin Oracle
-    if (cmd ===`${prefix}oracle`){
+    if (cmd ===`${prefix}oracle`||cmd ===`${prefix}discoball`||cmd ===`${prefix}disco`){
         let oracleembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Oracle**")
         .setColor("#7FC5EB")
