@@ -749,7 +749,7 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
     return message.channel.send(carrierembed);
     }
-    //begin Intercetpor
+    //begin Interceptor
     if (cmd ===`${prefix}interceptor`){
         let carrierembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Interceptor**")
@@ -1062,7 +1062,7 @@ bot.on("message", async message =>{
     return message.channel.send(corrembed);
     }
     //begin Swarm Host
-    if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`){
+    if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`||cmd ===`${prefix}host`){
         let lurkerembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Swarm Host**")
         .setColor("#7FC5EB")
