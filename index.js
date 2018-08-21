@@ -33,8 +33,8 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
         .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. Use no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
-        .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, and suggestions.")
-        .addField("Scheduled Downtime", "SC2-bot has scheduled downtime from 0400 - 0900 UTC time (0000 - 0600 EDT), this is to converse my free uptime, I'm sorry that it can't be up more often. If you want me to change the scheduled downtime, join the support server and suggest a new scheduled downtime for SC2-bot.")
+        .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, updates, and suggestions.")
+        .addField("Currently Under Maintainence", "SC2-bot is currently undergoing some behind-the-certains maintaince, thus it's uptime may not be ideal. Join the support server for updates!")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
         .addField("Sellout","Please, take some time to upvote this bot over here: https://discordbots.org/bot/464839423003983902, to help this bot gain more visibility. Thanks!")
     return message.channel.send(botembed);
