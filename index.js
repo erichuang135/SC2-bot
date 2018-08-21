@@ -1053,7 +1053,7 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
         .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
         .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 29")
-        .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.725")
+        .addField("Defense", "**HP** - 200, **Armor** - 2(+1 per upgrade) **Movespeed** - 4.725")
         .addField("Offense","**Damage** - 14(+1 per upgrade), vs massive 20(+2 per upgrade) **Hitspeed** - 1.36, **Range** - 6, **DPS** - 10.29(+0.74 per upgrade), vs massive 14.69(+1.48 per upgrade), **Targets** - Air")
         .addField("Attributes", "**Biological, Armored, Air**")
         .addField("Misc.", "**Sight Range** - 10")
