@@ -2,6 +2,7 @@
 
 
 const botconfig = require("./botconfig.json");
+const gitignore = require("./gitignore.json");
 const Discord = require ("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -2070,4 +2071,5 @@ bot.on("message", async message =>{
         return message.channel.send("Did you mean *sc2-ebay* or *sc2-robobay*?");
         }
 }),
+//bot.login(gitignore.token);
 bot.login(process.env.token);
