@@ -2071,5 +2071,5 @@ bot.on("message", async message =>{
         return message.channel.send("Did you mean *sc2-ebay* or *sc2-robobay*?");
         }
 }),
-bot.login(gitignore.token);
-//bot.login(process.env.token);
+//bot.login(gitignore.token);
+bot.login(process.env.token);
