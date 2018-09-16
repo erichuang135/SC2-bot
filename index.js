@@ -2,7 +2,7 @@
 
 
 const botconfig = require("./botconfig.json");
-//const gitignore = require("./gitignore.json");
+const gitignore = require("./gitignore.json");
 const Discord = require ("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -18,22 +18,23 @@ bot.on("message", async message =>{
     if (message.channel.type === "dm") return;
 
     let prefix = botconfig.prefix;
+    let shortprefix = botconfig.shortprefix;
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
     let cmd = command.toLowerCase()
     let args = messageArray.slice(1);
 //begin Test command
-    if (cmd === `${prefix}test`){
+    if (cmd === `${shortprefix}test`){
         return message.channel.send("test");
         }
 //begin Help Command
-    if (cmd === `${prefix}help`){
+    if (cmd === `${shortprefix}help`){
         let bicon = bot.user.displayAvatarURL;
         let botembed =  new Discord.RichEmbed()
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit or structure. For example, sc2-marine will give you that statistics for the marine, and sc2-depot will give you the stats of the supply depot. Use no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
+        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit. For example, sc2-marine will give you that statistics for the marine. Use sc2full-unit to see a longer list of statistics for either a unit or a structure. For example, sc2full-raven or sc2full-orbital. Use no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, updates, and suggestions.")
         .addField("Currently Under Maintainence", "SC2-bot is currently undergoing some behind-the-certains maintaince, thus it's uptime may not be ideal. Join the support server for updates!")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
@@ -41,7 +42,7 @@ bot.on("message", async message =>{
     return message.channel.send(botembed);
     }
 //begin Joke command
-    if (cmd === `${prefix}joke`){
+    if (cmd === `${shortprefix}joke`){
         var joke = Math.floor((Math.random() * 39) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
@@ -249,7 +250,7 @@ bot.on("message", async message =>{
        .addField("Abilites and Upgrades", "_")
        .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellbat's bonus against Light units by +12 damage.")
        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions and Hellbats to transform quickly between combat modes.")
-       .addField("Hellbat Mode","**Requires:** Armory, **Effect** - Transforms the Hellbat into its Hellion form.")
+       .addField("Hellion Mode","**Requires:** Armory, **Effect** - Transforms the Hellbat into its Hellion form.")
        .addField("More Info", "https://liquipedia.net/starcraft2/Hellbat_(Legacy_of_the_Void)");
    return message.channel.send(hellbatembed);
    }
@@ -315,9 +316,9 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
         .addField("Defense", "**HP** - 400, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense 1","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **DPS** - 65.9(+6.59 per upgrade) **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 11.2(+1.87 per upgrade), vs light 22.4(+3.74 per upgrade) **Targets** - Air")
-        .addField("Offense 3","**Damage** - 35(+3 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 16.3(+1.4 per upgrade), vs armored 23.3(+2.33 per upgrade) **Targets** - Air")
+        .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **DPS** - 65.9(+6.59 per upgrade) **Targets** - Ground")
+        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 11.2(+1.87 per upgrade), vs light 22.4(+3.74 per upgrade) **Targets** - Air")
+        .addField("Offense (single target air)","**Damage** - 35(+3 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 16.3(+1.4 per upgrade), vs armored 23.3(+2.33 per upgrade) **Targets** - Air")
         .addField("Attributes", "**Mechanical, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 8")
         .addField("Abilites and Upgrades", "_")
@@ -420,8 +421,8 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Raven_(Legacy_of_the_Void)");
     return message.channel.send(ravenembed);
     }
-    //begin Banshee
-    if (cmd ===`${prefix}battlecruiser`||cmd === `${prefix}bc`||cmd === `${prefix}cattlebruiser`){
+    //begin Battlecruiser
+    if (cmd ===`${prefix}battlecruiser`||cmd === `${prefix}bc`||cmd === `${prefix}cattlebruiser`||cmd === `${prefix}cruiser`){
         let battlecruiserembed = new Discord.RichEmbed()
         .setDescription ("**Terran Battlecruiser**")
         .setColor("#7FC5EB")
@@ -429,8 +430,8 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Starport with Tech Lab **Requires:** Fusion Core")
         .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
         .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense 1","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 50(+6.25 per upgrade) **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 6(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 37.5(+6.25 per upgrade) **Targets** - Ground")
+        .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 50(+6.25 per upgrade) **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 6(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 37.5(+6.25 per upgrade) **Targets** - Air")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
         .addField("Abilites and Upgrades", "_")
@@ -456,7 +457,7 @@ bot.on("message", async message =>{
     }
 //begin Protoss Units
     //begin Probe
-    if (cmd ===`${prefix}probe`){
+    if (cmd ===`${prefix}probe`||cmd ===`${shortprefix}probe`){
         let probeembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Probe**")
         .setColor("#7FC5EB")
@@ -580,7 +581,7 @@ bot.on("message", async message =>{
     return message.channel.send(dtembed);
     }
     //begin Archon
-    if (cmd ===`${prefix}archon`){
+    if (cmd ===`${prefix}archon`||cmd ===`${shortprefix}archon`){
         let archonembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Archon**")
         .setColor("#7FC5EB")
@@ -599,7 +600,7 @@ bot.on("message", async message =>{
         let obsembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Observer**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Protoss_Archon.jpg/revision/latest?cb=20160106175702")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0a/Icon_Protoss_Observer.jpg/revision/latest?cb=20160106180448")
         .addField("Construction", "**Built from:** Robotics Facility")
         .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Build Time** - 21")
         .addField("Defense", "**HP+Shields** - 40+20, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62(+1.32)")
@@ -630,7 +631,7 @@ bot.on("message", async message =>{
     return message.channel.send(prismembed);
     }
     //begin Immortal
-    if (cmd ===`${prefix}immortal`){
+    if (cmd ===`${prefix}immortal`||cmd ===`${prefix}immo`){
         let immortalembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Immortal**")
         .setColor("#7FC5EB")
@@ -665,7 +666,7 @@ bot.on("message", async message =>{
     return message.channel.send(colossusembed);
     }
     //begin Disruptor
-    if (cmd ===`${prefix}disruptor`||cmd ===`${prefix}ruptor`){
+    if (cmd ===`${prefix}disruptor`||cmd ===`${prefix}ruptor`||cmd ===`${shortprefix}disruptor`||cmd ===`${shortprefix}ruptor`){
         let ruptorembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Disruptor**")
         .setColor("#7FC5EB")
@@ -752,7 +753,7 @@ bot.on("message", async message =>{
     return message.channel.send(carrierembed);
     }
     //begin Interceptor
-    if (cmd ===`${prefix}interceptor`){
+    if (cmd ===`${prefix}interceptor`||cmd ===`${shortprefix}interceptor`){
         let carrierembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Interceptor**")
         .setColor("#7FC5EB")
@@ -767,7 +768,7 @@ bot.on("message", async message =>{
     return message.channel.send(carrierembed);
     }
     //begin Tempest
-    if (cmd ===`${prefix}tempest`){
+    if (cmd ===`${prefix}tempest`||cmd ===`${shortprefix}tempest`){
         let tempestembed = new Discord.RichEmbed()
         .setDescription ("**Protoss Tempest**")
         .setColor("#7FC5EB")
@@ -775,8 +776,8 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
         .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense 1","**Damage** - 30(+3 per upgrade), vs massive 52(+5 per upgrade) **Hitspeed** - 2.36, **Range** - 15, **DPS** - 12.73(+1.273 per upgrade), vs massive 22.05(+2.12 per upgrade) **Targets** - Air")
-        .addField("Offense 2","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 30(+3 per upgrade), vs massive 52(+5 per upgrade) **Hitspeed** - 2.36, **Range** - 15, **DPS** - 12.73(+1.273 per upgrade), vs massive 22.05(+2.12 per upgrade) **Targets** - Air")
+        .addField("Offense (ground)","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
         .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)");
@@ -803,7 +804,7 @@ bot.on("message", async message =>{
     }
 //Begin Zerg Units
     //begin Larva
-    if (cmd ===`${prefix}larva`){
+    if (cmd ===`${prefix}larva`||cmd ===`${shortprefix}larva`){
         let larvaembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Larva**")
         .setColor("#7FC5EB")
@@ -862,8 +863,8 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
         .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
         .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.31, on creep 3.5")
-        .addField("Offense 1","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **DPS** - 11.2(+2.8 per upgrade), **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **DPS** - 12.6(+1.4 per upgrade), **Targets** - Air")
+        .addField("Offense (ground)","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **DPS** - 11.2(+2.8 per upgrade), **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **DPS** - 12.6(+1.4 per upgrade), **Targets** - Air")
         .addField("Attributes", "**Biological, Psionic, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
@@ -875,7 +876,7 @@ bot.on("message", async message =>{
     return message.channel.send(queenembed);
     }
     //begin Zergling
-    if (cmd ===`${prefix}zergling`||cmd ===`${prefix}ling`){
+    if (cmd ===`${prefix}zergling`||cmd ===`${prefix}zling`){
         let lingembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Zergling**")
         .setColor("#7FC5EB")
@@ -944,7 +945,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Morphed from:** Roach")
         .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 3, **Build Time** - 9")
         .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85, on creep 5.0")
-        .addField("Cocoon Defense","**HP** - 100, **Armor** - 5")
+        .addField("Cocoon Defense","**HP** - 100, **Armor** - 5, **Sight Range** - 5")
         .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **DPS** - 14.04(+1.75 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Biological, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
@@ -963,6 +964,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Morphed from:** Overlord, **Requires:** Lair")
         .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Provides Supply** - 8, **Build Time** - 12")
         .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62(+2.1)")
+        .addField("Cocoon Defense","**HP** - 200, **Armor** - 2, **Sight Range** - 5")
         .addField("Attributes", "**Biological, Armored, Detector, Air**")
         .addField("Misc.", "**Sight Range** - 11(+2.75), **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
@@ -974,7 +976,7 @@ bot.on("message", async message =>{
     return message.channel.send(seerembed);
     }
     //begin Changeling
-    if (cmd ===`${prefix}changeling`){
+    if (cmd ===`${prefix}changeling`||cmd ===`${shortprefix}changeling`){
         let changeembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Changeling**")
         .setColor("#7FC5EB")
@@ -1018,7 +1020,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Morphed from:** Hydralisk, **Requires:** Lurker Den")
         .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 3, **Build Time** - 18")
         .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13(+0.413), on creep 5.37(+0.537)")
-        .addField("Cocoon Defense","**HP** - 100, **Armor** - 1")
+        .addField("Cocoon Defense","**HP** - 100, **Armor** - 1, **Sight Range** - 5")
         .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 30(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **DPS** - 14.0(+1 per upgrade), vs armored 21(+1.7 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Biological, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
@@ -1065,7 +1067,7 @@ bot.on("message", async message =>{
     }
     //begin Swarm Host
     if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`||cmd ===`${prefix}host`){
-        let lurkerembed = new Discord.RichEmbed()
+        let hostembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Swarm Host**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810")
@@ -1078,10 +1080,10 @@ bot.on("message", async message =>{
         .addField("Spawn Locusts", "**Cooldown** - 43, **Duration** - 18, **Effect** - Spawns 2 Locusts with an 18-second timed life.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)");
-    return message.channel.send(lurkerembed);
+    return message.channel.send(hostembed);
     }
     //begin Locust
-    if (cmd ===`${prefix}locust`){
+    if (cmd ===`${prefix}locust`||cmd ===`${shortprefix}locust`){
         let locustembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Locust**")
         .setColor("#7FC5EB")
@@ -1127,9 +1129,9 @@ bot.on("message", async message =>{
         .addField("Construction", "**Spawned from:** Infestor")
         .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
         .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
-        .addField("Egg Defense","**HP** - 70, **Armor** - 2")
-        .addField("Offense 1","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **DPS** - 10(+1.6 per upgrade), **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
+        .addField("Egg Defense","**HP** - 70, **Armor** - 2, **Sight Range** - 0")
+        .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **DPS** - 10(+1.6 per upgrade), **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 9")
         .addField("Upgrades and Abilities","-")
@@ -1138,7 +1140,7 @@ bot.on("message", async message =>{
     return message.channel.send(infestedembed);
     }
     //begin Broodling
-    if (cmd ===`${prefix}broodling`){
+    if (cmd ===`${prefix}broodling`||cmd ===`${shortprefix}broodling`){
         let broodlingembed = new Discord.RichEmbed()
         .setDescription ("**Zerg Broodling**")
         .setColor("#7FC5EB")
@@ -1180,6 +1182,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Morphed from:** Corruptor, **Requires:** Greater Spire")
         .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 4, **Build Time** - 23")
         .addField("Defense", "**HP** - 225, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.97")
+        .addField("Cocoon Defense","**HP** - 200, **Armor** - 2, **Sight Range** - 5")
         .addField("Offense","**Damage** - 20(+2 per upgrade), **Hitspeed** - 1.79, **Range** - 10, **DPS** - 11.2(+1.1 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Biological, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
@@ -2053,22 +2056,751 @@ bot.on("message", async message =>{
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)"); 
     return message.channel.send(ultracavernembed);
     }
+//Begin shortened commands
+     //begin SCV
+     if (cmd ===`${shortprefix}scv`){
+        let scvembed = new Discord.RichEmbed()
+        .setDescription ("**Terran SCV**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/61/SCV_SC2_Icon1.jpg/revision/latest?cb=20160107022653")
+        .addField("Construction", "**Built from:** Command Center, Orbital Command, Planetary Fortress")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
+        .addField("Defense", "**HP** - 45, **Armor** - 0, **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
+        .addField("More Info", "Try sc2full-scv for more info");
+    return message.channel.send(scvembed);
+    }
+    //begin Marine
+    if (cmd ===`${shortprefix}marine`){
+        let marineembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Marine**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/47/Marine_SC2_Icon1.jpg/revision/latest?cb=20160107022344")
+        .addField("Construction", "**Built from:** Barracks")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 18")
+        .addField("Defense", "**HP** - 45+10, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
+        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61(-0.2 stimmed), **Range** - 5, **Targets** - Air and Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "Try sc2full-marine for more info");
+    return message.channel.send(marineembed);
+    }
+    //begin Marauder
+    if (cmd ===`${shortprefix}marauder`){
+        let mauraderembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Marauder**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/ba/Marauder_SC2_Icon1.jpg/revision/latest?cb=20160107022315")
+        .addField("Construction", "**Built from:** Barracks with Tech Lab")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
+        .addField("Defense", "**HP** - 125, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
+        .addField("Offense","**Damage** - 10(+1 per upgrade), vs armored 20(+2 per upgrade) **Hitspeed** - 1.07(-0.36 stimmed), **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("More Info", "try sc2full-marauder for more info");
+    return message.channel.send(mauraderembed);
+    }
+    //begin Reaper
+    if (cmd ===`${shortprefix}reaper`){
+        let reaperembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Reaper**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7d/Reaper_SC2_Icon1.jpg/revision/latest?cb=20160107022927")
+        .addField("Construction", "**Built from:** Barracks")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Supply** - 1, **Build Time** - 32")
+        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.25")
+        .addField("Offense","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.79, **Range** - 5, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-reaper for more info");
+    return message.channel.send(reaperembed);
+    }
+    //begin Ghost
+     if (cmd ===`${shortprefix}ghost`){
+         let ghostembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Ghost**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Ghost_SC2_Icon1.jpg/revision/latest?cb=20160107022212")            
+        .addField("Construction", "**Built from:** Barracks with Tech Lab, **Requires:** Ghost Academy")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 2, **Build Time** - 29")
+        .addField("Defense", "**HP** - 100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 20(+2 per upgrade) **Hitspeed** - 1.07, **Range** - 6, **Targets** - Air and Ground")
+        .addField("Attributes", "**Biological, Psionic, Ground**")
+        .addField("More Info", "try sc2full-ghost for more info");
+    return message.channel.send(ghostembed);
+    }
+    //begin Hellion
+    if (cmd ===`${shortprefix}hellion`){
+        let hellionembed = new Discord.RichEmbed()
+       .setDescription ("**Terran Hellion**")
+       .setColor("#7FC5EB")
+       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Hellion_SC2_Icon1.jpg/revision/latest?cb=20160107022248")            
+       .addField("Construction", "**Built from:** Factory")
+       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
+       .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
+       .addField("Offense","**Damage** - 8(+1 per upgrade), vs light 14+5(+2 per upgrade) **Hitspeed** - 1.79, **Range** - 5, **Targets** - Ground")
+       .addField("Attributes", "**Mechanical, Light, Ground**")
+       .addField("More Info", "try sc2full-hellion for more info");
+   return message.channel.send(hellionembed);
+   }
+    //begin Hellbat
+    if (cmd ===`${shortprefix}hellbat`||cmd ===`${shortprefix}hellboi`){
+        let hellbatembed = new Discord.RichEmbed()
+       .setDescription ("**Terran Hellbat**")
+       .setColor("#7FC5EB")
+       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/13/Hellbat_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025249")            
+       .addField("Construction", "**Built from:** Factory, **Requires:** Armory")
+       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
+       .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15")
+       .addField("Offense","**Damage** - 18(+2 per upgrade), vs light 18+12(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 2, **Targets** - Ground")
+       .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
+       .addField("More Info", "try sc2full-hellbat for more info");
+   return message.channel.send(hellbatembed);
+   }
+    //begin Widow Mine
+    if (cmd ===`${shortprefix}widowmine` || cmd ===`${shortprefix}mine`){
+        let mineembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Widow Mine**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/WidowMine_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025320")            
+        .addField("Construction", "**Built from:** Factory")
+        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
+        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 125(+35 vs shields) primary, 40(+25 vs shield) splash **Hitspeed** - 29, **Range** - 5 **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Light, Ground**")
+        .addField("More Info", "try sc2full-widowmine for more info");
+    return message.channel.send(mineembed);
+    }
+   //begin Cyclone
+   if (cmd ===`${shortprefix}cyclone`){
+        let cycloneembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Cyclone**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444")
+        .addField("Construction", "**Built from:** Factory")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 32")
+        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
+        .addField("Offense","**Damage** - 3(+1 per upgrade), vs armored 5(+1 per upgrade) **Hitspeed** - 0.1, **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("More Info", "try sc2full-cyclone for more info");
+    return message.channel.send(cycloneembed);
+    }
+    //begin Siege Tank
+    if (cmd ===`${shortprefix}siegetank`||cmd ===`${shortprefix}tank`){
+        let tankembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Siege Tank**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/57/SiegeTank_SC2_Icon1.jpg/revision/latest?cb=20160107022749")
+        .addField("Construction", "**Built from:** Factory with Tech Lab")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 3, **Build Time** - 32")
+        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
+        .addField("Offense (tank mode)","**Damage** - 15(+2 per upgrade), vs armored 25(+3 per upgrade) **Hitspeed** - 0.74, **Range** - 7, **Targets** - Ground")
+        .addField("Offense (siege mode)","**Damage** - 40(+4 per upgrade), vs armored 70(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 13 (minimum 2), **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("More Info", "try sc2full-tank for more info");
+    return message.channel.send(tankembed);
+    }
+    //begin Thor
+    if (cmd ===`${shortprefix}thor`){
+        let thorembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Thor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814")
+        .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
+        .addField("Defense", "**HP** - 400, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **Targets** - Ground")
+        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Targets** - Air")
+        .addField("Offense (single target air)","**Damage** - 35(+3 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("More Info", "try sc2full-thor for more info");
+    return message.channel.send(thorembed);
+    }
+    //begin Viking
+    if (cmd ===`${shortprefix}viking`){
+        let vikingembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Viking**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Viking_SC2_Icon1.jpg/revision/latest?cb=20160107022849")
+        .addField("Construction", "**Built from:** Starport")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 75, **Supply** - 2, **Build Time** - 30")
+        .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15 ground, 3.85 air")
+        .addField("Offense (air mode)","**Damage** - 10x2(+1x2 per upgrade), vs armored 14x2(+1x2 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **Targets** - Air")
+        .addField("Offense (ground mode)","**Damage** - 12(+1 per upgrade), vs mech 20(+2 per upgrade) **Hitspeed** - 0.71, **Range** - 6,  **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Air (in air mode), Ground (in ground mode)**")
+        .addField("More Info", "try sc2full-viking for more info");
+    return message.channel.send(vikingembed);
+    }
+    //begin Medevac
+    if (cmd ===`${shortprefix}medivac`||cmd ===`${shortprefix}medevac`||cmd === `${shortprefix}healbus`){
+        let medevacembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Medivac**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/Medivac_SC2_Icon1.jpg/revision/latest?cb=20160107022416")
+        .addField("Construction", "**Built from:** Starport")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 30")
+        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5(+2.44)")
+        .addField("Attributes", "**Mechanical, Armored, Air**")
+        .addField("More Info", "try sc2full-medivac for more info");
+    return message.channel.send(medevacembed);
+    }
+    //begin Liberator
+    if (cmd ===`${shortprefix}liberator`||cmd ===`${shortprefix}lib`){
+        let liberatorembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Liberator**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Liberator_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025400")
+        .addField("Construction", "**Built from:** Starport")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 43")
+        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.72")
+        .addField("Offense (fighter mode)","**Damage** - 5x2(+1x2 per upgrade) **Hitspeed** - 1.29, **Range** - 5, **Targets** - Air")
+        .addField("Offense (defender mode)","**Damage** - 75(+5 per upgrade) **Hitspeed** - 1.14, **Range** - 10(+4), **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Air**")
+        .addField("More Info", "try sc2full-liberator for more info");
+    return message.channel.send(liberatorembed);
+    }
+    //begin Banshee
+    if (cmd ===`${shortprefix}banshee`||cmd ===`${shortprefix}shee`){
+        let bansheeembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Banshee**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/32/Banshee_SC2_Icon1.jpg/revision/latest?cb=20160107022109")
+        .addField("Construction", "**Built from:** Starport with Tech Lab")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 43")
+        .addField("Defense", "**HP** - 140, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.85(+1.4)")
+        .addField("Offense","**Damage** - 12x2(+1x2 per upgrade) **Hitspeed** - 0.89, **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Air**")
+        .addField("More Info", "try sc2full-banshee for more info");
+    return message.channel.send(bansheeembed);
+    }
+    //begin Raven
+    if (cmd ===`${shortprefix}raven`){
+        let ravenembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Raven**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d8/Raven_SC2_Icon1.jpg/revision/latest?cb=20160107022547")
+        .addField("Construction", "**Built from:** Starport with Tech Lab")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 2, **Build Time** - 43")
+        .addField("Defense", "**HP** - 140, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85")
+        .addField("Attributes", "**Mechanical, Light, Detector, Air**")
+        .addField("More Info", "try sc2full-raven for more info");
+    return message.channel.send(ravenembed);
+    }
+    //begin Battlecruiser
+    if (cmd ===`${shortprefix}battlecruiser`||cmd === `${shortprefix}bc`||cmd === `${shortprefix}cattlebruiser`||cmd === `${shortprefix}cruiser`){
+        let battlecruiserembed = new Discord.RichEmbed()
+        .setDescription ("**Terran Battlecruiser**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f5/Battlecruiser_SC2_Icon1.jpg/revision/latest?cb=20160107022138")
+        .addField("Construction", "**Built from:** Starport with Tech Lab **Requires:** Fusion Core")
+        .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
+        .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 6(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
+        .addField("More Info", "try sc2full-cruiser for more info");
+    return message.channel.send(battlecruiserembed);
+    }
+    //begin MULE
+    if (cmd ===`${shortprefix}mule`){
+        let muleembed = new Discord.RichEmbed()
+        .setDescription ("**Terran MULE**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/04/MULE_SC2_Icon1.jpg/revision/latest?cb=20160107022519")
+        .addField("Construction", "**Summoned from:** Orbital Command")
+        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Attributes", "**Mechanical, Light, Ground**")
+        .addField("More Info", "try sc2full-mule for more info");
+    return message.channel.send(muleembed);
+    }
+//begin Protoss Units
+    //skip Probe
+    //begin Zealot
+    if (cmd ===`${shortprefix}zealot`){
+        let zealotembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Zealot**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Icon_Protoss_Zealot.jpg/revision/latest?cb=20160106180701")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 27, **Warp Cooldown** - 20")
+        .addField("Defense", "**HP+Shields** - 100+50, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15+0.98(+4.62 when charging)")
+        .addField("Offense","**Damage** - 8x2(+1x2 per upgrade), **Hitspeed** - 0.86, **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-zealot for more info");
+    return message.channel.send(zealotembed);
+    }
+    //begin Stalker
+    if (cmd ===`${shortprefix}stalker`){
+        let stalkerembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Stalker**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0d/Icon_Protoss_Stalker.jpg/revision/latest?cb=20160106180555")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
+        .addField("Resources", "**Minerals** - 125, **Vespene** - 50, **Supply** - 2, **Build Time** - 30, **Warp Cooldown** - 23")
+        .addField("Defense", "**HP+Shields** - 80+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
+        .addField("Offense","**Damage** - 13(+1 per upgrade), vs armored 18(+2 per upgrade) **Hitspeed** - 1.34, **Range** - 6, **Targets** - Ground and Air")
+        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("More Info", "try sc2full-stalker for more info");
+    return message.channel.send(stalkerembed);
+    }
+    //begin Sentry
+    if (cmd ===`${shortprefix}sentry`||cmd ===`${shortprefix}ticklemonster`){
+        let sentryembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Sentry**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ab/Icon_Protoss_Sentry.jpg/revision/latest?cb=20160106180539")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 2, **Build Time** - 26, **Warp Cooldown** - 23")
+        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
+        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Ground and Air")
+        .addField("Attributes", "**Mechanical, Light, Psionic, Ground**")
+        .addField("More Info", "try sc2full-sentry for more info");
+    return message.channel.send(sentryembed);
+    }
+    //begin Adept
+    if (cmd ===`${shortprefix}adept`){
+        let adeptembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Adept**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Icon_Protoss_Adept.jpg/revision/latest?cb=20160106231127")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 27, **Warp Cooldown** - 20")
+        .addField("Defense", "**HP+Shields** - 70+70, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5")
+        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 22(+2 per upgrade) **Hitspeed** - 1.61(-0.5), **Range** - 4, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-adept for more info");
+    return message.channel.send(adeptembed);
+    }
+    //begin High Templar
+    if (cmd ===`${shortprefix}hightemplar`||cmd == `${shortprefix}ht`){
+        let htembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss High Templar**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a0/Icon_Protoss_High_Templar.jpg/revision/latest?cb=20160106180343")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Templar Archives")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 150, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
+        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","**Damage** - 4(+1 per upgrade), **Hitspeed** - 1.25, **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
+        .addField("More Info", "try sc2full-ht for more info");
+    return message.channel.send(htembed);
+    }
+    //begin Dark Templar
+    if (cmd ===`${shortprefix}darktemplar`||cmd ==`${shortprefix}dt`){
+        let dtembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Dark Templar**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/Icon_Protoss_Dark_Templar.jpg/revision/latest?cb=20160106180327")
+        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Dark Shrine")
+        .addField("Resources", "**Minerals** - 125, **Vespene** - 125, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
+        .addField("Defense", "**HP+Shields** - 40+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 45(+5 per upgrade), **Hitspeed** - 1.21, **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
+        .addField("More Info", "try sc2full-dt for more info");
+    return message.channel.send(dtembed);
+    }
+    //skip Archon
+    //begin Observer
+    if (cmd ===`${shortprefix}observer`||cmd === `${shortprefix}obs`){
+        let obsembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Observer**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0a/Icon_Protoss_Observer.jpg/revision/latest?cb=20160106180448")
+        .addField("Construction", "**Built from:** Robotics Facility")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Build Time** - 21")
+        .addField("Defense", "**HP+Shields** - 40+20, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62(+1.32)")
+        .addField("Attributes", "**Light, Mechanical, Detector, Air**")
+        .addField("More Info", "try sc2full-obs for more info");
+    return message.channel.send(obsembed);
+    }
+    //begin Warp Prism
+    if (cmd ===`${shortprefix}warpprism`||cmd === `${shortprefix}prism`){
+        let prismembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Warp Prism**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644")
+        .addField("Construction", "**Built from:** Robotics Facility")
+        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
+        .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
+        .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
+        .addField("More Info", "try sc2full-prism for more info");
+    return message.channel.send(prismembed);
+    }
+    //begin Immortal
+    if (cmd ===`${shortprefix}immortal`||cmd ===`${shortprefix}immo`){
+        let immortalembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Immortal**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Protoss_Immortal.jpg/revision/latest?cb=20160106180358")
+        .addField("Construction", "**Built from:** Robotics Facility")
+        .addField("Resources", "**Minerals** - 250, **Vespene** - 100, **Supply** - 4, **Build Time** - 39")
+        .addField("Defense", "**HP+Shields** - 200+100, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
+        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 1.04, **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("More Info", "try sc2full-immortal for more info");
+    return message.channel.send(immortalembed);
+    }
+    //begin Colossus
+    if (cmd ===`${shortprefix}colossus`||cmd ===`${shortprefix}colossi`||cmd ===`${shortprefix}giraffe`||cmd ===`${shortprefix}lasergiraffe`){
+        let colossusembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Colossus**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/40/Icon_Protoss_Colossus.jpg/revision/latest?cb=20160106180305")
+        .addField("Construction", "**Built from:** Robotics Facility, **Requires:** Robotics Bay")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 54")
+        .addField("Defense", "**HP+Shields** - 200+150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
+        .addField("Offense","**Damage** - 10x2(+1x2 per upgrade), vs light 15x2(+2x2 per upgrade) **Hitspeed** - 1.07, **Range** - 7+2, **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Ground, Targetable by Air**")
+        .addField("More Info", "try sc2full-colossus for more info");
+    return message.channel.send(colossusembed);
+    }
+    //skip Disruptor
+    //begin Phoenix
+    if (cmd ===`${shortprefix}phoenix`||cmd ===`${shortprefix}nix`){
+        let nixembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Phoenix**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b1/Icon_Protoss_Phoenix.jpg/revision/latest?cb=20160106180507")
+        .addField("Construction", "**Built from:** Stargate")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 25")
+        .addField("Defense", "**HP+Shields** - 120+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
+        .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), vs light 10x2(+1x2 per upgrade) **Hitspeed** - 0.97, **Range** - 5+2, **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Light, Air**")
+        .addField("More Info", "try sc2full-phoenix for more info");
+    return message.channel.send(nixembed);
+    }
+    //begin Oracle
+    if (cmd ===`${shortprefix}oracle`||cmd ===`${shortprefix}discoball`||cmd ===`${shortprefix}disco`){
+        let oracleembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Oracle**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Icon_Protoss_Oracle.jpg/revision/latest?cb=20160106231013")
+        .addField("Construction", "**Built from:** Stargate")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 37")
+        .addField("Defense", "**HP+Shields** - 100+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
+        .addField("Offense","**Damage** - 15, vs light 22 **Hitspeed** - 0.61, **Range** - 4, **Targets** - Ground")
+        .addField("Attributes", "**Mechanical, Light, Psionic, Air**")
+        .addField("More Info", "try sc2full-oracle for more info");
+    return message.channel.send(oracleembed);
+    }
+    //begin Void Ray
+    if (cmd ===`${shortprefix}voidray`||cmd ===`${shortprefix}chadray`||cmd ===`${shortprefix}void`){
+        let voidembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Void Ray**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
+        .addField("Construction", "**Built from:** Stargate")
+        .addField("Resources", "**Minerals** - 250, **Vespene** - 100, **Supply** - 4, **Build Time** - 43")
+        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5 (-1.4)")
+        .addField("Offense","**Damage** - 6(+1 per upgrade), vs armored 4+6(+1 per upgrade) **Hitspeed** - 0.36, **Range** - 4+2, **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Armored, Air**")
+        .addField("More Info", "try sc2full-voidray for more info");
+    return message.channel.send(voidembed);
+    }
+    //begin Carrier
+    if (cmd ===`${shortprefix}carrier`){
+        let carrierembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Carrier**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
+        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
+        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 86")
+        .addField("Defense", "**HP+Shields** - 250+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
+        .addField("More Info", "try sc2full-carrier and sc2-interceptor for more info");
+    return message.channel.send(carrierembed);
+    }
+    //skip Interceptor
+    //skip Tempest
+    //begin Mothership
+    if (cmd ===`${shortprefix}mothership`||cmd ===`${shortprefix}mamaship`){
+        let mamaembed = new Discord.RichEmbed()
+        .setDescription ("**Protoss Mothership**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e1/Icon_Protoss_Mothership.jpg/revision/latest?cb=20160106180429")
+        .addField("Construction", "**Built from:** Nexus, **Requires:** Fleet Beacon")
+        .addField("Resources", "**Minerals** - 400, **Vespene** - 400, **Supply** - 8, **Build Time** - 114")
+        .addField("Defense", "**HP+Shields** - 350+350, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","**Damage** - 6x6(+1x6 per upgrade), **Hitspeed** - 1.58, **Range** - 7, **Targets** - Air and Ground")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Psionic, Air**")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
+    return message.channel.send(mamaembed);
+    }
+//Begin Zerg Units
+    //skip Larva      
+    //begin Drone
+    if (cmd ===`${shortprefix}drone`){
+        let droneembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Drone**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
+        .addField("Construction", "**Built from:** Larva")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
+        .addField("Defense", "**HP** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
+        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-drone for more info");
+    return message.channel.send(droneembed);
+    }
+    //begin Overlord
+    if (cmd ===`${shortprefix}overlord`||cmd ===`${shortprefix}ovie`||cmd ===`${shortprefix}dropperlord`||cmd ===`${shortprefix}droplord`){
+        let overlordembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Overlord**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=20160106233052")
+        .addField("Construction", "**Built from:** Larva")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
+        .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("More Info", "try sc2full-overlord for more info");
+    return message.channel.send(overlordembed);
+    }
+    //begin Queen
+    if (cmd ===`${shortprefix}queen`){
+        let queenembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Queen**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Icon_Zerg_Queen.jpg/revision/latest?cb=20160106233007")
+        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
+        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.31, on creep 3.5")
+        .addField("Offense (ground)","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **Targets** - Air")
+        .addField("Attributes", "**Biological, Psionic, Ground**")
+        .addField("More Info", "try sc2full-queen for more info");
+    return message.channel.send(queenembed);
+    }
+    //begin Zergling
+    if (cmd ===`${shortprefix}zergling`||cmd ===`${shortprefix}zling`){
+        let lingembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Zergling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Spawning Pool")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
+        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
+        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-zling for more info");
+    return message.channel.send(lingembed);
+    }
+    //begin Baneling
+    if (cmd ===`${shortprefix}baneling`||cmd ===`${shortprefix}bling`||cmd ===`${shortprefix}bane`){
+        let baneembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Baneling**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/81/Icon_Zerg_Baneling.jpg/revision/latest?cb=20160106232838")
+        .addField("Construction", "**Morphed from:** Zergling, **Requires:** Baneling")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 25, **Supply** - 0.5, **Build Time** - 14")
+        .addField("Defense", "**HP** - 30+5, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(+0.63), on creep 4.55(+0.82)")
+        .addField("Offense 1","**Damage** - 20(+2 per upgrade), vs light 35(+4 per upgrade) **Range** - 2.2, **Targets** - Ground")
+        .addField("Offense 2","**Damage** - 80(+5 per upgrade), **Range** - 2.2, **Targets** - Buildings")
+        .addField("Attributes", "**Biological, Ground**")
+        .addField("More Info", "try sc2full-bling for more info");
+    return message.channel.send(baneembed);
+    }
+    //begin Roach
+    if (cmd ===`${shortprefix}roach`){
+        let roachembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Roach**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Roach Warren")
+        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 19")
+        .addField("Defense", "**HP** - 145, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.05), on creep 4.09(+1.36), burrowed 2.8(+1.6)")
+        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.43, **Range** - 4, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("More Info", "try sc2full-roach for more info");
+    return message.channel.send(roachembed);
+    }
+    //begin Ravager
+    if (cmd ===`${shortprefix}ravager`){
+        let ravagerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Ravager**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631")
+        .addField("Construction", "**Morphed from:** Roach")
+        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 3, **Build Time** - 9")
+        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85, on creep 5.0")
+        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Ground**")
+        .addField("More Info", "try sc2full-ravager for more info");
+    return message.channel.send(ravagerembed);
+    }
+    //begin Overseer
+    if (cmd ===`${shortprefix}overseer`||cmd ===`${shortprefix}flappynajib`){
+        let seerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Overseer**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e4/Icon_Zerg_Overseer.jpg/revision/latest?cb=20160106233030")
+        .addField("Construction", "**Morphed from:** Overlord, **Requires:** Lair")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Provides Supply** - 8, **Build Time** - 12")
+        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62(+2.1)")
+        .addField("Attributes", "**Biological, Armored, Detector, Air**")
+        .addField("More Info", "try sc2full-overseer for more info");
+    return message.channel.send(seerembed);
+    }
+    //skip Changeling
+    //begin Hydralisk
+    if (cmd ===`${shortprefix}hydralisk`||cmd ===`${shortprefix}hydra`){
+        let hydraembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Hydralisk**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/42/Icon_Zerg_Hydralisk.jpg/revision/latest?cb=20160106233216")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
+        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
+        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.54, **Range** - 5(+1), **Targets** - Air and Ground")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-hydra for more info");
+    return message.channel.send(hydraembed);
+    }
+    //begin Lurker
+    if (cmd ===`${shortprefix}lurker`){
+        let lurkerembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Lurker**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656")
+        .addField("Construction", "**Morphed from:** Hydralisk, **Requires:** Lurker Den")
+        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 3, **Build Time** - 18")
+        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13(+0.413), on creep 5.37(+0.537)")
+        .addField("Cocoon Defense","**HP** - 100, **Armor** - 1")
+        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 30(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("More Info", "try sc2full-lurker for more info");
+    return message.channel.send(lurkerembed);
+    }
+    //begin Mutalisk
+    if (cmd ===`${shortprefix}mutalisk`||cmd ===`${shortprefix}muta`||cmd ===`${shortprefix}mutmut`||cmd ===`${shortprefix}muttmutt`||cmd ===`${shortprefix}flappybird`||cmd ===`${shortprefix}flapflap`){
+        let mutaembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Mutalisk**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/fd/Icon_Zerg_Mutalisk.jpg/revision/latest?cb=20160106233117")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 24")
+        .addField("Defense", "**HP** - 120, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
+        .addField("Offense","**Damage** - 9(+1 per upgrade) + 3(+0.3) + 1(+0.1), **Hitspeed** - 1.09, **Range** - 3, **Targets** - Air and Ground")
+        .addField("Attributes", "**Biological, Light, Air**")
+        .addField("More Info", "try sc2full-muta for more info");
+    return message.channel.send(mutaembed);
+    }
+    //begin Corruptor
+    if (cmd ===`${shortprefix}corruptor`){
+        let corrembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Corruptor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 29")
+        .addField("Defense", "**HP** - 200, **Armor** - 2(+1 per upgrade) **Movespeed** - 4.725")
+        .addField("Offense","**Damage** - 14(+1 per upgrade), vs massive 20(+2 per upgrade) **Hitspeed** - 1.36, **Range** - 6, **Targets** - Air")
+        .addField("Attributes", "**Biological, Armored, Air**")
+        .addField("More Info", "try sc2full-corruptor for more info");
+    return message.channel.send(corrembed);
+    }
+    //begin Swarm Host
+    if (cmd ===`${shortprefix}swarmhost`||cmd ===`${shortprefix}sh`||cmd ===`${shortprefix}host`){
+        let hostembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Swarm Host**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 75, **Supply** - 3, **Build Time** - 29")
+        .addField("Defense", "**HP** - 160, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15, on creep 5.37")
+        .addField("Attributes", "**Biological, Armored, Ground**")
+        .addField("More Info", "try sc2-locust and sc2full-swarmhost for more info");
+    return message.channel.send(hostembed);
+    }
+    //skip Locust
+    //begin Infestor
+    if (cmd ===`${shortprefix}infestor`||cmd ===`${shortprefix}derpfestor`||cmd ===`${shortprefix}infest`){
+        let infestorembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Infestor**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Zerg_Infestor.jpg/revision/latest?cb=20160106233153")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 150, **Supply** - 2, **Build Time** - 36")
+        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15, on creep 4.01")
+        .addField("Attributes", "**Biological, Armored, Psionic, Ground**")
+        .addField("More Info", "try sc2-infestedterran and sc2full-infestor for more info");
+    return message.channel.send(infestorembed);
+    }
+    //begin Infested Terran
+    if (cmd ===`${shortprefix}infestedterran`||cmd ===`${shortprefix}infested`){
+        let infestedembed = new Discord.RichEmbed()
+        .setDescription ("**Infested Terran**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7a/Icon_Zerg_Infested_Terran.jpg/revision/latest?cb=20160106232746")
+        .addField("Construction", "**Spawned from:** Infestor")
+        .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
+        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
+        .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **Targets** - Ground")
+        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **Targets** - Air")
+        .addField("Attributes", "**Biological, Light, Ground**")
+        .addField("More Info", "try sc2full-infestedterran for more info");
+    return message.channel.send(infestedembed);
+    }
+    //skip Broodling
+    //begin Ultralisk
+    if (cmd ===`${shortprefix}ultralisk`||cmd ===`${shortprefix}ultra`){
+        let ultraembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Ultralisk**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Ultralisk Cavern")
+        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 39")
+        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13, on creep 5.37")
+        .addField("Offense","**Damage** - 35(+3 per upgrade), splash 12(+1 per upgrade), **Hitspeed** - 0.61, **Range** - Melee, **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Massive, Ground**")
+        .addField("More Info", "try sc2full-ultra for more info");
+    return message.channel.send(ultraembed);
+    }
+    //begin Brood Lord
+    if (cmd ===`${shortprefix}broodlord`||cmd ===`${shortprefix}brood`||cmd ===`${shortprefix}blord`||cmd ===`${shortprefix}bl`){
+        let broodembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Brood Lord**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254")
+        .addField("Construction", "**Morphed from:** Corruptor, **Requires:** Greater Spire")
+        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 4, **Build Time** - 23")
+        .addField("Defense", "**HP** - 225, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.97")
+        .addField("Offense","**Damage** - 20(+2 per upgrade), **Hitspeed** - 1.79, **Range** - 10, **DPS** - 11.2(+1.1 per upgrade), **Targets** - Ground")
+        .addField("Attributes", "**Biological, Armored, Massive, Air**")
+        .addField("More Info", "try sc2full-blord for more info");
+    return message.channel.send(broodembed);
+    }
+    //begin Viper
+    if (cmd ===`${shortprefix}viper`){
+        let viperembed = new Discord.RichEmbed()
+        .setDescription ("**Zerg Viper**")
+        .setColor("#7FC5EB")
+        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Zerg_Viper.jpg/revision/latest?cb=20160106234746")
+        .addField("Construction", "**Built from:** Larva, **Requires:** Hive")
+        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 3, **Build Time** - 29")
+        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
+        .addField("Attributes", "**Biological, Armored, Air**")
+        .addField("More Info", "try sc2full-viper for more info");
+    return message.channel.send(viperembed);
+    }    
 //Begin disambiguations
     //begin "core"
-    if (cmd === `${prefix}core`){
+    if (cmd === `${prefix}core`||cmd === `${shortprefix}core`){
         return message.channel.send("Did you mean *sc2-cybercore* or *sc2-fusioncore*?");
         }
     //begin "nydus"
-    if (cmd === `${prefix}nydus`){
+    if (cmd === `${prefix}nydus`||cmd === `${shortprefix}nydus`){
         return message.channel.send("Did you mean *sc2-nydusnet* or *sc2-nydusworm*?");
         }
     //begin "gate"
-    if (cmd === `${prefix}gate`){
+    if (cmd === `${prefix}gate`||cmd === `${shortprefix}gate`){
         return message.channel.send("Did you mean *sc2-gateway* or *sc2-warpgate*?");
         }
     //begin "bay"
-    if (cmd === `${prefix}bay`){
+    if (cmd === `${prefix}bay`||cmd === `${shortprefix}bay`){
         return message.channel.send("Did you mean *sc2-ebay* or *sc2-robobay*?");
+        }
+    //begin "ling"
+    if (cmd === `${prefix}ling`||cmd === `${shortprefix}ling`){
+        return message.channel.send("Did you mean *sc2-zling* or *sc2-bling*?");
         }
 }),
 //bot.login(gitignore.token);
