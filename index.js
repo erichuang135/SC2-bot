@@ -2,7 +2,7 @@
 
 
 const botconfig = require("./botconfig.json");
-const gitignore = require("./gitignore.json");
+//const gitignore = require("./gitignore.json");
 const Discord = require ("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
