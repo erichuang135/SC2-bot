@@ -121,7 +121,29 @@ bot.on("message", async message =>{
         else if (joke === 38)
             {return message.channel.send("Why did the stalker miss the medivac? *Because he blinked too late* - suggested by @Starman");} 
         else if (joke === 39)
-            {return message.channel.send("Starcraft 2 jokes are the worst. Seriously, you should try to aim a little Aiur - suggested by @Duttles");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            {return message.channel.send("Starcraft 2 jokes are the worst. Seriously, you should try to aim a little Aiur - suggested by @Duttles");} 
+        else if (joke === 40)
+            {return message.channel.send("Why do Infestors make good politicians? *They manipulate others with their butt.*");}
+        else if (joke === 41)
+            {return message.channel.send("Why should you never take advice from a Protoss? *The ones giving you feedback tend to be high*");}
+        else if (joke === 42)
+            {return message.channel.send("What do Colossi have in common with the British? *They both got destroyed by Vikings*");}
+        else if (joke === 43)
+            {return message.channel.send("What's Dustin Browder's favorite kind of music? *Rock*");}
+        else if (joke === 44)
+            {return message.channel.send("What did the Orbital Command say to the Planetary Fortress? *Do you even lift bro?*");}
+        else if (joke === 45)
+            {return message.channel.send("Why did the stalker have dry eyes? *He forgot to blink*");} 
+        else if (joke === 46)
+            {return message.channel.send("How did the probe beat the phoenix in a race?  *When behind, dark shrine*");}
+        else if (joke === 47)
+            {return message.channel.send("If overlords were ground units, they would be underlords");}
+        else if (joke === 48)
+            {return message.channel.send("What does the archon say? *Your hopes of victory archon now*");}
+        else if (joke === 49)
+            {return message.channel.send("You know your protoss are defective when a recall is ordered");}
+        else if (joke === 50)
+            {return message.channel.send("Why are zerg workers so annoying to talk to? *They just keep droning on.*");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         }                                                                                                                                                                                                               
 //begin Terran Units
     //begin SCV
