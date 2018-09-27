@@ -156,7 +156,31 @@ bot.on("message", async message =>{
             {return message.channel.send("What did the Protoss amazon driver say when he delivered your package? *Carrier has arrived.* - suggested by @Duttles");}
         else if (joke === 56)
             {return message.channel.send("What did the reaper say to his friend? *Reapers don't have friends* - suggested by @Fatty");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-        }                                                                                                                                                                                                               
+        }
+    //begin Trivia command
+    if (cmd === `${shortprefix}trivia`){
+        var trivia = Math.floor((Math.random() * 10) + 1);
+        if (trivia === 1)
+            {return message.channel.send("trivia 1");}
+        else if (trivia === 2)
+            {return message.channel.send("trivia 2");}
+        else if (trivia === 3)
+            {return message.channel.send("trivia 3");}
+        else if (trivia === 4)
+            {return message.channel.send("trivia 4");}
+        else if (trivia === 5)
+            {return message.channel.send("trivia 5");}
+        else if (trivia === 6)
+            {return message.channel.send("trivia 6");}
+        else if (trivia === 7)
+            {return message.channel.send("trivia 7");}
+        else if (trivia === 8)
+            {return message.channel.send("trivia 8");}    
+        else if (trivia === 9)
+            {return message.channel.send("trivia 9");}    
+        else if (trivia === 10)
+            {return message.channel.send("trivia 10");}  
+    }                                                                                                                                                                                                             
 //begin Terran Units
     //begin SCV
     if (cmd ===`${prefix}scv`){
