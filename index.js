@@ -16,18 +16,10 @@ bot.on("ready", async => {
 bot.on("message", async message =>{
     if (message.author.bot)return;
     if (message.channel.type === "dm") return;
-
-    if(typeof(String.prototype.trim) === "undefined")
-{
-    String.prototype.trim = function() 
-    {
-        return String(this).replace(/^\s+|\s+$/g, '');
-    };
-}
     let prefix = botconfig.prefix;
     let shortprefix = botconfig.shortprefix;
     let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLowerCase().trim();
+    let cmd = messageArray[0].toLowerCase().string.replace(" ", "");
     let args = messageArray.slice(1);
 //begin Test command
     if (cmd === `${shortprefix}test`){
