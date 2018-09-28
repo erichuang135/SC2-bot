@@ -21,7 +21,7 @@ bot.on("message", async message =>{
     let shortprefix = botconfig.shortprefix;
     let messageArray = message.content.split(" ");
     let command = messageArray[0].toLowerCase();
-    let cmd = string.trim(command)
+    let cmd = (command)
     let args = messageArray.slice(1);
 //begin Test command
     if (cmd === `${shortprefix}test`){
