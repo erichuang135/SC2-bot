@@ -40,9 +40,9 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type sc2-unit to see info on that unit. For example, sc2-marine will give you that statistics for the marine. Use sc2full-unit to see a longer list of statistics for either a unit or a structure. For example, sc2full-raven or sc2full-orbital. Use no spaces. Type sc2-joke to get a random Starcraft themed laugh!")
+        .addField("How to Use SC2 bot", "Type *sc2-unit* to see info on that unit. For example, *sc2-marine* will give you that statistics for the marine. Use *sc2full-unit* to see a longer list of statistics for either a unit or a structure. For example, *sc2full-raven* or *sc2full-orbital*. Use no spaces.")
+        .addField("Fun Commands", "Try out *sc2-joke* or *sc2-trivia*, I'm sure you'll have some fun!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, updates, and suggestions.")
-        .addField("Currently Under Maintainence", "SC2-bot is currently undergoing some behind-the-certains maintaince, thus it's uptime may not be ideal. Join the support server for updates!")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
         .addField("Sellout","Please, take some time to upvote this bot over here: https://discordbots.org/bot/464839423003983902, to help this bot gain more visibility. Thanks!")
     return message.channel.send(botembed);
