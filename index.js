@@ -169,7 +169,7 @@ bot.on("message", async message =>{
         }
     //begin Trivia command
     if (cmd === `${shortprefix}trivia`){
-        var trivia = Math.floor((Math.random() * 10) + 1);
+        var trivia = Math.floor((Math.random() * 9) + 1);
         if (trivia === 1)
             {return message.channel.send("Thor's anti-ground attack has the highest single target DPS of any un-upgraded unit, clocking in at 65.9 DPS! - suggested by @Toperoco");}
         else if (trivia === 2)
@@ -185,7 +185,9 @@ bot.on("message", async message =>{
         else if (trivia === 7)
             {return message.channel.send("The Reaper is the only unit with a range of 4.5. - suggested by @Toperoco");}
         else if (trivia === 8)
-            {return message.channel.send("The GSL started back in 2010, shortly after the release of Wings of Liberty - suggested by @Toperoco");}    
+            {return message.channel.send("The GSL started back in 2010, shortly after the release of Wings of Liberty - suggested by @Toperoco");}
+        else if (trivia === 9)
+            {return message.channel.send("The tiny little larva has the highest armor count in the game, at 10! - suggested by @Toperoco");}    
     }                                                                                                                                                                                                             
 //begin Terran Units
     //begin SCV
