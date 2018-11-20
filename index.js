@@ -2,7 +2,7 @@
 
 
 const botconfig = require("./botconfig.json");
-//const gitignore = require("./token.json");//disable for heroku
+const gitignore = require("./token.json");//disable for heroku
 const Discord = require ("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -347,7 +347,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 7, **Cargo Size** - 2")
         .addField("Abilites and Upgrades", "_")
-        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast.")
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast. Also cloaks burrowed Widow Mines on cooldown.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Widow_Mine_(Legacy_of_the_Void)");
     return message.channel.send(mineembed);
     }
@@ -357,15 +357,15 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Cyclone**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444")
-        .addField("Construction", "**Built from:** Factory")
+        .addField("Construction", "**Built from:** Factory with Tech Lab")
         .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Offense","**Damage** - 3(+1 per upgrade), vs armored 5(+1 per upgrade) **Hitspeed** - 0.1, **Range** - 6, **DPS** - 30(+10 per upgrade), vs armored 50(+10 per upgrade) **Targets** - Ground")
+        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.73")
+        .addField("Offense","**Damage** - 18(+2 per upgrade) **Hitspeed** - 0.71, **Range** - 5, **DPS** - 25.35(+2.81 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 4")
         .addField("Abilites and Upgrades", "_")
-        .addField("Lock On","**Cooldown** - 14, **Range** - 7 to cast, 15 effective, **Effect** - Locks the Cyclone's weapons on the target air unit, dealing 160 damage over 14 seconds to Flying targets. Can move while firing. Cancels if target moves out of range or vision.")
-        .addField("Rapid Fire Launchers","**Researched from:** Factory Tech Lab, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Increases the attack speed of the first 12 shots of the Cyclone's Lock On. ")
+        .addField("Lock On","**Cooldown** - 14, **Range** - 7 to cast, 15 effective, **DPS** - 28.57, **Effect** - Locks the Cyclone's weapons on the target air unit, dealing 400 damage over 14 seconds to targets. Can move while firing. Cancels if target moves out of range or vision.")
+        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Cyclone");
     return message.channel.send(cycloneembed);
     }
@@ -395,11 +395,11 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814")
         .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
-        .addField("Defense", "**HP** - 400, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62")
         .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **DPS** - 65.9(+6.59 per upgrade) **Targets** - Ground")
-        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 11.2(+1.87 per upgrade), vs light 22.4(+3.74 per upgrade) **Targets** - Air")
-        .addField("Offense (single target air)","**Damage** - 35(+3 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **DPS** - 16.3(+1.4 per upgrade), vs armored 23.3(+2.33 per upgrade) **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Radius** - 0.5, **DPS** - 11.2(+1.87 per upgrade), vs light 22.4(+3.74 per upgrade) **Targets** - Air")
+        .addField("Offense (single target air)","**Damage** - 40(+4 per upgrade), vs massive 55(+6 per upgrade) **Hitspeed** - 1.71, **Range** - 10, **DPS** - 23.39(+2.35 per upgrade), vs massive 32.16(+3.51 per upgrade) **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Ground**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 8")
         .addField("Abilites and Upgrades", "_")
         .addField("High Impact/Explosive Payload", "The Thor's 250mm Punisher Cannons strike a single air target for heavy damage. The Thor's Javelin missile launchers deal splash damage to nearby air units and additional damage to Light units.")
@@ -438,9 +438,9 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Air**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8")
         .addField("Abilites and Upgrades", "_")
-        .addField("High Capacity Fuel Tanks", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the Medivac's fuel reserves, allowing Ignite Afterburners to last 50% longer. Average speed is increased from 4.232 to 4.455.")
+        .addField("Rapid Re-ignition System", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - decreases Ignite Afterburners cooldown duration from 8.57 seconds to 6.43 seconds.")
         .addField("Heal", "**Energy** - 1 per 4 HP, **Range** - 4, **HPS** - 12.6, **Targets** - Biological**")
-        .addField("Ignite Afterburners", "**Cooldown** - 14, **Effect** - Speed boost that increases Medivac's movement speed and acceleration to 5.94 for 6 seconds (9 seconds with the upgrade). Average speed is increased from 4.232 to 4.455.")
+        .addField("Ignite Afterburners", "**Cooldown** - 8.57(-2.14), **Duration** - 6, **Effect** - Speed boost that increases Medivac's movement speed and acceleration to 5.94. Average speed is increased from 4.232 to 4.455.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Medivac_(Legacy_of_the_Void)");
     return message.channel.send(medevacembed);
     }
@@ -476,7 +476,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Air**")
         .addField("Misc.", "**Sight Range** - 10")
         .addField("Abilites and Upgrades", "_")
-        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 200, **Vespene** - 200, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
+        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
         .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Energy** - 25(+1.3/s), **Effect** - The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Banshee_(Legacy_of_the_Void)");
     return message.channel.send(bansheeembed);
@@ -495,7 +495,7 @@ bot.on("message", async message =>{
         .addField("Abilites and Upgrades", "_")
         .addField("Build Auto-Turret", "**Energy** - 50, **Range** - 2, **Duration** - 10 **Effect** - The Raven drops an Auto-Turret at the target location.")
         .addField("Interference Matrix", "**Energy** - 50, **Range** - 9, **Duration** - 7.9 **Effect** - Disables a target unit rendering it unable to attack or use abilities for 7.9 seconds. Reveals Cloaked units. Can only target mechanical and psionic units.")
-        .addField("Anti-Armor Missile", "**Energy** - 75, **Range** - 10, **Duration** - 21, **Radius** - 0.72 **Effect** - Deploys a Missile which pursues the target unit, dealing 15 splash damage upon contact and reducing armor of affected units by 3 for 21 seconds.")
+        .addField("Anti-Armor Missile", "**Energy** - 75, **Range** - 10, **Duration** - 21, **Radius** - 0.72 **Effect** - Deploys a Missile which pursues the target unit, reducing armor and shield armor of affected units by 3 for 21 seconds.")
         .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the Raven's starting energy by 25.")
         .addField("Hi-Sec Auto Tracking","**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets")
         .addField("More Info", "https://liquipedia.net/starcraft2/Raven_(Legacy_of_the_Void)");
@@ -511,11 +511,11 @@ bot.on("message", async message =>{
         .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
         .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
         .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 50(+6.25 per upgrade) **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 6(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 37.5(+6.25 per upgrade) **Targets** - Air")
+        .addField("Offense (air)","**Damage** - 5(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 31.25(+6.25 per upgrade) **Targets** - Air")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 12")
         .addField("Abilites and Upgrades", "_")
-        .addField("Yamato Cannon", "**Researched from:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 300 damage.")
+        .addField("Yamato Cannon", "**Researched from:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 240 damage.")
         .addField("Tactical Jump", "**Cooldown** - 71, **Effect** - After 4 seconds, warps to the target location. Battlecruiser is invincible while warping.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Battlecruiser_(Legacy_of_the_Void)");
     return message.channel.send(battlecruiserembed);
@@ -599,8 +599,8 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
         .addField("Force Field", "**Energy** - 50, **Range** - 11, **Radius** - 1.7, **Duration** - 11, **Effect** - Barrier that lasts 11 seconds and impedes movement of ground units. Massive units will shatter Force Fields on contact. Hallucinated Massive units cannot shatter Force Fields.")
-        .addField("Guardian Shield","**Energy** - 75, **Radius** - 4, **Duration** - 11, **Effect** - Creates a range 4 aura that reduces incoming ranged damage to friendly units by 2.")
-        .addField("Hallucination","**Energy** - 100, **Duration** - 43, **Effect** - Creates hallucinations of Protoss units at the caster's location, that cannot use active abilities, cannot deal damage, and die more easily. Enemy detectors can reveal hallucinations.")
+        .addField("Guardian Shield","**Energy** - 75, **Radius** - 4.5, **Duration** - 11, **Effect** - Creates a range 4 aura that reduces incoming ranged damage to friendly units by 2.")
+        .addField("Hallucination","**Energy** - 75, **Duration** - 43, **Effect** - Creates hallucinations of Protoss units at the caster's location, that cannot use active abilities, cannot deal damage, and die more easily. Enemy detectors can reveal hallucinations.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Sentry_(Legacy_of_the_Void)");
     return message.channel.send(sentryembed);
     }
@@ -635,7 +635,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Light, Psionic, Ground**")
         .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
-        .addField("Feedback", "**Energy** - 50, **Range** - 9, **Effect** - Only units with energy can be targeted with Feedback. Feedback removes all energy from the targeted unit, and converts it into direct damage dealt to the target.")
+        .addField("Feedback", "**Energy** - 50, **Range** - 9, **Effect** - Only units with energy can be targeted with Feedback. Feedback removes all energy from the targeted unit, and converts it into direct damage dealt to the target at the rate of 0.5 damage per point of energy drained.")
         .addField("Psionic Storm","**Researched from:** Templar Archives, **Minerals** - 200, **Vespene** - 200, **Time** - 79, **Energy** - 75, **Cooldown** - 1.43 **Range** - 9, **Radius** - 1.5, **Duration** - 2.85, **Effect** - Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
         .addField("Archon Warp","**Duration** - 9, **Effect** - Sacrifices 2 Templar to create an Archon.")
         .addField("More Info", "https://liquipedia.net/starcraft2/High_Templar_(Legacy_of_the_Void)");
@@ -655,7 +655,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
         .addField("Permanent Cloak","**Effect** - The Dark Templar is permanently cloaked.")
-        .addField("Shadow Stride", "**Researched from:** Dark Shrine, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 21, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
+        .addField("Shadow Stride", "**Researched from:** Dark Shrine, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 14, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
         .addField("Archon Warp","**Duration** - 9, **Effect** - Sacrifices 2 Templar to create an Archon.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Templar_(Legacy_of_the_Void)");
     return message.channel.send(dtembed);
@@ -757,7 +757,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
         .addField("Upgrades and Abilities","-")
-        .addField("Purification Nova", "**Cooldown** - 14.3, **Radius** - 1.5, **Duration** - 2, **Damage** - 145+55 vs shields, **Targets** - Ground, **Effect** - Shoots out a ball of energy that detonates after 2 seconds or on contact with an enemy unit, dealing 145 splash damage and an additional 55 shield damage to nearby ground units and structures. The Disruptor is immobile while this is active. The Disruptor's visual glow is dulled a little bit during cool-down.")
+        .addField("Purification Nova", "**Cooldown** - 14.3, **Radius** - 1.5, **Duration** - 2, **Damage** - 145+55 vs shields, **Targets** - Ground, **Effect** - Shoots out a ball of energy that detonates after 2 seconds, dealing 145 splash damage and an additional 55 shield damage to nearby ground units and structures. The Disruptor is immobile while this is active and it's visual glow is dulled a little bit during cool-down.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Disruptor");
     return message.channel.send(ruptorembed);
     }
@@ -806,12 +806,12 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
         .addField("Construction", "**Built from:** Stargate")
         .addField("Resources", "**Minerals** - 250, **Vespene** - 150, **Supply** - 4, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5 (-1.4)")
+        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(-0.88)")
         .addField("Offense","**Damage** - 6(+1 per upgrade), vs armored 4+6(+1 per upgrade) **Hitspeed** - 0.36, **Range** - 4+2, **DPS** - 16.8(+2.8 per upgrade), vs armored 28+28(+2.8 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Armored, Air**")
         .addField("Misc.", "**Sight Range** - 10")
         .addField("Upgrades and Abilities","-")
-        .addField("Prismatic Alignment","**Cooldown** - 43, **Duration** - 14.3, **Effect** - Realigns the Void Ray's Prismatic Beam to gain +6 damage vs. armored units for 14.3 seconds. This does not scale with upgrades.")
+        .addField("Prismatic Alignment","**Cooldown** - 43, **Duration** - 14.3, **Effect** - Realigns the Void Ray's Prismatic Beam to gain +6 damage vs. armored units for 14.3 seconds at the cost of 0.88 movespeed. This does not scale with upgrades.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Void_Ray_(Legacy_of_the_Void)");
     return message.channel.send(voidembed);
     }
@@ -822,13 +822,12 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
         .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 86")
-        .addField("Defense", "**HP+Shields** - 250+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor")
+        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 64")
+        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor, **Release Period** - 0.27")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("Misc.", "**Sight Range** - 10")
         .addField("Upgrades and Abilities","-")
-        .addField("Graviton Catapult","**Researched from:** Fleet Beacon, **Minerals** - 150, **Vespene** - 150, **Time** - 80, **Effect** - The launch speed of the Interceptors is now increased. The first four interceptors are launched at a cooldown of .125, the last four at .25. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
     return message.channel.send(carrierembed);
     }
@@ -839,7 +838,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/Interceptor_SC2_Rend1.JPEG/revision/latest?cb=20110223005457")
         .addField("Construction", "**Built from:** Carrier")
-        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 6")
+        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
         .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 10.5")
         .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), **Hitspeed** - 2.14, **Range** - 8+2, **DPS** -  4.7(+0.93 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Light, Air**")
@@ -854,8 +853,8 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Protoss_Tempest.jpg/revision/latest?cb=20160106231047")
         .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Resources", "**Minerals** - 250, **Vespene** - 175, **Supply** - 5, **Build Time** - 43")
+        .addField("Defense", "**HP+Shields** - 150+125, **Armor** - 2(+1 per upgrade) **Movespeed** - 3.5")
         .addField("Offense (air)","**Damage** - 30(+3 per upgrade), vs massive 52(+5 per upgrade) **Hitspeed** - 2.36, **Range** - 15, **DPS** - 12.73(+1.273 per upgrade), vs massive 22.05(+2.12 per upgrade) **Targets** - Air")
         .addField("Offense (ground)","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
@@ -877,8 +876,8 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 14")
         .addField("Upgrades and Abilities","-")
         .addField("Cloaking Field","**Radius** - 5, **Effect** - The Mothership cloaks all nearby units and buildings.")
-        .addField("Strategic Recall","**Energy** - 100, **Range** - Infinite, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all player units in the target area to the Mothership.")
-        .addField("Time Warp","**Energy** - 100, **Radius** - 3.5, **Range** - 9, **Duration** - 11, **Effect** - After a 4-second delay, warps spacetime within the target area for 7 seconds. Enemy ground units within the field are slowed by 50%.")
+        .addField("Mass Recall","**Energy** - 100, **Range** - Infinite, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all player units in the target area to the Mothership.")
+        .addField("Time Warp","**Energy** - 100, **Radius** - 3.5, **Range** - 9, **Duration** - 11, **Effect** - After a 4-second delay, warps spacetime within the target area for 7 seconds. Enemy ground units within the field have 50% reduced movement and attack speed.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
     return message.channel.send(mamaembed);
     }
@@ -950,7 +949,7 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Spawn Larva", "**Energy** - 25, **Range** - Melee, **Cooldown** - 1.8, **Duration** - 29, **Effect** - The Queen injects 3 Larva eggs into a Hatchery which after 29 seconds, hatch and 3 Larvae are ready to be used at the targeted Hatchery. If a Hatchery has more than 19 Larva, additional Larva will not be created. This will stack and queue if the target is already spawning additional larvae.")
         .addField("Spawn Creep Tumor", "**Energy** - 25, **Range** - Melee, **Duration** - 11, **Effect** - The Queen moves to and places a Creep Tumor at the targeted location. The tumor has 50 hit points and generates Creep. Each Creep Tumor can spawn one other Creep Tumor within a radius of 10.")
-        .addField("Transfusion","**Energy** - 50, **Range** - 7, **Cooldown** - 1, **Targets** - Biological, **Effect** - The Queen heals a friendly, biological unit or building for 125 health.")
+        .addField("Transfusion","**Energy** - 50, **Range** - 7, **Cooldown** - 1, **Targets** - Biological, **Effect** - The Queen heals a friendly, biological unit or building for 75 health instantly plus an additional 50 health over the next 7.14 seconds.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Queen_(Legacy_of_the_Void)");
     return message.channel.send(queenembed);
@@ -1009,7 +1008,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
         .addField("Glial Reconstitution", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
-        .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8 and increases the health regeneration rate of Roaches to 14 HP/sec below ground.")
+        .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8.")
         .addField("Rapid Regeneration","**Effect** - While burrowed, the Roach regenerates its health at an extremely fast rate of 7 hit points per second.")
         .addField("Morph to Ravager","**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Time** - 9, **Effect** - Morphs a Roach into a Ravager.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
@@ -1080,7 +1079,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
         .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
         .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
-        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.54, **Range** - 5(+1), **DPS** - 22.4(+1.87 per upgrade), **Targets** - Air and Ground")
+        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.59, **Range** - 5(+1), **DPS** - 20.34(+1.69 per upgrade), **Targets** - Air and Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
@@ -1193,8 +1192,8 @@ bot.on("message", async message =>{
         .addField("Upgrades and Abilities","-")
         .addField("Pathogen Glands", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
         .addField("Neural Parasite", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
-        .addField("Fungal Growth", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units.") 
-        .addField("Infested Terran", "**Energy** - 25, **Range** - 7, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
+        .addField("Fungal Growth", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units. Disables all movement based abilities.") 
+        .addField("Infested Terran", "**Energy** - 25, **Range** - 8, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("Burrow Move","**Effect** - Can move while burrowed")
         .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)");
@@ -1242,12 +1241,13 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927")
         .addField("Construction", "**Built from:** Larva, **Requires:** Ultralisk Cavern")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 39")
-        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13, on creep 5.37")
+        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13(+0.42), on creep 5.37")
         .addField("Offense","**Damage** - 35(+3 per upgrade), splash 12(+1 per upgrade), **Hitspeed** - 0.61, **Range** - Melee, **DPS** - 57.38(+4.9 per upgrade), **Targets** - Ground")
         .addField("Attributes", "**Biological, Armored, Massive, Ground**")
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 8")
         .addField("Upgrades and Abilities","-")
         .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
+        .addField("Anabolic Synthesis", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 42, **Effect** - Increases Ultralisk speed when off creep from 4.13 to 4.55. ")
         .addField("Frenzied", "**Effect** - Zerg unit is immune to snare, stun, mind control, and movement altering effects.")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)");
@@ -1408,8 +1408,7 @@ bot.on("message", async message =>{
         .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Terran infantry units. ")
         .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Terran infantry units. ")
         .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
-        .addField("Structure Armor", "**Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2. ")
-        .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
+        .addField("Neosteel Armor", "**Minerals** - 150, **Vespene** - 150, **Time** - 100, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2, and increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
     return message.channel.send(engieembed);
     }
@@ -1489,11 +1488,11 @@ bot.on("message", async message =>{
         .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
         .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellion's bonus against Light units by +5 damage and the Hellbat's bonus against Light units by +12 damage.")
         .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions, Hellbats, Vikings, and Thors to transform quickly between combat modes. ")
-        .addField("Rapid Fire Launchers","**Researched from:** Factory Tech Lab, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Increases the attack speed of the first 12 shots of the Cyclone's Lock On. ")
-        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast.")
-        .addField("High Capacity Fuel Tanks", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the Medivac's fuel reserves, allowing Ignite Afterburners to last 50% longer. Average speed is increased from 4.232 to 4.455.")
+        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast. Also cloaks burrowed Widow Mines on cooldown.")
+        .addField("Rapid Re-ignition System", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - decreases Ignite Afterburners cooldown duration from 8.57 seconds to 6.43 seconds.")
         .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the Raven's starting energy by 25.")
-        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 200, **Vespene** - 200, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
+        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
         .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
         .addField("Advanced Ballistics", "**Researched from:** Starport Tech Lab, **Requires:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the range of Liberators in Defender Mode by 4.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Tech_Lab_(Legacy_of_the_Void)");
@@ -1582,7 +1581,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Unlocked Tech", "Battlecruiser")
         .addField("Upgrades and Abilities","-")
-        .addField("Yamato Cannon", "**Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 300 damage.")
+        .addField("Yamato Cannon", "**Minerals** - 150, **Vespene** - 150, **Time** - 43, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 240 damage.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Fusion_Core_(Legacy_of_the_Void)");
     return message.channel.send(fusionembed);
     }
@@ -1600,7 +1599,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Chrono Boost", "**Energy** - 50, **Duration** - 20, **Effect** - Places target structure in a Chrono Boost, causing it to operate 50% faster for 20 seconds.")
-        .addField("Mass Recall", "**Energy** - 50, **Cooldown** - 130, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
+        .addField("Strategic Recall", "**Energy** - 50, **Cooldown** - 85, **Radius** - 2.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Nexus_(Legacy_of_the_Void)");
     return message.channel.send(nexusembed);
     }
@@ -1623,7 +1622,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/74/Icon_Protoss_Assimilator.jpg/revision/latest?cb=20160106231703")
         .addField("Resources", "**Minerals** - 75, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
-        .addField("Defense", "**HP+Shields** - 450+450, **Armor** - 1(+1 per upgrade)")
+        .addField("Defense", "**HP+Shields** - 300+300, **Armor** - 1(+1 per upgrade)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("More Info", "https://liquipedia.net/starcraft2/Assimilator_(Legacy_of_the_Void)");
     return message.channel.send(assimembed);
@@ -1724,7 +1723,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/ShieldBattery_SC2-LotV_Rend1.jpg/revision/latest?cb=20151205045214")
         .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
-        .addField("Defense", "**HP+Shields** - 200+200, **Armor** - 1(+1 per upgrade)")
+        .addField("Defense", "**HP+Shields** - 150+150, **Armor** - 1(+1 per upgrade)")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Shield Restore", "**Energy** - 1 per 3 shields, **Rate** - 50.4 per sec, **Range** - 6, **Effect** - Restores target unit or structure's shields. Restores 3 shields per 1 energy. Autocasting targets units and defensive structures only.")
@@ -1751,7 +1750,7 @@ bot.on("message", async message =>{
         .setDescription ("**Protoss Robotics Bay**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Protoss_Robotics_Bay.jpg/revision/latest?cb=20160106231910")
-        .addField("Resources", "**Requires:** Robotics Facility, **Minerals** - 100, **Vespene** - 200, **Build Time** - 46")
+        .addField("Resources", "**Requires:** Robotics Facility, **Minerals** - 150, **Vespene** - 150, **Build Time** - 46")
         .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
         .addField("Unlocked Tech", "Colossus, Disruptor")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
@@ -1788,7 +1787,6 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Anion Pulse-Crystals", "**Minerals** - 150, **Vespene** - 150, **Time** - 64, **Effect** - Increases the range of the Phoenix weapon by 2.")
-        .addField("Graviton Catapult","**Minerals** - 150, **Vespene** - 150, **Time** - 80, **Effect** - The launch speed of the Interceptors is now increased. The first four interceptors are launched at a cooldown of .125, the last four at .25. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Fleet_Beacon_(Legacy_of_the_Void)");
     return message.channel.send(beaconembed);
     }
@@ -1835,7 +1833,7 @@ bot.on("message", async message =>{
         .addField("Unlocked Tech", "Dark Templar, Archon")
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
-        .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 21, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
+        .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 14, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)");
     return message.channel.send(shrineembed);
     }           
@@ -1950,7 +1948,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Glial Reconstitution", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
-        .addField("Tunneling Claws", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8 and increases the health regeneration rate of Roaches to 14 HP/sec below ground.")
+        .addField("Tunneling Claws", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)"); 
     return message.channel.send(warrenembed);
     }
@@ -2059,7 +2057,7 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Nydus Network**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/77/Icon_Zerg_Nydus_Network.jpg/revision/latest?cb=20160106235751")
-        .addField("Resources", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 200, **Build Time** - 36")
+        .addField("Resources", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Build Time** - 36")
         .addField("Defense", "**HP** - 850, **Armor** - 1")
         .addField("Production", "**By default:** Nydus Worm")
         .addField("Attributes", "**Biological, Armored, Structure**")
@@ -2075,8 +2073,8 @@ bot.on("message", async message =>{
         .setDescription ("**Zerg Nydus Worm**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/cd/Icon_Zerg_Nydus_Worm.jpg/revision/latest?cb=20160106235740")
-        .addField("Resources", "**Built from:** Nydus Network, **Minerals** - 100, **Vespene** - 100, **Build Time** - 14")
-        .addField("Defense", "**HP** - 200, **Armor** - 1")
+        .addField("Resources", "**Built from:** Nydus Network, **Minerals** - 50, **Vespene** - 50, **Build Time** - 14")
+        .addField("Defense", "**HP** - 200, **Armor** - 1, **Emerging Armor** - 6")
         .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Misc.", "**Cargo Capacity** - 256 units")
         .addField("Upgrades and Abilities","-")
@@ -2255,10 +2253,10 @@ bot.on("message", async message =>{
         .setDescription ("**Terran Cyclone**")
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444")
-        .addField("Construction", "**Built from:** Factory")
+        .addField("Construction", "**Built from:** Factory with Tech Lab")
         .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Offense","**Damage** - 3(+1 per upgrade), vs armored 5(+1 per upgrade) **Hitspeed** - 0.1, **Range** - 6, **Targets** - Ground")
+        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.73")
+        .addField("Offense","**Damage** - 18(+2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Armored, Ground**")
         .addField("More Info", "try sc2full-cyclone for more info");
     return message.channel.send(cycloneembed);
@@ -2286,11 +2284,11 @@ bot.on("message", async message =>{
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814")
         .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
         .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
-        .addField("Defense", "**HP** - 400, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Defense", "**HP** - 400, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62")
         .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **Targets** - Ground")
         .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Targets** - Air")
-        .addField("Offense (single target air)","**Damage** - 35(+3 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
+        .addField("Offense (single target air)","**Damage** - 40(+4 per upgrade), vs armored 55(+6 per upgrade) **Hitspeed** - 1.71, **Range** - 10, **Targets** - Air")
+        .addField("Attributes", "**Mechanical, Armored, Massive, Ground**")
         .addField("More Info", "try sc2full-thor for more info");
     return message.channel.send(thorembed);
     }
@@ -2374,7 +2372,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
         .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
         .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 6(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Air")
+        .addField("Offense (air)","**Damage** - 5(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Air")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("More Info", "try sc2full-cruiser for more info");
     return message.channel.send(battlecruiserembed);
@@ -2582,8 +2580,8 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
         .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 86")
-        .addField("Defense", "**HP+Shields** - 250+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
+        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 64")
+        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
         .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor")
         .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
         .addField("More Info", "try sc2full-carrier and sc2-interceptor for more info");
@@ -2729,7 +2727,7 @@ bot.on("message", async message =>{
         .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
         .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
         .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
-        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.54, **Range** - 5(+1), **Targets** - Air and Ground")
+        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.57, **Range** - 5(+1), **Targets** - Air and Ground")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("More Info", "try sc2full-hydra for more info");
     return message.channel.send(hydraembed);
@@ -2883,5 +2881,5 @@ bot.on("message", async message =>{
         return message.channel.send("Did you mean *sc2-zling* or *sc2-bling*?");
         }
 }),
-//bot.login(gitignore.token);
-bot.login(process.env.token);
+bot.login(gitignore.token);
+//bot.login(process.env.token);
