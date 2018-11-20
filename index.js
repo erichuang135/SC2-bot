@@ -2,7 +2,7 @@
 
 
 const botconfig = require("./botconfig.json");
-const gitignore = require("./token.json");//disable for heroku
+//const gitignore = require("./token.json");//disable for heroku
 const Discord = require ("discord.js");
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -2881,5 +2881,5 @@ bot.on("message", async message =>{
         return message.channel.send("Did you mean *sc2-zling* or *sc2-bling*?");
         }
 }),
-bot.login(gitignore.token);
-//bot.login(process.env.token);
+//bot.login(gitignore.token);
+bot.login(process.env.token);
