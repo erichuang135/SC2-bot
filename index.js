@@ -49,7 +49,7 @@ bot.on("message", async message =>{
     }
 //begin Joke command
     if (cmd === `${shortprefix}joke`){
-        var joke = Math.floor((Math.random() * 65) + 1);
+        var joke = Math.floor((Math.random() * 70) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
         else if (joke === 2)
@@ -179,7 +179,17 @@ bot.on("message", async message =>{
         else if (joke === 64)
             {return message.channel.send("How does the nydus network go to islands in space? *By a wormhole* - suggested by @Nilin");}
         else if (joke === 65)
-            {return message.channel.send("Why is zerg cancer? *They're constantly spreading tumors* - suggested by @Invalid");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            {return message.channel.send("Why is zerg cancer? *They're constantly spreading tumors* - suggested by @Invalid");}
+        else if (joke === 66)
+            {return message.channel.send("Try to be quiet. My wife is sleeping and we don't want to disruptor. - suggested by @Fatty");}
+        else if (joke === 67)
+            {return message.channel.send("My wife is bad at Starcraft. When we play 2v2, I always have to carrier. - suggested by @Fatty");}
+        else if (joke === 68)
+            {return message.channel.send("Why are banelings so bad at blackjack? *They always bust.*");}
+        else if (joke === 69)
+            {return message.channel.send("How are banelings charging at a Planetary and Blackjack similar? *You need more than 21 to bust.*");}
+        else if (joke === 70)
+            {return message.channel.send("A protoss player loses his entire army. When asked about it, he replies, *I don't recall*);}");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         }
     //begin Trivia command
     if (cmd === `${shortprefix}trivia`){
