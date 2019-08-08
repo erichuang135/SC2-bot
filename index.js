@@ -245,7 +245,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 1")
         .addField("Abilites and Upgrades", "_")  
         .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Every Marine gains a Combat Shield that gives 10 hitpoints. ")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP")
         .addField("More Info", "https://liquipedia.net/starcraft2/Marine_(Legacy_of_the_Void)");
     return message.channel.send(marineembed);
     }
@@ -263,7 +263,7 @@ bot.on("message", async message =>{
         .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
         .addField("Abilites and Upgrades", "_")  
         .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 20 HP")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 20 HP")
         .addField("More Info", "https://liquipedia.net/starcraft2/Marauder_(Legacy_of_the_Void)");
     return message.channel.send(mauraderembed);
     }
@@ -299,6 +299,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Psionic, Ground**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 2")
         .addField("Abilites and Upgrades", "_") 
+        .addField("Enhanced Shockwaves","**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** -  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
         .addField("Steady Targeting","**Energy** - 50, **Range** - 10, **Effect** - After carefully aiming for 1.43 seconds while not taking damage, the Ghost fires a sniper round dealing 170 damage. Ignores armor. Can only target biological units.")
         .addField("EMP Round","**Energy** - 75, **Range** - 10, **Radius** - 1.5, **Effect** - Fires an EMP Round that removes up to 100 shields and energy from every unit within the AoE. Also reveals cloaked units.")
         .addField("Cloak","**Researched from:** Ghost Academy, **Minerals** - 150, **Vespene** - 150, **Time** - 86, **Energy** - 25(+1.3/s), **Effect** - The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
@@ -710,7 +711,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644")
         .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
+        .addField("Resources", "**Minerals** - 250, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
         .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
         .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
         .addField("Misc.", "**Sight Range** - 10, **Cargo Capacity** - 8")
@@ -848,7 +849,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/Interceptor_SC2_Rend1.JPEG/revision/latest?cb=20110223005457")
         .addField("Construction", "**Built from:** Carrier")
-        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
+        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 9")
         .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 10.5")
         .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), **Hitspeed** - 2.14, **Range** - 8+2, **DPS** -  4.7(+0.93 per upgrade) **Targets** - Air and Ground")
         .addField("Attributes", "**Mechanical, Light, Air**")
@@ -936,7 +937,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Ground**")
         .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8 (with Ventral Sacs)")
         .addField("Upgrades and Abilities","-")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals** - 25, **Vespene** - 25, **Time** - 12, **Effect** - Enables the Overlord to transport units.")
         .addField("Morph to Overseer","**Requires:** Lair, **Minerals** - 50, **Vespene** - 50, **Time** - 12, **Effect** - Morphs the selected Overlord into an Overseer.")
         .addField("Generate Creep","**Requires:** Lair, **Channeling Time** - 11, **Effect** - When selected, the Overlord will create Zerg creep beneath it, spreading out to a 2x2 area.")
@@ -1057,7 +1058,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Detector, Air**")
         .addField("Misc.", "**Sight Range** - 11(+2.75), **Cargo Size** - 2")
         .addField("Upgrades and Abilities","-")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overseers to 3.375")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overseers to 3.375")
         .addField("Spawn Changeling", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
         .addField("Contaminate", "**Energy** - 125, **Range** - 3, **Duration** - 30, **Effect** - The Overseer covers an enemy structure in slime. The structure will be unable to train units or research upgrades for 30 seconds.") 
         .addField("Oversight", "**Effect** - Grants the Overseer 25% wider vision, but removes its ability to move. This ability can be canceled after activation.")
@@ -1220,7 +1221,7 @@ bot.on("message", async message =>{
         .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
         .addField("Egg Defense","**HP** - 70, **Armor** - 2, **Sight Range** - 0")
         .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **DPS** - 10(+1.6 per upgrade), **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
+        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("Misc.", "**Sight Range** - 9")
         .addField("Upgrades and Abilities","-")
@@ -1494,7 +1495,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
         .addField("Upgrades and Abilities","-")
         .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Every Marine gains a Combat Shield that gives 10 hitpoints. ")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP for a marine, and 20 HP for a marauder")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP for a marine, and 20 HP for a marauder")
         .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
         .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellion's bonus against Light units by +5 damage and the Hellbat's bonus against Light units by +12 damage.")
         .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions, Hellbats, Vikings, and Thors to transform quickly between combat modes. ")
@@ -1536,6 +1537,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Cloak","**Minerals** - 150, **Vespene** - 150, **Time** - 86, **Energy** - 25(+1.3/s), **Effect** - The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("Enhanced Shockwaves","**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** -  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
         .addField("Arm with Nuke", "**Requires:** Factory, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Builds a Nuke that can be launched by a Ghost. Limited to one Nuke per Ghost Academy. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_Academy_(Legacy_of_the_Void)");
     return message.channel.send(academyembed);
@@ -1609,7 +1611,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Mechanical, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Chrono Boost", "**Energy** - 50, **Duration** - 20, **Effect** - Places target structure in a Chrono Boost, causing it to operate 50% faster for 20 seconds.")
-        .addField("Strategic Recall", "**Energy** - 50, **Cooldown** - 85, **Radius** - 2.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
+        .addField("Strategic Recall", "**Energy** - 50, **Cooldown** - 130, **Radius** - 2.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
         .addField("More Info", "https://liquipedia.net/starcraft2/Nexus_(Legacy_of_the_Void)");
     return message.channel.send(nexusembed);
     }
@@ -1861,7 +1863,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)"); 
     return message.channel.send(hatchembed);
     }
@@ -1990,7 +1992,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("More Info", "https://liquipedia.net/starcraft2/Lair_(Legacy_of_the_Void)"); 
     return message.channel.send(lairembed);
     }
@@ -2105,7 +2107,7 @@ bot.on("message", async message =>{
         .addField("Attributes", "**Biological, Armored, Structure**")
         .addField("Upgrades and Abilities","-")
         .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
         .addField("More Info", "https://liquipedia.net/starcraft2/Hive_(Legacy_of_the_Void)"); 
     return message.channel.send(hiveembed);
     }
@@ -2507,7 +2509,7 @@ bot.on("message", async message =>{
         .setColor("#7FC5EB")
         .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644")
         .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 200, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
+        .addField("Resources", "**Minerals** - 250, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
         .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
         .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
         .addField("More Info", "try sc2full-prism for more info");
@@ -2823,7 +2825,7 @@ bot.on("message", async message =>{
         .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
         .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
         .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 0.95, **Range** - 6, **Targets** - Air")
+        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **Targets** - Air")
         .addField("Attributes", "**Biological, Light, Ground**")
         .addField("More Info", "try sc2full-infestedterran for more info");
     return message.channel.send(infestedembed);
