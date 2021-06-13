@@ -1,6 +1,3 @@
-
-
-
 const botconfig = require("./botconfig.json");
 //const gitignore = require("./token.json");//disable for heroku
 const Discord = require ("discord.js");
@@ -40,8 +37,8 @@ bot.on("message", async message =>{
         .setDescription("Help Info")
         .setColor("#7FC5EB")
         .setThumbnail(bicon)
-        .addField("How to Use SC2 bot", "Type *sc2-unit* to see info on that unit. For example, *sc2-marine* will give you that statistics for the marine. Use *sc2full-unit* to see a longer list of statistics for either a unit or a structure. For example, *sc2full-raven* or *sc2full-orbital*. Use no spaces.")
-        .addField("Fun Commands", "Try out *sc2-joke* or *sc2-trivia*, I'm sure you'll have some fun!")
+        .addField("How to Use SC2 bot", "Type `sc2-unit` to see info on that unit. For example, *sc2-marine* will give you that statistics for the marine. Use `sc2-unit-p2` to see the unit's abilities and upgrades. For example, `sc2-raven-p2`. Use no spaces. Works with units and structures.")
+        .addField("Fun Commands", "Try out `sc2-joke` or `sc2-trivia`, I'm sure you'll have some fun!")
         .addField("Support and Suggestions", "Visit https://discord.gg/xRhxfAN for questions, comments, updates, and suggestions.")
         .addField("Credits", "All unit stats take from https://liquipedia.net/starcraft2, all images taken from the SC2 wikia")
         .addField("Sellout","Please, take some time to upvote this bot over here: https://discordbots.org/bot/464839423003983902, to help this bot gain more visibility. Thanks!")
@@ -212,2687 +209,1701 @@ bot.on("message", async message =>{
             {return message.channel.send("The GSL started back in 2010, shortly after the release of Wings of Liberty - suggested by @Toperoco");}
         else if (trivia === 9)
             {return message.channel.send("The tiny little larva has the highest armor count in the game, at 10! - suggested by @Toperoco");}    
-    }                                                                                                                                                                                                             
+    }
+function fullUnitInfo(name,thumbnail,builtFrom,require,mins,gas,supply,time,HP,armor,speed,damage,hitspeed,range,DPS,targets,attributes,sight,cargo,unitname){
+    let embed = new Discord.RichEmbed()
+        .setDescription ("**"+name+"**")
+        .setColor("#7FC5EB")
+        .setThumbnail(thumbnail)
+        .addField("Construction", "**Built from:** "+builtFrom+", **Requires**: "+require)
+        .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Supply**: "+supply+" **, Build Time**: "+time)
+        .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor+", **Movespeed**: "+speed)
+        .addField("Offense","**Damage**: "+damage+", **Hitspeed**: "+hitspeed+", **Range**: "+range+", **DPS**: "+DPS+", **Targets**: "+targets)
+        .addField("Attributes", "**"+attributes+"**")
+        .addField("Misc.", "**Sight Range**: "+sight+", **Cargo Size**: "+cargo)
+        .addField("More","Try `sc2-"+unitname+"-p2` for abilities and upgrades!")
+        return message.channel.send(embed);
+};
+function fullUnitInfoSpellcaster(name,thumbnail,builtFrom,require,mins,gas,supply,time,HP,armor,speed,attributes,sight,cargo,unitname){
+    let embed = new Discord.RichEmbed()
+        .setDescription ("**"+name+"**")
+        .setColor("#7FC5EB")
+        .setThumbnail(thumbnail)
+        .addField("Construction", "**Built from:** "+builtFrom+", **Requires**: "+require)
+        .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Supply**: "+supply+" **, Build Time**: "+time)
+        .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor+", **Movespeed**: "+speed)
+        .addField("Attributes", "**"+attributes+"**")
+        .addField("Misc.", "**Sight Range**: "+sight+", **Cargo Size**: "+cargo)
+        .addField("More","*Try `sc2-"+unitname+"-p2` for abilities and upgrades!")
+        return message.channel.send(embed);
+    } ;
+function fullUnitInfo2(name,thumbnail,builtFrom,require,mins,gas,supply,time,HP,armor,speed,damage1,damage2,hitspeed1,hitspeed2,range1,range2,DPS1,DPS2,targets1,targets2,attributes,sight,cargo,unitname,thor,damage3,hitspeed3,range3,DPS3,targets3){
+    if (thor === 1){
+        let embed = new Discord.RichEmbed()
+        .setDescription ("**"+name+"**")
+        .setColor("#7FC5EB")
+        .setThumbnail(thumbnail)
+        .addField("Construction", "**Built from:** "+builtFrom+", **Requires**: "+require)
+        .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Supply**: "+supply+" **Build Time**: "+time)
+        .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor+", **Movespeed**: "+speed)
+        .addField("Offense 1","**Damage**: "+damage1+", **Hitspeed**: "+hitspeed1+", **Range**: "+range1+", **DPS**: "+DPS1+", **Targets**: "+targets1)
+        .addField("Offense 2","**Damage**: "+damage2+", **Hitspeed**: "+hitspeed2+", **Range**: "+range2+", **DPS**: "+DPS2+", **Targets**: "+targets2)
+        .addField("Offense 3","**Damage**: "+damage3+", **Hitspeed**: "+hitspeed3+", **Range**: "+range3+", **DPS**: "+DPS3+", **Targets**: "+targets3)
+        .addField("Attributes", "**"+attributes+"**")
+        .addField("Misc.", "**Sight Range**: "+sight+", **Cargo Size**: "+cargo)
+        .addField("More","Try `sc2-"+unitname+"-p2` for abilities and upgrades!")
+        return message.channel.send(embed);
+    }else{
+        let embed = new Discord.RichEmbed()
+        .setDescription ("**"+name+"**")
+        .setColor("#7FC5EB")
+        .setThumbnail(thumbnail)
+        .addField("Construction", "**Built from:** "+builtFrom+", **Requires**: "+require)
+        .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Supply**: "+supply+" **Build Time**: "+time)
+        .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor+", **Movespeed**: "+speed)
+        .addField("Offense 1","**Damage**: "+damage1+", **Hitspeed**: "+hitspeed1+", **Range**: "+range1+", **DPS**: "+DPS1+", **Targets**: "+targets1)
+        .addField("Offense 2","**Damage**: "+damage2+", **Hitspeed**: "+hitspeed2+", **Range**: "+range2+", **DPS**: "+DPS2+", **Targets**: "+targets2)
+        .addField("Attributes", "**"+attributes+"**")
+        .addField("Misc.", "**Sight Range**: "+sight+", **Cargo Size**: "+cargo)  
+        .addField("More","Try `sc2-"+unitname+"-p2` for abilities and upgrades!")
+        return message.channel.send(embed)
+    };   
+}; 
+function fullBuildingInfo(name,thumbnail,require,mins,gas,time,HP,armor,produce,unlock,attributes,unitname){
+    let embed = new Discord.RichEmbed()
+    .setDescription ("**"+name+"**")
+    .setColor("#7FC5EB")
+    .setThumbnail(thumbnail)
+    .addField("Construction", "**Requires**: "+require)
+    .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Build Time**: "+time)
+    .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor)
+    .addField("Produces", produce)
+    .addField("Unlocked Tech", unlock)
+    .addField("Attributes", "**"+attributes+"**")        
+    .addField("More","Try `sc2-"+unitname+"-p2` for abilities and upgrades!")
+    return message.channel.send(embed)
+};
+
+function fullBuildingInfoStatic(name,thumbnail,require,mins,gas,time,HP,armor,damage,hitspeed,range,DPS,targets,produce,attributes,unitname){
+    let embed = new Discord.RichEmbed()
+    .setDescription ("**"+name+"**")
+    .setColor("#7FC5EB")
+    .setThumbnail(thumbnail)
+    .addField("Construction", "**Requires**: "+require)
+    .addField("Resources", "**Minerals: **"+mins+", **Vespene**: "+gas+", **Build Time**: "+time)
+    .addField("Defense", "**HP**: "+HP+", **Armor**: "+armor)
+    .addField("Offense","**Damage**: "+damage+", **Hitspeed**: "+hitspeed+", **Range**: "+range+", **DPS**: "+DPS+", **Targets**: "+targets)
+    .addField("Produces", produce)
+    .addField("Attributes", "**"+attributes+"**") 
+    .addField("More","Try `sc2-"+unitname+"-p2` for abilities and upgrades!")      
+    return message.channel.send(embed)
+};
+
 //begin Terran Units
     //begin SCV
     if (cmd ===`${prefix}scv`){
-        let scvembed = new Discord.RichEmbed()
-        .setDescription ("**Terran SCV**")
+        fullUnitInfo("Terran SCV", "https://vignette.wikia.nocookie.net/starcraft/images/6/61/SCV_SC2_Icon1.jpg/revision/latest?cb=20160107022653", "Command Center, Orbital Command, Planetary Fortress","none",50,0,1,12,45,"0(+1)",3.94,5,1.07,"Melee",4.67,"Ground","Biological, Mechanical, Light, Ground",8,1,"scv")
+    }
+    if (cmd ===`${prefix}scv-p2`){
+    let scvembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**")
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/61/SCV_SC2_Icon1.jpg/revision/latest?cb=20160107022653")
-        .addField("Construction", "**Built from:** Command Center, Orbital Command, Planetary Fortress")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP** - 45, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
-        .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
-        .addField("Upgrades and Abilities","-")
-        .addField("Repair", "**Effect** -  SCVs can repair friendly mechanical units and Terran buildings. Cost and time varies depending on unit.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/SCV_(Legacy_of_the_Void)");
-    return message.channel.send(scvembed);
+        .addField("Repair", "**Effect**:  SCVs can repair friendly mechanical units and Terran buildings. Cost and time varies depending on unit.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/SCV_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-scv` for main stats!");
+    message.channel.send(scvembed);
     }
     //begin Marine
     if (cmd ===`${prefix}marine`){
+        fullUnitInfo("Terran Marine", "https://vignette.wikia.nocookie.net/starcraft/images/4/47/Marine_SC2_Icon1.jpg/revision/latest?cb=20160107022344", "Barracks","none", 50, 0, 1, 18, "45(+10)", "0(+1)", "3.15+1.57","6(+1)", "0.61-0.2",5,"9.8(+1.6) / 14.7(+2.4) (stim)", "Air and Ground","Biological, Light, Ground",9,1,"marine")
+    }
+    if (cmd ===`${prefix}marine-p2`){
         let marineembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Marine**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/47/Marine_SC2_Icon1.jpg/revision/latest?cb=20160107022344")
-        .addField("Construction", "**Built from:** Barracks")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 18")
-        .addField("Defense", "**HP** - 45+10, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61(-0.2 stimmed), **Range** - 5, **DPS** - 9.8(+1.6 per upgrade), stimmed 14.7(+2.4 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 1")
-        .addField("Abilites and Upgrades", "_")  
-        .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Every Marine gains a Combat Shield that gives 10 hitpoints. ")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Marine_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+        .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Every Marine gains a Combat Shield that gives 10 hitpoints. ")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Marine_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-marine` for main stats!");
     return message.channel.send(marineembed);
     }
     //begin Marauder
     if (cmd ===`${prefix}marauder`){
+        fullUnitInfo("Terran Marauder","https://vignette.wikia.nocookie.net/starcraft/images/b/ba/Marauder_SC2_Icon1.jpg/revision/latest?cb=20160107022315","Barracks","Tech Lab",100,25,2,21,125,"1+1","3.15+1.57", "10(+1), **vs Armored**: 20(+2)","1.07-0.36",6,"9.3(+0.9) / 14.1(+1.4) (stim), **vs Armored**: 18.6(+1.8) / 24.2(+2.8) (stim)", "Ground", "Biological, Armored, Ground",10,2,"marauder")
+    }
+    if (cmd ===`${prefix}marauder-p2`){
         let mauraderembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Marauder**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/ba/Marauder_SC2_Icon1.jpg/revision/latest?cb=20160107022315")
-        .addField("Construction", "**Built from:** Barracks with Tech Lab")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
-        .addField("Defense", "**HP** - 125, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs armored 20(+2 per upgrade) **Hitspeed** - 1.07(-0.36 stimmed), **Range** - 6, **DPS** - 9.3(+0.9 per upgrade), stimmed 14.1(+1.4 per upgrade), vs armored 18.6(+1.8 per upgrade), stimmed vs armored 28.2(+2.8) **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Abilites and Upgrades", "_")  
-        .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 20 HP")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Marauder_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB")   
+        .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals**: 50, **Vespene**: 50, **Time**: 43, **Effect**: Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the movement speed and firing rate by 50% for 11 secs at the cost of 20 HP")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Marauder_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-marauder` for main stats!");
     return message.channel.send(mauraderembed);
     }
     //begin Reaper
     if (cmd ===`${prefix}reaper`){
+        fullUnitInfo("Terran Reaper","https://vignette.wikia.nocookie.net/starcraft/images/7/7d/Reaper_SC2_Icon1.jpg/revision/latest?cb=20160107022927","Barracks","none",50,50,1,32,60,"0(+1)",5.25,"4x2(+1x2)",0.79,5,"10.1(+2.5)","Ground","Biological, Light, Ground",9,1,"reaper")
+    }
+    if (cmd ===`${prefix}reaper-p2`){
         let reaperembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Reaper**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7d/Reaper_SC2_Icon1.jpg/revision/latest?cb=20160107022927")
-        .addField("Construction", "**Built from:** Barracks")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Supply** - 1, **Build Time** - 32")
-        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.25")
-        .addField("Offense","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.79, **Range** - 5, **DPS** - 10.1(+2.5 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 1")
-        .addField("Abilites and Upgrades", "_") 
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB")   
         .addField("Jetpack", "Allows Reapers to travel up and down cliffs.")
         .addField("Combat Drugs", "Heals 2.8 HP every second if the Reaper is not attacked for 7 seconds.")
-        .addField("KD8 Charge", "**Cooldown** - 14, **Effect** - Explodes after a short delay, dealing 5 damage and knocking back nearby units.") 
-        .addField("More Info", "https://liquipedia.net/starcraft2/Reaper_(Legacy_of_the_Void)");
+        .addField("KD8 Charge", "**Cooldown**: 14, **Effect**: Explodes after a short delay, dealing 5 damage and knocking back nearby units.") 
+        .addField("More Info", "https://liquipedia.net/starcraft2/Reaper_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-reaper` for main stats!");
     return message.channel.send(reaperembed);
     }
     //begin Ghost
      if (cmd ===`${prefix}ghost`){
+         fullUnitInfo("Terran Ghost","https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Ghost_SC2_Icon1.jpg/revision/latest?cb=20160107022212","Barracks","Tech Lab and Ghost Academy",150,125,2,29,100,"0(+1)",3.94,"10(+1), **vs Light**: 20(+2)",1.07,6,"9.3(+0.93), **vs Light**: 18.6(+1.86)", "Air and Ground","Biological, Psionic, Ground",11,2,"ghost")
+    }
+    if (cmd ===`${prefix}ghost-p2`){
          let ghostembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Ghost**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Ghost_SC2_Icon1.jpg/revision/latest?cb=20160107022212")            
-        .addField("Construction", "**Built from:** Barracks with Tech Lab, **Requires:** Ghost Academy")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 2, **Build Time** - 29")
-        .addField("Defense", "**HP** - 100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 20(+2 per upgrade) **Hitspeed** - 1.07, **Range** - 6, **DPS** - 9.3(+0.93 per upgrade), vs light 18.6 (+1.86 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 2")
-        .addField("Abilites and Upgrades", "_") 
-        .addField("Enhanced Shockwaves","**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** -  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
-        .addField("Steady Targeting","**Energy** - 50, **Range** - 10, **Effect** - After carefully aiming for 1.43 seconds while not taking damage, the Ghost fires a sniper round dealing 170 damage. Ignores armor. Can only target biological units.")
-        .addField("EMP Round","**Energy** - 75, **Range** - 10, **Radius** - 1.5, **Effect** - Fires an EMP Round that removes up to 100 shields and energy from every unit within the AoE. Also reveals cloaked units.")
-        .addField("Cloak","**Researched from:** Ghost Academy, **Minerals** - 150, **Vespene** - 150, **Time** - 86, **Energy** - 25(+1.3/s), **Effect** - The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
-        .addField("Tac Nuke Strike","**Cooldown** - 14, **Range** - 12, **Effect** - Calls down a Nuclear strike at a target location. Nukes take 14 seconds to land and deal up to 300 (+200 vs. structures) damage in a large radius.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+        .addField("Enhanced Shockwaves","**Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**:  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
+        .addField("Steady Targeting","**Energy**: 50, **Range**: 10, **Effect**: After carefully aiming for 1.43 seconds while not taking damage, the Ghost fires a sniper round dealing 170 damage. Ignores armor. Can only target biological units.")
+        .addField("EMP Round","**Energy**: 75, **Range**: 10, **Radius**: 1.5, **Effect**: Fires an EMP Round that removes up to 100 shields and energy from every unit within the AoE. Also reveals cloaked units.")
+        .addField("Cloak","**Researched from:** Ghost Academy, **Minerals**: 150, **Vespene**: 150, **Time**: 86, **Energy**: 25(+1.3/s), **Effect**: The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("Tac Nuke Strike","**Cooldown**: 14, **Range**: 12, **Effect**: Calls down a Nuclear strike at a target location. Nukes take 14 seconds to land and deal up to 300 (+200 vs. structures) damage in a large radius.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ghost` for main stats!");
     return message.channel.send(ghostembed);
     }
     //begin Hellion
     if (cmd ===`${prefix}hellion`){
+        fullUnitInfo("Terran Hellion","https://vignette.wikia.nocookie.net/starcraft/images/5/56/Hellion_SC2_Icon1.jpg/revision/latest?cb=20160107022248","Factory","none",100,0,2,21,90,"0(+1)",5.95,"8(+1), **vs Light**: 14(+1)+5(+1)",1.79,5,"4.48(+0.56), **vs Light**: 7.88(+0.56)+2.76(+0.56)", "Ground","Mechanical, Light, Ground",10,2,"hellion")
+    }
+    if (cmd ===`${prefix}hellion-p2`){
         let hellionembed = new Discord.RichEmbed()
-       .setDescription ("**Terran Hellion**")
-       .setColor("#7FC5EB")
-       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Hellion_SC2_Icon1.jpg/revision/latest?cb=20160107022248")            
-       .addField("Construction", "**Built from:** Factory")
-       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
-       .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
-       .addField("Offense","**Damage** - 8(+1 per upgrade), vs light 14+5(+2 per upgrade) **Hitspeed** - 1.79, **Range** - 5, **DPS** - 4.48(+0.56 per upgrade), vs light 7.88+2.76(+1.12 per upgrade) **Targets** - Ground")
-       .addField("Attributes", "**Mechanical, Light, Ground**")
-       .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-       .addField("Abilites and Upgrades", "_")
-       .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellion's bonus against Light units by +5 damage")
-       .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions and Hellbats to transform quickly between combat modes.")
-       .addField("Hellbat Mode","**Requires:** Armory, **Effect** - Transforms the Hellion into its Hellbat form.")
-       .addField("More Info", "https://liquipedia.net/starcraft2/Hellion_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+       .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Improves the Hellion's bonus against Light units by +5 damage")
+       .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Allows Hellions and Hellbats to transform quickly between combat modes.")
+       .addField("Hellbat Mode","**Requires:** Armory, **Effect**: Transforms the Hellion into its Hellbat form.")
+       .addField("More Info", "https://liquipedia.net/starcraft2/Hellion_(Legacy_of_the_Void)")
+       .addField("Back to Main","Try `sc2-hellion` for main stats!");
    return message.channel.send(hellionembed);
    }
     //begin Hellbat
     if (cmd ===`${prefix}hellbat`||cmd ===`${prefix}hellboi`){
+        fullUnitInfo("Terran Hellbat","https://vignette.wikia.nocookie.net/starcraft/images/1/13/Hellbat_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025249","Factory","Armory",100,0,2,21,135,"0(+1)",3.15,"18(+2), **vs Light**: 18(+3)+12(+1)",1.43,2,"12.6(+1.4), **vs Light**:12.6(+0.7)+8.4(+0.7)","Ground","Biological, Mechanical, Light, Ground",10,4,"hellbat")
+    }
+    if (cmd ===`${prefix}hellbat-p2`||cmd ===`${prefix}hellboi-p2`){
         let hellbatembed = new Discord.RichEmbed()
-       .setDescription ("**Terran Hellbat**")
-       .setColor("#7FC5EB")
-       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/13/Hellbat_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025249")            
-       .addField("Construction", "**Built from:** Factory, **Requires:** Armory")
-       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
-       .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15")
-       .addField("Offense","**Damage** - 18(+2 per upgrade), vs light 18+12(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 2, **DPS** - 12.6(+1.4 per upgrade), vs light 12.6+8.4(+2.1 per upgrade) **Targets** - Ground")
-       .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
-       .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 4")
-       .addField("Abilites and Upgrades", "_")
-       .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellbat's bonus against Light units by +12 damage.")
-       .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions and Hellbats to transform quickly between combat modes.")
-       .addField("Hellion Mode","**Requires:** Armory, **Effect** - Transforms the Hellbat into its Hellion form.")
-       .addField("More Info", "https://liquipedia.net/starcraft2/Hellbat_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+       .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Improves the Hellbat's bonus against Light units by +12 damage.")
+       .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Allows Hellions and Hellbats to transform quickly between combat modes.")
+       .addField("Hellion Mode","**Requires:** Armory, **Effect**: Transforms the Hellbat into its Hellion form.")
+       .addField("More Info", "https://liquipedia.net/starcraft2/Hellbat_(Legacy_of_the_Void)")
+       .addField("Back to Main","Try `sc2-hellbat` for main stats!");
    return message.channel.send(hellbatembed);
    }
     //begin Widow Mine
-    if (cmd ===`${prefix}widowmine` || cmd ===`${prefix}mine`){
+    if (cmd ===`${prefix}widowmine`|| cmd ===`${prefix}mine`){
+        fullUnitInfo("Terran Widow Mine","https://vignette.wikia.nocookie.net/starcraft/images/3/3b/WidowMine_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025320","Factory","none",75,25,2,21,90,"0(+1)",3.94,"125 primary, 40 splash, **vs Shields**: 160 primary, 65 splash",29,9,"N/A","Air and Ground","Mechanical, Light, Ground",7,2,"mine")
+    }
+    if (cmd ===`${prefix}widowmine-p2`|| cmd ===`${prefix}mine-p2`){
         let mineembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Widow Mine**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/WidowMine_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025320")            
-        .addField("Construction", "**Built from:** Factory")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 125(+35 vs shields) primary, 40(+25 vs shield) splash **Hitspeed** - 29, **Range** - 5 **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 7, **Cargo Size** - 2")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast. Also cloaks burrowed Widow Mines on cooldown.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Widow_Mine_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 75, **Vespene**: 75, **Time**: 79, **Effect**: Allows Widow Mines to burrow and activate 3 times as fast.")
+        .addField("Activate/Deactivate Mine","**Duration:** 2.5(-1.5), **Effect**: Burrows the Widow Mine and readies the weapon/Unburrows the Widow Mine and deactivates its weapon")
+        .addField("Cloak Shile Reloading","**Requires:** Armory, **Effect**: A burrowed Widow Mine is now invisible while reloading.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Widow_Mine_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-mine` for main stats!");
     return message.channel.send(mineembed);
     }
    //begin Cyclone
-   if (cmd ===`${prefix}cyclone`){
+   if (cmd ===`${prefix}cyclone`||cmd ===`${prefix}clone`){
+        fullUnitInfo("Terran Cyclone","https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444","Factory","Tech Lab",150,100,3,32,120,"1(+1)",4.73,"18(+2)",0.71,5,"25.35(+2.81)","Air and Ground","Mechanical, Armored, Ground",11,4,"cyclone")
+   }
+   if (cmd ===`${prefix}cyclone-p2`||cmd ===`${prefix}clone-p2`){
         let cycloneembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Cyclone**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444")
-        .addField("Construction", "**Built from:** Factory with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.73")
-        .addField("Offense","**Damage** - 18(+2 per upgrade) **Hitspeed** - 0.71, **Range** - 5, **DPS** - 25.35(+2.81 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 4")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Lock On","**Cooldown** - 14, **Range** - 7 to cast, 15 effective, **DPS** - 28.57, **Effect** - Locks the Cyclone's weapons on the target air unit, dealing 400 damage over 14 seconds to targets. Can move while firing. Cancels if target moves out of range or vision.")
-        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Cyclone");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+        .addField("Lock On","**Cooldown**: 14, **Range**: 7 to cast, 15 effective, **DPS**: 28.57, **Effect**: Locks the Cyclone's weapons on the target air unit, dealing 400 damage over 14 seconds to targets. Can move while firing. Cancels if target moves out of range or vision.")
+        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Cyclone")
+        .addField("Back to Main","Try `sc2-cyclone` for main stats!");
     return message.channel.send(cycloneembed);
     }
     //begin Siege Tank
     if (cmd ===`${prefix}siegetank`||cmd ===`${prefix}tank`){
+        fullUnitInfo2("Terran Siege Tank","https://vignette.wikia.nocookie.net/starcraft/images/5/57/SiegeTank_SC2_Icon1.jpg/revision/latest?cb=20160107022749","Factory","Tech Lab",150,125,3,32,175,"1(+1)",3.15,"15(+2), **vs Armored**: 25(+3)", "40(+4), **vs Armored**: 70(+5)", 0.74, 2.14, 7, "2-13", "20.3(+2.7), **vs Armored**: 33.8(+4.1)", "18.7(+1.87), **vs Armored**: 32.7(+2.34)","Ground","Ground","Mechanical, Armored, Ground",11,4,"tank")
+    }
+    if (cmd ===`${prefix}siegetank-p2`||cmd ===`${prefix}tank-p2`){
         let tankembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Siege Tank**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/57/SiegeTank_SC2_Icon1.jpg/revision/latest?cb=20160107022749")
-        .addField("Construction", "**Built from:** Factory with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense (tank mode)","**Damage** - 15(+2 per upgrade), vs armored 25(+3 per upgrade) **Hitspeed** - 0.74, **Range** - 7, **DPS** - 20.3(+2.7 per upgrade), vs armored 33.8(+4.1 per upgrade) **Targets** - Ground")
-        .addField("Offense (siege mode)","**Damage** - 40(+4 per upgrade), vs armored 70(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 13 (minimum 2), **DPS** - 18.7(+1.87 per upgrade), vs armored 32.7(+2.34 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 4")
-        .addField("Abilites and Upgrades", "_")
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
         .addField("Tank/Siege Mode"," In Siege Mode, Siege Tanks have very long range and inflict area damage. Siege Tanks in this mode cannot move or attack targets at close range. In Tank mode, Siege Tanks can move, but they do less damage.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Siege_Tank_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Siege_Tank_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-tank` for main stats!");
     return message.channel.send(tankembed);
     }
     //begin Thor
     if (cmd ===`${prefix}thor`){
+        fullUnitInfo2("Terran Thor","https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814","Factory","Tech Lab and Armory",300,200,6,43,400,"1(+1)",2.62,"30x2(+3x2)","6x4(+1x4), **vs Light**: 12x4(+2x4)",0.91,2.14,7,10,"65.9(+6.59)","11.2(+1.87), **vs Light**: 22.4(+3.72)", "Ground","Air","Mechanical, Armored, Massive, Ground",11,8,"thor",1,"40(+4), **vs Massive**: 55(+6)",1.71,11,"23.39(+2.35), **vs Massive** 32.16(+3.51)","Air")
+    }
+    if (cmd ===`${prefix}thor-p2`){
         let thorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Thor**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814")
-        .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **DPS** - 65.9(+6.59 per upgrade) **Targets** - Ground")
-        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Radius** - 0.5, **DPS** - 11.2(+1.87 per upgrade), vs light 22.4(+3.74 per upgrade) **Targets** - Air")
-        .addField("Offense (single target air)","**Damage** - 40(+4 per upgrade), vs massive 55(+6 per upgrade) **Hitspeed** - 1.71, **Range** - 11, **DPS** - 23.39(+2.35 per upgrade), vs massive 32.16(+3.51 per upgrade) **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Ground**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Size** - 8")
-        .addField("Abilites and Upgrades", "_")
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
         .addField("High Impact/Explosive Payload", "The Thor's 250mm Punisher Cannons strike a single air target for heavy damage. The Thor's Javelin missile launchers deal splash damage to nearby air units and additional damage to Light units.")
-        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Thors to transform quickly between combat modes.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Thor_(Legacy_of_the_Void)");
+        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Allows Thors to transform quickly between combat modes.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Thor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-thor` for main stats!");
     return message.channel.send(thorembed);
     }
     //begin Viking
     if (cmd ===`${prefix}viking`){
+        fullUnitInfo2("Terran Viking","https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Viking_SC2_Icon1.jpg/revision/latest?cb=20160107022849","Starport","none",150,75,2,30,135,"0(+1)","3.85 air, 3.15 ground","10x2(+1x2), **vs Armored**: 14x2(+1x2)","12(+1), **vs Mech**: 20(+2)",1.43,0.71,9,6,"14(+1.4), **vs Armored**: 19.6(+1.4)","16.8(+1.4), **vs Mech**: 28.1(+2.8)","Air","Ground","Mechanical, Armored, Air (in air mode), Ground (in ground mode)",10,2,"viking")
+    }
+    if (cmd ===`${prefix}viking-p2`){
         let vikingembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Viking**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Viking_SC2_Icon1.jpg/revision/latest?cb=20160107022849")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 75, **Supply** - 2, **Build Time** - 30")
-        .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15 ground, 3.85 air")
-        .addField("Offense (air mode)","**Damage** - 10x2(+1x2 per upgrade), vs armored 14x2(+1x2 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **DPS** - 14(+1.4 per upgrade), vs armored 19.6(+1.4 per upgrade) **Targets** - Air")
-        .addField("Offense (ground mode)","**Damage** - 12(+1 per upgrade), vs mech 20(+2 per upgrade) **Hitspeed** - 0.71, **Range** - 6, **DPS** - 16.8(+1.4 per upgrade), vs mech 28.1(+2.8 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air (in air mode), Ground (in ground mode)**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Abilites and Upgrades", "_")
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
         .addField("Fighter/Assualt Mode", "The Viking in Fighter Mode is an Air unit with an anti-air attack. The Viking in Assault Mode is a Ground unit with a ground attack.")
-        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Vikings to transform quickly between combat modes.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Viking_(Legacy_of_the_Void)");
+        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Allows Vikings to transform quickly between combat modes.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Viking_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-viking` for main stats!");
     return message.channel.send(vikingembed);
     }
     //begin Medevac
-    if (cmd ===`${prefix}medivac`||cmd ===`${prefix}medevac`||cmd === `${prefix}healbus`){
+    if (cmd ===`${prefix}medivac`||cmd ===`${prefix}medevac`||cmd === `${prefix}healbus`||cmd === `${prefix}medic`){
+        fullUnitInfoSpellcaster("Terran Medivac","https://vignette.wikia.nocookie.net/starcraft/images/d/db/Medivac_SC2_Icon1.jpg/revision/latest?cb=20160107022416","Starport","none",100,100,2,30,150,"1(+1)","3.5(+0.63), 5.94 (boost)","Mechanical, Armored, Air",11,"Provides 8","medivac")
+    }
+    if (cmd ===`${prefix}medivac-p2`||cmd ===`${prefix}medevac-p2`||cmd === `${prefix}healbus-p2`||cmd === `${prefix}medic-p2`){
         let medevacembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Medivac**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/Medivac_SC2_Icon1.jpg/revision/latest?cb=20160107022416")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 30")
-        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5(+2.44)")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Rapid Re-ignition System", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - decreases Ignite Afterburners cooldown duration from 8.57 seconds to 6.43 seconds.")
-        .addField("Heal", "**Energy** - 1 per 4 HP, **Range** - 4, **HPS** - 12.6, **Targets** - Biological**")
-        .addField("Ignite Afterburners", "**Cooldown** - 8.57(-2.14), **Duration** - 6, **Effect** - Speed boost that increases Medivac's movement speed and acceleration to 5.94. Average speed is increased from 4.232 to 4.455.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Medivac_(Legacy_of_the_Void)");
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB") 
+        .addField("Rapid Re-ignition System", "**Researched from:** Fusion Core, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: decreases Ignite Afterburners cooldown duration from 15 seconds to 9 seconds and increases the Medivac's base movement speed from 3.5 to 4.13.")
+        .addField("Heal", "**Energy**: 1 per 4 HP, **Range**: 4, **HPS**: 12.6, **Targets**: Biological")
+        .addField("Ignite Afterburners", "**Cooldown**: 14(-2), **Duration**: 6, **Effect**: Speed boost that increases Medivac's movement speed and acceleration to 5.94 for 4.3 seconds.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Medivac_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-medivac` for main stats!");
     return message.channel.send(medevacembed);
     }
     //begin Liberator
     if (cmd ===`${prefix}liberator`||cmd ===`${prefix}lib`){
+        fullUnitInfo2("Terran Liberator","https://vignette.wikia.nocookie.net/starcraft/images/9/91/Liberator_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025400","Starport","none",150,150,3,43,180,"0(+1)",4.72,"5x2(+1x2)","75(+5)",1.29,1.14,5,"10(+3)","7.8(+1.4)","65.8(+4.4)","Air","Ground","Mechanical, Armored, Air","10 fighter, 13 defender","N/A","lib")
+    }
+    if (cmd ===`${prefix}liberator-p2`||cmd ===`${prefix}lib-p2`){
         let liberatorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Liberator**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Liberator_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025400")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 43")
-        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.72")
-        .addField("Offense (fighter mode)","**Damage** - 5x2(+1x2 per upgrade) **Hitspeed** - 1.29, **Range** - 5, **DPS** - 7.8(+1.4 per upgrade) **Targets** - Air")
-        .addField("Offense (defender mode)","**Damage** - 75(+5 per upgrade) **Hitspeed** - 1.14, **Range** - 10(+4), **DPS** - 65.8 (+4.4 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 10 fighter, 13 defender")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Advanced Ballistics", "**Researched from:** Starport Tech Lab, **Requires:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the range of Liberators in Defender Mode by 4.")
-        .addField("Fighter/Defender Mode", "**Effect** - In Defender mode, Liberators inflict single target damage to ground units. Liberators in this mode cannot move. In Fighter mode, Liberators can move, but they can only target air units.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Liberator");
+        .addField("Advanced Ballistics", "**Researched from:** Fusion Core, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases the range of Liberators in Defender Mode by 3.")
+        .addField("Fighter/Defender Mode", "**Effect**: In Defender mode, Liberators inflict single target damage to ground units. Liberators in this mode cannot move. In Fighter mode, Liberators can move, but they can only target air units.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Liberator")
+        .addField("Back to Main","Try `sc2-lib` for main stats!");
     return message.channel.send(liberatorembed);
     }
     //begin Banshee
     if (cmd ===`${prefix}banshee`||cmd ===`${prefix}shee`){
+        fullUnitInfo("Terran Banshee","https://vignette.wikia.nocookie.net/starcraft/images/3/32/Banshee_SC2_Icon1.jpg/revision/latest?cb=20160107022109","Starport","Tech Lab",150,100,3,43,140,"0(+1)","3.85(+1.4)","12x2(1x2)",0.89,6,"27(+2.25)","Ground","Mechanical, Armored, Air",10,"N/A","banshee")
+    }
+    if (cmd ===`${prefix}banshee-p2`||cmd ===`${prefix}shee-p2`){
         let bansheeembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Banshee**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/32/Banshee_SC2_Icon1.jpg/revision/latest?cb=20160107022109")
-        .addField("Construction", "**Built from:** Starport with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 43")
-        .addField("Defense", "**HP** - 140, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.85(+1.4)")
-        .addField("Offense","**Damage** - 12x2(+1x2 per upgrade) **Hitspeed** - 0.89, **Range** - 6, **DPS** - 27 (+2.25 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
-        .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Energy** - 25(+1.3/s), **Effect** - The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Banshee_(Legacy_of_the_Void)");
+        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 121, **Effect**: Increases the movement speed of Banshees from 3.85 to 5.25.")
+        .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Energy**: 25(+1.3/s), **Effect**: The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Banshee_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-banshee` for main stats!");
     return message.channel.send(bansheeembed);
     }
     //begin Raven
-    if (cmd ===`${prefix}raven`){
+    if (cmd ===`${prefix}raven`||cmd ===`${prefix}ketroc`){
+        fullUnitInfoSpellcaster("Terran Raven","https://vignette.wikia.nocookie.net/starcraft/images/d/d8/Raven_SC2_Icon1.jpg/revision/latest?cb=20160107022547","Starport","Tech Lab",100,200,2,43,140,"1(+1)",3.85,"Mechanical, Light, Detector, Air",11,"N/A","raven")
+    }
+    if (cmd ===`${prefix}raven-p2`||cmd ===`${prefix}ketroc-p2`){
         let ravenembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Raven**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d8/Raven_SC2_Icon1.jpg/revision/latest?cb=20160107022547")
-        .addField("Construction", "**Built from:** Starport with Tech Lab")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 2, **Build Time** - 43")
-        .addField("Defense", "**HP** - 140, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85")
-        .addField("Attributes", "**Mechanical, Light, Detector, Air**")
-        .addField("Misc.", "**Sight Range** - 11")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Build Auto-Turret", "**Energy** - 50, **Range** - 2, **Duration** - 10 **Effect** - The Raven drops an Auto-Turret at the target location.")
-        .addField("Interference Matrix", "**Energy** - 50, **Range** - 9, **Duration** - 7.9 **Effect** - Disables a target unit rendering it unable to attack or use abilities for 7.9 seconds. Reveals Cloaked units. Can only target mechanical and psionic units.")
-        .addField("Anti-Armor Missile", "**Energy** - 75, **Range** - 10, **Duration** - 21, **Radius** - 0.72 **Effect** - Deploys a Missile which pursues the target unit, reducing armor and shield armor of affected units by 3 for 21 seconds.")
-        .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the Raven's starting energy by 25.")
-        .addField("Hi-Sec Auto Tracking","**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Raven_(Legacy_of_the_Void)");
+        .addField("Build Auto-Turret", "**Energy**: 50, **Range**: 2, **Duration**: 10 **Effect**: The Raven drops an Auto-Turret at the target location.")
+        .addField("Interference Matrix", "**Energy**: 50, **Range**: 9, **Duration**: 7.9 **Effect**: Disables a target unit rendering it unable to attack or use abilities for 7.9 seconds. Reveals Cloaked units. Can only target mechanical and psionic units.")
+        .addField("Anti-Armor Missile", "**Energy**: 75, **Range**: 10, **Duration**: 21, **Radius**: 0.72 **Effect**: Deploys a Missile which pursues the target unit, reducing armor and shield armor of affected units by 3 for 21 seconds.")
+        .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases the Raven's starting energy by 25.")
+        .addField("Hi-Sec Auto Tracking","**Researched from:** Engineering Bay, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Adds +1 attack range to Auto-Turrets")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Raven_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-raven` for main stats!");
     return message.channel.send(ravenembed);
     }
     //begin Battlecruiser
     if (cmd ===`${prefix}battlecruiser`||cmd === `${prefix}bc`||cmd === `${prefix}cattlebruiser`||cmd === `${prefix}cruiser`){
+        fullUnitInfo2("Terran Battlecruiser","https://vignette.wikia.nocookie.net/starcraft/images/f/f5/Battlecruiser_SC2_Icon1.jpg/revision/latest?cb=20160107022138","Starport","Tech Lab and Fusion Core",400,300,6,64,550,"3(+1)",2.62,"8(+1)","5(+1)",0.16,0.16,6,6,"49.8(+6.2)","31.1(+6.2)","Ground","Air","Mechanical, Armored, Massive, Air",12,"N/A","bc")
+    }
+    if (cmd ===`${prefix}battlecruiser-p2`||cmd === `${prefix}bc-p2`||cmd === `${prefix}cattlebruiser-p2`||cmd === `${prefix}cruiser-p2`){
         let battlecruiserembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Battlecruiser**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f5/Battlecruiser_SC2_Icon1.jpg/revision/latest?cb=20160107022138")
-        .addField("Construction", "**Built from:** Starport with Tech Lab **Requires:** Fusion Core")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
-        .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 50(+6.25 per upgrade) **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 5(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **DPS** - 31.25(+6.25 per upgrade) **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
-        .addField("Misc.", "**Sight Range** - 12")
-        .addField("Abilites and Upgrades", "_")
-        .addField("Yamato Cannon", "**Researched from:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 100, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 240 damage.")
-        .addField("Tactical Jump", "**Cooldown** - 71, **Effect** - After 4 seconds, warps to the target location. Battlecruiser is invincible while warping.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Battlecruiser_(Legacy_of_the_Void)");
+        .addField("Yamato Cannon", "**Researched from:** Fusion Core, **Minerals**: 150, **Vespene**: 150, **Time**: 100, **Cooldown**: 71, **Range**: 10, **Channeling Time**: 2, **Effect**: Blasts a target with a devastating plasma cannon, causing 240 damage.")
+        .addField("Tactical Jump", "**Cooldown**: 71, **Effect**: After 4 seconds, warps to the target location. Battlecruiser is invincible while warping. Stuns and puts the Battlecruiser into a 1 second vulnerability phase before it teleports. In this state, the Battlecruiser can be damaged, but Tactical Jump may not be canceled.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Battlecruiser_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-bc` for main stats!");
     return message.channel.send(battlecruiserembed);
     }
     //begin MULE
     if (cmd ===`${prefix}mule`){
+        fullUnitInfoSpellcaster("Terran MULE","https://vignette.wikia.nocookie.net/starcraft/images/0/04/MULE_SC2_Icon1.jpg/revision/latest?cb=20160107022519","Orbital Command","none",0,0,0,0,60,"0(+1)",3.94,"Mechanical, Light, Ground",8,"N/A","mule")
+    }
+    if (cmd ===`${prefix}mule-p2`){
         let muleembed = new Discord.RichEmbed()
-        .setDescription ("**Terran MULE**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/04/MULE_SC2_Icon1.jpg/revision/latest?cb=20160107022519")
-        .addField("Construction", "**Summoned from:** Orbital Command")
-        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Attributes", "**Mechanical, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 8")
-        .addField("Upgrades and Abilities","-")
-        .addField("Repair", "**Effect** - MULEs can repair friendly mechanical units and Terran buildings. Cost and time varies depending on unit.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/MULE_(Legacy_of_the_Void)");
+        .addField("Repair", "**Effect**: MULEs can repair friendly mechanical units and Terran buildings. Cost and time varies depending on unit.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/MULE_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-mule` for main stats!");
     return message.channel.send(muleembed);
     }
 //begin Protoss Units
     //begin Probe
-    if (cmd ===`${prefix}probe`||cmd ===`${shortprefix}probe`){
+    if (cmd ===`${prefix}probe`){
+        fullUnitInfo("Protoss Probe","https://vignette.wikia.nocookie.net/starcraft/images/5/57/Icon_Protoss_Probe.jpg/revision/latest?cb=20160106180521","Nexus","none",50,0,1,12,"20+20","0(+1)",3.94,5,1.07,"Melee",4.67,"Ground","Mechanical, Light, Ground",8,1,"probe")
+    }
+    if (cmd ===`${prefix}probe-p2`){
         let probeembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Probe**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/57/Icon_Protoss_Probe.jpg/revision/latest?cb=20160106180521")
-        .addField("Construction", "**Built from:** Nexus")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP+Shields** - 20+20, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Probe_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Probe_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-probe` for main stats!");
     return message.channel.send(probeembed);
     }
     //begin Zealot
-    if (cmd ===`${prefix}zealot`){
+    if (cmd ===`${prefix}zealot`||cmd ===`${prefix}lot`){
+        fullUnitInfo("Protoss Zealot","https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Icon_Protoss_Zealot.jpg/revision/latest?cb=20160106180701","Gateway, Warp Gate","none",100,0,2,"27 (gateway), 20 (warp gate)","100+50","1(+1)","3.15+1.525 / 10.4 (charge)","8x2(+1x2)",0.86,"Melee","18.6(+2.33)","Ground","Biological, Light, Ground",9,2,"zealot")
+    }
+    if (cmd ===`${prefix}zealot-p2`||cmd ===`${prefix}lot-p2`){
         let zealotembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Zealot**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Icon_Protoss_Zealot.jpg/revision/latest?cb=20160106180701")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 27, **Warp Cooldown** - 20")
-        .addField("Defense", "**HP+Shields** - 100+50, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15+0.98(+4.62 when charging)")
-        .addField("Offense","**Damage** - 8x2(+1x2 per upgrade), **Hitspeed** - 0.86, **Range** - Melee, **DPS** - 18.6(+2.33 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Charge", "**Researched from:** Twilight Counsel, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 7, **Range** - 4, **Effect** - Temporarily increases the movement speed to 8.47, allowing Zealots to intercept nearby enemies, dealing 8 damage to the charged target.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Zealot_(Legacy_of_the_Void)");
+        .addField("Charge", "**Researched from:** Twilight Counsel, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Cooldown**: 7, **Range**: 4, **Effect**: Temporarily increases the movement speed of a Zealot by 5.67, to a total of 10.4, allowing Zealots to intercept nearby enemies. Researching the upgrade increases the base movement speed of Zealots to 4.725, making a Zealot as fast as a stimmed Marine.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Zealot_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-zealot` for main stats!");
     return message.channel.send(zealotembed);
     }
     //begin Stalker
-    if (cmd ===`${prefix}stalker`){
+    if (cmd ===`${prefix}stalker`||cmd ===`${prefix}parting`){
+        fullUnitInfo("Protoss Stalker","https://vignette.wikia.nocookie.net/starcraft/images/0/0d/Icon_Protoss_Stalker.jpg/revision/latest?cb=20160106180555","Gateway, Warp Gate","Cybernetics Core",125,50,2,"30 (gateway), 23 (warp gate)","80+80","1(+1)",4.13,"13(+1), **vs Armored**: 18(+2)",1.34,6, "9.7(+0.75), **vs Armored**: 13.4(+1.5)","Ground and Air","Mechanical, Armored, Ground",10,2,"stalker")
+    }
+    if (cmd ===`${prefix}stalker-p2`||cmd ===`${prefix}parting-p2`){
         let stalkerembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Stalker**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0d/Icon_Protoss_Stalker.jpg/revision/latest?cb=20160106180555")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 125, **Vespene** - 50, **Supply** - 2, **Build Time** - 30, **Warp Cooldown** - 23")
-        .addField("Defense", "**HP+Shields** - 80+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Offense","**Damage** - 13(+1 per upgrade), vs armored 18(+2 per upgrade) **Hitspeed** - 1.34, **Range** - 6, **DPS** - 9.7(+0.75 per upgrade), vs armored 13.4(+1.5 per upgrade) **Targets** - Ground and Air")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Blink", "**Researched from:** Twilight Counsel, **Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 7, **Range** - 8, **Effect** - Teleports the Stalker to a nearby target location that is not obscured by Fog of War.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Stalker_(Legacy_of_the_Void)");
+        .addField("Blink", "**Researched from:** Twilight Counsel, **Minerals**: 100, **Vespene**: 100, **Time**: 121, **Cooldown**: 7, **Range**: 8, **Effect**: Teleports the Stalker to a nearby target location that is not obscured by Fog of War.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Stalker_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-stalker` for main stats!");
     return message.channel.send(stalkerembed);
     }
     //begin Sentry
     if (cmd ===`${prefix}sentry`||cmd ===`${prefix}ticklemonster`){
+        fullUnitInfo("Protoss Sentry","https://vignette.wikia.nocookie.net/starcraft/images/a/ab/Icon_Protoss_Sentry.jpg/revision/latest?cb=20160106180539","Gateway, Warp Gate","Cybernetics Core",50,100,2,"26 (gateway), 23 (warp gate)","40+40","1(+1)",3.15,"6(+1)",0.71,5,"8.4(+1.4)","Ground and Air","Mechanical, Light, Psionic, Ground",10,2,"sentry")
+    }
+    if (cmd ===`${prefix}sentry-p2`||cmd ===`${prefix}ticklemonster-p2`){
         let sentryembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Sentry**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ab/Icon_Protoss_Sentry.jpg/revision/latest?cb=20160106180539")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 2, **Build Time** - 26, **Warp Cooldown** - 23")
-        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **DPS** - 8.4(+1.4 per upgrade)**Targets** - Ground and Air")
-        .addField("Attributes", "**Mechanical, Light, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Force Field", "**Energy** - 50, **Range** - 11, **Radius** - 1.7, **Duration** - 11, **Effect** - Barrier that lasts 11 seconds and impedes movement of ground units. Massive units will shatter Force Fields on contact. Hallucinated Massive units cannot shatter Force Fields.")
-        .addField("Guardian Shield","**Energy** - 75, **Radius** - 4.5, **Duration** - 11, **Effect** - Creates a range 4 aura that reduces incoming ranged damage to friendly units by 2.")
-        .addField("Hallucination","**Energy** - 75, **Duration** - 43, **Effect** - Creates hallucinations of Protoss units at the caster's location, that cannot use active abilities, cannot deal damage, and die more easily. Enemy detectors can reveal hallucinations.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Sentry_(Legacy_of_the_Void)");
+        .addField("Force Field", "**Energy**: 50, **Range**: 11, **Radius**: 1.7, **Duration**: 11, **Effect**: Barrier that lasts 11 seconds and impedes movement of ground units. Massive units will shatter Force Fields on contact. Hallucinated Massive units cannot shatter Force Fields.")
+        .addField("Guardian Shield","**Energy**: 75, **Radius**: 4.5, **Duration**: 11, **Effect**: Creates a range 4 aura that reduces incoming ranged damage to friendly units by 2.")
+        .addField("Hallucination","**Energy**: 75, **Duration**: 43, **Effect**: Creates hallucinations of Protoss units at the caster's location, that cannot use active abilities, cannot deal damage, and die more easily. Enemy detectors can reveal hallucinations.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Sentry_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-sentry` for main stats!");
     return message.channel.send(sentryembed);
     }
     //begin Adept
     if (cmd ===`${prefix}adept`){
-        let adeptembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Adept**")
+        fullUnitInfo("Protoss Adept","https://vignette.wikia.nocookie.net/starcraft/images/9/91/Icon_Protoss_Adept.jpg/revision/latest?cb=20160106231127","Gateway, Warp Gate","Cybernetics Core",100,25,2,"30 (gateway), 20 (warp gate)","70+70","1(+1)","3.5 (5.5 shade)","10(+1), **vs Light**: 22(+2)", "1.61(-0.5)",4,"6.2(+0.62)+2.8(+0.28), **vs Light**: 13.65(+1.24)+6.15(+0.56)","Ground", "Biological, Light, Ground","9 (4 shade)",2,"adept")
+    }
+    if (cmd ===`${prefix}adept-p2`){
+            let adeptembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Icon_Protoss_Adept.jpg/revision/latest?cb=20160106231127")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 30, **Warp Cooldown** - 20")
-        .addField("Defense", "**HP+Shields** - 70+70, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 22(+2 per upgrade) **Hitspeed** - 1.61(-0.5), **Range** - 4, **DPS** - 6.2(+0.62 per upgrade), vs light 13.65(+1.24 per upgrade), with glaives 9(+0.9 per upgrade), with glaives vs light 19.8(+1.8 per upgrade)  **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9 (4 shade), **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Resonating Glaives", "**Researched from:** Twilight Counsel, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the attack speed of the Adept by 45%. ")
-        .addField("Psionic Transfer","**Duration** - 7, **Cooldown** - 11, **Effect** - Projects an invulnerable Shade that can move but cannot attack. After 7 seconds, the Adept teleports to the Shade's location.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Adept");
+        .addField("Resonating Glaives", "**Researched from:** Twilight Counsel, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the attack speed of the Adept by 45%. ")
+        .addField("Psionic Transfer","**Duration**: 7, **Cooldown**: 11, **Effect**: Projects an invulnerable Shade that can move but cannot attack. After 7 seconds, the Adept teleports to the Shade's location.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Adept")
+        .addField("Back to Main","Try `sc2-adept` for main stats!");
     return message.channel.send(adeptembed);
     }
     //begin High Templar
     if (cmd ===`${prefix}hightemplar`||cmd == `${prefix}ht`){
+        fullUnitInfo("Protoss High Templar","https://vignette.wikia.nocookie.net/starcraft/images/a/a0/Icon_Protoss_High_Templar.jpg/revision/latest?cb=20160106180343","Gateway, Warp Gate","Templar Archives",50,150,2,"39 (gateway), 32 (warp gate)","40+40","0(+1)",2.62,"4(+1)",1.25,6,"3.2(+0.8)","Ground","Biological, Light, Psionic, Ground",10,2,"ht")
+    }
+    if (cmd ===`${prefix}-p2`||cmd == `${prefix}ht-p2`){
         let htembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss High Templar**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a0/Icon_Protoss_High_Templar.jpg/revision/latest?cb=20160106180343")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Templar Archives")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 150, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
-        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Damage** - 4(+1 per upgrade), **Hitspeed** - 1.25, **Range** - 6, **DPS** - 3.2(+0.8 per upgrade)**Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Feedback", "**Energy** - 50, **Range** - 9, **Effect** - Only units with energy can be targeted with Feedback. Feedback removes all energy from the targeted unit, and converts it into direct damage dealt to the target at the rate of 0.5 damage per point of energy drained.")
-        .addField("Psionic Storm","**Researched from:** Templar Archives, **Minerals** - 200, **Vespene** - 200, **Time** - 79, **Energy** - 75, **Cooldown** - 1.43 **Range** - 9, **Radius** - 1.5, **Duration** - 2.85, **Effect** - Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
-        .addField("Archon Warp","**Duration** - 9, **Effect** - Sacrifices 2 Templar to create an Archon.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/High_Templar_(Legacy_of_the_Void)");
+        .addField("Feedback", "**Energy**: 50, **Range**: 9, **Effect**: Only units with energy can be targeted with Feedback. Feedback removes all energy from the targeted unit, and converts it into direct damage dealt to the target at the rate of 0.5 damage per point of energy drained.")
+        .addField("Psionic Storm","**Researched from:** Templar Archives, **Minerals**: 200, **Vespene**: 200, **Time**: 79, **Energy**: 75, **Cooldown**: 1.43 **Range**: 9, **Radius**: 1.5, **Duration**: 2.85, **Effect**: Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
+        .addField("Archon Warp","**Duration**: 9, **Effect**: Sacrifices 2 Templar to create an Archon.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/High_Templar_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ht` for main stats!");
     return message.channel.send(htembed);
     }
     //begin Dark Templar
     if (cmd ===`${prefix}darktemplar`||cmd ==`${prefix}dt`){
+        fullUnitInfo("Protoss Dark Templar","https://vignette.wikia.nocookie.net/starcraft/images/9/90/Icon_Protoss_Dark_Templar.jpg/revision/latest?cb=20160106180327","Gateway, Warp Gate","Dark Shrine",125,125,2,"39 (gateway), 32 (warp gate)","40+80","1(+1)",3.94,"45(+5)",1.21,"Melee","37.2(+4.13)","Ground","Biological, Light, Psionic, Ground",8,2,"dt")
+    }
+    if (cmd ===`${prefix}darktemplar-p2`||cmd ==`${prefix}dt-p2`){
         let dtembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Dark Templar**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/Icon_Protoss_Dark_Templar.jpg/revision/latest?cb=20160106180327")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Dark Shrine")
-        .addField("Resources", "**Minerals** - 125, **Vespene** - 125, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
-        .addField("Defense", "**HP+Shields** - 40+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 45(+5 per upgrade), **Hitspeed** - 1.21, **Range** - Melee, **DPS** - 37.2(+4.13 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Permanent Cloak","**Effect** - The Dark Templar is permanently cloaked.")
-        .addField("Shadow Stride", "**Researched from:** Dark Shrine, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 14, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
-        .addField("Archon Warp","**Duration** - 9, **Effect** - Sacrifices 2 Templar to create an Archon.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Templar_(Legacy_of_the_Void)");
+        .addField("Permanent Cloak","**Effect**: The Dark Templar is permanently cloaked.")
+        .addField("Shadow Stride", "**Researched from:** Dark Shrine, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Cooldown**: 14, **Range**: 5, **Effect**: Teleports the Dark Templar to a nearby target location.")
+        .addField("Archon Warp","**Duration**: 9, **Effect**: Sacrifices 2 Templar to create an Archon.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Templar_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-dt` for main stats!");
     return message.channel.send(dtembed);
     }
     //begin Archon
-    if (cmd ===`${prefix}archon`||cmd ===`${shortprefix}archon`){
+    if (cmd ===`${prefix}archon`){
+        fullUnitInfo("Protoss Archon","https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Protoss_Archon.jpg/revision/latest?cb=20160106175702","2 Templar","N/A","varies","varies",4,9,"10+350","0(+1)",3.94,"25(+3), **vs Bio**: 35(+4)", 1.25,3,"20(+2.4), **vs Bio** 28(+3.2)", "Air and Ground","Massive, Psionic, Ground",9,4,"archon")
+    }
+    if (cmd ===`${prefix}archon-p2`){
         let archonembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Archon**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Protoss_Archon.jpg/revision/latest?cb=20160106175702")
-        .addField("Construction", "**Built from:** 2 Templar, High or Dark")
-        .addField("Resources", "**Minerals** - 100, 175, 250, **Vespene** - 300, 275, 250, **Supply** - 4, **Build Time** - 9")
-        .addField("Defense", "**HP+Shields** - 10+350, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 25(+3 per upgrade), vs bio 35(+4 per upgrade) **Hitspeed** - 1.25, **Range** - 3, **DPS** - 20(+2.4 per upgrade), vs bio 28(+3.2 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Massive, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Archon_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Archon_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-archon` for main stats!");
     return message.channel.send(archonembed);
     }
     //begin Observer
     if (cmd ===`${prefix}observer`||cmd === `${prefix}obs`){
+        fullUnitInfoSpellcaster("Protoss Observer","https://vignette.wikia.nocookie.net/starcraft/images/0/0a/Icon_Protoss_Observer.jpg/revision/latest?cb=20160106180448","Robotics Facility","none",25,75,1,21,"40+20","0(+1)","2.63(+1.31)","Light, Mechanical, Detector, Air","11(+2.75)", "N/A","obs")
+    }
+    if (cmd ===`${prefix}observer-p2`||cmd === `${prefix}obs-p2`){
         let obsembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Observer**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0a/Icon_Protoss_Observer.jpg/revision/latest?cb=20160106180448")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Build Time** - 21")
-        .addField("Defense", "**HP+Shields** - 40+20, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.01(+1.51)")
-        .addField("Attributes", "**Light, Mechanical, Detector, Air**")
-        .addField("Misc.", "**Sight Range** - 11(+2.75)")
-        .addField("Upgrades and Abilities","-")
-        .addField("Gravitic Boosters", "**Researched from:** Robotics Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed of the Observer. Their speed and acceleration is increased by 50%. ")
-        .addField("Permanent Cloak","**Effect** - The Observer is permanently cloaked.")
-        .addField("Surveillance Mode", "**Effect** - Transforms the Observer to Surveillance Mode. The Observer gains 25% wider vision, but loses the ability to move.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Observer_(Legacy_of_the_Void)");
+        .addField("Gravitic Boosters", "**Researched from:** Robotics Bay, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the movement speed of the Observer. Their speed and acceleration is increased by 50%.")
+        .addField("Permanent Cloak","**Effect**: The Observer is permanently cloaked.")
+        .addField("Surveillance Mode", "**Effect**: Transforms the Observer to Surveillance Mode. The Observer gains 25% wider vision, but loses the ability to move.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Observer_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-obs` for main stats!");
     return message.channel.send(obsembed);
     }
     //begin Warp Prism
-    if (cmd ===`${prefix}warpprism`||cmd === `${prefix}prism`){
+    if (cmd ===`${prefix}warpprism`||cmd === `${prefix}prism`||cmd === `${prefix}has`){
+        fullUnitInfoSpellcaster("Protoss Warp Prism","https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644","Robotics Facility","none",250,0,2,36,"80+100","0(+1)","4.13(+1.23)","Armored, Mechanical, Psionic, Air",10,"Provides 8","prism")
+    }
+    if (cmd ===`${prefix}warpprism-p2`||cmd === `${prefix}prism-p2`||cmd === `${prefix}has-p2`){
         let prismembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Warp Prism**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 250, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
-        .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Capacity** - 8")
-        .addField("Upgrades and Abilities","-")
-        .addField("Gravitic Drive", "**Researched from:** Robotics Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed and acceleration of the Warp Prism.")
-        .addField("Phasing/Transport Mode", "**Effect** - In Phasing Mode, the Warp Prism generates a power radius similar to that of a Pylon. The Warp Prism cannot move in this mode. The Warp Prism returns to being a mobile transport in Transport Mode.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Warp_Prism_(Legacy_of_the_Void)");
+        .addField("Gravitic Drive", "**Researched from:** Robotics Bay, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the movement speed and acceleration of the Warp Prism.")
+        .addField("Phasing/Transport Mode", "**Effect**: In Phasing Mode, the Warp Prism generates a power radius similar to that of a Pylon. The Warp Prism cannot move in this mode. The Warp Prism returns to being a mobile transport in Transport Mode.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Warp_Prism_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-prism` for main stats!");
     return message.channel.send(prismembed);
     }
     //begin Immortal
     if (cmd ===`${prefix}immortal`||cmd ===`${prefix}immo`){
+        fullUnitInfo("Protoss Immortal","https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Protoss_Immortal.jpg/revision/latest?cb=20160106180358","Robotics Facility","none",275,100,4,39,"200+100","1(+1)",3.15,"20(+2), **vs Armored**: 50(+5)",1.04,6,"19.2(+1.92), **vs Armored**: 48.1(+4.81)","Ground", "Mechanical, Armored, Ground",9,4,"immo")
+    }
+    if (cmd ===`${prefix}immortal-p2`||cmd ===`${prefix}immo-p2`){
         let immortalembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Immortal**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Protoss_Immortal.jpg/revision/latest?cb=20160106180358")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 275, **Vespene** - 100, **Supply** - 4, **Build Time** - 39")
-        .addField("Defense", "**HP+Shields** - 200+100, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 1.04, **Range** - 6, **DPS** - 19.2(+1.92 per upgrade), vs armored 48.1(+4.81 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
-        .addField("Upgrades and Abilities","-")
-        .addField("Barrier", "**Cooldown** - 32, **Duration** - 2, **Effect** - Absorbs up to 100 damage. Lasts for 2 seconds.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Immortal_(Legacy_of_the_Void)");
+        .addField("Barrier", "**Cooldown**: 32, **Duration**: 2, **Effect**: Absorbs up to 100 damage. Lasts for 2 seconds.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Immortal_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-immo` for main stats!");
     return message.channel.send(immortalembed);
     }
     //begin Colossus
     if (cmd ===`${prefix}colossus`||cmd ===`${prefix}colossi`||cmd ===`${prefix}giraffe`||cmd ===`${prefix}lasergiraffe`){
+        fullUnitInfo ("**Protoss Colossus**","https://vignette.wikia.nocookie.net/starcraft/images/4/40/Icon_Protoss_Colossus.jpg/revision/latest?cb=20160106180305","Robotics Facility","Robotics Bay",300,200,6,54,"200+150","1(+1)",3.15,"10x2(+1x2), **vs Light**:15x2(+2x2)",1.07,"7(+2)","18.7(+1.87), **vs Light**: 28(+3.74)","Ground","Mechanical, Armored, Massive, Ground, Targetable by Air",10,8,"colossus")
+    }
+    if (cmd ===`${prefix}colossus-p2`||cmd ===`${prefix}colossi-p2`||cmd ===`${prefix}giraffe-p2`||cmd ===`${prefix}lasergiraffe-p2`){
         let colossusembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Colossus**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/40/Icon_Protoss_Colossus.jpg/revision/latest?cb=20160106180305")
-        .addField("Construction", "**Built from:** Robotics Facility, **Requires:** Robotics Bay")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 54")
-        .addField("Defense", "**HP+Shields** - 200+150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 10x2(+1x2 per upgrade), vs light 15x2(+2x2 per upgrade) **Hitspeed** - 1.07, **Range** - 7+2, **DPS** - 18.7(+1.87 per upgrade), vs light 28(+3.74 per upgrade) **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Ground, Targetable by Air**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 8")
-        .addField("Upgrades and Abilities","-")
-        .addField("Extended Thermal Lance", "**Researched from:** Robotics Bay, **Minerals** - 150, **Vespene** - 150, **Time** - 100, **Effect** - Increases the range of the Colossus weapon by 2. ")
+        .addField("Extended Thermal Lance", "**Researched from:** Robotics Bay, **Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Increases the range of the Colossus weapon by 2. ")
         .addField("Cliff Walk","Allows Colossus to travel up and down cliffs.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Colossus_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Colossus_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-colossus` for main stats!");
     return message.channel.send(colossusembed);
     }
     //begin Disruptor
-    if (cmd ===`${prefix}disruptor`||cmd ===`${prefix}ruptor`||cmd ===`${shortprefix}disruptor`||cmd ===`${shortprefix}ruptor`){
+    if (cmd ===`${prefix}disruptor`||cmd ===`${prefix}ruptor`){
+        fullUnitInfoSpellcaster("Protoss Disruptor","https://vignette.wikia.nocookie.net/starcraft/images/6/64/Icon_Protoss_Disruptor.jpg/revision/latest?cb=20160106231158","Robotics Facility","Robotics Bay",150,150,3,36,"100+100","1(+1)",3.15,"chanical, Armored, Ground",9,4,"disruptor")
+    }
+    if (cmd ===`${prefix}disruptor-p2`||cmd ===`${prefix}ruptor-p2`){
         let ruptorembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Disruptor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/64/Icon_Protoss_Disruptor.jpg/revision/latest?cb=20160106231158")
-        .addField("Construction", "**Built from:** Robotics Facility, **Requires:** Robotics Bay")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 100+100, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
-        .addField("Upgrades and Abilities","-")
-        .addField("Purification Nova", "**Cooldown** - 14.3, **Radius** - 1.5, **Duration** - 2, **Damage** - 145+55 vs shields, **Targets** - Ground, **Effect** - Shoots out a ball of energy that detonates after 2 seconds, dealing 145 splash damage and an additional 55 shield damage to nearby ground units and structures. The Disruptor is immobile while this is active and it's visual glow is dulled a little bit during cool-down.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Disruptor");
+        .addField("Purification Nova", "**Cooldown**: 21.4, **Radius**: 1.5, **Duration**: 2.1, **Damage**: 145+55 vs shields, **Targets**: Ground, **Effect**: Shoots out a ball of energy that detonates after 2 seconds, dealing 145 splash damage and an additional 55 shield damage to nearby ground units and structures. The Disruptor is immobile while this is active and it's visual glow is dulled a little bit during cooldown.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Disruptor")
+        .addField("Back to Main","Try `sc2-disruptor` for main stats!");
     return message.channel.send(ruptorembed);
     }
     //begin Phoenix
     if (cmd ===`${prefix}phoenix`||cmd ===`${prefix}nix`){
+        fullUnitInfo("Protoss Phoenix","https://vignette.wikia.nocookie.net/starcraft/images/b/b1/Icon_Protoss_Phoenix.jpg/revision/latest?cb=20160106180507","Stargate","none",150,100,2,25,"120+60","0(+1)",5.95,"5x2(+1x2), **vs Light**: 10x2(+1x2)",0.97,"5(+2)","12.7(+2.5), **vs Light**: 25.4(+2.5)","Air","Mechanical, Light, Air",10,"N/A","phoenix")
+    }
+    if (cmd ===`${prefix}phoenix-p2`||cmd ===`${prefix}nix-p2`){
         let nixembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Phoenix**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b1/Icon_Protoss_Phoenix.jpg/revision/latest?cb=20160106180507")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 25")
-        .addField("Defense", "**HP+Shields** - 120+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
-        .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), vs light 10x2(+1x2 per upgrade) **Hitspeed** - 0.97, **Range** - 5+2, **DPS** - 12.7(+2.5 per upgrade), vs light 25.4(+2.5 per upgrade) **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Light, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Upgrades and Abilities","-")
-        .addField("Anion Pulse-Crystals", "**Researched from:** Fleet Beacon, **Minerals** - 150, **Vespene** - 150, **Time** - 64, **Effect** - Increases the range of the Phoenix weapon by 2.")
-        .addField("Graviton Beam","**Energy** - 50, **Range** - 4, **Duration** - 7, **Effect** - Makes the target unit float in the air, disabling its abilities. Massive units are immune.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Phoenix_(Legacy_of_the_Void)");
+        .addField("Anion Pulse-Crystals", "**Researched from:** Fleet Beacon, **Minerals**: 150, **Vespene**: 150, **Time**: 64, **Effect**: Increases the range of the Phoenix weapon by 2.")
+        .addField("Graviton Beam","**Energy**: 50, **Range**: 4, **Duration**: 7, **Effect**: Makes the target unit float in the air, disabling its abilities. Massive units are immune.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Phoenix_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-phoenix` for main stats!");
     return message.channel.send(nixembed);
     }
     //begin Oracle
     if (cmd ===`${prefix}oracle`||cmd ===`${prefix}discoball`||cmd ===`${prefix}disco`){
+        fullUnitInfo("Protoss Oracle","https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Icon_Protoss_Oracle.jpg/revision/latest?cb=20160106231013","Stargate","none",150,150,3,37,"100+60","0(+1)",5.6,"15, **vs Light**: 22",0.61,4,"24.4, **vs Light**: 35.9","Ground","Mechanical, Armored, Psionic, Air",10,"N/A","oracle")
+    }
+    if (cmd ===`${prefix}oracle-p2`||cmd ===`${prefix}discoball-p2`||cmd ===`${prefix}disco-p2`){
         let oracleembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Oracle**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Icon_Protoss_Oracle.jpg/revision/latest?cb=20160106231013")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 37")
-        .addField("Defense", "**HP+Shields** - 100+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
-        .addField("Offense","**Damage** - 15, vs light 22 **Hitspeed** - 0.61, **Range** - 4, **DPS** - 24.4, vs light 35.9 **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Psionic, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Upgrades and Abilities","-")
-        .addField("Revelation", "**Energy** - 50, **Cooldown** - 2.2, **Range** - 9, **Radius** - 6, **Duration** - 30 **Effect** - Causes enemy units and structures within the target area to grant vision for 30 seconds. Reveals cloaked or burrowed units and structures.")
-        .addField("Stasis Ward","**Energy** - 50, **Range** - 6, **Radius** - 4, **Duration** - 170, **Effect Duration** - 21.5 **Effect** - Places a cloaked Stasis Ward at the target location that lasts 170 seconds. Once activated by an enemy ground unit, the ward traps nearby enemies in stasis for 21.5 seconds. Trapped units cannot be attacked or affected by abilities.")
-        .addField("Pulsar Beam", "**Energy** -  25(+1.96/s), **Cooldown** - 4, **Effect** - Charges the Oracle's Pulsar Beam, which does spell damage to ground units while active.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Oracle_(Legacy_of_the_Void)");
+        .addField("Revelation", "**Energy**: 25, **Cooldown**: 10, **Range**: 9, **Radius**: 6, **Duration**: 20 **Effect**: Causes enemy units and structures within the target area to grant vision for 20 seconds. Reveals cloaked or burrowed units and structures.")
+        .addField("Stasis Ward","**Energy**: 50, **Range**: 6, **Radius**: 4, **Duration**: 170, **Effect Duration**: 21.5 **Effect**: Places a cloaked Stasis Ward at the target location that lasts 170 seconds. Once activated by an enemy ground unit, the ward traps nearby enemies in stasis for 21.5 seconds. Trapped units cannot be attacked or affected by abilities.")
+        .addField("Pulsar Beam", "**Energy**:  25(+1.96/s), **Cooldown**: 4, **Effect**: Charges the Oracle's Pulsar Beam, which does spell damage to ground units while active.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Oracle_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-oracle` for main stats!");
     return message.channel.send(oracleembed);
     }
     //begin Void Ray
-    if (cmd ===`${prefix}voidray`||cmd ===`${prefix}chadray`||cmd ===`${prefix}void`){
+    if (cmd ===`${prefix}voidray`||cmd ===`${prefix}chadray`||cmd ===`${prefix}void`||cmd ===`${prefix}chad`){
+        fullUnitInfo("Protoss Void Ray","https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444","Stargate","none",200,150,4,37,"150+100","0(+1)","3.85(+0.8) / 2.6 (overcharge)","6(+1), **vs Armored**: 10+6(+1)",0.36, "4+2","16.8(+2.8), **vs Armored**: 28+16+8(+2.8)","Air and Ground","Mechanical, Armored, Air",10,"N/A","voidray")
+    }
+    if (cmd ===`${prefix}voidray-p2`||cmd ===`${prefix}chadray-p2`||cmd ===`${prefix}void-p2`||cmd ===`${prefix}chad-p2`){
         let voidembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Void Ray**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 250, **Vespene** - 150, **Supply** - 4, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(-0.88)")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), vs armored 4+6(+1 per upgrade) **Hitspeed** - 0.36, **Range** - 4+2, **DPS** - 16.8(+2.8 per upgrade), vs armored 28+28(+2.8 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Upgrades and Abilities","-")
-        .addField("Prismatic Alignment","**Cooldown** - 43, **Duration** - 14.3, **Effect** - Realigns the Void Ray's Prismatic Beam to gain +6 damage vs. armored units for 14.3 seconds at the cost of 0.88 movespeed. This does not scale with upgrades.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Void_Ray_(Legacy_of_the_Void)");
+        .addField("Flux Vanes","**Researched from:** Fleet Beacon, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the Void Ray's movement speed by 0.798 and its acceleration by 0.962.")
+        .addField("Prismatic Alignment","**Cooldown**: 43, **Duration**: 14.3, **Effect**: Realigns the Void Ray's Prismatic Beam to gain +6 damage vs. armored units for 14.3 seconds at the cost of 0.88 movespeed. This does not scale with upgrades.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Void_Ray_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-voidray` for main stats!");
     return message.channel.send(voidembed);
     }
     //begin Carrier
     if (cmd ===`${prefix}carrier`){
+        fullUnitInfo("Protoss Carrier","https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238","Stargate","Fleet Beacon","350(+15*8)",250,6,64,"300+150","2(+1)",2.62,"5x2x8(+1x2x8)",2.14,"8+6","37.4(+7.5)","Air and Ground","Mechanical, Armored, Massive, Air",10, "N/A","interceptor or sc2-carrier")
+    }    
+    if (cmd ===`${prefix}carrier-p2`){
         let carrierembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Carrier**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
-        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 64")
-        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor, **Release Period** - 0.27")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Upgrades and Abilities","-")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void) or try sc2-interceptor")
+        .addField("Back to Main","Try `sc2-carrier` for main stats!");
     return message.channel.send(carrierembed);
     }
     //begin Interceptor
-    if (cmd ===`${prefix}interceptor`||cmd ===`${shortprefix}interceptor`){
+    if (cmd ===`${prefix}interceptor-p2`){
+        fullUnitInfo("Protos Interceptor","https://vignette.wikia.nocookie.net/starcraft/images/3/3b/Interceptor_SC2_Rend1.JPEG/revision/latest?cb=20110223005457","Carrier","none",15,0,0,9,"40+40","0(+1)",10.5,"5x2(+1x2)",2.14,2,"4.7(+0.93)","Air and Ground","Mechanical, Light, Air",7,1,"carrier or sc2-interceptor")
+    }
+    if (cmd ===`${prefix}interceptor-p2`){
         let carrierembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Interceptor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/Interceptor_SC2_Rend1.JPEG/revision/latest?cb=20110223005457")
-        .addField("Construction", "**Built from:** Carrier")
-        .addField("Resources", "**Minerals** - 15, **Vespene** - 0, **Supply** - 0, **Build Time** - 9")
-        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 10.5")
-        .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), **Hitspeed** - 2.14, **Range** - 8+2, **DPS** -  4.7(+0.93 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Light, Air**")
-        .addField("Misc.", "**Sight Range** - 7")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Carrier_(Legacy_of_the_Void) or try sc2-carrier")
+        .addField("Back to Main","Try `sc2-interceptor` for main stats!");
     return message.channel.send(carrierembed);
     }
     //begin Tempest
-    if (cmd ===`${prefix}tempest`||cmd ===`${shortprefix}tempest`){
+    if (cmd ===`${prefix}tempest`){
+        fullUnitInfo2("**Protoss Tempest**","https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Protoss_Tempest.jpg/revision/latest?cb=20160106231047","Stargate","Fleet Beacon",250,175,5,43,"200+100","2(+1)",3.15,"30(+3), **vs Massive**: 52(+5)","40(+4), **vs Buildings (with upgrade)**: 80(+4)",2.36,2.36,15,10,"12.73(+1.273), **vs Massive**: 22.05(+2.12)","16.97(+1.697), **vs Buildings (with upgrade)**: 33.94(+1.697)","Air","Ground","Mechanical, Armored, Massive, Air",12,"N/A","tempest")
+    }
+    if (cmd ===`${prefix}tempest-p2`){
         let tempestembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Tempest**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Protoss_Tempest.jpg/revision/latest?cb=20160106231047")
-        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 250, **Vespene** - 175, **Supply** - 5, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 150+125, **Armor** - 2(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense (air)","**Damage** - 30(+3 per upgrade), vs massive 52(+5 per upgrade) **Hitspeed** - 2.36, **Range** - 15, **DPS** - 12.73(+1.273 per upgrade), vs massive 22.05(+2.12 per upgrade) **Targets** - Air")
-        .addField("Offense (ground)","**Damage** - 40(+4 per upgrade), **Hitspeed** - 2.36, **Range** - 10, **DPS** - 	16.97 (+1.697 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
-        .addField("Misc.", "**Sight Range** - 12")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)");
+        .addField("Tectonic Destabilizers","**Researched from:** Fleet Beacon, **Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Improves the Tempest's Resonance Coil to deal +40 damage vs structures.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Tempest_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-tempest` for main stats!");
     return message.channel.send(tempestembed);
     }
     //begin Mothership
-    if (cmd ===`${prefix}mothership`||cmd ===`${prefix}mamaship`){
+    if (cmd ===`${prefix}mothership`||cmd ===`${prefix}mamaship`||cmd ===`${prefix}-400-400`){
+        fullUnitInfo("Protoss Mothership","https://vignette.wikia.nocookie.net/starcraft/images/e/e1/Icon_Protoss_Mothership.jpg/revision/latest?cb=20160106180429","Nexus","Fleet Beacon",400,400,8,114,"350+350","2(+1)",2.62,"6x6(+1x6)",1.58,7,"22.8(+3.78)","Air and Ground","Mechanical, Armored, Massive, Psionic, Air",14, "N/A","mothership")
+    }    
+    if (cmd ===`${prefix}mothership-p2`||cmd ===`${prefix}mamaship-p2`||cmd ===`${prefix}-400-400-p2`){
         let mamaembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Mothership**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e1/Icon_Protoss_Mothership.jpg/revision/latest?cb=20160106180429")
-        .addField("Construction", "**Built from:** Nexus, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 400, **Supply** - 8, **Build Time** - 114")
-        .addField("Defense", "**HP+Shields** - 350+350, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Damage** - 6x6(+1x6 per upgrade), **Hitspeed** - 1.58, **Range** - 7, **DPS** -  22.8(+3.78 per upgrade) **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Psionic, Air**")
-        .addField("Misc.", "**Sight Range** - 14")
-        .addField("Upgrades and Abilities","-")
-        .addField("Cloaking Field","**Radius** - 5, **Effect** - The Mothership cloaks all nearby units and buildings.")
-        .addField("Mass Recall","**Energy** - 100, **Range** - Infinite, **Radius** - 6.5, **Channeling Time** - 4, **Effect** - Recalls all player units in the target area to the Mothership.")
-        .addField("Time Warp","**Energy** - 100, **Radius** - 3.5, **Range** - 9, **Duration** - 11, **Effect** - After a 4-second delay, warps spacetime within the target area for 7 seconds. Enemy ground units within the field have 50% reduced movement and attack speed.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
+        .addField("Cloaking Field","**Radius**: 5, **Effect**: The Mothership cloaks all nearby units and buildings.")
+        .addField("Mass Recall","**Energy**: 100, **Range**: Infinite, **Radius**: 6.5, **Channeling Time**: 4, **Effect**: Recalls all player units in the target area to the Mothership.")
+        .addField("Time Warp","**Energy**: 100, **Radius**: 3.5, **Range**: 9, **Duration**: 11, **Effect**: After a 1.79 second delay, warps spacetime within the target area for 7 seconds. Enemy units and structures within the field will have attack and movement speeds reduced by 50%.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-mothership` for main stats!");
     return message.channel.send(mamaembed);
     }
 //Begin Zerg Units
     //begin Larva
-    if (cmd ===`${prefix}larva`||cmd ===`${shortprefix}larva`){
+    if (cmd ===`${prefix}larva`){
+        fullUnitInfoSpellcaster("Zerg Larva","https://vignette.wikia.nocookie.net/starcraft/images/8/84/Icon_Zerg_Larva.jpg/revision/latest?cb=20160106233133","Hatchery/Lair/Hive/Inject Larva","none",0,0,0,11,25,10,0.79,"Biological, Light, Ground",5,"N/A","larva")
+    }
+    if (cmd ===`${prefix}larva`){
         let larvaembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Larva**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/84/Icon_Zerg_Larva.jpg/revision/latest?cb=20160106233133")
-        .addField("Construction", "**Built from:** Hatchery/Lair/Hive")
-        .addField("Resources", "**Minerals** - 0, **Vespene** - 0, **Supply** - 0, **Build Time** - 11")
-        .addField("Defense", "**HP** - 25, **Armor** - 10 **Movespeed** - 0.79")
-        .addField("Production","**By default:** Drone, Overlord, **With Spawning Pool:** Zergling x2, **With Roach Warren:** Roach, **With Hydralisk Den:** Hydralisk, **With Infestation Pit:** Infestor, Swarm Host, **With Spire:** Mutalisk, Corruptor, **With Hive:** Viper, **With Ultralisk Cavern:** Ultralisk")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 5")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Larva_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Larva_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-larva` for main stats!");
     return message.channel.send(larvaembed);
     }               
     //begin Drone
-    if (cmd ===`${prefix}drone`){
+    if (cmd ===`${prefix}drone`){ 
+        fullUnitInfo("Zerg Drone","https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237","Hatchery/Lair/Hive","none",50,0,1,12,"40","0(+1)",3.94,5,1.07,"Melee",4.67,"Ground","Biological, Light, Ground",8,1,"drone")
+    }
+    if (cmd ===`${prefix}drone-p2`){ 
         let droneembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Drone**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
-        .addField("Construction", "**Built from:** Larva")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **DPS** - 4.67 **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
-        .addField("Upgrades and Abilities","-")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)");
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Drone_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-drone` for main stats!");
     return message.channel.send(droneembed);
     }
     //begin Overlord
     if (cmd ===`${prefix}overlord`||cmd ===`${prefix}ovie`||cmd ===`${prefix}dropperlord`||cmd ===`${prefix}droplord`){
+        fullUnitInfoSpellcaster("Zerg Overlord","https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=201601062330520","Hatchery/Lair/Hive","none",100,0,-8,18,200,"0(+1)","0.902(+1.728)","Biological, Armored, Air",11,"Provides 8 (with Ventral Sacs)","overlord")
+    }
+    if (cmd ===`${prefix}overlord-p2`||cmd ===`${prefix}ovie-p2`||cmd ===`${prefix}dropperlord-p2`||cmd ===`${prefix}droplord-p2`){
         let overlordembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Overlord**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=20160106233052")
-        .addField("Construction", "**Built from:** Larva")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
-        .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 11, **Cargo Capacity** - 8 (with Ventral Sacs)")
-        .addField("Upgrades and Abilities","-")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
-        .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals** - 25, **Vespene** - 25, **Time** - 12, **Effect** - Enables the Overlord to transport units.")
-        .addField("Morph to Overseer","**Requires:** Lair, **Minerals** - 50, **Vespene** - 50, **Time** - 12, **Effect** - Morphs the selected Overlord into an Overseer.")
-        .addField("Generate Creep","**Requires:** Lair, **Channeling Time** - 11, **Effect** - When selected, the Overlord will create Zerg creep beneath it, spreading out to a 2x2 area.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Overlord_(Legacy_of_the_Void)");
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals**: 75, **Vespene**: 75, **Time**: 43, **Effect**: Increases the movement speed of Overlords to 2.63")
+        .addField("Mutate Ventral Sacs","**Requires:** Lair, **Minerals**: 25, **Vespene**: 25, **Time**: 12, **Effect**: Enables the Overlord to transport units.")
+        .addField("Morph to Overseer","**Requires:** Lair, **Minerals**: 50, **Vespene**: 50, **Time**: 12, **Effect**: Morphs the selected Overlord into an Overseer.")
+        .addField("Generate Creep","**Requires:** Lair, **Channeling Time**: 11, **Effect**: When selected, the Overlord will create Zerg creep beneath it, spreading out to a 2x2 area.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Overlord_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-overlord` for main stats!");
     return message.channel.send(overlordembed);
     }
     //begin Queen
-    if (cmd ===`${prefix}queen`){
+    if (cmd ===`${prefix}queen`||cmd ===`${prefix}brenda`||cmd ===`${prefix}karen`){
+        fullUnitInfo2("Zerg Queen","https://vignette.wikia.nocookie.net/starcraft/images/8/85/Icon_Zerg_Queen.jpg/revision/latest?cb=20160106233007","Hatchery/Lair/Hive (directly)","Spawning Pool",150,0,2,36,175,"1(+1)","3.5, **Off creep**: 1.31","4x2(+1x2)","9(+1)",0.71,0.71,5,7,"11.2(+2.8)","12.6(+1.4)","Ground","Air","Biological, Psionic, Ground",9,2,"queen")
+    }
+    if (cmd ===`${prefix}queen-p2`||cmd ===`${prefix}brenda-p2`||cmd ===`${prefix}karen-p2`){
         let queenembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Queen**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Icon_Zerg_Queen.jpg/revision/latest?cb=20160106233007")
-        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.31, on creep 3.5")
-        .addField("Offense (ground)","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **DPS** - 11.2(+2.8 per upgrade), **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **DPS** - 12.6(+1.4 per upgrade), **Targets** - Air")
-        .addField("Attributes", "**Biological, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Spawn Larva", "**Energy** - 25, **Range** - Melee, **Cooldown** - 1.8, **Duration** - 29, **Effect** - The Queen injects 3 Larva eggs into a Hatchery which after 29 seconds, hatch and 3 Larvae are ready to be used at the targeted Hatchery. If a Hatchery has more than 19 Larva, additional Larva will not be created. This will stack and queue if the target is already spawning additional larvae.")
-        .addField("Spawn Creep Tumor", "**Energy** - 25, **Range** - Melee, **Duration** - 11, **Effect** - The Queen moves to and places a Creep Tumor at the targeted location. The tumor has 50 hit points and generates Creep. Each Creep Tumor can spawn one other Creep Tumor within a radius of 10.")
-        .addField("Transfusion","**Energy** - 50, **Range** - 7, **Cooldown** - 1, **Targets** - Biological, **Effect** - The Queen heals a friendly, biological unit or building for 75 health instantly plus an additional 50 health over the next 7.14 seconds.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Queen_(Legacy_of_the_Void)");
+        .addField("Spawn Larva", "**Energy**: 25, **Range**: Melee, **Cooldown**: 1.8, **Duration**: 29, **Effect**: The Queen injects 3 Larva eggs into a Hatchery which after 29 seconds, hatch and 3 Larvae are ready to be used at the targeted Hatchery. If a Hatchery has more than 19 Larva, additional Larva will not be created. This will stack and queue if the target is already spawning additional larvae.")
+        .addField("Spawn Creep Tumor", "**Energy**: 25, **Range**: Melee, **Duration**: 11, **Effect**: The Queen moves to and places a Creep Tumor at the targeted location. The tumor has 50 hit points and generates Creep. Each Creep Tumor can spawn one other Creep Tumor within a radius of 10.")
+        .addField("Transfusion","**Energy**: 50, **Range**: 7, **Cooldown**: 1, **Targets**: Biological, **Effect**: The Queen heals a friendly, biological unit or building for 75 health instantly plus an additional 50 health over the next 7.14 seconds.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Queen_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-queen` for main stats!");
     return message.channel.send(queenembed);
     }
     //begin Zergling
     if (cmd ===`${prefix}zergling`||cmd ===`${prefix}zling`){
+        fullUnitInfo("Zerg Zergling","https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911","Hatchery/Lair/Hive","Spawning Pool","25x2",0,"0.5x2",17,35,"0(+1)","5.37(+3.18), **Off creep**: 4.13(+2.45)","5(+1)", "0.497(-0.143)","Melee","10(+2)+4.3(+0.86)","Ground","Biological, Light, Ground",8,1,"zergling")
+    }
+    if (cmd ===`${prefix}zergling-p2`||cmd ===`${prefix}zling-p2`){
         let lingembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Zergling**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spawning Pool")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
-        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
-        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **DPS** - 10(+2 per upgrade), with adrenal 14.3(+2.86), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 1")
-        .addField("Upgrades and Abilities","-")
-        .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58(+2.45)")
-        .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
-        .addField("Morph to Baneling","**Requires:** Baneling Nest, **Minerals** - 25, **Vespene** - 25, **Time** - 14, **Effect** - Morphs a Zergling into a Baneling.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Zergling_(Legacy_of_the_Void)");
+        .addField("Metabolic Boost", "**Researched from:** Spawning Pool, **Minerals**: 100, **Vespene**: 100, **Time**: 93, **Effect**: Increases Zergling movement speed by 60% to 6.58(+2.45)")
+        .addField("Adrenal Glands", "**Researched from:** Spawning Pool, **Requires:** Hive, **Minerals**: 200, **Vespene**: 200, **Time**: 93, **Effect**: Decreases Zergling attack cooldown to 0.35(-0.15)")
+        .addField("Morph to Baneling","**Requires:** Baneling Nest, **Minerals**: 25, **Vespene**: 25, **Time**: 14, **Effect**: Morphs a Zergling into a Baneling.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Zergling_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-zergling` for main stats!");
     return message.channel.send(lingembed);
     }
     //begin Baneling
     if (cmd ===`${prefix}baneling`||cmd ===`${prefix}bling`||cmd ===`${prefix}bane`){
+        fullUnitInfo2("Zerg Baneling","https://vignette.wikia.nocookie.net/starcraft/images/8/81/Icon_Zerg_Baneling.jpg/revision/latest?cb=20160106232838","Zergling Morph","Baneling Nest",25,25,0.5,14,"30(+5)","0(+1)","4.55(+0.82),**Off creep**: 3.5(+0.63)","16(+2), **vs Light**: 35(+4)","80(+5)","N/A","N/A",2.2,2.2,"N/A","N/A","Ground","Buildings","Biological, Ground",8,2,"bane")
+    }
+    if (cmd ===`${prefix}baneling-p2`||cmd ===`${prefix}bling-p2`||cmd ===`${prefix}bane-p2`){
         let baneembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Baneling**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/81/Icon_Zerg_Baneling.jpg/revision/latest?cb=20160106232838")
-        .addField("Construction", "**Morphed from:** Zergling, **Requires:** Baneling")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 25, **Supply** - 0.5, **Build Time** - 14")
-        .addField("Defense", "**HP** - 30+5, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(+0.63), on creep 4.55(+0.82)")
-        .addField("Cocoon Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade), **Sight Range** - 5")
-        .addField("Offense 1","**Damage** - 20(+2 per upgrade), vs light 35(+4 per upgrade) **Range** - 2.2, **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 80(+5 per upgrade), **Range** - 2.2, **Targets** - Buildings")
-        .addField("Attributes", "**Biological, Ground**")
-        .addField("Misc.", "**Sight Range** - 8, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Centrifugal Hooks", "**Researched from:** Baneling Nest, **Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_(Legacy_of_the_Void)");
+        .addField("Centrifugal Hooks", "**Researched from:** Baneling Nest, **Requires:** Lair, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-bane` for main stats!");
     return message.channel.send(baneembed);
     }
     //begin Roach
     if (cmd ===`${prefix}roach`){
+        fullUnitInfo("Zerg Roach","https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950","Hatchery/Lair/Hive","Roach Warren",75,25,2,19,145,"1(+1)","4.09(+1.36), **Off creep**: 4.09(+1.36), **Burrowed**: 2.8(+1.6)","16(+2)",1.43,4,"11.2(+1.4)","Ground","Biological, Armored, Ground",9,2,"roach")
+    }
+    if (cmd ===`${prefix}roach-p2`){
         let roachembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Roach**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Roach Warren")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 19")
-        .addField("Defense", "**HP** - 145, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.05), on creep 4.09(+1.36), burrowed 2.8(+1.6)")
-        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.43, **Range** - 4, **DPS** - 11.2(+1.4 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Glial Reconstitution", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
-        .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8.")
-        .addField("Rapid Regeneration","**Effect** - While burrowed, the Roach regenerates its health at an extremely fast rate of 7 hit points per second.")
-        .addField("Morph to Ravager","**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Time** - 9, **Effect** - Morphs a Roach into a Ravager.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_(Legacy_of_the_Void)");
+        .addField("Glial Reconstitution", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
+        .addField("Tunneling Claws", "**Researched from:** Roach Warren, **Requires:** Lair, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Gives Roaches the ability to move while burrowed at a speed of 2.8.")
+        .addField("Rapid Regeneration","**Effect**: While burrowed, the Roach regenerates its health at an extremely fast rate of 7 hit points per second.")
+        .addField("Morph to Ravager","**Minerals**: 25, **Vespene**: 75, **Supply**: 1, **Time**: 9, **Effect**: Morphs a Roach into a Ravager.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-roach` for main stats!");
     return message.channel.send(roachembed);
     }
     //begin Ravager
     if (cmd ===`${prefix}ravager`){
+        fullUnitInfo("Zerg Ravager","https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631","Roach Morph","Roach Warren",25,75,3,9,120,"1(+1)","5.0, **Off creep**: 3.85","16(+2)",1.14,6,"14.04(+1.75)","Ground","Biological, Ground",9,4,"ravager")
+    }
+    if (cmd ===`${prefix}ravager-p2`){
         let ravagerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Ravager**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631")
-        .addField("Construction", "**Morphed from:** Roach")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 3, **Build Time** - 9")
-        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85, on creep 5.0")
-        .addField("Cocoon Defense","**HP** - 100, **Armor** - 5, **Sight Range** - 5")
-        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **DPS** - 14.04(+1.75 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
-        .addField("Upgrades and Abilities","-")
-        .addField("Corrosive Bile", "**Cooldown** - 7, **Range** - 9, **Delay** - 2.5**Effect** - Launch a missile at the target location, dealing 60 damage to all units and destroying all Force Fields in the area upon impact.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Ravager");
+        .addField("Corrosive Bile", "**Cooldown**: 7, **Range**: 9, **Delay**: 2.5**Effect**: Launch a missile at the target location, dealing 60 damage to all units and destroying all Force Fields in the area upon impact.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ravager")
+        .addField("Back to Main","Try `sc2-ravager` for main stats!");
     return message.channel.send(ravagerembed);
     }
     //begin Overseer
     if (cmd ===`${prefix}overseer`||cmd ===`${prefix}flappynajib`){
+        fullUnitInfoSpellcaster("Zerg Overseer","https://vignette.wikia.nocookie.net/starcraft/images/e/e4/Icon_Zerg_Overseer.jpg/revision/latest?cb=20160106233030","Overlord Morph","Lair",50,50,-8,12,200,"1(+1)","2.62(+2.1)","Biological, Armored, Detector, Air","11(+2.75)","N/A","overseer")
+    }
+    if (cmd ===`${prefix}overseer-p2`||cmd ===`${prefix}flappynajib-p2`){
         let seerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Overseer**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e4/Icon_Zerg_Overseer.jpg/revision/latest?cb=20160106233030")
-        .addField("Construction", "**Morphed from:** Overlord, **Requires:** Lair")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Provides Supply** - 8, **Build Time** - 12")
-        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62(+2.1)")
-        .addField("Cocoon Defense","**HP** - 200, **Armor** - 2, **Sight Range** - 5")
-        .addField("Attributes", "**Biological, Armored, Detector, Air**")
-        .addField("Misc.", "**Sight Range** - 11(+2.75), **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overseers to 3.375")
-        .addField("Spawn Changeling", "**Energy** - 50, **Range** - Melee, **Duration** - 150, **Effect** - The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
-        .addField("Contaminate", "**Energy** - 125, **Range** - 3, **Duration** - 30, **Effect** - The Overseer covers an enemy structure in slime. The structure will be unable to train units or research upgrades for 30 seconds.") 
-        .addField("Oversight", "**Effect** - Grants the Overseer 25% wider vision, but removes its ability to move. This ability can be canceled after activation.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Overseer_(Legacy_of_the_Void)");
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals**: 75, **Vespene**: 75, **Time**: 43, **Effect**: Increases the movement speed of Overseers to 3.375")
+        .addField("Spawn Changeling", "**Energy**: 50, **Range**: Melee, **Duration**: 150, **Effect**: The Overseer can spawn a Changeling, which is a small Zerg unit. The Changeling can move freely and morph to take the shape of an enemy unit.")
+        .addField("Contaminate", "**Energy**: 125, **Range**: 3, **Duration**: 30, **Effect**: The Overseer covers an enemy structure in slime. The structure will be unable to train units or research upgrades for 30 seconds.") 
+        .addField("Oversight", "**Effect**: Grants the Overseer 25% wider vision, but removes its ability to move. This ability can be canceled after activation.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Overseer_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-overseer` for main stats!");
     return message.channel.send(seerembed);
     }
     //begin Changeling
-    if (cmd ===`${prefix}changeling`||cmd ===`${shortprefix}changeling`){
+    if (cmd ===`${prefix}changeling`){
+        fullUnitInfoSpellcaster("Zerg Changeling","https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Zerg_Changeling.jpg/revision/latest?cb=20160106232716","Overseer","none",0,0,0,0,5,0,"3.15 as marine or zealot, 4.13 as zergling","Biological, Light, Ground","9 as marine or zealot, 8 as zergling","N/A","changeling")
+    }
+    if (cmd ===`${prefix}changeling-p2`){
         let changeembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Changeling**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a4/Icon_Zerg_Changeling.jpg/revision/latest?cb=20160106232716")
-        .addField("Construction", "**Spawned from:** Overseer")
-        .addField("Resources", "**Energy** - 50")
-        .addField("Defense", "**HP** - 5, **Armor** - 0 **Movespeed** - 3.15, (4.13 as Zergling)")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, (8 as zergling)")
-        .addField("Upgrades and Abilities","-")
-        .addField("Disguise", "**Range** - 12, **Effect** - The Changeling will transform into a basic unit of the enemy that is near (Marine, Zergling, Zealot). The Changeling will also copy the upgraded models of those units (Combat Shield, Metabolic Boost).")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Changeling_(Legacy_of_the_Void)");
+        .addField("Disguise", "**Range**: 12, **Effect**: The Changeling will transform into a basic unit of the enemy that is near (Marine, Zergling, Zealot). The Changeling will also copy the upgraded models of those units (Combat Shield, Metabolic Boost).")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Changeling_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-changeling` for main stats!");
     return message.channel.send(changeembed);
     }
     //begin Hydralisk
     if (cmd ===`${prefix}hydralisk`||cmd ===`${prefix}hydra`){
+        fullUnitInfo("Zerg Hydralisk","https://vignette.wikia.nocookie.net/starcraft/images/4/42/Icon_Zerg_Hydralisk.jpg/revision/latest?cb=20160106233216","Hatchery/Lair/Hive","Hydralisk Den",100,50,2,24,90,"0(+1)","4.09(+1.02), **Off creep**: 3.15(+0.78)","12(+1)",0.59,"5(+1)","20.34(+1.69)","Air and Ground","Biological, Light, Ground",9,2,"hydra")
+    }
+    if (cmd ===`${prefix}hydralisk-p2`||cmd ===`${prefix}hydra-p2`){
         let hydraembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Hydralisk**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/42/Icon_Zerg_Hydralisk.jpg/revision/latest?cb=20160106233216")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
-        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.59, **Range** - 5(+1), **DPS** - 20.34(+1.69 per upgrade), **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Muscular Augments", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Hydralisks move 25% faster speed both on and off of Creep. ")
-        .addField("Grooved Spines", "**Researched from:** Hydralisk Den, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Increases the attack range of Hydralisks by +1.")
-        .addField("Morph to Lurker","**Requires:** Lurker Den, **Minerals** - 50, **Vespene** - 100, **Supply** - 1, **Time** - 15, **Effect** - Morphs a Hydralisk into a Lurker. ")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_(Legacy_of_the_Void)");
+        .addField("Muscular Augments", "**Researched from:** Hydralisk Den, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Hydralisks move 25% faster speed both on and off of Creep. ")
+        .addField("Grooved Spines", "**Researched from:** Hydralisk Den, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Increases the attack range of Hydralisks by +1.")
+        .addField("Morph to Lurker","**Requires:** Lurker Den, **Minerals**: 50, **Vespene**: 100, **Supply**: 1, **Time**: 15, **Effect**: Morphs a Hydralisk into a Lurker. ")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-hydra` for main stats!");
     return message.channel.send(hydraembed);
     }
     //begin Lurker
     if (cmd ===`${prefix}lurker`){
+        fullUnitInfo("Zerg Lurker","https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656","Hydralisk Morph","Lurker Den",50,100,3,18,200,"1(+1)","5.37(+0.537), **Off creep**: 4.13(+0.413)","20(+2), **vs Armored**: 30(+3)",1.43,"8(+2)","14.0(+1), **vs Armored**: 21.0(+1.7)","Ground","Biological, Armored, Ground",9,4,"lurker")
+    }
+    if (cmd ===`${prefix}lurker-p2`){
         let lurkerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Lurker**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656")
-        .addField("Construction", "**Morphed from:** Hydralisk, **Requires:** Lurker Den")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 3, **Build Time** - 18")
-        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13(+0.413), on creep 5.37(+0.537)")
-        .addField("Cocoon Defense","**HP** - 100, **Armor** - 1, **Sight Range** - 5")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 30(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **DPS** - 14.0(+1 per upgrade), vs armored 21(+1.7 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 4")
-        .addField("Upgrades and Abilities","-")
-        .addField("Adaptive Talons", "**Researched from:** Lurker Den, **Requires:** Hive, **Minerals** - 150, **Vespene** - 150, **Time** - 54, **Effect** - Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
-        .addField("Burrow","**Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker");
+        .addField("Adaptive Talons", "**Researched from:** Lurker Den, **Requires:** Hive, **Minerals**: 150, **Vespene**: 150, **Time**: 57, **Effect**: Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
+        .addField("Seismic Spines", "**Researched from:** Lurker Den, **Requires:** Hive, **Minerals**: 150, **Vespene**: 150, **Time**: 57, **Effect**: Increases the range of the Lurkers attack from 8 to 10. ")
+        .addField("Burrow","**Effect**: Unlike other Zerg units, Burrow comes by default on the Lurker, and it can only attack while burrowed. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker")
+        .addField("Back to Main","Try `sc2-lurker` for main stats!");
     return message.channel.send(lurkerembed);
     }
     //begin Mutalisk
-    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}muttmutt`||cmd ===`${prefix}flappybird`||cmd ===`${prefix}flapflap`){
+    if (cmd ===`${prefix}mutalisk`||cmd ===`${prefix}muta`||cmd ===`${prefix}mutmut`||cmd ===`${prefix}flappybird`||cmd ===`${prefix}flapflap`){
+        fullUnitInfo("Zerg Mutalisk","https://vignette.wikia.nocookie.net/starcraft/images/f/fd/Icon_Zerg_Mutalisk.jpg/revision/latest?cb=20160106233117","Hatchery/Lair/Hive","Spire",100,100,2,24,120,"0(+1)",5.6,"9(+1)+3(+0.3)+1(+0.1)",1.09,3,"8.26(+0.92)+2.75(+0.31)+0.92(+0.1)","Air and Ground","Biological, Light, Air",11,"N/A","muta")
+    }   
+    if (cmd ===`${prefix}mutalisk-p2`||cmd ===`${prefix}muta-p2`||cmd ===`${prefix}mutmut-p2`||cmd ===`${prefix}-p2`||cmd ===`${prefix}flapflap-p2`){
         let mutaembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Mutalisk**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/fd/Icon_Zerg_Mutalisk.jpg/revision/latest?cb=20160106233117")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 24")
-        .addField("Defense", "**HP** - 120, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
-        .addField("Offense","**Damage** - 9(+1 per upgrade) + 3(+0.3) + 1(+0.1), **Hitspeed** - 1.09, **Range** - 3, **DPS** - 8.26(+0.92 per upgrade) + 2.75(+0.31) + 0.92(+0.1), **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Air**")
-        .addField("Misc.", "**Sight Range** - 11")
-        .addField("Upgrades and Abilities","-")
-        .addField("Tissue Regeneration", "**Effect** - Mutalisk health regeneration rate is accelerated to 1.4 HP/second")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Mutalisk_(Legacy_of_the_Void)");
+        .addField("Tissue Regeneration", "**Effect**: Mutalisk health regeneration rate is accelerated to 1.4 HP/second")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Mutalisk_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-muta` for main stats!");
     return message.channel.send(mutaembed);
     }
     //begin Corruptor
-    if (cmd ===`${prefix}corruptor`){
+    if (cmd ===`${prefix}corruptor`||cmd ===`${prefix}pee`){
+        fullUnitInfo("Zerg Corruptor","https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308","Hatchery/Lair/Hive","Spire",150,100,2,29,200,"2(+1)",4.725,"14(+1), **vs Massive**: 20(+2)",1.36,6,"10.28(+0.74), **vs Massive**: 14.69(+1.48)", "Air","Biological, Armored, Air",10,"N/A","corruptor")
+    }
+    if (cmd ===`${prefix}corruptor-p2`||cmd ===`${prefix}pee-p2`){
         let corrembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Corruptor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 29")
-        .addField("Defense", "**HP** - 200, **Armor** - 2(+1 per upgrade) **Movespeed** - 4.725")
-        .addField("Offense","**Damage** - 14(+1 per upgrade), vs massive 20(+2 per upgrade) **Hitspeed** - 1.36, **Range** - 6, **DPS** - 10.29(+0.74 per upgrade), vs massive 14.69(+1.48 per upgrade), **Targets** - Air")
-        .addField("Attributes", "**Biological, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 10")
-        .addField("Upgrades and Abilities","-")
-        .addField("Caustic Spray", "**Cooldown** - 32, **Duration** - Channeled, **Effect** - The Corruptor emits a stream of acid that deals 7 damage per second for 4.3 seconds, then increases to 35 damage per second.")
-        .addField("Morph to Brood Lord","**Requires:** Greater Spire, **Minerals** - 150, **Vespene** - 150, **Supply** - 2, **Time** - 24, **Effect** - Morphs a Corruptor into a Brood Lord. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)");
+        .addField("Caustic Spray", "**Cooldown**: 32, **Duration**: Channeled, **Effect**: The Corruptor emits a stream of acid that deals 7 damage per second for 4.3 seconds, then increases to 35 damage per second.")
+        .addField("Morph to Brood Lord","**Requires:** Greater Spire, **Minerals**: 150, **Vespene**: 150, **Supply**: 2, **Time**: 24, **Effect**: Morphs a Corruptor into a Brood Lord. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Corruptor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-corruptor` for main stats!");
     return message.channel.send(corrembed);
     }
     //begin Swarm Host
     if (cmd ===`${prefix}swarmhost`||cmd ===`${prefix}sh`||cmd ===`${prefix}host`){
+        fullUnitInfoSpellcaster("Zerg Swarm Host","https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810","Hatchery/Lair/Hive","Infestation Pit",100,75,3,29,160,"1(+1)","5.37, **Off creep**:3.15","Biological, Armored, Ground",10,4,"locust or sc2-swarmhost")
+    }
+    if (cmd ===`${prefix}swarmhost-p2`||cmd ===`${prefix}sh-p2`||cmd ===`${prefix}host-p2`){
         let hostembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Swarm Host**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 75, **Supply** - 3, **Build Time** - 29")
-        .addField("Defense", "**HP** - 160, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15, on creep 5.37")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Space** - 4")
-        .addField("Upgrades and Abilities","-")
-        .addField("Spawn Locusts", "**Cooldown** - 43, **Duration** - 18, **Effect** - Spawns 2 Locusts with an 18-second timed life.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)");
+        .addField("Spawn Locusts", "**Cooldown**: 43, **Duration**: 18, **Effect**: Spawns 2 Locusts with an 18-second timed life.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Swarm_Host_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-swarmhost` for main stats!");
     return message.channel.send(hostembed);
     }
     //begin Locust
-    if (cmd ===`${prefix}locust`||cmd ===`${shortprefix}locust`){
+    if (cmd ===`${prefix}locust`||cmd ===`${shortprefix}freeunit`){
+        fullUnitInfo("Zerg Locust","https://vignette.wikia.nocookie.net/starcraft/images/0/07/Locust_SC2-HotS_Rend1.jpg/revision/latest?cb=20140629130806","Swarm Host","none",0,0,0,3.6,50,"0(+1)","3.66, **Off creep**: 2.62","10(+1)",0.43,6,"23.25(+2.33)","Ground","Biological, Light, Air (before swoop), Ground (after swoop)",6,"N/A","swarmhost or sc2-locust")
+    }
+    if (cmd ===`${prefix}locust-p2`||cmd ===`${shortprefix}freeunit-p2`){
         let locustembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Locust**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/07/Locust_SC2-HotS_Rend1.jpg/revision/latest?cb=20140629130806")
-        .addField("Construction", "**Spawned From from:** Swarm Host")
-        .addField("Resources", "**Build Time** - 5, **Lifespan** - 18")
-        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62, on creep 3.66")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), **Hitspeed** - 0.43, **Range** - 6, **DPS** - 23.25(+2.33 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 6")
-        .addField("Upgrades and Abilities","-")
-        .addField("Swoop", "**Effect** - Orders the Locust to land at the targetted location, allowing it to attack.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Locust_(Legacy_of_the_Void)");
+        .addField("Swoop", "**Effect**: Orders the Locust to land at the targetted location, allowing it to attack.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Locust_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-locust` for main stats!");
     return message.channel.send(locustembed);
     }
     //begin Infestor
     if (cmd ===`${prefix}infestor`||cmd ===`${prefix}derpfestor`||cmd ===`${prefix}infest`){
+        fullUnitInfoSpellcaster("Zerg Infestor","https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Zerg_Infestor.jpg/revision/latest?cb=20160106233153","Hatchery/Lair/Hive","Infestation Pit",100,150,2,36,90,"0(+1)","4.01, **Off creep**: 3.15","Biological, Armored, Psionic, Ground",10,2,"infestor")
+    }
+    if (cmd ===`${prefix}infestor-p2`||cmd ===`${prefix}derpfestor-p2`||cmd ===`${prefix}infest-p2`){
         let infestorembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Infestor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Zerg_Infestor.jpg/revision/latest?cb=20160106233153")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 150, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15, on creep 4.01")
-        .addField("Attributes", "**Biological, Armored, Psionic, Ground**")
-        .addField("Misc.", "**Sight Range** - 10, **Cargo Size** - 2")
-        .addField("Upgrades and Abilities","-")
-        .addField("Pathogen Glands", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
-        .addField("Neural Parasite", "**Researched from:** Infestation Pit, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
-        .addField("Fungal Growth", "**Energy** - 75, **Range** - 10, **Duration** - 3, **Radius** - 2.25, **Effect** - Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units. Disables all movement based abilities.") 
-        .addField("Infested Terran", "**Energy** - 25, **Range** - 8, **Duration** - 5+21, **Effect** - Spawns an Infested Swarm Egg, which takes 5 seconds to hatch and has 70 health. An Infested Terran has 50 health, lives for 21 seconds and has a ranged attack.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Burrow Move","**Effect** - Can move while burrowed")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)");
+        .addField("Pathogen Glands", "**Researched from:** Infestation Pit, **Minerals**: 150, **Vespene**: 150, **Time**: 57, **Effect**: Increases the starting energy of Infestors by 25.")
+        .addField("Neural Parasite", "**Researched from:** Infestation Pit, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Energy**: 100, **Range**: 9 (14), **Duration**: 11,**Effect**: The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
+        .addField("Fungal Growth", "**Energy**: 75, **Range**: 10, **Duration**: 3, **Radius**: 2.25, **Effect**: Target units take 30 damage over 3 seconds and have movement speed reduced by 75%. Reveals cloaked and burrowed units. Disables all movement based abilities.") 
+        .addField("Microbial Shroud", "**Energy**: 75, **Range**: 9, **Duration**: 11, **Radius** = 3.5, **Effect**: Creates a shroud that obscures ground units underneath, reducing damage taken from air units by 50%.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Burrow Move","**Effect**: Can move while burrowed")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Infestor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-infestor` for main stats!");
     return message.channel.send(infestorembed);
-    }
-    //begin Infested Terran
-    if (cmd ===`${prefix}infestedterran`||cmd ===`${prefix}infested`){
-        let infestedembed = new Discord.RichEmbed()
-        .setDescription ("**Infested Terran**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7a/Icon_Zerg_Infested_Terran.jpg/revision/latest?cb=20160106232746")
-        .addField("Construction", "**Spawned from:** Infestor")
-        .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
-        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
-        .addField("Egg Defense","**HP** - 70, **Armor** - 2, **Sight Range** - 0")
-        .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **DPS** - 10(+1.6 per upgrade), **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **DPS** - 14.7(+1.1 per upgrade), **Targets** - Air")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 9")
-        .addField("Upgrades and Abilities","-")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Infested_Terran_(Legacy_of_the_Void)");
-    return message.channel.send(infestedembed);
-    }
-    //begin Broodling
-    if (cmd ===`${prefix}broodling`||cmd ===`${shortprefix}broodling`){
-        let broodlingembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Broodling**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/46/Icon_Zerg_Broodling.jpg/revision/latest?cb=20160106232656")
-        .addField("Construction", "**Spawned from:** Brood Lord, any structure except Spine and Spore Crawler")
-        .addField("Resources", "**Lifespan** - 8")
-        .addField("Defense", "**HP** - 30, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.37")
-        .addField("Offense","**Damage** - 4(+1 per upgrade), **Hitspeed** - 0.46, **Range** - Melee, **DPS** - 8.7(+2.17 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("Misc.", "**Sight Range** - 7")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Broodling_(Legacy_of_the_Void)");
-    return message.channel.send(broodlingembed);
     }
     //begin Ultralisk
     if (cmd ===`${prefix}ultralisk`||cmd ===`${prefix}ultra`){
+        fullUnitInfo("Zerg Ultralisk","https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927","Hatchery/Lair/Hive","Ultralisk Cavern",300,200,6,39,500,"2+2(+1)","5.37, **Off creep**: 4.13(+0.82)","35(+3), splash 12(+1)",0.61,"Melee","57.38(+4.9), splash 19.13(+1.6)","Ground","Biological, Armored, Massive, Ground",9,8,"ultra")
+    }
+    if (cmd ===`${prefix}ultralisk-p2`||cmd ===`${prefix}ultra-p2`){
         let ultraembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Ultralisk**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Ultralisk Cavern")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 39")
-        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13(+0.42), on creep 5.37")
-        .addField("Offense","**Damage** - 35(+3 per upgrade), splash 12(+1 per upgrade), **Hitspeed** - 0.61, **Range** - Melee, **DPS** - 57.38(+4.9 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Massive, Ground**")
-        .addField("Misc.", "**Sight Range** - 9, **Cargo Size** - 8")
-        .addField("Upgrades and Abilities","-")
-        .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
-        .addField("Anabolic Synthesis", "**Researched from:** Ultralisk Cavern, **Minerals** - 150, **Vespene** - 150, **Time** - 42, **Effect** - Increases Ultralisk speed when off creep from 4.13 to 4.94. ")
-        .addField("Frenzied", "**Effect** - Zerg unit is immune to snare, stun, mind control, and movement altering effects.")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)");
+        .addField("Chitinous Plating", "**Researched from:** Ultralisk Cavern, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: This upgrade increases the armor of all Ultralisks by 2. ")
+        .addField("Anabolic Synthesis", "**Researched from:** Ultralisk Cavern, **Minerals**: 150, **Vespene**: 150, **Time**: 42, **Effect**: Increases Ultralisk speed when off creep from 4.13 to 4.95. ")
+        .addField("Frenzied", "**Effect**: Zerg unit is immune to snare, stun, mind control, and movement altering effects.")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ultra` for main stats!");
     return message.channel.send(ultraembed);
     }
     //begin Brood Lord
-    if (cmd ===`${prefix}broodlord`||cmd ===`${prefix}brood`||cmd ===`${prefix}blord`||cmd ===`${prefix}bl`){
+    if (cmd ===`${prefix}broodlord`||cmd ===`${prefix}brood`||cmd ===`${prefix}bl`){
+        fullUnitInfo("Zerg Brood Lord","https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254","Corruptor Morph","Greater Spire",150,150,4,23,225,"1(+1)",1.97,"20(+2)",1.79,10,"11.2(+1.1)","Ground","iological, Armored, Massive, Air",12,"N/A","broodling or sc2-broodlord")
+    }
+    if (cmd ===`${prefix}broodlord-p2`||cmd ===`${prefix}brood-p2`||cmd ===`${prefix}bl-p2`){
         let broodembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Brood Lord**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254")
-        .addField("Construction", "**Morphed from:** Corruptor, **Requires:** Greater Spire")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 4, **Build Time** - 23")
-        .addField("Defense", "**HP** - 225, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.97")
-        .addField("Cocoon Defense","**HP** - 200, **Armor** - 2, **Sight Range** - 5")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), **Hitspeed** - 1.79, **Range** - 10, **DPS** - 11.2(+1.1 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Massive, Air**")
-        .addField("Misc.", "**Sight Range** - 12")
-        .addField("Upgrades and Abilities","-")
-        .addField("Swarm Seeds", "**Effect** - Spawns Broodlings upon each of the Brood Lord's attacks.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Brood_Lord_(Legacy_of_the_Void)");
+        .addField("Swarm Seeds", "**Effect**: Spawns Broodlings upon each of the Brood Lord's attacks.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Brood_Lord_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-broodlord` for main stats!");
     return message.channel.send(broodembed);
     }
+    //begin Broodling
+    if (cmd ===`${prefix}broodling`){
+            fullUnitInfo("Zerg Broodling","https://vignette.wikia.nocookie.net/starcraft/images/4/46/Icon_Zerg_Broodling.jpg/revision/latest?cb=20160106232656","Brood Lord, or most Zerg structures upon death","none",0,0,0,0,30,0,5.37,"4(+1)",0.46,"Melee","8.7(+2.17)","Ground","Biological, Light, Ground",7,"N/A","broodling")
+    }
+    if (cmd ===`${prefix}broodling-p2`){
+            let broodlingembed = new Discord.RichEmbed()
+            .setDescription ("**Abilites and Upgrades**") 
+            .setColor("#7FC5EB")
+            .addField("More Info", "https://liquipedia.net/starcraft2/Broodling_(Legacy_of_the_Void)")
+            .addField("Back to Main","Try `sc2-broodling` for main stats!");
+        return message.channel.send(broodlingembed);
+    }
     //begin Viper
-    if (cmd ===`${prefix}viper`){
+    if (cmd ===`${prefix}viper`||cmd ===`${prefix}yoink`){
+        fullUnitInfoSpellcaster("Zerg Viper","https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Zerg_Viper.jpg/revision/latest?cb=20160106234746","Hatchery/Lair/Hive","Hive",100,200,3,29,150,"1(+1)",4.13,"Biological, Armored, Psionic, Air",11, "N/A","viper")
+    }
+    if (cmd ===`${prefix}viper-p2`||cmd ===`${prefix}yoink-p2`){
         let viperembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Viper**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Zerg_Viper.jpg/revision/latest?cb=20160106234746")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Hive")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 3, **Build Time** - 29")
-        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Attributes", "**Biological, Armored, Air**")
-        .addField("Misc.", "**Sight Range** - 11")
-        .addField("Upgrades and Abilities","-")
-        .addField("Blinding Cloud", "**Energy** - 100, **Range** - 11, **Radius** - 2, **Duration** - 5.71, **Effect** - Creates a cloud for 5.71 seconds that reduces attack range of ground units and structures underneath to melee range.")
-        .addField("Abduct", "**Energy** - 75, **Range** - 9, **Duration** - 10, **Effect** - Pulls a target unit to the location of the Viper.")
-        .addField("Parasitic Bomb", "**Energy** - 125, **Range** - 8, **Radius** - 3, **Duration** - 7, **Effect** - Creates a parasitic cloud that deals 120 damage over 7 seconds to the target and enemy air units nearby. If the target dies, the cloud remains in the air where the enemy died until it expires.")
-        .addField("Consume", "**Cooldown** - 1, **Range** - 7, **Duration** - 14, **Effect** - Targets friendly structure (except Creep Tumor) and consumes 200 life over 14 seconds converting the damage dealt into 50 energy.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)");
+        .addField("Blinding Cloud", "**Energy**: 100, **Range**: 11, **Radius**: 2, **Duration**: 5.71, **Effect**: Creates a cloud for 5.71 seconds that reduces attack range of ground units and structures underneath to melee range.")
+        .addField("Abduct", "**Energy**: 75, **Range**: 9, **Duration**: 10, **Effect**: Pulls a target unit to the location of the Viper.")
+        .addField("Parasitic Bomb", "**Energy**: 125, **Range**: 8, **Radius**: 3, **Duration**: 7, **Effect**: Creates a parasitic cloud that deals 120 damage over 7 seconds to the target and enemy air units nearby. If the target dies, the cloud remains in the air where the enemy died until it expires.")
+        .addField("Consume", "**Cooldown**: 1, **Range**: 7, **Duration**: 14, **Effect**: Targets friendly structure (except Creep Tumor) and consumes 200 life over 14 seconds converting the damage dealt into 50 energy.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Viper_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-viper` for main stats!");
     return message.channel.send(viperembed);
     }
 //Begin Terran Structures
     //Begin Command Center
     if (cmd ===`${prefix}commandcenter`||cmd ===`${prefix}cc`){
+        fullBuildingInfo("Terran Command Center","https://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135","none",400,0,71,1500,"1(+2)","SCV","SCV, Supply Depot, Refinery, Engineering Bay","Mechanical, Armored, Structure","cc") 
+    }
+    if (cmd ===`${prefix}commandcenter-p2`||cmd ===`${prefix}cc-p2`){
         let commandembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Command Center**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/9e/CommandCenter_SC2_Icon1.jpg/revision/latest?cb=20160107024135")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
-        .addField("Produces", "**By default:** SCV")
-        .addField("Unlocked Tech", "SCV, Supply Depot, Refinery, Engineering Bay")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Cargo Capacity**: 5(+5), only SCVs, **Provides Supply**: 15")
+        .addField("Lift off", "**Effect**: Lifts off a building, making it airborne and mobile. ")
+        .addField("Neosteel Armor", "**Researched from:** Engineering Bay, **Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Increases the armor of all Terran structures by 2. Increases the cargo space of Bunkers by 2 and the load space of Command Centers and Planetary Fortresses by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Command_Center_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-cc` for main stats!");
     return message.channel.send(commandembed);
     }
     //Begin Orbital Command
     if (cmd ===`${prefix}orbitalcommand`||cmd ===`${prefix}orbital`){
+        fullBuildingInfo("Terran Orbital Command","https://vignette.wikia.nocookie.net/starcraft/images/c/ca/OrbitalCommand_SC2_Icon1.jpg/revision/latest?cb=20160107024229","Barracks, Command Center Morph",150,0,25,1500,"1(+2)","SCV","MULE","Mechanical, Armored, Structure","orbital")
+    }
+    if (cmd ===`${prefix}orbitalcommand-p2`||cmd ===`${prefix}orbital-p2`){
         let orbitalembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Orbital Command**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/ca/OrbitalCommand_SC2_Icon1.jpg/revision/latest?cb=20160107024229")
-        .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Barracks, **Minerals** - 150, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 25")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1(+2)")
-        .addField("Produces", "**By default:** SCV")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Unlocked Tech", "MULE")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("Calldown: MULE", "**Energy** - 50, **Effect** - The Orbital Command calls down a MULE via Drop Pods. Mules can gather minerals at a faster rate than SCVs, and last for 64 seconds. One MULE and one SCV gather from the same mineral patch simultaneously.")
-        .addField("Calldown: Extra Supplies","**Energy** - 50, **Effect** - The Orbital Command calls down additional supplies which permanently increase a Supply Depot's supply limit by 8.")
-        .addField("Scanner Sweep","**Energy** - 50, **Radius** - 13, **Duration** - 9, **Effect** - The Orbital Command scans a target location on the map revealing cloaked, burrowed or hallucinated units temporarily.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Orbital_Command_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Provides Supply**: 15")
+        .addField("Lift off", "**Effect**: Lifts off a building, making it airborne and mobile. ")
+        .addField("Calldown: MULE", "**Energy**: 50, **Effect**: The Orbital Command calls down a MULE via Drop Pods. Mules can gather minerals at a faster rate than SCVs, and last for 64 seconds. One MULE and one SCV gather from the same mineral patch simultaneously.")
+        .addField("Calldown: Extra Supplies","**Energy**: 50, **Effect**: The Orbital Command calls down additional supplies which permanently increase a Supply Depot's supply limit by 8.")
+        .addField("Scanner Sweep","**Energy**: 50, **Radius**: 13, **Duration**: 9, **Effect**: The Orbital Command scans a target location on the map revealing cloaked, burrowed or hallucinated units temporarily.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Orbital_Command_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-orbital` for main stats!");
     return message.channel.send(orbitalembed);
     }
     //Begin Planetary Fortress
     if (cmd ===`${prefix}planetaryfortress`||cmd ===`${prefix}planetary`||cmd ===`${prefix}pf`){
+        fullBuildingInfoStatic("Terran Plantery Fortress","https://vignette.wikia.nocookie.net/starcraft/images/9/90/PlanetaryFortress_SC2_Icon1.jpg/revision/latest?cb=20160107024345","Engineering Bay, Command Center Morph",150,150,26,1500,"3(+2)",40,1.43,"6(+1)",28,"Ground","SCV","Mechanical, Armored, Structure","planetary")
+    }
+    if (cmd ===`${prefix}planetaryfortress-p2`||cmd ===`${prefix}planetary-p2`||cmd ===`${prefix}pf-p2`){
         let pfembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Planetary Fortress**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/PlanetaryFortress_SC2_Icon1.jpg/revision/latest?cb=20160107024345")
-        .addField("Resources", "**Upgraded from:** Command Center, **Requires:** Engineering Bay, **Minerals** - 150, **Vespene** - 150, **Provides Supply** - 15, **Build Time** - 26")
-        .addField("Defense", "**HP** - 1500, **Armor** - 3(+2)")
-        .addField("Offense", "**Damage** - 40, **Hitspeed** - 1.43, **Range** - 6+1, **DPS** - 28, **Targets** - Ground")
-        .addField("Produces", "**By default:** SCV")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Misc.", "**Cargo Capacity** - 5(+5), only SCVs")
-        .addField("Upgrades and Abilities","-")
-        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
-        .addField("Neosteel Frame", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Planetary_Fortress_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Cargo Capacity**: 5(+5), only SCVs, **Provides Supply**: 15")
+        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Adds +1 attack range to Auto-Turrets, Missile Turrets, and Planetary Fortresses. ")
+        .addField("Neosteel Armor", "**Researched from:** Engineering Bay, **Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Increases the armor of all Terran structures by 2. Increases the cargo space of Bunkers by 2 and the load space of Command Centers and Planetary Fortresses by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Planetary_Fortress_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-planetary` for main stats!");
     return message.channel.send(pfembed);
     }
     //Begin Supply Depot
     if (cmd ===`${prefix}supplydepot`||cmd ===`${prefix}depot`||cmd ===`${prefix}supply`){
+        fullBuildingInfo("Terran Supply Depot","https://vignette.wikia.nocookie.net/starcraft/images/0/09/SupplyDepot_SC2_Icon1.jpg/revision/latest?cb=20160107024834","none",100,0,21,400,"1(+2)","N/A","Barracks","Mechanical, Armored, Structure","depot")
+    }
+    if (cmd ===`${prefix}supplydepot-p2`||cmd ===`${prefix}depot-p2`||cmd ===`${prefix}supply-p2`){
         let depotembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Supply Depot**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/09/SupplyDepot_SC2_Icon1.jpg/revision/latest?cb=20160107024834")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 21")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
-        .addField("Unlocked Tech", "Barracks")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lower/Raise", "**Effect** - Lowers/Raises the Supply Depot, allowing/preventing ground units to move accross it. If multiple Supply Depots with different states are selected, the first selected determines whether all would lower or raise.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Supply_Depot_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Provides Supply**: 8")
+        .addField("Lower/Raise", "**Effect**: Lowers/Raises the Supply Depot, allowing/preventing ground units to move accross it. If multiple Supply Depots with different states are selected, the first selected determines whether all would lower or raise.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Supply_Depot_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-depot` for main stats!");
     return message.channel.send(depotembed);
     }
     //Begin Refinery
     if (cmd ===`${prefix}refinery`){
+        fullBuildingInfo("Terran Refinery","https://vignette.wikia.nocookie.net/starcraft/images/9/9e/Refinery_SC2_Icon1.jpg/revision/latest?cb=20160107024701","none",75,0,21,500,"1(+2)","N/A","none","Mechanical, Armored, Structure","refinery")
+    }
+    if (cmd ===`${prefix}refinery-p2`){
         let refineryembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Refinery**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/9e/Refinery_SC2_Icon1.jpg/revision/latest?cb=20160107024701")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
-        .addField("Defense", "**HP** - 500, **Armor** - 1(+2)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Refinery_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Refinery_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-refinery` for main stats!");
     return message.channel.send(refineryembed);
     }
     //Begin Barracks
     if (cmd ===`${prefix}barracks`||cmd ===`${prefix}rax`){
-        let commandembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Barracks**")
+        fullBuildingInfo("Terran Barracks","https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Barracks_SC2_Icon1.jpg/revision/latest?cb=20160107024033","Command Center",150,0,46,1000,"1(+2)","Marine, Reaper, Marauder, Ghost","Marine, Reaper, Orbital Command, Bunker, Factory, Ghost Academy, Reactor, Tech Lab","Mechanical, Armored, Structure","barracks")
+    }
+    if (cmd ===`${prefix}barracks-p2`||cmd ===`${prefix}rax-p2`){
+        let raxembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Barracks_SC2_Icon1.jpg/revision/latest?cb=20160107024033")
-        .addField("Resources", "**Requires:** Supply Depot, **Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
-        .addField("Defense", "**HP** - 1000, **Armor** - 1(+2)")
-        .addField("Produces", "**By default;** Marine, Reaper, **with Tech Lab:** Marauder, **with Tech Lab and Ghost Academy:** Ghost")
-        .addField("Unlocked Tech", "Marine, Reaper, Orbital Command, Bunker, Factory, Ghost Academy, Reactor, Tech Lab")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)");
-    return message.channel.send(commandembed);
+        .addField("Lift off", "**Effect**: Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Barracks_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-barracks` for main stats!");
+    return message.channel.send(raxembed);
     }
     //Begin Engineering Bay
     if (cmd ===`${prefix}engineeringbay`||cmd ===`${prefix}ebay`||cmd ===`${prefix}engiebay`||cmd ===`${prefix}engie`){
+        fullBuildingInfo("Terran Engineering Bay","https://vignette.wikia.nocookie.net/starcraft/images/7/7e/EngineeringBay_SC2_Icon1.jpg/revision/latest?cb=20160107024456","Command Center",125,0,25,850,"1(+2)","N/A","Planetary Fortress, Sensor Tower, Missile Turret","Mechanical, Armored, Structure","ebay")
+    }
+    if (cmd ===`${prefix}engineeringbay-p2`||cmd ===`${prefix}ebay-p2`||cmd ===`${prefix}engiebay-p2`||cmd ===`${prefix}engie-p2`){
         let engieembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Engineering Bay**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7e/EngineeringBay_SC2_Icon1.jpg/revision/latest?cb=20160107024456")
-        .addField("Resources", "**Requires:** Command Center, **Minerals** - 125, **Vespene** - 0, **Build Time** - 25")
-        .addField("Defense", "**HP** - 850, **Armor** - 1(+2)")
-        .addField("Unlocked Tech", "Planetary Fortress, Sensor Tower, Missile Turret")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Note", "Infantry units include Marines, Reapers, Marauders, Ghosts, and SCVs (armor upgrades only)")
-        .addField("Infantry Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Terran infantry units. ")
-        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Terran infantry units. ")
-        .addField("Infantry Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Terran infantry units. ")
-        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Terran infantry units. ")
-        .addField("Hi-Sec Auto Tracking", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
-        .addField("Neosteel Armor", "**Minerals** - 150, **Vespene** - 150, **Time** - 100, **Effect** - Increases the armor of the Point Defense Drone, Auto-Turret, Missile Turret, Planetary Fortress, and all other Terran structures by 2, and increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)");
+        .addField("Infantry Weapons Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increase the damage of Terran infantry units. ")
+        .addField("Infantry Weapons Level 2", "**Requires:** Armory, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the damage of Terran infantry units. ")
+        .addField("Infantry Weapons Level 3", "**Requires:** Armory, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the damage of Terran infantry units. ")
+        .addField("Infantry Armor Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 2", "**Requires:** Armory, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the armor of Terran infantry units. ")
+        .addField("Infantry Armor Level 3", "**Requires:** Armory, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the armor of Terran infantry units. ")
+        .addField("Hi-Sec Auto Tracking", "**Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Adds +1 attack range to Auto-Turrets, Missile Turrets, and Planetary Fortresses. ")
+        .addField("Neosteel Armor", "**Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Increases the armor of all Terran structures by 2. Increases the cargo space of Bunkers by 2 and the load space of Command Centers and Planetary Fortresses by 5. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Engineering_Bay_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ebay` for main stats!");
     return message.channel.send(engieembed);
     }
     //Begin Bunker
     if (cmd ===`${prefix}bunker`){
-        let commandembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Bunker**")
+    fullBuildingInfo("Terran Bunker","https://vignette.wikia.nocookie.net/starcraft/images/c/c5/Bunker_SC2_Icon1.jpg/revision/latest?cb=20160107024055","Barracks",100,0,29,400,"1(+2)","N/A","none","Mechanical, Armored, Structure","bunker")
+    }    
+    if (cmd ===`${prefix}bunker-p2`){
+    let commandembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c5/Bunker_SC2_Icon1.jpg/revision/latest?cb=20160107024055")
-        .addField("Resources", "**Requires:** Barracks, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Misc.", "**Cargo Capacity** - 4(+2), only infantry")
-        .addField("Upgrades and Abilities","-")
-        .addField("Neosteel Frame", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the cargo space of a Bunker by 2 and the load space of a Command Center or Planetary Fortress by 5. ")
-        .addField("Salvage", "**Duration** - 4, **Effect** - Destroys the building and returns 75% of its cost. Cannot be cancelled once activated.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Bunker_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Cargo Capacity**: 4(+2), only infantry")
+        .addField("Neosteel Armor", "**Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the armor of all Terran structures by 2. Increases the cargo space of Bunkers by 2 and the load space of Command Centers and Planetary Fortresses by 5. ")
+        .addField("Salvage", "**Duration**: 4, **Effect**: Destroys the building and returns 75% of its cost. Cannot be cancelled once activated.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Bunker_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-bunker` for main stats!");
     return message.channel.send(commandembed);
     }
     //Begin Missile Turret
     if (cmd ===`${prefix}missileturret`||cmd ===`${prefix}turret`){
+        fullBuildingInfoStatic("Terran Missile Turret","https://vignette.wikia.nocookie.net/starcraft/images/5/5f/MissileTurret_SC2_Icon1.jpg/revision/latest?cb=20160107024639","Engineering Bay",100,0,18,250,"0(+2)","12x2",0.61,"7(+1)",39.3,"Air","N/A","Mechanical, Armored, Detector, Structure","turret")
+    }
+    if (cmd ===`${prefix}missileturret-p2`||cmd ===`${prefix}turret-p2`){
         let turretembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Missile Turret**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/5f/MissileTurret_SC2_Icon1.jpg/revision/latest?cb=20160107024639")
-        .addField("Resources", "**Requires:** Engineering Bay, **Minerals** - 100, **Vespene** - 0, **Build Time** - 18")
-        .addField("Defense", "**HP** - 250, **Armor** - 0(+2)")
-        .addField("Offense", "**Damage** - 12x2, **Hitspeed** - 0.61, **Range** - 7+1, **DPS** - 39.3, **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
-        .addField("Misc.", "**Detection Range** - 11,")
-        .addField("Upgrades and Abilities","-")
-        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Adds +1 attack range to Auto-Turrets, Missile Turrets, Point Defense Drones, and Planetary Fortresses. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Missile_Turret_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Detection Range**: 11")
+        .addField("Hi-Sec Auto Tracking", "**Researched from:** Engineering Bay, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Adds +1 attack range to Auto-Turrets, Missile Turrets, and Planetary Fortresses.  ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Missile_Turret_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-turret` for main stats!");
     return message.channel.send(turretembed);
     }    
     //Begin Sensor Tower
     if (cmd ===`${prefix}sensortower`||cmd ===`${prefix}sensor`){
+        fullBuildingInfo("Terran Sensor Tower","https://vignette.wikia.nocookie.net/starcraft/images/d/d2/SensorTower_SC2_Icon1.jpg/revision/latest?cb=20160107024757","Engineering Bay",125,100,18,200,"0(+2)","N/A","none","Mechanical, Armored, Structure","sensor")
+    }
+    if (cmd ===`${prefix}sensortower-p2`||cmd ===`${prefix}sensor-p2`){
         let sensorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Sensor Tower**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d2/SensorTower_SC2_Icon1.jpg/revision/latest?cb=20160107024757")
-        .addField("Resources", "**Requires:** Engineering Bay, **Minerals** - 125, **Vespene** - 100, **Build Time** - 18")
-        .addField("Defense", "**HP** - 200, **Armor** - 0(+2)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Radar", "**Range** - 30, **Effect** - Enemies under fog of war within the range of the Sensor Tower are marked with a red symbol displaying an exclamation mark.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Sensor_Tower_(Legacy_of_the_Void)");
+        .addField("Radar", "**Range**: 30, **Effect**: Enemies under fog of war within the range of the Sensor Tower are marked with a red symbol displaying an exclamation mark.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Sensor_Tower_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-sensor` for main stats!");
     return message.channel.send(sensorembed);
     }
     //Begin Reactor
     if (cmd ===`${prefix}reactor`){
+        fullBuildingInfo("Terran Reactor","https://vignette.wikia.nocookie.net/starcraft/images/8/85/Reactor_SC2_Icon1.jpg/revision/latest?cb=20160107024915","Barracks, Factory, or Starport",50,50,36,400,"1(+2)","Allows Barracks, Factory, and Starport to create 2 units simultaneously","N/A","Mechanical, Armored, Structure, Add-on","reactor")
+    }  
+    if (cmd ===`${prefix}reactor-p2`){
         let reactorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Reactor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Reactor_SC2_Icon1.jpg/revision/latest?cb=20160107024915")
-        .addField("Resources", "**Requires:** Barracks/Factory/Starport, **Minerals** - 50, **Vespene** - 50, **Build Time** - 36")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
-        .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Reactor", "**Effect** - Allows Barracks, Factory, and Starport to create 2 units simultaneously. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Reactor_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Reactor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-reactor` for main stats!");
     return message.channel.send(reactorembed);
     }
     //Begin Tech Lab
     if (cmd ===`${prefix}techlab`||cmd ===`${prefix}lab`){
+        fullBuildingInfo("Terran Tech Lab","https://vignette.wikia.nocookie.net/starcraft/images/8/8e/TechLab_SC2_Icon1.jpg/revision/latest?cb=20160107024940","Barracks, Factory, or Starport",50,25,18,400,"1(+2)","N/A","**on Barracks:** Marauder, **on Factory:** Siege Tank, **on Starport:** Banshee, Raven","Mechanical, Armored, Structure, Add-on","techlab")
+    }
+    if (cmd ===`${prefix}techlab-p2`||cmd ===`${prefix}lab-p2`){
         let labembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Tech Lab**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/8e/TechLab_SC2_Icon1.jpg/revision/latest?cb=20160107024940")
-        .addField("Resources", "**Requires:** Barracks/Factory/Starport, **Minerals** - 50, **Vespene** - 25, **Build Time** - 18")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+2)")
-        .addField("Unlocked Tech", "**on Barracks:** Marauder, **on Factory:** Siege Tank, **on Starport:** Banshee, Raven")
-        .addField("Attributes", "**Mechanical, Armored, Structure, Add-on**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Every Marine gains a Combat Shield that gives 10 hitpoints. ")
-        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP for a marine, and 20 HP for a marauder")
-        .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals** - 50, **Vespene** - 50, **Time** - 43, **Effect** - Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
-        .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Improves the Hellion's bonus against Light units by +5 damage and the Hellbat's bonus against Light units by +12 damage.")
-        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Allows Hellions, Hellbats, Vikings, and Thors to transform quickly between combat modes. ")
-        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
-        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals** - 75, **Vespene** - 75, **Time** - 79, **Effect** - Allows Widow Mines to burrow and activate 3 times as fast. Also cloaks burrowed Widow Mines on cooldown.")
-        .addField("Rapid Re-ignition System", "**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - decreases Ignite Afterburners cooldown duration from 8.57 seconds to 6.43 seconds.")
-        .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the Raven's starting energy by 25.")
-        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals** - 150, **Vespene** - 150, **Time** - 121, **Effect** - Increases the movement speed of Banshees from 3.85 to 5.25.")
-        .addField("Cloak","**Researched from:** Starport Tech Lab, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
-        .addField("Advanced Ballistics", "**Researched from:** Starport Tech Lab, **Requires:** Fusion Core, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases the range of Liberators in Defender Mode by 4.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Tech_Lab_(Legacy_of_the_Void)");
+        .addField("Combat Shield", "**Researched from:** Barracks Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Every Marine gains a Combat Shield that gives 10 hitpoints. ")
+        .addField("Stim Pack", "**Researched from:** Barracks Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the movement speed and firing rate by 50% for 11 secs at the cost of 10 HP for a marine, and 20 HP for a marauder")
+        .addField("Concussive Shells", "**Researched from:** Barracks Tech Lab, **Minerals**: 50, **Vespene**: 50, **Time**: 43, **Effect**: Slows an enemy's movement speed by 50% when hit by the Marauder's attack. Massive units are immune to the slow.")
+        .addField("Infernal Pre-Igniter","**Researched from:** Factory Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Improves the Hellion's bonus against Light units by +5 damage and the Hellbat's bonus against Light units by +12 damage.")
+        .addField("Smart Servos","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Allows Hellions, Hellbats, Vikings, and Thors to transform quickly between combat modes. ")
+        .addField("Mag-Field Accelerator","**Researched from:** Factory Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Lock On will deal 400 (+400 vs Armored) over 14 seconds to ground and flying targets.")
+        .addField("Drilling Claws","**Researched from:** Factory Tech Lab **Requires:** Armory, **Minerals**: 75, **Vespene**: 75, **Time**: 79, **Effect**: Allows Widow Mines to burrow and activate 3 times as fast. Also cloaks burrowed Widow Mines on cooldown.")
+        .addField("Corvid Reactor","**Researched from:** Starport Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases the Raven's starting energy by 25.")
+        .addField("Hyperflight Rotors", "**Researched from:** Starport Tech Lab, **Minerals**: 150, **Vespene**: 150, **Time**: 121, **Effect**: Increases the movement speed of Banshees from 3.85 to 5.25.")
+        .addField("Cloaking Field","**Researched from:** Starport Tech Lab, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: The Banshee becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Tech_Lab_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-techlab` for main stats!");
     return message.channel.send(labembed);
     }
     //Begin Factory
-    if (cmd ===`${prefix}factory`){
+    if (cmd ===`${prefix}factory`||cmd ===`${prefix}fac`){
+        fullBuildingInfo("Terran Factory","https://vignette.wikia.nocookie.net/starcraft/images/a/a8/Factory_SC2_Icon1.jpg/revision/latest?cb=20160107024519","Barracks",150,100,43,1250,"1(+2)","Hellion, Hellbat, Widow Mine, Cyclone, Siege Tank, Thor","Hellion, Widow Mine, Cyclone, Armory, Starport, Tactical Nuke","Mechanical, Armored, Structure","factory")
+    }
+    if (cmd ===`${prefix}factory-p2`||cmd ===`${prefix}fac-p2`){
         let factoryembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Factory**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a8/Factory_SC2_Icon1.jpg/revision/latest?cb=20160107024519")
-        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 100, **Build Time** - 43")
-        .addField("Defense", "**HP** - 1250, **Armor** - 1(+2)")
-        .addField("Produces", "**By default:** Hellion, Widow Mine, Cyclone, **with Tech Lab:** Siege Tank, **with Armory:** Hellbat, **with Tech Lab and Armory** - Thor")
-        .addField("Unlocked Tech", "Hellion, Widow Mine, Cyclone, Armory, Starport, Tactical Nuke")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Factory_(Legacy_of_the_Void)");
+        .addField("Lift off", "**Effect**: Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Factory_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-factory` for main stats!");
     return message.channel.send(factoryembed);
     }
     //Begin Ghost Academy
     if (cmd ===`${prefix}ghostacademy`||cmd ===`${prefix}academy`){
+        fullBuildingInfo("Terran Ghost Academy","https://vignette.wikia.nocookie.net/starcraft/images/1/1c/GhostAcademy_SC2_Icon1.jpg/revision/latest?cb=20160107024614","Barracks",150,50,29,1250,"1(+2)","Tactical Nuke","Ghost","Mechanical, Armored, Structure","ghostacademy")
+    }
+    if (cmd ===`${prefix}ghostacademy-p2`||cmd ===`${prefix}academy-p2`){
         let academyembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Ghost Academy**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1c/GhostAcademy_SC2_Icon1.jpg/revision/latest?cb=20160107024614")
-        .addField("Resources", "**Requires:** Barracks, **Minerals** - 150, **Vespene** - 50, **Build Time** - 29")
-        .addField("Defense", "**HP** - 1250, **Armor** - 1(+2)")
-        .addField("Unlocked Tech", "Ghost")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Cloak","**Minerals** - 150, **Vespene** - 150, **Time** - 86, **Energy** - 25(+1.3/s), **Effect** - The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
-        .addField("Enhanced Shockwaves","**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** -  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
-        .addField("Arm with Nuke", "**Requires:** Factory, **Minerals** - 100, **Vespene** - 100, **Time** - 43, **Effect** - Builds a Nuke that can be launched by a Ghost. Limited to one Nuke per Ghost Academy. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_Academy_(Legacy_of_the_Void)");
+        .addField("Cloak","**Minerals**: 150, **Vespene**: 150, **Time**: 86, **Energy**: 25(+1.3/s), **Effect**: The Ghost becomes invisible until it runs out of energy or the player cancels Cloak.")
+        .addField("Enhanced Shockwaves","**Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**:  Increases the radius of the Ghost’s EMP Round from 1.5 to 2.")
+        .addField("Arm with Nuke", "**Requires:** Factory, **Minerals**: 100, **Vespene**: 100, **Time**: 43, **Effect**: Builds a Nuke that can be launched by a Ghost. Limited to one Nuke per Ghost Academy. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ghost_Academy_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ghostacademy` for main stats!");
     return message.channel.send(academyembed);
     }
     //Begin Armory
-    if (cmd ===`${prefix}armory`||cmd ===`${prefix}armoury`){
+    if (cmd ===`${prefix}armory`){
+        fullBuildingInfo("Terran Armory","https://vignette.wikia.nocookie.net/starcraft/images/c/cb/Armory_SC2_Icon1.jpg/revision/latest?cb=20160107023923","Factory",150,100,46,750,"1(+2)","N/A","Hellbat, Thor, Infantry Weapons and Armor Level 2, Drilling Claws, Smart Servos, Widow Mine Cloak","Mechanical, Armored, Structure","armory")
+    }
+    if (cmd ===`${prefix}armory-p2`){
         let armoryembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Armory**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/cb/Armory_SC2_Icon1.jpg/revision/latest?cb=20160107023923")
-        .addField("Resources", "**Requires:** Factory, **Minerals** - 150, **Vespene** - 100, **Build Time** - 46")
-        .addField("Defense", "**HP** - 750, **Armor** - 1(+2)")
-        .addField("Unlocked Tech", "Hellbat, Thor, Infantry Weapons and Armor Level 2, Drilling Claws, Smart Servos")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Note", "Vehicle units include  Hellion, Siege Tank, Cyclone, Hellbat, Thor, and Widow Mine (armor upgrades only). Ship units include  Viking, Liberator, Banshee, Battlecruiser, Medivac, and Raven (armor upgrades only for Medivac and Raven)")
-        .addField("Vehicle Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran vehicle units. ")
-        .addField("Vehicle Weapons Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran vehicle units. ")
-        .addField("Vehicle Weapons Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran vehicle units. ")
-        .addField("Ship Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the damage of Terran airship units. ")
-        .addField("Ship Weapons Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the damage of Terran airship units. ")
-        .addField("Ship Weapons Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the damage of Terran airship units. ")
-        .addField("Vehicle and Ship Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increase the armor of Terran vehicle and airship units. ")
-        .addField("Vehicle and Ship Armor Level 2", "**Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increase the armor of Terran vehicle and airship units. ")
-        .addField("Vehicle and Ship Armor Level 3", "**Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increase the armor of Terran vehicle and airship units. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Armory_(Legacy_of_the_Void)");
+        .addField("Vehicle Weapons Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increase the damage of Terran vehicle units. ")
+        .addField("Vehicle Weapons Level 2", "**Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increase the damage of Terran vehicle units. ")
+        .addField("Vehicle Weapons Level 3", "**Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increase the damage of Terran vehicle units. ")
+        .addField("Ship Weapons Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increase the damage of Terran airship units. ")
+        .addField("Ship Weapons Level 2", "**Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increase the damage of Terran airship units. ")
+        .addField("Ship Weapons Level 3", "**Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increase the damage of Terran airship units. ")
+        .addField("Vehicle and Ship Armor Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increase the armor of Terran vehicle and airship units. ")
+        .addField("Vehicle and Ship Armor Level 2", "**Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increase the armor of Terran vehicle and airship units. ")
+        .addField("Vehicle and Ship Armor Level 3", "**Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increase the armor of Terran vehicle and airship units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Armory_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-armory` for main stats!");
     return message.channel.send(armoryembed);
     }
     //Begin Starport
     if (cmd ===`${prefix}starport`||cmd ===`${prefix}port`){
+        fullBuildingInfo("Terran Starport","https://vignette.wikia.nocookie.net/starcraft/images/2/21/Starport_SC2_Icon1.jpg/revision/latest?cb=20160107024816","Factory",150,100,36,1300,"1(+2)","Viking, Medivac, Liberator, Banshee, Raven, Battlecruiser","Viking, Medivac, Liberator, Fusion Core","Mechanical, Armored, Structure","starport")
+    } 
+    if (cmd ===`${prefix}starport-p2`||cmd ===`${prefix}port-p2`){
         let portembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Starport**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/21/Starport_SC2_Icon1.jpg/revision/latest?cb=20160107024816")
-        .addField("Resources", "**Requires:** Factory, **Minerals** - 150, **Vespene** - 100, **Build Time** - 36")
-        .addField("Defense", "**HP** - 1300, **Armor** - 1(+2)")
-        .addField("Produces", "**By default:** Viking, Medivac, Liberator, **with Tech Lab:** Banshee, Raven, **with Tech Lab and Fusion Core** - Battlecruiser")
-        .addField("Unlocked Tech", "Viking, Medivac, Liberator, Fusion Core")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Lift off", "**Effect** - Lifts off a building, making it airborne and mobile. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Starport_(Legacy_of_the_Void)");
+        .addField("Lift off", "**Effect**: Lifts off a building, making it airborne and mobile. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Starport_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-starport` for main stats!");
     return message.channel.send(portembed);
     }
     //Begin Fusion Core
     if (cmd ===`${prefix}fusioncore`){
+        fullBuildingInfo("Terran Fusion Core","https://vignette.wikia.nocookie.net/starcraft/images/1/1f/FusionCore_SC2_Icon1.jpg/revision/latest?cb=20160107024547","Starport",150,150,46,750,"1(+2)","N/A","Battlecruiser","Mechanical, Armored, Structure","fusioncore")
+    }   
+    if (cmd ===`${prefix}fusioncore-p2`){
         let fusionembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Fusion Core**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/FusionCore_SC2_Icon1.jpg/revision/latest?cb=20160107024547")
-        .addField("Resources", "**Requires:** Starport, **Minerals** - 150, **Vespene** - 150, **Build Time** - 46")
-        .addField("Defense", "**HP** - 750, **Armor** - 1(+2)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Unlocked Tech", "Battlecruiser")
-        .addField("Upgrades and Abilities","-")
-        .addField("Yamato Cannon", "**Minerals** - 150, **Vespene** - 150, **Time** - 100, **Cooldown** - 71, **Range** - 10, **Channeling Time** - 2, **Effect** - Blasts a target with a devastating plasma cannon, causing 240 damage.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Fusion_Core_(Legacy_of_the_Void)");
+        .addField("Rapid Re-ignition System", "**Researched from:** Fusion Core, **Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Reduces the cooldown of Medivac's Ignite Afterburners from 14 to 9 seconds and increases the Medivac's base movement speed from 3.5 to 4.13. However, this upgrade does not affect Medivac's movement speed during the Ignite Afterburners effect. ")
+        .addField("Advanced Ballistics", "**Researched from:** Fusion Core, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases the range of Liberators in Defender Mode by 4.")
+        .addField("Yamato Cannon", "**Minerals**: 150, **Vespene**: 150, **Time**: 100, **Cooldown**: 71, **Range**: 10, **Channeling Time**: 2, **Effect**: Blasts a target with a devastating plasma cannon, causing 240 damage.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Fusion_Core_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-fusioncore` for main stats!");
     return message.channel.send(fusionembed);
     }
 //Begin Protoss Structures
     //Begin Nexus
     if (cmd ===`${prefix}nexus`||cmd ===`${prefix}nexi`||cmd ===`${prefix}nexii`){
+        fullBuildingInfo("Protoss Nexus","https://vignette.wikia.nocookie.net/starcraft/images/f/f9/Icon_Protoss_Nexus.jpg/revision/latest?cb=20160106231816","none",400,0,71,"1000+1000","1(+1)","Probe, Mothership","Pylon, Assilimator, Forge, Gateway","Armored, Structure","nexus")
+    }
+    if (cmd ===`${prefix}nexus-p2`||cmd ===`${prefix}nexi-p2`||cmd ===`${prefix}nexii-p2`){
         let nexusembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Nexus**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f9/Icon_Protoss_Nexus.jpg/revision/latest?cb=20160106231816")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 0, **Provides Supply** - 15, **Build Time** - 71")
-        .addField("Defense", "**HP+Shields** - 1000+1000, **Armor** - 1(+1 per upgrade)")
-        .addField("Produces", "**By default:** Probe, **with Fleet Beacon:** Mothership")
-        .addField("Unlocked Tech", "Probe, Pylon, Assilimator, Forge, Gateway")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Chrono Boost", "**Energy** - 50, **Duration** - 20, **Effect** - Places target structure in a Chrono Boost, causing it to operate 50% faster for 20 seconds.")
-        .addField("Strategic Recall", "**Energy** - 50, **Cooldown** - 130, **Radius** - 2.5, **Channeling Time** - 4, **Effect** - Recalls all units owned by the player in the target area to the Nexus.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Nexus_(Legacy_of_the_Void)");
+        .addField("Chrono Boost", "**Energy**: 50, **Duration**: 20, **Effect**: Places target structure in a Chrono Boost, causing it to operate 50% faster for 20 seconds.")
+        .addField("Strategic Recall", "**Energy**: 50, **Cooldown**: 130, **Radius**: 2.5, **Channeling Time**: 4, **Effect**: Recalls all units owned by the player in the target area to the Nexus.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nexus_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-nexus` for main stats!");
     return message.channel.send(nexusembed);
     }
     //Begin Pylon
-    if (cmd ===`${prefix}pylon`||cmd ===`${prefix}pylo`){
+    if (cmd ===`${prefix}pylon`){
+        fullBuildingInfo("Protoss Pylon","https://vignette.wikia.nocookie.net/starcraft/images/c/c0/Icon_Protoss_Pylon.jpg/revision/latest?cb=20160106231837","none",100,0,18,"200+200","1(+1)","N/A","none","Armored, Structure","pylon")
+    }
+    if (cmd ===`${prefix}pylon-p2`){
         let pylonembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Pylon**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c0/Icon_Protoss_Pylon.jpg/revision/latest?cb=20160106231837")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
-        .addField("Defense", "**HP+Shields** - 200+200, **Armor** - 1(+1 per upgrade)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Pylon_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Provides Supply**: 8")
+        .addField("Warp Conduit", "**Effect**: Increases the speed of warp in for units warped into the power field to 4 seconds, if the pylon is in range of a nexus or gateway/warp gate with warp gate researched ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Pylon_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-pylon` for main stats!");
     return message.channel.send(pylonembed);
     }
     //Begin Assimilator
     if (cmd ===`${prefix}assimilator`||cmd ===`${prefix}assim`){
+        fullBuildingInfo("Protoss Assimilator","https://vignette.wikia.nocookie.net/starcraft/images/7/74/Icon_Protoss_Assimilator.jpg/revision/latest?cb=20160106231703","none",75,0,21,"300+300","1(+1)","N/A","none","Armored, Structure","assimilator")
+    }
+    if (cmd ===`${prefix}assimilator-p2`||cmd ===`${prefix}assim-p2`){
         let assimembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Assimilator**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/74/Icon_Protoss_Assimilator.jpg/revision/latest?cb=20160106231703")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
-        .addField("Defense", "**HP+Shields** - 300+300, **Armor** - 1(+1 per upgrade)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Assimilator_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Assimilator_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-assimilator` for main stats!");
     return message.channel.send(assimembed);
     }
     //Begin Gateway
-     if (cmd ===`${prefix}gateway`){
-        let gateembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Gateway**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/23/Icon_Protoss_Gateway.jpg/revision/latest?cb=20160106231803")
-        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 46")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Produces", "**By default;** Zealot, **with Cybernetics Core:** Stalker, Sentry, Adept, **with Templar Archives:** High Templar, **with Dark Shrine:** Dark Templar")
-        .addField("Unlocked Tech", "Zealot, Cybernetics Core")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Transform to Warpgate", "**Minerals** - 50, **Vespene** - 50, **Time** -  114, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Gateway_(Legacy_of_the_Void)");
-    return message.channel.send(gateembed);
+     if (cmd ===`${prefix}gateway`||cmd ===`${prefix}warpgate`){
+        fullBuildingInfo("Protoss Gateway/Protoss Warp Gate","https://vignette.wikia.nocookie.net/starcraft/images/2/23/Icon_Protoss_Gateway.jpg/revision/latest?cb=20160106231803","Nexus",150,0,46,"500+500","1(+1)","Zealot, Stalker, Sentry, Adept, High Templar, Dark Templar","Zealot, Cybernetics Core","Armored, Structure","gateway")
     }
-    //Begin Warp Gate
-     if (cmd ===`${prefix}warpgate`){
+    if (cmd ===`${prefix}gateway-p2`||cmd ===`${prefix}warpgate-p2`){
         let gateembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Warp Gate**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Protoss_Warp_Gate.jpg/revision/latest?cb=20160106232001")
-        .addField("Resources", "**Requires:** Gateway, Warp Gate researched at Cybernetics Core, **Build Time** - 7")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Produces", "**By default;** Zealot, **with Cybernetics Core:** Stalker, Sentry, Adept, **with Templar Archives:** High Templar, **with Dark Shrine:** Dark Templar")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Transform to Gateway", "**Duration** - 7, **Effect** - The Warpgate transforms back into a Gateway.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Warp_Gate_(Legacy_of_the_Void)");
+        .addField("Transform to Gateway/Transform to Warpgate", "**Minerals**: 50, **Vespene**: 50, **Time**:  114, **Duration**: 7, **Effect**: Transforms the Gateway into a Warp Gate. / The Warpgate transforms back into a Gateway.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Gateway_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-gateway` for main stats!");
     return message.channel.send(gateembed);
     }
     //Begin Forge
     if (cmd ===`${prefix}forge`){
+        fullBuildingInfo("Protoss Forge","https://vignette.wikia.nocookie.net/starcraft/images/f/f8/Icon_Protoss_Forge.jpg/revision/latest?cb=20160106231751","Nexus",150,0,32,"400+400","1(+1)","N/A","Photon Cannon","Armored, Structure","forge")
+    }
+    if (cmd ===`${prefix}forge-p2`){
         let forgeembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Forge**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f8/Icon_Protoss_Forge.jpg/revision/latest?cb=20160106231751")
-        .addField("Resources", "**Requires:** Nexus, **Minerals** - 150, **Vespene** - 0, **Build Time** - 32")
-        .addField("Defense", "**HP** - 400+400, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Photon Cannon")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Ground Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 129, **Effect** - Increases the damage of Protoss ground units.")
-        .addField("Ground Weapons Level 2", "**Requires:** Twilight Council, **Minerals** - 175, **Vespene** - 175, **Time** - 154, **Effect** - Increases the damage of Protoss ground units. ")
-        .addField("Ground Weapons Level 3", "**Requires:** Twilight Council, **Minerals** - 250, **Vespene** - 250, **Time** - 179, **Effect** - Increases the damage of Protoss ground units. ")
-        .addField("Ground Armor Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 129, **Effect** - Increases the armor of Protoss ground units units. ")
-        .addField("Ground Armor Level 2", "**Requires:** Twilight Council, **Minerals** - 175, **Vespene** - 175, **Time** - 154, **Effect** - Increases the armor of Protoss ground units. ")
-        .addField("Ground Armor Level 3", "**Requires:** Twilight Council, **Minerals** - 250, **Vespene** - 250, **Time** - 179, **Effect** - Increases the armor of Protoss ground units. ")
-        .addField("Shields Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 129, **Effect** - Increases the shields of all Protoss units and structures. ")
-        .addField("Shields Level 2", "**Requires:** Twilight Council, **Minerals** - 225, **Vespene** - 225, **Time** - 154, **Effect** - Increases the shields of all Protoss units and structures. ")
-        .addField("Shields Level 3", "**Requires:** Twilight Council, **Minerals** - 300, **Vespene** - 300, **Time** - 179, **Effect** - Increases the shields of all Protoss units and structures. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Forge_(Legacy_of_the_Void)");
+        .addField("Ground Weapons Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 129, **Effect**: Increases the damage of Protoss ground units.")
+        .addField("Ground Weapons Level 2", "**Requires:** Twilight Council, **Minerals**: 175, **Vespene**: 175, **Time**: 154, **Effect**: Increases the damage of Protoss ground units. ")
+        .addField("Ground Weapons Level 3", "**Requires:** Twilight Council, **Minerals**: 250, **Vespene**: 250, **Time**: 179, **Effect**: Increases the damage of Protoss ground units. ")
+        .addField("Ground Armor Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 129, **Effect**: Increases the armor of Protoss ground units units. ")
+        .addField("Ground Armor Level 2", "**Requires:** Twilight Council, **Minerals**: 175, **Vespene**: 175, **Time**: 154, **Effect**: Increases the armor of Protoss ground units. ")
+        .addField("Ground Armor Level 3", "**Requires:** Twilight Council, **Minerals**: 250, **Vespene**: 250, **Time**: 179, **Effect**: Increases the armor of Protoss ground units. ")
+        .addField("Shields Level 1", "**Minerals**: 150, **Vespene**: 150, **Time**: 129, **Effect**: Increases the shields of all Protoss units and structures. ")
+        .addField("Shields Level 2", "**Requires:** Twilight Council, **Minerals**: 225, **Vespene**: 225, **Time**: 154, **Effect**: Increases the shields of all Protoss units and structures. ")
+        .addField("Shields Level 3", "**Requires:** Twilight Council, **Minerals**: 300, **Vespene**: 300, **Time**: 179, **Effect**: Increases the shields of all Protoss units and structures. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Forge_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-forge` for main stats!");
     return message.channel.send(forgeembed);
     }
     //Begin Cybernetics Core
     if (cmd ===`${prefix}cyberneticscore`||cmd ===`${prefix}cybercore`||cmd ===`${prefix}cyber`){
-        let cyberembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Cybernetics Core**")
+        fullBuildingInfo("Protoss Cybernetics Core","https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Protoss_Cybernetics_Core.jpg/revision/latest?cb=20160106231716","Gateway",150,0,26,"550+550","1(+1)","N/A","Stalker, Sentry, Adept, Shield Battery, Warp Gate, Robotics Facility, Stargate, Twilight Council","Armored, Structure","cybercore")
+    }
+    if (cmd ===`${prefix}cyberneticscore-p2`||cmd ===`${prefix}cybercore-p2`||cmd ===`${prefix}cyber-p2`){
+    let cyberembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Protoss_Cybernetics_Core.jpg/revision/latest?cb=20160106231716")
-        .addField("Resources", "**Requires:** Gateway, **Minerals** - 150, **Vespene** - 0, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 550+550, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Stalker, Sentry, Adept, Shield Battery, Warp Gate, Robotics Facility, Stargate, Twilight Council")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Warp Gate", "**Minerals** - 50, **Vespene** - 50, **Time** -  100, **Duration** - 7, **Effect** - Transforms the Gateway into a Warp Gate. ")
-        .addField("Air Weapons Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 129, **Effect** - Increases the damage of Protoss air units.")
-        .addField("Air Weapons Level 2", "**Requires:** Fleet Beacon, **Minerals** - 175, **Vespene** - 175, **Time** - 154, **Effect** - Increases the damage of Protoss air units. ")
-        .addField("Air Weapons Level 3", "**Requires:** Fleet Beacon, **Minerals** - 250, **Vespene** - 250, **Time** - 179, **Effect** - Increases the damage of Protoss air units. ")
-        .addField("Air Armor Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 129, **Effect** - Increases the armor of Protoss air units units. ")
-        .addField("Air Armor Level 2", "**Requires:** Fleet Beacon, **Minerals** - 225, **Vespene** - 225, **Time** - 154, **Effect** - Increases the armor of Protoss air units. ")
-        .addField("Air Armor Level 3", "**Requires:** Fleet Beacon, **Minerals** - 300, **Vespene** - 300, **Time** - 179, **Effect** - Increases the armor of Protoss air units. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Cybernetics_Core_(Legacy_of_the_Void)");
+        .addField("Warp Gate", "**Minerals**: 50, **Vespene**: 50, **Time**:  100, **Duration**: 7, **Effect**: Transforms the Gateway into a Warp Gate. ")
+        .addField("Air Weapons Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 129, **Effect**: Increases the damage of Protoss air units.")
+        .addField("Air Weapons Level 2", "**Requires:** Fleet Beacon, **Minerals**: 175, **Vespene**: 175, **Time**: 154, **Effect**: Increases the damage of Protoss air units. ")
+        .addField("Air Weapons Level 3", "**Requires:** Fleet Beacon, **Minerals**: 250, **Vespene**: 250, **Time**: 179, **Effect**: Increases the damage of Protoss air units. ")
+        .addField("Air Armor Level 1", "**Minerals**: 150, **Vespene**: 150, **Time**: 129, **Effect**: Increases the armor of Protoss air units units. ")
+        .addField("Air Armor Level 2", "**Requires:** Fleet Beacon, **Minerals**: 225, **Vespene**: 225, **Time**: 154, **Effect**: Increases the armor of Protoss air units. ")
+        .addField("Air Armor Level 3", "**Requires:** Fleet Beacon, **Minerals**: 300, **Vespene**: 300, **Time**: 179, **Effect**: Increases the armor of Protoss air units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Cybernetics_Core_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-cybercore` for main stats!");
     return message.channel.send(cyberembed);
     }
     //Begin Photon Cannon
     if (cmd ===`${prefix}photoncannon`||cmd ===`${prefix}cannon`){
+        fullBuildingInfoStatic("Protoss Photon Cannon","https://vignette.wikia.nocookie.net/starcraft/images/a/a3/Icon_Protoss_Photon_Cannon.jpg/revision/latest?cb=20160106231827","Forge",150,0,29,"150+150","1(+1)",20,0.89,7,22.4,"Air and Ground","N/A","Armored, Detector, Structure","cannon")
+    }
+    if (cmd ===`${prefix}photoncannon-p2`||cmd ===`${prefix}cannon-p2`){
         let cannonembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Photon Cannon**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a3/Icon_Protoss_Photon_Cannon.jpg/revision/latest?cb=20160106231827")
-        .addField("Resources", "**Requires:** Forge, **Minerals** - 150, **Vespene** - 0, **Build Time** - 29")
-        .addField("Defense", "**HP+Shields** - 150+150, **Armor** - 1(+1 per upgrade)")
-        .addField("Offense", "**Damage** - 20, **Hitspeed** - 0.89, **Range** - 7, **DPS** - 22.4, **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Detector, Structure**")
-        .addField("Misc.", "**Detection Range** - 11,")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Photon_Cannon_(Legacy_of_the_Void)");
+        .addField("Misc.", "**Detection Range**: 11")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Photon_Cannon_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-cannon` for main stats!");
     return message.channel.send(cannonembed);
     }
     //Begin Shield Battery
     if (cmd ===`${prefix}shieldbattery`||cmd ===`${prefix}battery`){
+        fullBuildingInfo("Protoss Shield Battery","https://vignette.wikia.nocookie.net/starcraft/images/d/db/ShieldBattery_SC2-LotV_Rend1.jpg/revision/latest?cb=20151205045214","Cybernetics Core",100,0,29,"150+150","1(+1)","N/A","none","Armored, Structure","battery")
+    }
+    if (cmd ===`${prefix}shieldbattery-p2`||cmd ===`${prefix}battery-p2`){
         let batteryembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Shield Battery**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/ShieldBattery_SC2-LotV_Rend1.jpg/revision/latest?cb=20151205045214")
-        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 100, **Vespene** - 0, **Build Time** - 29")
-        .addField("Defense", "**HP+Shields** - 150+150, **Armor** - 1(+1 per upgrade)")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Shield Restore", "**Energy** - 1 per 3 shields, **Rate** - 50.4 per sec, **Range** - 6, **Effect** - Restores target unit or structure's shields. Restores 3 shields per 1 energy. Autocasting targets units and defensive structures only.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Shield_Battery");
+        .addField("Shield Restore", "**Energy**: 1 per 3 shields, **Rate**: 50.4 per sec, **Range**: 6, **Effect**: Restores target unit or structure's shields. Restores 3 shields per 1 energy. Autocasting targets units and defensive structures only.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Shield_Battery")
+        .addField("Back to Main","Try `sc2-battery` for main stats!");
     return message.channel.send(batteryembed);
     }
     //Begin Robotics Facility
      if (cmd ===`${prefix}roboticsfacility`||cmd ===`${prefix}robotics`||cmd ===`${prefix}robo`){
+         fullBuildingInfo("Protoss Robotics Facility","https://vignette.wikia.nocookie.net/starcraft/images/8/8a/Icon_Protoss_Robotics_Facility.jpg/revision/latest?cb=20160106231854","Cybernetics Core",150,100,46,"500+500","1(+1)","Observer, Warp Prism, Immortal, Colossus, Disruptor","Observer, Warp Prism, Immortal, Robotics Bay","Armored, Structure","robofacility")
+    }
+    if (cmd ===`${prefix}roboticsfacility-p2`||cmd ===`${prefix}robotics-p2`||cmd ===`${prefix}robo-p2`){
         let roboembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Robotics Facility**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/8a/Icon_Protoss_Robotics_Facility.jpg/revision/latest?cb=20160106231854")
-        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 150, **Vespene** - 100, **Build Time** - 46")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Produces", "**By default;** Observer, Warp Prism, Immortal, **with Robotics Bay:** Colossus, Disruptor")
-        .addField("Unlocked Tech", "Observer, Warp Prism, Immortal, Robotics Bay")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Facility_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Facility_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-robofacility` for main stats!");
     return message.channel.send(roboembed);
     }
     //Begin Robotics Bay
     if (cmd ===`${prefix}roboticsbay`||cmd ===`${prefix}robobay`||cmd ===`${prefix}rbay`){
+        fullBuildingInfo("Protoss Robotics Bay","https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Protoss_Robotics_Bay.jpg/revision/latest?cb=20160106231910","Robotics Facility",150,150,46,"500+500","1(+1)","N/A","Colossus, Disruptor","Armored, Structure","robobay")
+    }
+    if (cmd ===`${prefix}roboticsbay-p2`||cmd ===`${prefix}robobay-p2`||cmd ===`${prefix}rbay-p2`){
         let robobayembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Robotics Bay**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Protoss_Robotics_Bay.jpg/revision/latest?cb=20160106231910")
-        .addField("Resources", "**Requires:** Robotics Facility, **Minerals** - 150, **Vespene** - 150, **Build Time** - 46")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Colossus, Disruptor")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Gravitic Boosters", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed of the Observer. Their speed is increased from 3.01 to 3.52. ")
-        .addField("Gravitic Drive", "**Minerals** - 100, **Vespene** - 100, **Time** - 57, **Effect** - Increases the movement speed and acceleration of the Warp Prism.")
-        .addField("Extended Thermal Lance", "**Minerals** - 150, **Vespene** - 150, **Time** - 100, **Effect** - Increases the range of the Colossus weapon by 2. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Bay_(Legacy_of_the_Void)");
+        .addField("Gravitic Boosters", "**Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the movement speed of the Observer. Their speed is increased from 3.01 to 3.52. ")
+        .addField("Gravitic Drive", "**Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the movement speed and acceleration of the Warp Prism.")
+        .addField("Extended Thermal Lance", "**Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Increases the range of the Colossus weapon by 2. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Robotics_Bay_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-robobay` for main stats!");
     return message.channel.send(robobayembed);
     }    
     //Begin Stargate
-     if (cmd ===`${prefix}stargate`||cmd ===`${prefix}starg`||cmd ===`${prefix}sg`){
-        let stargateembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Stargate**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/bb/Icon_Protoss_Stargate.jpg/revision/latest?cb=20160106231924")
-        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 150, **Vespene** - 150, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 600+600, **Armor** - 1(+1 per upgrade)")
-        .addField("Produces", "**By default;** Phoenix, Oracle, Void Ray, **with Fleet Beacon:** Carrier, Tempest")
-        .addField("Unlocked Tech", "Phoenix, Oracle, Void Ray, Fleet Beacon")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Stargate_(Legacy_of_the_Void)");
+    if (cmd ===`${prefix}stargate`||cmd ===`${prefix}starg`||cmd ===`${prefix}sg`){
+         fullBuildingInfo("Protoss Stargate","https://vignette.wikia.nocookie.net/starcraft/images/b/bb/Icon_Protoss_Stargate.jpg/revision/latest?cb=20160106231924","Cybernetics Core",150,150,43,"600+600","1(+1)","Phoenix, Oracle, Void Ray, Tempest, Carrier","Phoenix, Oracle, Void Ray, Fleet Beacon","Armored, Structure","stargate")
+    }
+    if (cmd ===`${prefix}stargate-p2`||cmd ===`${prefix}starg-p2`||cmd ===`${prefix}sg-p2`){
+         let stargateembed = new Discord.RichEmbed()
+         .setDescription ("**Abilites and Upgrades**") 
+         .setColor("#7FC5EB")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Stargate_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-stargate` for main stats!");
     return message.channel.send(stargateembed);
     }
     //Begin Fleet Beacon
     if (cmd ===`${prefix}fleetbeacon`||cmd ===`${prefix}beacon`){
+        fullBuildingInfo("Protoss Fleet Beacon","https://vignette.wikia.nocookie.net/starcraft/images/3/3e/Icon_Protoss_Fleet_Beacon.jpg/revision/latest?cb=20160106231740","Stargate",300,200,43,"500+500","1(+1)","N/A","Carrier, Tempest, Mothership, Air Weapon and Armor Level 2","Armored, Structure","fleetbeacon")
+    }
+    if (cmd ===`${prefix}fleetbeacon-p2`||cmd ===`${prefix}beacon-p2`){
         let beaconembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Fleet Beacon**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3e/Icon_Protoss_Fleet_Beacon.jpg/revision/latest?cb=20160106231740")
-        .addField("Resources", "**Requires:** Stargate, **Minerals** - 300, **Vespene** - 200, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Carrier, Tempest, Mothership, Air Weapon and Armor Level 2")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Anion Pulse-Crystals", "**Minerals** - 150, **Vespene** - 150, **Time** - 64, **Effect** - Increases the range of the Phoenix weapon by 2.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Fleet_Beacon_(Legacy_of_the_Void)");
+        .addField("Anion Pulse-Crystals", "**Minerals**: 150, **Vespene**: 150, **Time**: 64, **Effect**: Increases the range of the Phoenix weapon by 2.")
+        .addField("Flux Vanes","**Minerals**: 100, **Vespene**: 100, **Time**: 57, **Effect**: Increases the Void Ray's movement speed by 0.798 and its acceleration by 0.962.")
+        .addField("Tectonic Destabilizers","**Minerals**: 150, **Vespene**: 150, **Time**: 100, **Effect**: Improves the Tempest's Resonance Coil to deal +40 damage vs structures.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Fleet_Beacon_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-fleetbeacon` for main stats!");
     return message.channel.send(beaconembed);
     }
     //Begin Twilight Council
     if (cmd ===`${prefix}twilightcouncil`||cmd ===`${prefix}twilight`||cmd ===`${prefix}council`){
+        fullBuildingInfo("Protoss Twilight Council","https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Protoss_Twilight_Council.jpg/revision/latest?cb=20160106231949","Cybernetics Core",150,100,36,"500+500","1(+1)","N/A","Carrier, Tempest","Armored, Structure","twilight")
+    }     
+    if (cmd ===`${prefix}twilightcouncil-p2`||cmd ===`${prefix}twilight-p2`||cmd ===`${prefix}council-p2`){
         let twilightembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Twilight Council**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Protoss_Twilight_Council.jpg/revision/latest?cb=20160106231949")
-        .addField("Resources", "**Requires:** Cybernetics Core, **Minerals** - 150, **Vespene** - 100, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Templar Archives, Dark Shrine, Ground Weapons and Armor Level 2, Shields Level 2")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Charge", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 7, **Range** - 4, **Effect** - Temporarily increases the movement speed to 8.47, allowing Zealots to intercept nearby enemies, dealing 8 damage to the charged target.")
-        .addField("Blink", "**Minerals** - 100, **Vespene** - 100, **Time** - 121, **Cooldown** - 7, **Range** - 8, **Effect** - Teleports the Stalker to a nearby target location that is not obscured by Fog of War.")
-        .addField("Resonating Glaives", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Effect** - Increases the attack speed of the Adept by 45%. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Twilight_Council_(Legacy_of_the_Void)");
+        .addField("Charge", "**Minerals**: 100, **Vespene**: 100, **Time**: 100, **Cooldown**: 7, **Range**: 4, **Effect**: Temporarily increases the movement speed to 8.47, allowing Zealots to intercept nearby enemies, dealing 8 damage to the charged target.")
+        .addField("Blink", "**Minerals**: 100, **Vespene**: 100, **Time**: 121, **Cooldown**: 7, **Range**: 8, **Effect**: Teleports the Stalker to a nearby target location that is not obscured by Fog of War.")
+        .addField("Resonating Glaives", "**Minerals**: 100, **Vespene**: 100, **Time**: 100, **Effect**: Increases the attack speed of the Adept by 45%. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Twilight_Council_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-twilight` for main stats!");
     return message.channel.send(twilightembed);
     }
     //Begin Templar Archives
     if (cmd ===`${prefix}templararchives`||cmd ===`${prefix}archives`){
+        fullBuildingInfo("Protoss Templar Archives","https://vignette.wikia.nocookie.net/starcraft/images/1/1c/Icon_Protoss_Templar_Archives.jpg/revision/latest?cb=20160106231937","Twilight Council",150,200,36,"500+500","1(+1)","N/A","High Templar, Archon","Armored, Structure","templararchives")
+    }
+    if (cmd ===`${prefix}templararchives-p2`||cmd ===`${prefix}archives-p2`){
         let archivesembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Twilight Council**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1c/Icon_Protoss_Templar_Archives.jpg/revision/latest?cb=20160106231937")
-        .addField("Resources", "**Requires:** Twilight Council, **Minerals** - 150, **Vespene** - 200, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "High Templar, Archon")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Psionic Storm","**Minerals** - 200, **Vespene** - 200, **Time** - 79, **Energy** - 75, **Cooldown** - 1.43 **Range** - 9, **Radius** - 1.5, **Duration** - 2.85, **Effect** - Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Templar_Archives_(Legacy_of_the_Void)");
+        .addField("Psionic Storm","**Minerals**: 200, **Vespene**: 200, **Time**: 79, **Energy**: 75, **Cooldown**: 1.43 **Range**: 9, **Radius**: 1.5, **Duration**: 2.85, **Effect**: Creates a storm of psionic energy that lasts 2.85 seconds, causing up to 80 damage to all units in the target area.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Templar_Archives_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-templararchives` for main stats!");
     return message.channel.send(archivesembed);
     }    
     //Begin Dark Shrine
-    if (cmd ===`${prefix}darkshrine`||cmd ===`${prefix}dankshrine`||cmd ===`${prefix}shrine`){
+    if (cmd ===`${prefix}darkshrine`||cmd ===`${prefix}dankshrine`||cmd ===`${prefix}shrine`||cmd ===`${prefix}dtshrine`){
+        fullBuildingInfo("Protoss Dark Shrine","https://vignette.wikia.nocookie.net/starcraft/images/a/a9/Icon_Protoss_Dark_Shrine.jpg/revision/latest?cb=20160106231728","Twilight Council",150,150,71,"500+500","1(+1)","N/A","Dark Templar, Archon","Armored, Structure","dtshrine")
+    }
+    if (cmd ===`${prefix}darkshrine-p2`||cmd ===`${prefix}dankshrine-p2`||cmd ===`${prefix}shrine-p2`||cmd ===`${prefix}dtshrine-p2`){
         let shrineembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Dark Shrine**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a9/Icon_Protoss_Dark_Shrine.jpg/revision/latest?cb=20160106231728")
-        .addField("Resources", "**Requires:** Twilight Council, **Minerals** - 150, **Vespene** - 150, **Build Time** - 71")
-        .addField("Defense", "**HP+Shields** - 500+500, **Armor** - 1(+1 per upgrade)")
-        .addField("Unlocked Tech", "Dark Templar, Archon")
-        .addField("Attributes", "**Mechanical, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Shadow Stride", "**Minerals** - 100, **Vespene** - 100, **Time** - 100, **Cooldown** - 14, **Range** - 5, **Effect** - Teleports the Dark Templar to a nearby target location.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)");
+        .addField("Shadow Stride", "**Minerals**: 100, **Vespene**: 100, **Time**: 100, **Cooldown**: 14, **Range**: 5, **Effect**: Teleports the Dark Templar to a nearby target location.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Dark_Shrine_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-dtshrine` for main stats!");
     return message.channel.send(shrineembed);
     }           
 //Begin Zerg Structures
     //Begin Hatchery
     if (cmd ===`${prefix}hatchery`||cmd ===`${prefix}hatch`){
+        fullBuildingInfo("Zerg Hatchery","https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Zerg_Hatchery.jpg/revision/latest?cb=20160106235939","none",300,0,71,1500,1,"Larva, Queen","Drone, Overlord, Spawning Pool, Evolution Chamber","Biological, Armored, Structure","hatch")
+    }
+    if (cmd ===`${prefix}hatchery-p2`||cmd ===`${prefix}hatch-p2`){
         let hatchembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Hatchery**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/05/Icon_Zerg_Hatchery.jpg/revision/latest?cb=20160106235939")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 0, **Provides Supply** - 6, **Build Time** - 71")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1")
-        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
-        .addField("Unlocked Tech", "Drone, Overlord, Spawning Pool, Evolution Chamber")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)"); 
+        .addField("Misc.", "**Provides Supply**: 6")
+        .addField("Resources", "**Minerals**: 300, **Vespene**: 0, **Provides Supply**: 6, **Build Time**: 71")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals**: 75, **Vespene**: 75, **Time**: 43, **Effect**: Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hatchery_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-hatch` for main stats!");
     return message.channel.send(hatchembed);
     }
     //Begin Extractor
     if (cmd ===`${prefix}extractor`||cmd ===`${prefix}extract`){
+        fullBuildingInfo("Zerg Extractor","https://vignette.wikia.nocookie.net/starcraft/images/1/1b/Icon_Zerg_Extractor.jpg/revision/latest?cb=20160106235953","none",25,0,21,500,1,"N/A","none","Biological, Armored, Structure","extractor")
+    }
+    if (cmd ===`${prefix}extractor-p2`||cmd ===`${prefix}extract-p2`){
         let extractembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Extractor**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1b/Icon_Zerg_Extractor.jpg/revision/latest?cb=20160106235953")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Build Time** - 21, **Must be built on a Vespene Geyser**")
-        .addField("Defense", "**HP** - 500, **Armor** - 1(+1 per upgrade)")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Extractor_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Extractor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-extractor` for main stats!");
     return message.channel.send(extractembed);
     }
     //Begin Spawning Pool
     if (cmd ===`${prefix}spawningpool`||cmd ===`${prefix}pool`){
+        fullBuildingInfo("Zerg Spawning Pool","https://vignette.wikia.nocookie.net/starcraft/images/f/f7/Icon_Zerg_Spawning_Pool.jpg/revision/latest?cb=20160106235709","Hatchery",200,0,46,1500,1,"N/A","Spine Crawler, Spore Crawler, Roach Warren, Baneling Nest, Lair, Zergling, Queen","Biological, Armored, Structure","pool")
+    }
+    if (cmd ===`${prefix}spawningpool-p2`||cmd ===`${prefix}pool-p2`){
         let poolembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Spawning Pool**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f7/Icon_Zerg_Spawning_Pool.jpg/revision/latest?cb=20160106235709")
-        .addField("Resources", "**Requires:**Hatchery, **Minerals** - 200, **Vespene** - 0, **Build Time** - 46")
-        .addField("Defense", "**HP** - 1500, **Armor** - 1")
-        .addField("Unlocked Tech", "Spine Crawler, Spore Crawler, Roach Warren, Baneling Nest, Lair, Zergling, Queen")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Metabolic Boost", "**Minerals** - 100, **Vespene** - 100, **Time** - 93, **Effect** - Increases Zergling movement speed by 60% to 6.58(+2.45)")
-        .addField("Adrenal Glands", "**Requires:** Hive, **Minerals** - 200, **Vespene** - 200, **Time** - 93, **Effect** - Decreases Zergling attack cooldown to 0.35(-0.15)")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Spawning_Pool_(Legacy_of_the_Void)"); 
+        .addField("Metabolic Boost", "**Minerals**: 100, **Vespene**: 100, **Time**: 93, **Effect**: Increases Zergling movement speed by 60% to 6.58(+2.45)")
+        .addField("Adrenal Glands", "**Requires:** Hive, **Minerals**: 200, **Vespene**: 200, **Time**: 93, **Effect**: Decreases Zergling attack cooldown to 0.35(-0.15)")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spawning_Pool_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-pool` for main stats!");
     return message.channel.send(poolembed);
     }
     //Begin Evolution Chamber
     if (cmd ===`${prefix}evolutionchamber`||cmd ===`${prefix}evochamber`||cmd ===`${prefix}chamber`||cmd ===`${prefix}evo`){
+        fullBuildingInfo("Zerg Evolution Chamber","https://vignette.wikia.nocookie.net/starcraft/images/4/43/Icon_Zerg_Evolution_Chamber.jpg/revision/latest?cb=20160107000003","Hatchery",75,0,25,750,1,"N/A","none","Biological, Armored, Structure","evochamber")
+    }
+    if (cmd ===`${prefix}evolutionchamber-p2`||cmd ===`${prefix}evochamber-p2`||cmd ===`${prefix}chamber-p2`||cmd ===`${prefix}evo-p2`){
         let evoembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Evolution Chamber**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/43/Icon_Zerg_Evolution_Chamber.jpg/revision/latest?cb=20160107000003")
-        .addField("Resources", "**Requires:** Hatchery, **Minerals** - 75, **Vespene** - 0, **Build Time** - 25")
-        .addField("Defense", "**HP** - 750, **Armor** - 1")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Melee Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg ground and melee units.")
-        .addField("Melee Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg ground and melee units. ")
-        .addField("Melee Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg ground and melee units. ")
-        .addField("Missile Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg ground and ranged units.")
-        .addField("Missile Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg ground and ranged units. ")
-        .addField("Missile Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg ground and ranged units. ")
-        .addField("Ground Carapace Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the armor of Zerg ground units units. ")
-        .addField("Ground Carapace Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the armor of Zerg ground units. ")
-        .addField("Ground Carapace Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the armor of Zerg ground units. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Evolution_Chamber_(Legacy_of_the_Void)");
+        .addField("Melee Attacks Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the damage of Zerg ground and melee units.")
+        .addField("Melee Attacks Level 2", "**Requires:** Lair, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the damage of Zerg ground and melee units. ")
+        .addField("Melee Attacks Level 3", "**Requires:** Hive, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the damage of Zerg ground and melee units. ")
+        .addField("Missile Attacks Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the damage of Zerg ground and ranged units.")
+        .addField("Missile Attacks Level 2", "**Requires:** Lair, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the damage of Zerg ground and ranged units. ")
+        .addField("Missile Attacks Level 3", "**Requires:** Hive, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the damage of Zerg ground and ranged units. ")
+        .addField("Ground Carapace Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the armor of Zerg ground units units. ")
+        .addField("Ground Carapace Level 2", "**Requires:** Lair, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the armor of Zerg ground units. ")
+        .addField("Ground Carapace Level 3", "**Requires:** Hive, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the armor of Zerg ground units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Evolution_Chamber_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-evochamber` for main stats!");
     return message.channel.send(evoembed);
     }                             
     //Begin Spine Crawler
     if (cmd ===`${prefix}spinecrawler`||cmd ===`${prefix}spine`){
+        fullBuildingInfoStatic("Zerg Spine Crawler","https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Zerg_Spine_Crawler.jpg/revision/latest?cb=20160106235654","Spawning Pool",100,0,36,300,2,"25, **vs Armored**: 30",1.32,7,"18.9, **vs Armored**: 21.7","Ground","N/A","Biological, Armored, Structure")
+    }
+    if (cmd ===`${prefix}spinecrawler-p2`||cmd ===`${prefix}spine-p2`){
         let spineembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Spine Crawler**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6a/Icon_Zerg_Spine_Crawler.jpg/revision/latest?cb=20160106235654")
-        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 100, **Vespene** - 0, **Build Time** - 36")
-        .addField("Defense", "**HP** - 300, **Armor** - 2, **Movespeed** - 1, on creep 2.5")
-        .addField("Offense", "**Damage** - 25, vs armored 30, **Hitspeed** - 1.32, **Range** - 7, **DPS** - 18.9, vs armored 21.7, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
+        .addField("Misc.","**Movespeed**: 2.5, **Off creep**: 1.0")
         .addField("Uproot/Root", "Uprooting allows the Spine Crawler to burrow in a new location. Rooting allows the Spine Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Spine_Crawler_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spine_Crawler_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-spine` for main stats!");
     return message.channel.send(spineembed);
     }
     //Begin Spore Crawler
     if (cmd ===`${prefix}sporecrawler`||cmd ===`${prefix}spore`){
+        fullBuildingInfoStatic("Zerg Spore Crawler","https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Zerg_Spore_Crawler.jpg/revision/latest?cb=20160106235617","Spawning Pool",75,0,21,400,1,"15, **vs Bio**: 30",0.61,7,"24.4, **vs Bio**: 48.8","Air","N/A","Biological, Armored, Detector, Structure","spore")
+    }
+    if (cmd ===`${prefix}sporecrawler-p2`||cmd ===`${prefix}spore-p2`){
         let sporeembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Spore Crawler**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Icon_Zerg_Spore_Crawler.jpg/revision/latest?cb=20160106235617")
-        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 75, **Vespene** - 0, **Build Time** - 21")
-        .addField("Defense", "**HP** - 400, **Armor** - 1, **Movespeed** - 1, on creep 2.5")
-        .addField("Offense", "**Damage** - 15, vs bio 30, **Hitspeed** - 0.61, **Range** - 7, **DPS** - 24.4, vs bio 48.8, **Targets** - Air")
-        .addField("Attributes", "**Biological, Armored, Detector, Structure**")
-        .addField("Misc.", "**Detection Range** - 11,")
-        .addField("Upgrades and Abilities","-")
+        .addField("Misc.", "**Detection Range**: 11, **Movespeed**: 2.5, **Off creep**: 1.0")
         .addField("Uproot/Root", "Uprooting allows the Spore Crawler to burrow in a new location. Rooting allows the Spore Crawler to root itself to the ground, gaining attack ability. Can be performed only on Creep.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Spore_Crawler_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spore_Crawler_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-spore` for main stats!");
     return message.channel.send(sporeembed);
     }
     //Begin Roach Warren
     if (cmd ===`${prefix}roachwarren`||cmd ===`${prefix}warren`){
+        fullBuildingInfo("Zerg Roach Warren","https://vignette.wikia.nocookie.net/starcraft/images/d/dc/Icon_Zerg_Roach_Warren.jpg/revision/latest?cb=20160106235726","Spawning Pool",150,0,39,850,1,"N/A","Roach, Ravager","Biological, Armored, Structure","roachwarren")
+    }
+        if (cmd ===`${prefix}roachwarren-p2`||cmd ===`${prefix}warren-p2`){
         let warrenembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Roach Warren**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/dc/Icon_Zerg_Roach_Warren.jpg/revision/latest?cb=20160106235726")
-        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 150, **Vespene** - 0, **Build Time** - 39")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Roach, Ravager")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Glial Reconstitution", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
-        .addField("Tunneling Claws", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Time** - 79, **Effect** - Gives Roaches the ability to move while burrowed at a speed of 2.8.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)"); 
+        .addField("Glial Reconstitution", "**Requires:** Lair, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Increases Roach movement speed to 4.2(+1.05) while unburrowed, and to 4.4 while burrowed under creep.")
+        .addField("Tunneling Claws", "**Requires:** Lair, **Minerals**: 100, **Vespene**: 100, **Time**: 79, **Effect**: Gives Roaches the ability to move while burrowed at a speed of 2.8.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-roachwarren` for main stats!"); 
     return message.channel.send(warrenembed);
     }
     //Begin Baneling Nest
     if (cmd ===`${prefix}banelingnest`||cmd ===`${prefix}banenest`){
+        fullBuildingInfo("Zerg Baneling Nest","https://vignette.wikia.nocookie.net/starcraft/images/9/99/Icon_Zerg_Baneling_Nest.jpg/revision/latest?cb=20160107000025","Spawning Pool",100,50,43,850,1,"N/A","Baneling","Biological, Armored, Structure","banenest")
+    }
+    if (cmd ===`${prefix}banelingnest-p2`||cmd ===`${prefix}banenest`){
         let banenestembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Baneling Nest**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/99/Icon_Zerg_Baneling_Nest.jpg/revision/latest?cb=20160107000025")
-        .addField("Resources", "**Requires:** Spawning Pool, **Minerals** - 100, **Vespene** - 50, **Build Time** - 43")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Baneling")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Centrifugal Hooks", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Roach_Warren_(Legacy_of_the_Void)"); 
+        .addField("Centrifugal Hooks", "**Requires:** Lair, **Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: Increases Baneling movement speed to 4.13(+1.24) and hp to 35(+5). Banelings will roll instead of running.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Baneling_Nest_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-banenest` for main stats!"); 
     return message.channel.send(banenestembed);
     }
     //Begin Lair
     if (cmd ===`${prefix}lair`){
+        fullBuildingInfo("Zerg Lair","https://vignette.wikia.nocookie.net/starcraft/images/a/ad/Icon_Zerg_Lair.jpg/revision/latest?cb=20160106235925","Spawning Pool, Hatchery Morph",150,100,57,2000,1,"Larva, Queen","Overseer, Hydralisk Den, Nydus Network, Infestation Pit, Spire, Generate Creep, Mutate Ventral Sacs, Melee and Missile Attacks Level 2, Ground Carapace Level 2, Glial Reconstitution, Tunneling Claws, Centrifugal Hooks","Biological, Armored, Structure","lair")
+    }
+    if (cmd ===`${prefix}lair-p2`){
         let lairembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Lair**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ad/Icon_Zerg_Lair.jpg/revision/latest?cb=20160106235925")
-        .addField("Resources", "**Morphed from:** Hatchery, **Minerals** - 150, **Vespene** - 100, **Provides Supply** - 6, **Build Time** - 57")
-        .addField("Defense", "**HP** - 2000, **Armor** - 1")
-        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
-        .addField("Unlocked Tech", "Overseer, Hydralisk Den, Nydus Network, Infestation Pit, Spire, Generate Creep, Mutate Ventral Sacs, Melee and Missile Attacks Level 2, Ground Carapace Level 2, Glial Reconstitution, Tunneling Claws, Centrifugal Hooks")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Lair_(Legacy_of_the_Void)"); 
+        .addField("Misc.", "**Provides Supply**: 6")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals**: 75, **Vespene**: 75, **Time**: 43, **Effect**: Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lair_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-lair` for main stats!"); 
     return message.channel.send(lairembed);
     }
     //Begin Hydralisk Den
     if (cmd ===`${prefix}hydraliskden`||cmd ===`${prefix}hydraden`){
+        fullBuildingInfo("Zerg Hydralisk Den","https://vignette.wikia.nocookie.net/starcraft/images/0/0b/Icon_Zerg_Hydralisk_Den.jpg/revision/latest?cb=20160106235827","Lair",100,100,29,850,1,"N/A","Hydralisk, Lurker Den","Biological, Armored, Structure","hydraden")
+    }
+        if (cmd ===`${prefix}hydraliskden-p2`||cmd ===`${prefix}hydraden-p2`){
         let hydradenembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Hydralisk Den**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0b/Icon_Zerg_Hydralisk_Den.jpg/revision/latest?cb=20160106235827")
-        .addField("Resources", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Build Time** - 29")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Hydralisk, Lurker Den")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Muscular Augments", "**Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Hydralisks move 25% faster speed both on and off of Creep. ")
-        .addField("Grooved Spines", "**Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Increases the attack range of Hydralisks by +1.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_Den_(Legacy_of_the_Void)"); 
+        .addField("Muscular Augments", "**Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Hydralisks move 25% faster speed both on and off of Creep. ")
+        .addField("Grooved Spines", "**Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Increases the attack range of Hydralisks by +1.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hydralisk_Den_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-hydraden` for main stats!");  
     return message.channel.send(hydradenembed);
     }
     //Begin Lurker Den
     if (cmd ===`${prefix}lurkerden`){
+        fullBuildingInfo("Zerg Lurker Den","https://vignette.wikia.nocookie.net/starcraft/images/d/d1/LurkerDen_SC2_Icon1.png/revision/latest?cb=20160411135201","Lair, Hydralisk Den",100,150,86,850,1,"N/A","Lurker","Biological, Armored, Structure","lurkerden")
+    }
+    if (cmd ===`${prefix}lurkerden-p2`){
         let lurkerdenembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Lurker Den**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/LurkerDen_SC2_Icon1.png/revision/latest?cb=20160411135201")
-        .addField("Resources", "**Requires:** Lair, Hydralisk Den, **Minerals** - 100, **Vespene** - 150, **Build Time** - 86")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Lurker")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Adaptive Talons", "**Requires:** Hive, **Minerals** - 150, **Vespene** - 150, **Time** - 54, **Effect** - Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker_Den_(Legacy_of_the_Void)"); 
+        .addField("Adaptive Talons", "**Requires:** Hive, **Minerals**: 150, **Vespene**: 150, **Time**: 54, **Effect**: Reduces the time Lurkers take to burrow from 2 to 0.7 and increases movement speed by 10%.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Lurker_Den_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-lurkerden` for main stats!"); 
     return message.channel.send(lurkerdenembed);
     }
     //Begin Spire
     if (cmd ===`${prefix}spire`){
+        fullBuildingInfo("Zerg Spire","https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Zerg_Spire.jpg/revision/latest?cb=20160106235643","Lair",200,200,71,850,1,"N/A","Mutalisk, Corruptor","Biological, Armored, Structure","spire")
+    }
+    if (cmd ===`${prefix}spire-p2`){
         let spireembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Spire**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/97/Icon_Zerg_Spire.jpg/revision/latest?cb=20160106235643")
-        .addField("Resources", "**Requires:** Lair, **Minerals** - 200, **Vespene** - 200, **Build Time** - 71")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Mutalisk, Corruptor")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Flyer Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg air units.")
-        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg air units. ")
-        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg air units. ")
-        .addField("Flyer Carapace Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Zerg air units units. ")
-        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Zerg air units. ")
-        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Zerg air units. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Spire_(Legacy_of_the_Void)");
+        .addField("Flyer Attacks Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the damage of Zerg air units.")
+        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the damage of Zerg air units. ")
+        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the damage of Zerg air units. ")
+        .addField("Flyer Carapace Level 1", "**Minerals**: 150, **Vespene**: 150, **Time**: 114, **Effect**: Increases the armor of Zerg air units units. ")
+        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals**: 225, **Vespene**: 225, **Time**: 136, **Effect**: Increases the armor of Zerg air units. ")
+        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals**: 300, **Vespene**: 300, **Time**: 157, **Effect**: Increases the armor of Zerg air units. ")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Spire_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-spire` for main stats!"); 
     return message.channel.send(spireembed);
     }
     //Begin Infestation Pit
     if (cmd ===`${prefix}infestationpit`||cmd ===`${prefix}infestpit`){
+        fullBuildingInfo("Zerg Infestation Pit","https://vignette.wikia.nocookie.net/starcraft/images/2/20/Icon_Zerg_Infestation_Pit.jpg/revision/latest?cb=20160106235813","Lair",100,100,36,850,1,"N/A","Infestor, Swarm Host, Hive","Biological, Armored, Structure","infestationpit")
+    }
+        if (cmd ===`${prefix}infestationpit-p2`||cmd ===`${prefix}infestpit-p2`){
         let infestpitembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Infestation Pit**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/20/Icon_Zerg_Infestation_Pit.jpg/revision/latest?cb=20160106235813")
-        .addField("Resources", "**Requires:** Lair, **Minerals** - 100, **Vespene** - 100, **Build Time** - 36")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Swarm Host, Infestor, Lair")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Pathogen Glands", "**Minerals** - 150, **Vespene** - 150, **Time** - 57, **Effect** - Increases the starting energy of Infestors by 25.")
-        .addField("Neural Parasite", "**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Energy** - 100, **Range** - 9 (14), **Duration** - 11,**Effect** - The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Infestation_Pit_(Legacy_of_the_Void)"); 
+        .addField("Pathogen Glands", "**Minerals**: 150, **Vespene**: 150, **Time**: 57, **Effect**: Increases the starting energy of Infestors by 25.")
+        .addField("Neural Parasite", "**Minerals**: 150, **Vespene**: 150, **Time**: 79, **Energy**: 100, **Range**: 9 (14), **Duration**: 11,**Effect**: The Infestor temporarily takes control of target enemy unit. The player can cancel this ability, or it will automatically cancel if the controlling Infestor is killed or the targeted unit is moved out of 14 range.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Infestation_Pit_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-infestationpit` for main stats!");  
     return message.channel.send(infestpitembed);
     }
     //Begin Nydus Network
     if (cmd ===`${prefix}nydusnetwork`||cmd ===`${prefix}nydusnet`){
+        fullBuildingInfo("Zerg Nydus Network","https://vignette.wikia.nocookie.net/starcraft/images/7/77/Icon_Zerg_Nydus_Network.jpg/revision/latest?cb=20160106235751","Lair",150,150,36,850,1,"Nydus Worm","Nydus Worm","Biological, Armored, Structure","nydusnet")
+    }
+    if (cmd ===`${prefix}nydusnetwork-p2`||cmd ===`${prefix}nydusnet-p2`){
         let nydusnetembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Nydus Network**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/77/Icon_Zerg_Nydus_Network.jpg/revision/latest?cb=20160106235751")
-        .addField("Resources", "**Requires:** Lair, **Minerals** - 150, **Vespene** - 150, **Build Time** - 36")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Production", "**By default:** Nydus Worm")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Misc.", "**Cargo Capacity** - 256 units")
-        .addField("Upgrades and Abilities","-")
-        .addField("Load Network","**Effect** - The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Network_(Legacy_of_the_Void)"); 
+        .addField("Load Network","**Effect**: The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Network_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-nydusnet` for main stats!");   
     return message.channel.send(nydusnetembed);
     }
     //Begin Nydus Worm
     if (cmd ===`${prefix}nydusworm`){
+        fullBuildingInfo("Zerg Nydus Worm","https://vignette.wikia.nocookie.net/starcraft/images/c/cd/Icon_Zerg_Nydus_Worm.jpg/revision/latest?cb=20160106235740","Nydus Network",50,50,14,300,"1, **while emerging:** 3","N/A","none","Biological, Armored, Structure","nydusworm")
+    }
+    if (cmd ===`${prefix}nydusworm-p2`){
         let nyduswormembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Nydus Worm**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/cd/Icon_Zerg_Nydus_Worm.jpg/revision/latest?cb=20160106235740")
-        .addField("Resources", "**Built from:** Nydus Network, **Minerals** - 50, **Vespene** - 50, **Build Time** - 14")
-        .addField("Defense", "**HP** - 300, **Armor** - 1, **Emerging Armor** - 3")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Misc.", "**Cargo Capacity** - 256 units")
-        .addField("Upgrades and Abilities","-")
-        .addField("Load Network","**Effect** - The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Worm_(Legacy_of_the_Void)"); 
+        .addField("Load Network","**Effect**: The Nydus Worms and Nydus Networks can load a maximum of 255 ground units into a shared underground network.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Nydus_Worm_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-nydusworm` for main stats!");    
     return message.channel.send(nyduswormembed);
     }
     //Begin Hive
     if (cmd ===`${prefix}hive`){
+        fullBuildingInfo("Zerg Hive","https://vignette.wikia.nocookie.net/starcraft/images/3/36/Icon_Zerg_Hive.jpg/revision/latest?cb=20160106235851","Infestation Pit, Lair Morph",200,150,71,2500,1,"Larva, Queen","Viper, Greater Spire, Ultralisk Cavern, Melee and Missile Attacks Level 3, Ground Carapace Level 3, Flyer Attacks and Carapace Level 3, Adrenal Glands, Adaptive Talons","Biological, Armored, Structure","hive")
+    }
+    if (cmd ===`${prefix}hive-p2`){
         let hiveembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Hive**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/36/Icon_Zerg_Hive.jpg/revision/latest?cb=20160106235851")
-        .addField("Resources", "**Morphed from:** Lair, **Minerals** - 200, **Vespene** - 150, **Provides Supply** - 6, **Build Time** - 71")
-        .addField("Defense", "**HP** - 2500, **Armor** - 1")
-        .addField("Produces", "**By default:** Larva, **with Spawning Pool:** Queen")
-        .addField("Unlocked Tech", "Viper, Greater Spire, Ultralisk Cavern, Melee and Missile Attacks Level 3, Ground Carapace Level 3, Flyer Attacks and Carapace Level 3, Adrenal Glands, Adaptive Talons")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals** - 100, **Vespene** - 100, **Time** - 71, **Effect** - Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
-        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals** - 75, **Vespene** - 75, **Time** - 43, **Effect** - Increases the movement speed of Overlords to 2.63")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Hive_(Legacy_of_the_Void)"); 
+        .addField("Misc.", "**Provides Supply**: 6")
+        .addField("Burrow","**Researched from:** Hatchery/Lair/Hive, **Minerals**: 100, **Vespene**: 100, **Time**: 71, **Effect**: Enables all Zerg ground units to use the Burrow ability. Burrow allows a unit to take cover underground, rendering it unable to attack. A burrowed unit is invisible unless revealed by detectors or effects. ")
+        .addField("Pneumatized Carapace", "**Researched from:** Hatchery/Lair/Hive, **Minerals**: 75, **Vespene**: 75, **Time**: 43, **Effect**: Increases the movement speed of Overlords to 2.63")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Hive_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-hive` for main stats!");    
     return message.channel.send(hiveembed);
     }
     //Begin Greater Spire
     if (cmd ===`${prefix}greaterspire`||cmd ===`${prefix}greatspire`){
+        fullBuildingInfo("Zerg Greater Spire","https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Icon_Zerg_Greater_Spire.jpg/revision/latest?cb=20160106235632","Hive, Spire Morph",100,150,71,1000,1,"N/A","Brood Lord","Biological, Armored, Structure","greaterspire")
+    }
+    if (cmd ===`${prefix}greaterspire-p2`||cmd ===`${prefix}greatspire-p2`){
         let greaterspireembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Greater Spire**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Icon_Zerg_Greater_Spire.jpg/revision/latest?cb=20160106235632")
-        .addField("Resources", "**Morphed from:** Spire, **Requires:** Hive, **Minerals** - 100, **Vespene** - 150, **Build Time** - 71")
-        .addField("Defense", "**HP** - 1000, **Armor** - 1")
-        .addField("Unlocked Tech", "Brood Lord")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Flyer Attacks Level 1", "**Minerals** - 100, **Vespene** - 100, **Time** - 114, **Effect** - Increases the damage of Zerg air units.")
-        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals** - 175, **Vespene** - 175, **Time** - 136, **Effect** - Increases the damage of Zerg air units. ")
-        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals** - 250, **Vespene** - 250, **Time** - 157, **Effect** - Increases the damage of Zerg air units. ")
-        .addField("Flyer Carapace Level 1", "**Minerals** - 150, **Vespene** - 150, **Time** - 114, **Effect** - Increases the armor of Zerg air units units. ")
-        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals** - 225, **Vespene** - 225, **Time** - 136, **Effect** - Increases the armor of Zerg air units. ")
-        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals** - 300, **Vespene** - 300, **Time** - 157, **Effect** - Increases the armor of Zerg air units. ")
+        .addField("Flyer Attacks Level 1", "**Minerals**: 100, **Vespene**: 100, **Time**: 114, **Effect**: Increases the damage of Zerg air units.")
+        .addField("Flyer Attacks Level 2", "**Requires:** Lair, **Minerals**: 175, **Vespene**: 175, **Time**: 136, **Effect**: Increases the damage of Zerg air units. ")
+        .addField("Flyer Attacks Level 3", "**Requires:** Hive, **Minerals**: 250, **Vespene**: 250, **Time**: 157, **Effect**: Increases the damage of Zerg air units. ")
+        .addField("Flyer Carapace Level 1", "**Minerals**: 150, **Vespene**: 150, **Time**: 114, **Effect**: Increases the armor of Zerg air units units. ")
+        .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals**: 225, **Vespene**: 225, **Time**: 136, **Effect**: Increases the armor of Zerg air units. ")
+        .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals**: 300, **Vespene**: 300, **Time**: 157, **Effect**: Increases the armor of Zerg air units. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Greater_Spire_(Legacy_of_the_Void)");
     return message.channel.send(greaterspireembed);
     }
     //Begin Ultralisk Cavern
     if (cmd ===`${prefix}ultraliskcavern`||cmd ===`${prefix}ultracavern`){
+        fullBuildingInfo("Zerg Ultralisk Cavern","https://vignette.wikia.nocookie.net/starcraft/images/0/09/Icon_Zerg_Ultralisk_Cavern.jpg/revision/latest?cb=20160106235305","Hive",150,200,46,850,1,"N/A","Ultralisk","Biological, Armored, Structure","ultracavern")
+    }
+    if (cmd ===`${prefix}ultraliskcavern-p2`||cmd ===`${prefix}ultracavern-p2`){
         let ultracavernembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Ultralisk Cavern**")
+        .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/09/Icon_Zerg_Ultralisk_Cavern.jpg/revision/latest?cb=20160106235305")
-        .addField("Resources", "**Requires:** Hive, **Minerals** - 150, **Vespene** - 200, **Build Time** - 46")
-        .addField("Defense", "**HP** - 850, **Armor** - 1")
-        .addField("Unlocked Tech", "Ultralisk")
-        .addField("Attributes", "**Biological, Armored, Structure**")
-        .addField("Upgrades and Abilities","-")
-        .addField("Chitinous Plating", "**Minerals** - 150, **Vespene** - 150, **Time** - 79, **Effect** - This upgrade increases the armor of all Ultralisks by 2. ")
-        .addField("Anabolic Synthesis", "**Minerals** - 150, **Vespene** - 150, **Time** - 42, **Effect** - Increases Ultralisk speed when off creep from 4.13 to 4.94. ")
+        .addField("Chitinous Plating", "**Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: This upgrade increases the armor of all Ultralisks by 2. ")
+        .addField("Anabolic Synthesis", "**Minerals**: 150, **Vespene**: 150, **Time**: 42, **Effect**: Increases Ultralisk speed when off creep from 4.13 to 4.94. ")
         .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)"); 
     return message.channel.send(ultracavernembed);
     }
-//Begin shortened commands
-     //begin SCV
-     if (cmd ===`${shortprefix}scv`){
-        let scvembed = new Discord.RichEmbed()
-        .setDescription ("**Terran SCV**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/61/SCV_SC2_Icon1.jpg/revision/latest?cb=20160107022653")
-        .addField("Construction", "**Built from:** Command Center, Orbital Command, Planetary Fortress")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP** - 45, **Armor** - 0, **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
-        .addField("More Info", "Try sc2full-scv for more info");
-    return message.channel.send(scvembed);
-    }
-    //begin Marine
-    if (cmd ===`${shortprefix}marine`){
-        let marineembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Marine**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/47/Marine_SC2_Icon1.jpg/revision/latest?cb=20160107022344")
-        .addField("Construction", "**Built from:** Barracks")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 18")
-        .addField("Defense", "**HP** - 45+10, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61(-0.2 stimmed), **Range** - 5, **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "Try sc2full-marine for more info");
-    return message.channel.send(marineembed);
-    }
-    //begin Marauder
-    if (cmd ===`${shortprefix}marauder`){
-        let mauraderembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Marauder**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/ba/Marauder_SC2_Icon1.jpg/revision/latest?cb=20160107022315")
-        .addField("Construction", "**Built from:** Barracks with Tech Lab")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
-        .addField("Defense", "**HP** - 125, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.57 stimmed)")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs armored 20(+2 per upgrade) **Hitspeed** - 1.07(-0.36 stimmed), **Range** - 6, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("More Info", "try sc2full-marauder for more info");
-    return message.channel.send(mauraderembed);
-    }
-    //begin Reaper
-    if (cmd ===`${shortprefix}reaper`){
-        let reaperembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Reaper**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7d/Reaper_SC2_Icon1.jpg/revision/latest?cb=20160107022927")
-        .addField("Construction", "**Built from:** Barracks")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Supply** - 1, **Build Time** - 32")
-        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.25")
-        .addField("Offense","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.79, **Range** - 5, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-reaper for more info");
-    return message.channel.send(reaperembed);
-    }
-    //begin Ghost
-     if (cmd ===`${shortprefix}ghost`){
-         let ghostembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Ghost**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Ghost_SC2_Icon1.jpg/revision/latest?cb=20160107022212")            
-        .addField("Construction", "**Built from:** Barracks with Tech Lab, **Requires:** Ghost Academy")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 2, **Build Time** - 29")
-        .addField("Defense", "**HP** - 100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 20(+2 per upgrade) **Hitspeed** - 1.07, **Range** - 6, **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Psionic, Ground**")
-        .addField("More Info", "try sc2full-ghost for more info");
-    return message.channel.send(ghostembed);
-    }
-    //begin Hellion
-    if (cmd ===`${shortprefix}hellion`){
-        let hellionembed = new Discord.RichEmbed()
-       .setDescription ("**Terran Hellion**")
-       .setColor("#7FC5EB")
-       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/56/Hellion_SC2_Icon1.jpg/revision/latest?cb=20160107022248")            
-       .addField("Construction", "**Built from:** Factory")
-       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
-       .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
-       .addField("Offense","**Damage** - 8(+1 per upgrade), vs light 14+5(+2 per upgrade) **Hitspeed** - 1.79, **Range** - 5, **Targets** - Ground")
-       .addField("Attributes", "**Mechanical, Light, Ground**")
-       .addField("More Info", "try sc2full-hellion for more info");
-   return message.channel.send(hellionembed);
-   }
-    //begin Hellbat
-    if (cmd ===`${shortprefix}hellbat`||cmd ===`${shortprefix}hellboi`){
-        let hellbatembed = new Discord.RichEmbed()
-       .setDescription ("**Terran Hellbat**")
-       .setColor("#7FC5EB")
-       .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/13/Hellbat_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025249")            
-       .addField("Construction", "**Built from:** Factory, **Requires:** Armory")
-       .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 21")
-       .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15")
-       .addField("Offense","**Damage** - 18(+2 per upgrade), vs light 18+12(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 2, **Targets** - Ground")
-       .addField("Attributes", "**Biological, Mechanical, Light, Ground**")
-       .addField("More Info", "try sc2full-hellbat for more info");
-   return message.channel.send(hellbatembed);
-   }
-    //begin Widow Mine
-    if (cmd ===`${shortprefix}widowmine` || cmd ===`${shortprefix}mine`){
-        let mineembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Widow Mine**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3b/WidowMine_SC2-HotS_Icon1.jpg/revision/latest?cb=20160107025320")            
-        .addField("Construction", "**Built from:** Factory")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 21")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 125(+35 vs shields) primary, 40(+25 vs shield) splash **Hitspeed** - 29, **Range** - 5 **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Light, Ground**")
-        .addField("More Info", "try sc2full-widowmine for more info");
-    return message.channel.send(mineembed);
-    }
-   //begin Cyclone
-   if (cmd ===`${shortprefix}cyclone`){
-        let cycloneembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Cyclone**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/94/Cyclone_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025444")
-        .addField("Construction", "**Built from:** Factory with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.73")
-        .addField("Offense","**Damage** - 18(+2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("More Info", "try sc2full-cyclone for more info");
-    return message.channel.send(cycloneembed);
-    }
-    //begin Siege Tank
-    if (cmd ===`${shortprefix}siegetank`||cmd ===`${shortprefix}tank`){
-        let tankembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Siege Tank**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/5/57/SiegeTank_SC2_Icon1.jpg/revision/latest?cb=20160107022749")
-        .addField("Construction", "**Built from:** Factory with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 125, **Supply** - 3, **Build Time** - 32")
-        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense (tank mode)","**Damage** - 15(+2 per upgrade), vs armored 25(+3 per upgrade) **Hitspeed** - 0.74, **Range** - 7, **Targets** - Ground")
-        .addField("Offense (siege mode)","**Damage** - 40(+4 per upgrade), vs armored 70(+5 per upgrade) **Hitspeed** - 2.14, **Range** - 13 (minimum 2), **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("More Info", "try sc2full-tank for more info");
-    return message.channel.send(tankembed);
-    }
-    //begin Thor
-    if (cmd ===`${shortprefix}thor`){
-        let thorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Thor**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/ef/Thor_SC2_Icon1.jpg/revision/latest?cb=20160107022814")
-        .addField("Construction", "**Built from:** Factory with Tech Lab **Requires:** Armory")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 43")
-        .addField("Defense", "**HP** - 400, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense (ground)","**Damage** - 30x2(+3x2 per upgrade) **Hitspeed** - 0.91, **Range** - 7, **Targets** - Ground")
-        .addField("Offense (splash air)","**Damage** - 6x4(+1x4 per upgrade), vs light 12x4(+2x4 per upgrade) **Hitspeed** - 2.14, **Range** - 10, **Targets** - Air")
-        .addField("Offense (single target air)","**Damage** - 40(+4 per upgrade), vs armored 55(+6 per upgrade) **Hitspeed** - 1.71, **Range** - 11, **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Ground**")
-        .addField("More Info", "try sc2full-thor for more info");
-    return message.channel.send(thorembed);
-    }
-    //begin Viking
-    if (cmd ===`${shortprefix}viking`){
-        let vikingembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Viking**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2a/Viking_SC2_Icon1.jpg/revision/latest?cb=20160107022849")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 75, **Supply** - 2, **Build Time** - 30")
-        .addField("Defense", "**HP** - 135, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15 ground, 3.85 air")
-        .addField("Offense (air mode)","**Damage** - 10x2(+1x2 per upgrade), vs armored 14x2(+1x2 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **Targets** - Air")
-        .addField("Offense (ground mode)","**Damage** - 12(+1 per upgrade), vs mech 20(+2 per upgrade) **Hitspeed** - 0.71, **Range** - 6,  **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air (in air mode), Ground (in ground mode)**")
-        .addField("More Info", "try sc2full-viking for more info");
-    return message.channel.send(vikingembed);
-    }
-    //begin Medevac
-    if (cmd ===`${shortprefix}medivac`||cmd ===`${shortprefix}medevac`||cmd === `${shortprefix}healbus`){
-        let medevacembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Medivac**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/db/Medivac_SC2_Icon1.jpg/revision/latest?cb=20160107022416")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 30")
-        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5(+2.44)")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("More Info", "try sc2full-medivac for more info");
-    return message.channel.send(medevacembed);
-    }
-    //begin Liberator
-    if (cmd ===`${shortprefix}liberator`||cmd ===`${shortprefix}lib`){
-        let liberatorembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Liberator**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Liberator_SC2-LotV_Icon1.jpg/revision/latest?cb=20160107025400")
-        .addField("Construction", "**Built from:** Starport")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 43")
-        .addField("Defense", "**HP** - 180, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.72")
-        .addField("Offense (fighter mode)","**Damage** - 5x2(+1x2 per upgrade) **Hitspeed** - 1.29, **Range** - 5, **Targets** - Air")
-        .addField("Offense (defender mode)","**Damage** - 75(+5 per upgrade) **Hitspeed** - 1.14, **Range** - 10(+4), **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("More Info", "try sc2full-liberator for more info");
-    return message.channel.send(liberatorembed);
-    }
-    //begin Banshee
-    if (cmd ===`${shortprefix}banshee`||cmd ===`${shortprefix}shee`){
-        let bansheeembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Banshee**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/32/Banshee_SC2_Icon1.jpg/revision/latest?cb=20160107022109")
-        .addField("Construction", "**Built from:** Starport with Tech Lab")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 3, **Build Time** - 43")
-        .addField("Defense", "**HP** - 140, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.85(+1.4)")
-        .addField("Offense","**Damage** - 12x2(+1x2 per upgrade) **Hitspeed** - 0.89, **Range** - 6, **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("More Info", "try sc2full-banshee for more info");
-    return message.channel.send(bansheeembed);
-    }
-    //begin Raven
-    if (cmd ===`${shortprefix}raven`){
-        let ravenembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Raven**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d8/Raven_SC2_Icon1.jpg/revision/latest?cb=20160107022547")
-        .addField("Construction", "**Built from:** Starport with Tech Lab")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 2, **Build Time** - 43")
-        .addField("Defense", "**HP** - 140, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85")
-        .addField("Attributes", "**Mechanical, Light, Detector, Air**")
-        .addField("More Info", "try sc2full-raven for more info");
-    return message.channel.send(ravenembed);
-    }
-    //begin Battlecruiser
-    if (cmd ===`${shortprefix}battlecruiser`||cmd === `${shortprefix}bc`||cmd === `${shortprefix}cattlebruiser`||cmd === `${shortprefix}cruiser`){
-        let battlecruiserembed = new Discord.RichEmbed()
-        .setDescription ("**Terran Battlecruiser**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/f5/Battlecruiser_SC2_Icon1.jpg/revision/latest?cb=20160107022138")
-        .addField("Construction", "**Built from:** Starport with Tech Lab **Requires:** Fusion Core")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 300, **Supply** - 6, **Build Time** - 64")
-        .addField("Defense", "**HP** - 550, **Armor** - 3(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense (ground)","**Damage** - 8(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 5(+1 per upgrade) **Hitspeed** - 0.16, **Range** - 6, **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
-        .addField("More Info", "try sc2full-cruiser for more info");
-    return message.channel.send(battlecruiserembed);
-    }
-    //begin MULE
-    if (cmd ===`${shortprefix}mule`){
-        let muleembed = new Discord.RichEmbed()
-        .setDescription ("**Terran MULE**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/04/MULE_SC2_Icon1.jpg/revision/latest?cb=20160107022519")
-        .addField("Construction", "**Summoned from:** Orbital Command")
-        .addField("Defense", "**HP** - 60, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Attributes", "**Mechanical, Light, Ground**")
-        .addField("More Info", "try sc2full-mule for more info");
-    return message.channel.send(muleembed);
-    }
-//begin Protoss Units
-    //skip Probe
-    //begin Zealot
-    if (cmd ===`${shortprefix}zealot`){
-        let zealotembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Zealot**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/6/6e/Icon_Protoss_Zealot.jpg/revision/latest?cb=20160106180701")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Supply** - 2, **Build Time** - 27, **Warp Cooldown** - 20")
-        .addField("Defense", "**HP+Shields** - 100+50, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15+0.98(+4.62 when charging)")
-        .addField("Offense","**Damage** - 8x2(+1x2 per upgrade), **Hitspeed** - 0.86, **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-zealot for more info");
-    return message.channel.send(zealotembed);
-    }
-    //begin Stalker
-    if (cmd ===`${shortprefix}stalker`){
-        let stalkerembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Stalker**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0d/Icon_Protoss_Stalker.jpg/revision/latest?cb=20160106180555")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 125, **Vespene** - 50, **Supply** - 2, **Build Time** - 30, **Warp Cooldown** - 23")
-        .addField("Defense", "**HP+Shields** - 80+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Offense","**Damage** - 13(+1 per upgrade), vs armored 18(+2 per upgrade) **Hitspeed** - 1.34, **Range** - 6, **Targets** - Ground and Air")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("More Info", "try sc2full-stalker for more info");
-    return message.channel.send(stalkerembed);
-    }
-    //begin Sentry
-    if (cmd ===`${shortprefix}sentry`||cmd ===`${shortprefix}ticklemonster`){
-        let sentryembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Sentry**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ab/Icon_Protoss_Sentry.jpg/revision/latest?cb=20160106180539")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 2, **Build Time** - 26, **Warp Cooldown** - 23")
-        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Ground and Air")
-        .addField("Attributes", "**Mechanical, Light, Psionic, Ground**")
-        .addField("More Info", "try sc2full-sentry for more info");
-    return message.channel.send(sentryembed);
-    }
-    //begin Adept
-    if (cmd ===`${shortprefix}adept`){
-        let adeptembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Adept**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/91/Icon_Protoss_Adept.jpg/revision/latest?cb=20160106231127")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Cybernetics Core")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 25, **Supply** - 2, **Build Time** - 30, **Warp Cooldown** - 20")
-        .addField("Defense", "**HP+Shields** - 70+70, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.5")
-        .addField("Offense","**Damage** - 10(+1 per upgrade), vs light 22(+2 per upgrade) **Hitspeed** - 1.61(-0.5), **Range** - 4, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-adept for more info");
-    return message.channel.send(adeptembed);
-    }
-    //begin High Templar
-    if (cmd ===`${shortprefix}hightemplar`||cmd == `${shortprefix}ht`){
-        let htembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss High Templar**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/a0/Icon_Protoss_High_Templar.jpg/revision/latest?cb=20160106180343")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Templar Archives")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 150, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
-        .addField("Defense", "**HP+Shields** - 40+40, **Armor** - 0(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Damage** - 4(+1 per upgrade), **Hitspeed** - 1.25, **Range** - 6, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
-        .addField("More Info", "try sc2full-ht for more info");
-    return message.channel.send(htembed);
-    }
-    //begin Dark Templar
-    if (cmd ===`${shortprefix}darktemplar`||cmd ==`${shortprefix}dt`){
-        let dtembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Dark Templar**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/9/90/Icon_Protoss_Dark_Templar.jpg/revision/latest?cb=20160106180327")
-        .addField("Construction", "**Built from:** Gateway, Warp Gate, **Requires:** Dark Shrine")
-        .addField("Resources", "**Minerals** - 125, **Vespene** - 125, **Supply** - 2, **Build Time** - 39, **Warp Cooldown** - 32")
-        .addField("Defense", "**HP+Shields** - 40+80, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 45(+5 per upgrade), **Hitspeed** - 1.21, **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Psionic, Ground**")
-        .addField("More Info", "try sc2full-dt for more info");
-    return message.channel.send(dtembed);
-    }
-    //skip Archon
-    //begin Observer
-    if (cmd ===`${shortprefix}observer`||cmd === `${shortprefix}obs`){
-        let obsembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Observer**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/0/0a/Icon_Protoss_Observer.jpg/revision/latest?cb=20160106180448")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 1, **Build Time** - 21")
-        .addField("Defense", "**HP+Shields** - 40+20, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.01(+1.51)")
-        .addField("Attributes", "**Light, Mechanical, Detector, Air**")
-        .addField("More Info", "try sc2full-obs for more info");
-    return message.channel.send(obsembed);
-    }
-    //begin Warp Prism
-    if (cmd ===`${shortprefix}warpprism`||cmd === `${shortprefix}prism`){
-        let prismembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Warp Prism**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1f/Icon_Protoss_Warp_Prism.jpg/revision/latest?cb=20160106180644")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 250, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP+Shields** - 80+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+1.23)")
-        .addField("Attributes", "**Armored, Mechanical, Psionic, Air**")
-        .addField("More Info", "try sc2full-prism for more info");
-    return message.channel.send(prismembed);
-    }
-    //begin Immortal
-    if (cmd ===`${shortprefix}immortal`||cmd ===`${shortprefix}immo`){
-        let immortalembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Immortal**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Protoss_Immortal.jpg/revision/latest?cb=20160106180358")
-        .addField("Construction", "**Built from:** Robotics Facility")
-        .addField("Resources", "**Minerals** - 275, **Vespene** - 100, **Supply** - 4, **Build Time** - 39")
-        .addField("Defense", "**HP+Shields** - 200+100, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 50(+5 per upgrade) **Hitspeed** - 1.04, **Range** - 6, **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Ground**")
-        .addField("More Info", "try sc2full-immortal for more info");
-    return message.channel.send(immortalembed);
-    }
-    //begin Colossus
-    if (cmd ===`${shortprefix}colossus`||cmd ===`${shortprefix}colossi`||cmd ===`${shortprefix}giraffe`||cmd ===`${shortprefix}lasergiraffe`){
-        let colossusembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Colossus**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/40/Icon_Protoss_Colossus.jpg/revision/latest?cb=20160106180305")
-        .addField("Construction", "**Built from:** Robotics Facility, **Requires:** Robotics Bay")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 54")
-        .addField("Defense", "**HP+Shields** - 200+150, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15")
-        .addField("Offense","**Damage** - 10x2(+1x2 per upgrade), vs light 15x2(+2x2 per upgrade) **Hitspeed** - 1.07, **Range** - 7+2, **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Ground, Targetable by Air**")
-        .addField("More Info", "try sc2full-colossus for more info");
-    return message.channel.send(colossusembed);
-    }
-    //skip Disruptor
-    //begin Phoenix
-    if (cmd ===`${shortprefix}phoenix`||cmd ===`${shortprefix}nix`){
-        let nixembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Phoenix**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b1/Icon_Protoss_Phoenix.jpg/revision/latest?cb=20160106180507")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 25")
-        .addField("Defense", "**HP+Shields** - 120+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.95")
-        .addField("Offense","**Damage** - 5x2(+1x2 per upgrade), vs light 10x2(+1x2 per upgrade) **Hitspeed** - 0.97, **Range** - 5+2, **Targets** - Air")
-        .addField("Attributes", "**Mechanical, Light, Air**")
-        .addField("More Info", "try sc2full-phoenix for more info");
-    return message.channel.send(nixembed);
-    }
-    //begin Oracle
-    if (cmd ===`${shortprefix}oracle`||cmd ===`${shortprefix}discoball`||cmd ===`${shortprefix}disco`){
-        let oracleembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Oracle**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4b/Icon_Protoss_Oracle.jpg/revision/latest?cb=20160106231013")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 3, **Build Time** - 37")
-        .addField("Defense", "**HP+Shields** - 100+60, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
-        .addField("Offense","**Damage** - 15, vs light 22 **Hitspeed** - 0.61, **Range** - 4, **Targets** - Ground")
-        .addField("Attributes", "**Mechanical, Armored, Psionic, Air**")
-        .addField("More Info", "try sc2full-oracle for more info");
-    return message.channel.send(oracleembed);
-    }
-    //begin Void Ray
-    if (cmd ===`${shortprefix}voidray`||cmd ===`${shortprefix}chadray`||cmd ===`${shortprefix}void`){
-        let voidembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Void Ray**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/1/1d/VoidRay_SC2_Rend1.jpg/revision/latest?cb=20090129011444")
-        .addField("Construction", "**Built from:** Stargate")
-        .addField("Resources", "**Minerals** - 250, **Vespene** - 150, **Supply** - 4, **Build Time** - 43")
-        .addField("Defense", "**HP+Shields** - 150+100, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5 (-1.4)")
-        .addField("Offense","**Damage** - 6(+1 per upgrade), vs armored 4+6(+1 per upgrade) **Hitspeed** - 0.36, **Range** - 4+2, **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Air**")
-        .addField("More Info", "try sc2full-voidray for more info");
-    return message.channel.send(voidembed);
-    }
-    //begin Carrier
-    if (cmd ===`${shortprefix}carrier`){
-        let carrierembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Carrier**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2c/Icon_Protoss_Carrier.jpg/revision/latest?cb=20160106180238")
-        .addField("Construction", "**Built from:** Stargate, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 350(+15 per interceptor), **Vespene** - 250, **Supply** - 6, **Build Time** - 64")
-        .addField("Defense", "**HP+Shields** - 300+150, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Interceptor Count** - 8, see sc2-interceptor")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Air**")
-        .addField("More Info", "try sc2full-carrier and sc2-interceptor for more info");
-    return message.channel.send(carrierembed);
-    }
-    //skip Interceptor
-    //skip Tempest
-    //begin Mothership
-    if (cmd ===`${shortprefix}mothership`||cmd ===`${shortprefix}mamaship`){
-        let mamaembed = new Discord.RichEmbed()
-        .setDescription ("**Protoss Mothership**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e1/Icon_Protoss_Mothership.jpg/revision/latest?cb=20160106180429")
-        .addField("Construction", "**Built from:** Nexus, **Requires:** Fleet Beacon")
-        .addField("Resources", "**Minerals** - 400, **Vespene** - 400, **Supply** - 8, **Build Time** - 114")
-        .addField("Defense", "**HP+Shields** - 350+350, **Armor** - 2(+1 per upgrade) **Movespeed** - 2.62")
-        .addField("Offense","**Damage** - 6x6(+1x6 per upgrade), **Hitspeed** - 1.58, **Range** - 7, **Targets** - Air and Ground")
-        .addField("Attributes", "**Mechanical, Armored, Massive, Psionic, Air**")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Mothership_(Legacy_of_the_Void)");
-    return message.channel.send(mamaembed);
-    }
-//Begin Zerg Units
-    //skip Larva      
-    //begin Drone
-    if (cmd ===`${shortprefix}drone`){
-        let droneembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Drone**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d1/Icon_Zerg_Drone.jpg/revision/latest?cb=20160106233237")
-        .addField("Construction", "**Built from:** Larva")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 0, **Supply** - 1, **Build Time** - 12")
-        .addField("Defense", "**HP** - 40, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.94")
-        .addField("Offense","**Damage** - 5, **Hitspeed** - 1.07, **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-drone for more info");
-    return message.channel.send(droneembed);
-    }
-    //begin Overlord
-    if (cmd ===`${shortprefix}overlord`||cmd ===`${shortprefix}ovie`||cmd ===`${shortprefix}dropperlord`||cmd ===`${shortprefix}droplord`){
-        let overlordembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Overlord**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/4c/Icon_Zerg_Overlord.jpg/revision/latest?cb=20160106233052")
-        .addField("Construction", "**Built from:** Larva")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 0, **Provides Supply** - 8, **Build Time** - 18")
-        .addField("Defense", "**HP** - 200, **Armor** - 0(+1 per upgrade) **Movespeed** - 0.902(+1.728)")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("More Info", "try sc2full-overlord for more info");
-    return message.channel.send(overlordembed);
-    }
-    //begin Queen
-    if (cmd ===`${shortprefix}queen`){
-        let queenembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Queen**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/85/Icon_Zerg_Queen.jpg/revision/latest?cb=20160106233007")
-        .addField("Construction", "**Built from:** Hatchery, **Requires:** Spawning Pool")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 0, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP** - 175, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.31, on creep 3.5")
-        .addField("Offense (ground)","**Damage** - 4x2(+1x2 per upgrade), **Hitspeed** - 0.71, **Range** - 5, **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 9(+1 per upgrade), **Hitspeed** - 0.71, **Range** - 8, **Targets** - Air")
-        .addField("Attributes", "**Biological, Psionic, Ground**")
-        .addField("More Info", "try sc2full-queen for more info");
-    return message.channel.send(queenembed);
-    }
-    //begin Zergling
-    if (cmd ===`${shortprefix}zergling`||cmd ===`${shortprefix}zling`){
-        let lingembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Zergling**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/a/ae/Icon_Zerg_Zergling.jpg/revision/latest?cb=20160106232911")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spawning Pool")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 0, **Supply** - 0.5, **Build Time** - 17")
-        .addField("Defense", "**HP** - 35, **Armor** - 0(+1 per upgrade) **Movespeed** - 4.13(+2.45), on creep 5.37(+3.18)")
-        .addField("Offense","**Damage** - 5(+1 per upgrade), **Hitspeed** - 0.497(-0.143), **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-zling for more info");
-    return message.channel.send(lingembed);
-    }
-    //begin Baneling
-    if (cmd ===`${shortprefix}baneling`||cmd ===`${shortprefix}bling`||cmd ===`${shortprefix}bane`){
-        let baneembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Baneling**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/8/81/Icon_Zerg_Baneling.jpg/revision/latest?cb=20160106232838")
-        .addField("Construction", "**Morphed from:** Zergling, **Requires:** Baneling")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 25, **Supply** - 0.5, **Build Time** - 14")
-        .addField("Defense", "**HP** - 30+5, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.5(+0.63), on creep 4.55(+0.82)")
-        .addField("Offense 1","**Damage** - 20(+2 per upgrade), vs light 35(+4 per upgrade) **Range** - 2.2, **Targets** - Ground")
-        .addField("Offense 2","**Damage** - 80(+5 per upgrade), **Range** - 2.2, **Targets** - Buildings")
-        .addField("Attributes", "**Biological, Ground**")
-        .addField("More Info", "try sc2full-bling for more info");
-    return message.channel.send(baneembed);
-    }
-    //begin Roach
-    if (cmd ===`${shortprefix}roach`){
-        let roachembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Roach**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/73/Icon_Zerg_Roach.jpg/revision/latest?cb=20160106232950")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Roach Warren")
-        .addField("Resources", "**Minerals** - 75, **Vespene** - 25, **Supply** - 2, **Build Time** - 19")
-        .addField("Defense", "**HP** - 145, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15(+1.05), on creep 4.09(+1.36), burrowed 2.8(+1.6)")
-        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.43, **Range** - 4, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("More Info", "try sc2full-roach for more info");
-    return message.channel.send(roachembed);
-    }
-    //begin Ravager
-    if (cmd ===`${shortprefix}ravager`){
-        let ravagerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Ravager**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b7/Icon_Zerg_Ravager.jpg/revision/latest?cb=20160106234631")
-        .addField("Construction", "**Morphed from:** Roach")
-        .addField("Resources", "**Minerals** - 25, **Vespene** - 75, **Supply** - 3, **Build Time** - 9")
-        .addField("Defense", "**HP** - 120, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.85, on creep 5.0")
-        .addField("Offense","**Damage** - 16(+2 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Ground**")
-        .addField("More Info", "try sc2full-ravager for more info");
-    return message.channel.send(ravagerembed);
-    }
-    //begin Overseer
-    if (cmd ===`${shortprefix}overseer`||cmd ===`${shortprefix}flappynajib`){
-        let seerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Overseer**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/e/e4/Icon_Zerg_Overseer.jpg/revision/latest?cb=20160106233030")
-        .addField("Construction", "**Morphed from:** Overlord, **Requires:** Lair")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 50, **Provides Supply** - 8, **Build Time** - 12")
-        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 2.62(+2.1)")
-        .addField("Attributes", "**Biological, Armored, Detector, Air**")
-        .addField("More Info", "try sc2full-overseer for more info");
-    return message.channel.send(seerembed);
-    }
-    //skip Changeling
-    //begin Hydralisk
-    if (cmd ===`${shortprefix}hydralisk`||cmd ===`${shortprefix}hydra`){
-        let hydraembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Hydralisk**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/4/42/Icon_Zerg_Hydralisk.jpg/revision/latest?cb=20160106233216")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Hydralisk Den")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 50, **Supply** - 2, **Build Time** - 24")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15(+0.78), on creep 4.09(+1.02)")
-        .addField("Offense","**Damage** - 12(+1 per upgrade), **Hitspeed** - 0.57, **Range** - 5(+1), **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-hydra for more info");
-    return message.channel.send(hydraembed);
-    }
-    //begin Lurker
-    if (cmd ===`${shortprefix}lurker`){
-        let lurkerembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Lurker**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d7/Icon_Zerg_Lurker.jpg/revision/latest?cb=20160106234656")
-        .addField("Construction", "**Morphed from:** Hydralisk, **Requires:** Lurker Den")
-        .addField("Resources", "**Minerals** - 50, **Vespene** - 100, **Supply** - 3, **Build Time** - 18")
-        .addField("Defense", "**HP** - 200, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13(+0.413), on creep 5.37(+0.537)")
-        .addField("Cocoon Defense","**HP** - 100, **Armor** - 1")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), vs armored 30(+3 per upgrade) **Hitspeed** - 1.43, **Range** - 9, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("More Info", "try sc2full-lurker for more info");
-    return message.channel.send(lurkerembed);
-    }
-    //begin Mutalisk
-    if (cmd ===`${shortprefix}mutalisk`||cmd ===`${shortprefix}muta`||cmd ===`${shortprefix}mutmut`||cmd ===`${shortprefix}muttmutt`||cmd ===`${shortprefix}flappybird`||cmd ===`${shortprefix}flapflap`){
-        let mutaembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Mutalisk**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/f/fd/Icon_Zerg_Mutalisk.jpg/revision/latest?cb=20160106233117")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 100, **Supply** - 2, **Build Time** - 24")
-        .addField("Defense", "**HP** - 120, **Armor** - 0(+1 per upgrade) **Movespeed** - 5.6")
-        .addField("Offense","**Damage** - 9(+1 per upgrade) + 3(+0.3) + 1(+0.1), **Hitspeed** - 1.09, **Range** - 3, **Targets** - Air and Ground")
-        .addField("Attributes", "**Biological, Light, Air**")
-        .addField("More Info", "try sc2full-muta for more info");
-    return message.channel.send(mutaembed);
-    }
-    //begin Corruptor
-    if (cmd ===`${shortprefix}corruptor`){
-        let corrembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Corruptor**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/d/d0/Icon_Zerg_Corruptor.jpg/revision/latest?cb=20160106233308")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Spire")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 100, **Supply** - 2, **Build Time** - 29")
-        .addField("Defense", "**HP** - 200, **Armor** - 2(+1 per upgrade) **Movespeed** - 4.725")
-        .addField("Offense","**Damage** - 14(+1 per upgrade), vs massive 20(+2 per upgrade) **Hitspeed** - 1.36, **Range** - 6, **Targets** - Air")
-        .addField("Attributes", "**Biological, Armored, Air**")
-        .addField("More Info", "try sc2full-corruptor for more info");
-    return message.channel.send(corrembed);
-    }
-    //begin Swarm Host
-    if (cmd ===`${shortprefix}swarmhost`||cmd ===`${shortprefix}sh`||cmd ===`${shortprefix}host`){
-        let hostembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Swarm Host**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/b/b2/Icon_Zerg_Swarm_Host.jpg/revision/latest?cb=20160106234810")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 75, **Supply** - 3, **Build Time** - 29")
-        .addField("Defense", "**HP** - 160, **Armor** - 1(+1 per upgrade) **Movespeed** - 3.15, on creep 5.37")
-        .addField("Attributes", "**Biological, Armored, Ground**")
-        .addField("More Info", "try sc2-locust and sc2full-swarmhost for more info");
-    return message.channel.send(hostembed);
-    }
-    //skip Locust
-    //begin Infestor
-    if (cmd ===`${shortprefix}infestor`||cmd ===`${shortprefix}derpfestor`||cmd ===`${shortprefix}infest`){
-        let infestorembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Infestor**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/c/c1/Icon_Zerg_Infestor.jpg/revision/latest?cb=20160106233153")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Infestation Pit")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 150, **Supply** - 2, **Build Time** - 36")
-        .addField("Defense", "**HP** - 90, **Armor** - 0(+1 per upgrade) **Movespeed** - 3.15, on creep 4.01")
-        .addField("Attributes", "**Biological, Armored, Psionic, Ground**")
-        .addField("More Info", "try sc2-infestedterran and sc2full-infestor for more info");
-    return message.channel.send(infestorembed);
-    }
-    //begin Infested Terran
-    if (cmd ===`${shortprefix}infestedterran`||cmd ===`${shortprefix}infested`){
-        let infestedembed = new Discord.RichEmbed()
-        .setDescription ("**Infested Terran**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/7/7a/Icon_Zerg_Infested_Terran.jpg/revision/latest?cb=20160106232746")
-        .addField("Construction", "**Spawned from:** Infestor")
-        .addField("Resources", "**Energy** - 25, **Build Time** - 3, **Lifespan** - 21")
-        .addField("Defense", "**HP** - 50, **Armor** - 0(+1 per upgrade) **Movespeed** - 1.31, on creep 1.71")
-        .addField("Offense (ground)","**Damage** - 6(+1 per upgrade), **Hitspeed** - 0.61, **Range** - 5, **Targets** - Ground")
-        .addField("Offense (air)","**Damage** - 14(+1 per upgrade), **Hitspeed** - 1.14, **Range** - 6, **Targets** - Air")
-        .addField("Attributes", "**Biological, Light, Ground**")
-        .addField("More Info", "try sc2full-infestedterran for more info");
-    return message.channel.send(infestedembed);
-    }
-    //skip Broodling
-    //begin Ultralisk
-    if (cmd ===`${shortprefix}ultralisk`||cmd ===`${shortprefix}ultra`){
-        let ultraembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Ultralisk**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/37/Icon_Zerg_Ultralisk.jpg/revision/latest?cb=20160106232927")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Ultralisk Cavern")
-        .addField("Resources", "**Minerals** - 300, **Vespene** - 200, **Supply** - 6, **Build Time** - 39")
-        .addField("Defense", "**HP** - 500, **Armor** - 2+2(+1 per upgrade) **Movespeed** - 4.13, on creep 5.37")
-        .addField("Offense","**Damage** - 35(+3 per upgrade), splash 12(+1 per upgrade), **Hitspeed** - 0.61, **Range** - Melee, **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Massive, Ground**")
-        .addField("More Info", "try sc2full-ultra for more info");
-    return message.channel.send(ultraembed);
-    }
-    //begin Brood Lord
-    if (cmd ===`${shortprefix}broodlord`||cmd ===`${shortprefix}brood`||cmd ===`${shortprefix}blord`||cmd ===`${shortprefix}bl`){
-        let broodembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Brood Lord**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/2/2b/Icon_Zerg_Brood_Lord.jpg/revision/latest?cb=20160106233254")
-        .addField("Construction", "**Morphed from:** Corruptor, **Requires:** Greater Spire")
-        .addField("Resources", "**Minerals** - 150, **Vespene** - 150, **Supply** - 4, **Build Time** - 23")
-        .addField("Defense", "**HP** - 225, **Armor** - 1(+1 per upgrade) **Movespeed** - 1.97")
-        .addField("Offense","**Damage** - 20(+2 per upgrade), **Hitspeed** - 1.79, **Range** - 10, **DPS** - 11.2(+1.1 per upgrade), **Targets** - Ground")
-        .addField("Attributes", "**Biological, Armored, Massive, Air**")
-        .addField("More Info", "try sc2full-blord for more info");
-    return message.channel.send(broodembed);
-    }
-    //begin Viper
-    if (cmd ===`${shortprefix}viper`){
-        let viperembed = new Discord.RichEmbed()
-        .setDescription ("**Zerg Viper**")
-        .setColor("#7FC5EB")
-        .setThumbnail("https://vignette.wikia.nocookie.net/starcraft/images/3/3c/Icon_Zerg_Viper.jpg/revision/latest?cb=20160106234746")
-        .addField("Construction", "**Built from:** Larva, **Requires:** Hive")
-        .addField("Resources", "**Minerals** - 100, **Vespene** - 200, **Supply** - 3, **Build Time** - 29")
-        .addField("Defense", "**HP** - 150, **Armor** - 1(+1 per upgrade) **Movespeed** - 4.13")
-        .addField("Attributes", "**Biological, Armored, Air**")
-        .addField("More Info", "try sc2full-viper for more info");
-    return message.channel.send(viperembed);
-    }    
+
 //Begin disambiguations
     //begin "core"
-    if (cmd === `${prefix}core`||cmd === `${shortprefix}core`){
+    if (cmd === `${prefix}core`){
         return message.channel.send("Did you mean *sc2-cybercore* or *sc2-fusioncore*?");
         }
     //begin "nydus"
-    if (cmd === `${prefix}nydus`||cmd === `${shortprefix}nydus`){
+    if (cmd === `${prefix}nydus`){
         return message.channel.send("Did you mean *sc2-nydusnet* or *sc2-nydusworm*?");
         }
-    //begin "gate"
-    if (cmd === `${prefix}gate`||cmd === `${shortprefix}gate`){
-        return message.channel.send("Did you mean *sc2-gateway* or *sc2-warpgate*?");
-        }
     //begin "bay"
-    if (cmd === `${prefix}bay`||cmd === `${shortprefix}bay`){
+    if (cmd === `${prefix}bay`){
         return message.channel.send("Did you mean *sc2-ebay* or *sc2-robobay*?");
         }
     //begin "ling"
-    if (cmd === `${prefix}ling`||cmd === `${shortprefix}ling`){
-        return message.channel.send("Did you mean *sc2-zling* or *sc2-bling*?");
+    if (cmd === `${prefix}ling`){
+        return message.channel.send("Did you mean *sc2-zergling* or *sc2-bane*?");
         }
+    //begin "perv"    
+    if (cmd === `${prefix}perv`||cmd === `${prefix}pervert`){
+        return message.channel.send("Did you mean *sc2-obs* or *sc2-overseer*?");
+    }
 }),
-//bot.login(gitignore.token);
+
+//bot.login(botconfig.token);
 bot.login(process.env.token);
