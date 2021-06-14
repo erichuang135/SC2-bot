@@ -22,16 +22,15 @@ bot.on("message", async message =>{
     };
 }
     let prefix = botconfig.prefix;
-    let shortprefix = botconfig.shortprefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase().trim();
     let args = messageArray.slice(1);
 //begin Test command
-    if (cmd === `${shortprefix}test`){
+    if (cmd === `${prefix}test`){
         return message.channel.send("test");
         }
 //begin Help Command
-    if (cmd === `${shortprefix}help`){
+    if (cmd === `${prefix}help`){
         let bicon = bot.user.displayAvatarURL;
         let botembed =  new Discord.RichEmbed()
         .setDescription("Help Info")
@@ -45,7 +44,7 @@ bot.on("message", async message =>{
     return message.channel.send(botembed);
     }
 //begin Joke command
-    if (cmd === `${shortprefix}joke`){
+    if (cmd === `${prefix}joke`){
         var joke = Math.floor((Math.random() * 70) + 1);
         if (joke === 1)
             {return message.channel.send("Why did the colossus fall over? *Because it was imbalanced.*");}
@@ -189,7 +188,7 @@ bot.on("message", async message =>{
             {return message.channel.send("A protoss player loses his entire army. When asked about it, he replies, *I don't recall*);}");}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         }
     //begin Trivia command
-    if (cmd === `${shortprefix}trivia`){
+    if (cmd === `${prefix}trivia`){
         var trivia = Math.floor((Math.random() * 9) + 1);
         if (trivia === 1)
             {return message.channel.send("Thor's anti-ground attack has the highest single target DPS of any un-upgraded unit, clocking in at 65.9 DPS! - suggested by @Toperoco");}
@@ -1055,10 +1054,10 @@ function fullBuildingInfoStatic(name,thumbnail,require,mins,gas,time,HP,armor,da
     return message.channel.send(hostembed);
     }
     //begin Locust
-    if (cmd ===`${prefix}locust`||cmd ===`${shortprefix}freeunit`){
+    if (cmd ===`${prefix}locust`||cmd ===`${prefix}freeunit`){
         fullUnitInfo("Zerg Locust","https://vignette.wikia.nocookie.net/starcraft/images/0/07/Locust_SC2-HotS_Rend1.jpg/revision/latest?cb=20140629130806","Swarm Host","none",0,0,0,3.6,50,"0(+1)","3.66, **Off creep**: 2.62","10(+1)",0.43,6,"23.25(+2.33)","Ground","Biological, Light, Air (before swoop), Ground (after swoop)",6,"N/A","swarmhost or sc2-locust")
     }
-    if (cmd ===`${prefix}locust-p2`||cmd ===`${shortprefix}freeunit-p2`){
+    if (cmd ===`${prefix}locust-p2`||cmd ===`${prefix}freeunit-p2`){
         let locustembed = new Discord.RichEmbed()
         .setDescription ("**Abilites and Upgrades**") 
         .setColor("#7FC5EB")
