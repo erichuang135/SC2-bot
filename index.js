@@ -1864,7 +1864,8 @@ function fullBuildingInfoStatic(name,thumbnail,require,mins,gas,time,HP,armor,da
         .addField("Flyer Carapace Level 1", "**Minerals**: 150, **Vespene**: 150, **Time**: 114, **Effect**: Increases the armor of Zerg air units units. ")
         .addField("Flyer Carapace Level 2", "**Requires:** Lair, **Minerals**: 225, **Vespene**: 225, **Time**: 136, **Effect**: Increases the armor of Zerg air units. ")
         .addField("Flyer Carapace Level 3", "**Requires:** Hive, **Minerals**: 300, **Vespene**: 300, **Time**: 157, **Effect**: Increases the armor of Zerg air units. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Greater_Spire_(Legacy_of_the_Void)");
+        .addField("More Info", "https://liquipedia.net/starcraft2/Greater_Spire_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-greaterspire` for main stats!");    
     return message.channel.send(greaterspireembed);
     }
     //Begin Ultralisk Cavern
@@ -1877,9 +1878,25 @@ function fullBuildingInfoStatic(name,thumbnail,require,mins,gas,time,HP,armor,da
         .setColor("#7FC5EB")
         .addField("Chitinous Plating", "**Minerals**: 150, **Vespene**: 150, **Time**: 79, **Effect**: This upgrade increases the armor of all Ultralisks by 2. ")
         .addField("Anabolic Synthesis", "**Minerals**: 150, **Vespene**: 150, **Time**: 42, **Effect**: Increases Ultralisk speed when off creep from 4.13 to 4.94. ")
-        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)"); 
+        .addField("More Info", "https://liquipedia.net/starcraft2/Ultralisk_Cavern_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-ultracavern` for main stats!");     
     return message.channel.send(ultracavernembed);
     }
+    //Begin Creep Tumor
+    if (cmd ===`${prefix}creeptumor`||cmd ===`${prefix}creep`){
+            fullBuildingInfo("Zerg Creep Tumor","https://static.wikia.nocookie.net/starcraft/images/f/fb/1._Creep_Tumor_Default.jpg/revision/latest?cb=20200609151730","Queen/Active Tumor",0,0,11,50,0,"N/A","none","Biological, Light, Structure","creeptumor")
+    }
+    if (cmd ===`${prefix}creeptumor-p2`||cmd ===`${prefix}creep-p2`){
+        let creepembed = new Discord.RichEmbed()
+        .setDescription ("**Abilites and Upgrades**") 
+        .setColor("#7FC5EB")
+        .addField("Spawn Creep Tumor", "**Range**: 10, **Effect**: Each Creep Tumor has the ability to create one additional tumor in a 10 square radius anywhere on the creep in sight and then lose the ability permanently.")
+        .addField("More Info", "https://liquipedia.net/starcraft2/Creep_Tumor_(Legacy_of_the_Void)")
+        .addField("Back to Main","Try `sc2-creeptumor` for main stats!");     
+        return message.channel.send(creepembed);
+    }
+
+
 
 //Begin disambiguations
     //begin "core"
